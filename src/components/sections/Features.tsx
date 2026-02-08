@@ -1,0 +1,273 @@
+"use client";
+
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  Wrench,
+  ShieldCheck,
+  FileCode,
+  RefreshCw,
+  Eye,
+  Layers,
+  ChevronDown,
+} from "lucide-react";
+import { ScrollReveal } from "@/components/animations/ScrollReveal";
+import { SectionHeader } from "@/components/ui/SectionHeader";
+import { FEATURES } from "@/lib/constants";
+import { SkillBuilderDemo } from "@/components/interactive/SkillBuilderDemo";
+import { CertificationDemo } from "@/components/interactive/CertificationDemo";
+import { ScriptViewerDemo } from "@/components/interactive/ScriptViewerDemo";
+import { SelfHealingDemo } from "@/components/interactive/SelfHealingDemo";
+import { SpeedRaceDemo } from "@/components/interactive/SpeedRaceDemo";
+
+const featureIcons = [Wrench, ShieldCheck, FileCode, RefreshCw, Eye, Layers];
+
+const featureDemos = [
+  SkillBuilderDemo,
+  CertificationDemo,
+  ScriptViewerDemo,
+  SelfHealingDemo,
+  null, // Observability — static visual
+  SpeedRaceDemo,
+];
+
+function ObservabilityVisual() {
+  return (
+    <div className="bg-white rounded-2xl border border-cream-200 shadow-soft overflow-hidden">
+      <div className="flex items-center gap-2 px-5 py-3 bg-cream-50 border-b border-cream-200">
+        <div className="flex gap-1.5">
+          <div className="w-3 h-3 rounded-full bg-red-300" />
+          <div className="w-3 h-3 rounded-full bg-amber-300" />
+          <div className="w-3 h-3 rounded-full bg-green-300" />
+        </div>
+        <span className="font-mono text-caption text-charcoal-400 ml-2">
+          Observability Dashboard
+        </span>
+      </div>
+
+      <div className="p-6">
+        {/* Activity Feed */}
+        <div className="mb-6">
+          <p className="text-caption font-semibold text-charcoal-400 uppercase tracking-wider mb-3">
+            Live Activity Feed
+          </p>
+          <div className="space-y-2">
+            {[
+              { status: "green", task: "Invoice #4821 processed", time: "2s ago" },
+              { status: "green", task: "CRM updated — Acme Corp deal", time: "15s ago" },
+              { status: "amber", task: "Guest check-in — pending approval", time: "1m ago" },
+              { status: "green", task: "Report generated — Weekly ops", time: "3m ago" },
+              { status: "red", task: "Payment retry — escalated to human", time: "5m ago" },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="flex items-center gap-3 px-3 py-2 rounded-lg bg-cream-50 border border-cream-100"
+              >
+                <div
+                  className={`w-2 h-2 rounded-full ${
+                    item.status === "green"
+                      ? "bg-green-400"
+                      : item.status === "amber"
+                        ? "bg-amber-400"
+                        : "bg-red-400"
+                  }`}
+                />
+                <span className="text-body-sm text-navy-800 flex-1">
+                  {item.task}
+                </span>
+                <span className="text-caption text-charcoal-400 font-mono">
+                  {item.time}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Guardrails */}
+        <div>
+          <p className="text-caption font-semibold text-charcoal-400 uppercase tracking-wider mb-3">
+            Active Guardrails
+          </p>
+          <div className="grid grid-cols-2 gap-3">
+            {[
+              { label: "Rate Limiting", enabled: true },
+              { label: "Human Approval >$1000", enabled: true },
+              { label: "Data Validation", enabled: true },
+              { label: "PII Redaction", enabled: false },
+            ].map((guard) => (
+              <div
+                key={guard.label}
+                className="flex items-center justify-between px-3 py-2 rounded-lg bg-cream-50 border border-cream-100"
+              >
+                <span className="text-caption text-navy-800">
+                  {guard.label}
+                </span>
+                <div
+                  className={`w-8 h-5 rounded-full relative transition-colors ${
+                    guard.enabled ? "bg-green-400" : "bg-cream-300"
+                  }`}
+                >
+                  <div
+                    className={`w-3.5 h-3.5 rounded-full bg-white absolute top-[3px] transition-all shadow-sm ${
+                      guard.enabled ? "right-[3px]" : "left-[3px]"
+                    }`}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function Features() {
+  const [expandedFeature, setExpandedFeature] = useState<string | null>(null);
+
+  return (
+    <section id="features" className="py-24 md:py-32 px-6 bg-white">
+      <div className="max-w-7xl mx-auto">
+        <ScrollReveal>
+          <SectionHeader
+            overline="Core Capabilities"
+            title="Everything You Need to Automate Reliably"
+            description="Six integrated capabilities that take you from workflow recording to certified, self-healing automation. Simple by default, powerful when you need it."
+          />
+        </ScrollReveal>
+
+        <div className="space-y-8">
+          {FEATURES.map((feature, i) => {
+            const Icon = featureIcons[i];
+            const DemoComponent = featureDemos[i];
+            const isExpanded = expandedFeature === feature.id;
+            const isEven = i % 2 === 0;
+
+            return (
+              <ScrollReveal key={feature.id} delay={i * 0.05}>
+                <div className="rounded-2xl border border-cream-200 overflow-hidden bg-cream-50/30">
+                  {/* Feature Header — always visible */}
+                  <div
+                    className={`grid grid-cols-1 ${
+                      DemoComponent || i === 4
+                        ? "lg:grid-cols-2"
+                        : "lg:grid-cols-1"
+                    } gap-0`}
+                  >
+                    {/* Text */}
+                    <div
+                      className={`p-8 lg:p-10 ${
+                        !isEven && (DemoComponent || i === 4)
+                          ? "lg:order-2"
+                          : ""
+                      }`}
+                    >
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="w-10 h-10 rounded-xl bg-amber-50 flex items-center justify-center">
+                          <Icon
+                            size={20}
+                            className="text-amber-500"
+                            strokeWidth={1.8}
+                          />
+                        </div>
+                        <div>
+                          <h3 className="font-display text-heading-lg text-navy-800">
+                            {feature.title}
+                          </h3>
+                          <p className="text-caption text-amber-500 font-medium">
+                            {feature.subtitle}
+                          </p>
+                        </div>
+                      </div>
+
+                      <p className="text-body-md text-charcoal-500 mb-5 leading-relaxed">
+                        {feature.description}
+                      </p>
+
+                      <ul className="space-y-2.5">
+                        {feature.bullets.map((bullet) => (
+                          <li
+                            key={bullet}
+                            className="flex items-start gap-2.5 text-body-sm text-charcoal-600"
+                          >
+                            <div className="w-1.5 h-1.5 rounded-full bg-amber-400 mt-2 flex-shrink-0" />
+                            {bullet}
+                          </li>
+                        ))}
+                      </ul>
+
+                      {/* Expand/Collapse for demo */}
+                      {(DemoComponent || i === 4) && (
+                        <button
+                          onClick={() =>
+                            setExpandedFeature(
+                              isExpanded ? null : feature.id
+                            )
+                          }
+                          className="flex items-center gap-1.5 mt-6 text-body-sm font-semibold text-navy-700 hover:text-amber-500 transition-colors"
+                        >
+                          {isExpanded
+                            ? "Hide Interactive Demo"
+                            : "Try Interactive Demo"}
+                          <motion.div
+                            animate={{ rotate: isExpanded ? 180 : 0 }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            <ChevronDown size={16} />
+                          </motion.div>
+                        </button>
+                      )}
+                    </div>
+
+                    {/* Quick visual preview (visible on desktop when collapsed) */}
+                    {(DemoComponent || i === 4) && !isExpanded && (
+                      <div
+                        className={`hidden lg:flex items-center justify-center p-8 bg-cream-50 ${
+                          !isEven ? "lg:order-1" : ""
+                        }`}
+                      >
+                        <div className="w-full max-w-md text-center">
+                          <div className="w-20 h-20 rounded-2xl bg-white border border-cream-200 shadow-soft flex items-center justify-center mx-auto mb-4">
+                            <Icon
+                              size={32}
+                              className="text-amber-500"
+                              strokeWidth={1.5}
+                            />
+                          </div>
+                          <p className="text-body-sm text-charcoal-400">
+                            Click &ldquo;Try Interactive Demo&rdquo; to explore
+                          </p>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Expanded Demo */}
+                  <AnimatePresence>
+                    {isExpanded && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+                        className="overflow-hidden"
+                      >
+                        <div className="p-6 lg:p-8 border-t border-cream-200 bg-white">
+                          {DemoComponent ? (
+                            <DemoComponent />
+                          ) : i === 4 ? (
+                            <ObservabilityVisual />
+                          ) : null}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              </ScrollReveal>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
