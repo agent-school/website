@@ -21,6 +21,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://agentschool.io"),
   title: "Agent School — AI That Learns Once, Runs Repeatedly",
   description:
     "The fastest way to teach and certify AI agents to operate on your software stack reliably. Train once, certify, and replay deterministically at 10x lower cost.",
@@ -33,12 +34,30 @@ export const metadata: Metadata = {
     "enterprise AI",
     "self-healing automation",
   ],
+  icons: {
+    icon: "/favicon.svg",
+  },
   openGraph: {
     title: "Agent School — AI That Learns Once, Runs Repeatedly",
     description:
       "Train AI agents to automate your workflows with certified reliability. 10x cheaper than traditional approaches.",
     type: "website",
     url: "https://agentschool.io",
+    images: [
+      {
+        url: "/og-image.svg",
+        width: 1200,
+        height: 630,
+        alt: "Agent School — AI That Learns Once, Runs Repeatedly",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Agent School — AI That Learns Once, Runs Repeatedly",
+    description:
+      "Train AI agents to automate your workflows with certified reliability. 10x cheaper than traditional approaches.",
+    images: ["/og-image.svg"],
   },
 };
 
