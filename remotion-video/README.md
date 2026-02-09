@@ -141,10 +141,16 @@ npx remotion render AgentSchoolShowcase out/solution.mp4 --frames=330-840
 
 ## 📚 Documentation
 
+### Quick Links
+- **[docs/README.md](./docs/README.md)** - 📖 Documentation index
+- **[docs/00-getting-started.md](./docs/00-getting-started.md)** - 🚀 Installation & first render
+- **[docs/02-video-structure.md](./docs/02-video-structure.md)** - 🎬 Complete scene breakdown
+- **[docs/06-rendering-guide.md](./docs/06-rendering-guide.md)** - 📹 Export options & codecs
+
+### Reference
 - **[STATUS.md](./STATUS.md)** - Build progress tracker
-- **[COMPLETION_SUMMARY.md](./COMPLETION_SUMMARY.md)** - Detailed completion report
-- **[docs/00-OVERVIEW.md](./docs/00-OVERVIEW.md)** - Project overview
-- **[docs/01-FROM-IDEA-TO-VIDEO.md](./docs/01-FROM-IDEA-TO-VIDEO.md)** - Complete pipeline guide
+- **[docs/01-project-overview.md](./docs/01-project-overview.md)** - Tech stack & architecture
+- **[docs/03-design-system.md](./docs/03-design-system.md)** - Colors, typography, animations
 
 ---
 
