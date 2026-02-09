@@ -4,10 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "dev:no-cache": "NEXT_TURBOPACK_PERSISTENT_CACHING=0 next dev",
+    "dev:no-cache": "cross-env NEXT_TURBOPACK_PERSISTENT_CACHING=0 next dev",
+    "dev:clean": "npm run clean:cache && npm run dev:no-cache",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "clean:cache": "node -e \"try{require('fs').rmSync('.next',{recursive:true,force:true})}catch(e){}\""
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.15",
@@ -32,6 +34,7 @@
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "cross-env": "^10.1.0",
     "eslint": "^9",
     "eslint-config-next": "16.1.0",
     "postcss": "^8",
