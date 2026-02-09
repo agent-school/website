@@ -5,6 +5,7 @@ import { X, Check } from "lucide-react";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { ROICalculator } from "@/components/interactive/ROICalculator";
+import { CardSpotlight } from "@/components/aceternity/CardSpotlight";
 
 const rpaComparison = {
   competitor: {
@@ -62,69 +63,79 @@ function ComparisonBlock({
   agentSchool: { label: string; items: string[] };
 }) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
       {/* Competitor */}
-      <motion.div
-        whileHover={{ y: -2 }}
-        className="rounded-2xl border border-red-100 bg-red-50/30 p-6"
-      >
-        <div className="flex items-center gap-2 mb-5">
-          <div className="w-3 h-3 rounded-full bg-red-300" />
-          <h4 className="font-display text-heading-md text-navy-800">
-            {competitor.label}
-          </h4>
-        </div>
-        <ul className="space-y-3">
-          {competitor.items.map((item) => (
-            <li
-              key={item}
-              className="flex items-start gap-2.5 text-body-sm text-charcoal-600"
-            >
-              <X
-                size={16}
-                className="text-red-400 mt-0.5 flex-shrink-0"
-                strokeWidth={2.5}
-              />
-              {item}
-            </li>
-          ))}
-        </ul>
-      </motion.div>
+      <CardSpotlight color="rgba(239, 68, 68, 0.3)">
+        <motion.div
+          whileHover={{ y: -2 }}
+          className="h-full rounded-2xl border border-red-200 dark:border-red-900/30 bg-red-50/50 dark:bg-red-950/20 p-6"
+        >
+          <div className="flex items-center gap-2 mb-5">
+            <div className="w-3 h-3 rounded-full bg-red-400 dark:bg-red-500" />
+            <h4 className="font-display text-heading-md text-slate-900 dark:text-slate-100">
+              {competitor.label}
+            </h4>
+          </div>
+          <ul className="space-y-3">
+            {competitor.items.map((item) => (
+              <li
+                key={item}
+                className="flex items-start gap-2.5 text-body-sm text-slate-700 dark:text-slate-300"
+              >
+                <X
+                  size={16}
+                  className="text-red-500 dark:text-red-400 mt-0.5 flex-shrink-0"
+                  strokeWidth={2.5}
+                />
+                {item}
+              </li>
+            ))}
+          </ul>
+        </motion.div>
+      </CardSpotlight>
 
       {/* Agent School */}
-      <motion.div
-        whileHover={{ y: -2 }}
-        className="rounded-2xl border border-green-100 bg-green-50/30 p-6"
-      >
-        <div className="flex items-center gap-2 mb-5">
-          <div className="w-3 h-3 rounded-full bg-green-400" />
-          <h4 className="font-display text-heading-md text-navy-800">
-            {agentSchool.label}
-          </h4>
-        </div>
-        <ul className="space-y-3">
-          {agentSchool.items.map((item) => (
-            <li
-              key={item}
-              className="flex items-start gap-2.5 text-body-sm text-charcoal-600"
-            >
-              <Check
-                size={16}
-                className="text-green-500 mt-0.5 flex-shrink-0"
-                strokeWidth={2.5}
-              />
-              {item}
-            </li>
-          ))}
-        </ul>
-      </motion.div>
+      <CardSpotlight color="rgba(20, 184, 166, 0.3)">
+        <motion.div
+          whileHover={{ y: -2 }}
+          className="h-full rounded-2xl border border-teal-200 dark:border-teal-900/30 bg-gradient-to-br from-teal-50/50 to-orange-50/50 dark:from-teal-950/20 dark:to-orange-950/20 p-6"
+        >
+          <div className="flex items-center gap-2 mb-5">
+            <div className="w-3 h-3 rounded-full bg-gradient-to-br from-teal-500 to-orange-500" />
+            <h4 className="font-display text-heading-md text-slate-900 dark:text-slate-100">
+              {agentSchool.label}
+            </h4>
+          </div>
+          <ul className="space-y-3">
+            {agentSchool.items.map((item) => (
+              <li
+                key={item}
+                className="flex items-start gap-2.5 text-body-sm text-slate-700 dark:text-slate-300"
+              >
+                <Check
+                  size={16}
+                  className="text-teal-600 dark:text-teal-400 mt-0.5 flex-shrink-0"
+                  strokeWidth={2.5}
+                />
+                {item}
+              </li>
+            ))}
+          </ul>
+        </motion.div>
+      </CardSpotlight>
     </div>
   );
 }
 
 export function Differentiation() {
   return (
-    <section id="differentiation" className="py-24 md:py-32 px-6 bg-cream-50">
+    <section id="differentiation" className="relative py-24 md:py-32 px-6 bg-white dark:bg-slate-950 overflow-hidden">
+      {/* Background decorations */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-teal-500/10 dark:bg-teal-500/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-orange-500/10 dark:bg-orange-500/5 rounded-full blur-3xl" />
+      </div>
+
       <div className="max-w-7xl mx-auto">
         <ScrollReveal>
           <SectionHeader
@@ -136,7 +147,7 @@ export function Differentiation() {
 
         {/* vs RPA */}
         <ScrollReveal>
-          <h3 className="font-display text-heading-lg text-navy-800 mb-6 text-center">
+          <h3 className="font-display text-heading-lg text-slate-900 dark:text-slate-100 mb-6 text-center">
             vs Traditional RPA
           </h3>
           <ComparisonBlock
@@ -148,7 +159,7 @@ export function Differentiation() {
 
         {/* vs Generic AI */}
         <ScrollReveal delay={0.1}>
-          <h3 className="font-display text-heading-lg text-navy-800 mb-6 text-center">
+          <h3 className="font-display text-heading-lg text-slate-900 dark:text-slate-100 mb-6 text-center">
             vs Generic AI Agents
           </h3>
           <ComparisonBlock
@@ -162,10 +173,10 @@ export function Differentiation() {
         <ScrollReveal delay={0.15}>
           <div className="mt-16">
             <div className="text-center mb-10">
-              <h3 className="font-display text-display-sm text-navy-800 mb-3">
+              <h3 className="font-display text-display-sm bg-gradient-to-br from-teal-600 to-orange-500 bg-clip-text text-transparent mb-3">
                 Calculate Your ROI
               </h3>
-              <p className="text-body-md text-charcoal-500 max-w-xl mx-auto">
+              <p className="text-body-md text-slate-600 dark:text-slate-400 max-w-xl mx-auto">
                 Input your workflow details and see projected savings. Real math,
                 no hand-waving.
               </p>
