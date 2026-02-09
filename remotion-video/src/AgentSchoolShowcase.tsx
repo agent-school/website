@@ -1,6 +1,7 @@
 import { AbsoluteFill, Sequence } from "remotion";
 import { IntroSceneV2 } from "./scenes/IntroSceneV2";
 import { ProblemSceneV2 } from "./scenes/ProblemSceneV2";
+import { SolutionScene } from "./scenes/SolutionScene";
 // More scenes will be added as we build them
 
 export const AgentSchoolShowcase: React.FC = () => {
@@ -16,8 +17,12 @@ export const AgentSchoolShowcase: React.FC = () => {
         <ProblemSceneV2 />
       </Sequence>
 
+      {/* Solution: 330-840 frames (17 seconds) - Bento Grid with 5 software types */}
+      <Sequence from={330} durationInFrames={510}>
+        <SolutionScene startFrame={330} />
+      </Sequence>
+
       {/* TODO: Add remaining scenes
-      - Solution (Bento Grid with 5 software types)
       - Certification (Testing Grid)
       - Self-Healing (Side-by-side comparison)
       - Speed Race (Real-time comparison)
