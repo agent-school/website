@@ -1,80 +1,57 @@
-"use client";
+import * as React from "react"
+import { Slot } from "@radix-ui/react-slot"
+import { cva, type VariantProps } from "class-variance-authority"
 
-import { motion } from "framer-motion";
-import { type ReactNode } from "react";
+import { cn } from "@/lib/utils"
 
-type ButtonVariant = "primary" | "secondary" | "ghost" | "outline";
-type ButtonSize = "sm" | "md" | "lg";
-
-interface ButtonProps {
-  children: ReactNode;
-  variant?: ButtonVariant;
-  size?: ButtonSize;
-  href?: string;
-  onClick?: () => void;
-  className?: string;
-  disabled?: boolean;
-  type?: "button" | "submit";
-}
-
-const variantStyles: Record<ButtonVariant, string> = {
-  primary:
-    "bg-navy-800 text-white hover:bg-navy-700 shadow-soft hover:shadow-medium",
-  secondary:
-    "bg-amber-500 text-navy-900 hover:bg-amber-400 shadow-soft hover:shadow-glow-amber",
-  ghost:
-    "bg-transparent text-navy-800 hover:bg-cream-100",
-  outline:
-    "bg-transparent text-navy-800 border-2 border-navy-200 hover:border-amber-500 hover:text-amber-600",
-};
-
-const sizeStyles: Record<ButtonSize, string> = {
-  sm: "px-4 py-2 text-body-sm rounded-lg",
-  md: "px-6 py-3 text-body-md rounded-xl",
-  lg: "px-8 py-4 text-body-lg rounded-xl",
-};
-
-export function Button({
-  children,
-  variant = "primary",
-  size = "md",
-  href,
-  onClick,
-  className = "",
-  disabled = false,
-  type = "button",
-}: ButtonProps) {
-  const baseStyles =
-    "inline-flex items-center justify-center gap-2 font-semibold transition-all duration-200 cursor-pointer select-none";
-  const combinedStyles = `${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${
-    disabled ? "opacity-50 cursor-not-allowed" : ""
-  } ${className}`;
-
-  if (href) {
-    return (
-      <motion.a
-        href={href}
-        className={combinedStyles}
-        whileHover={disabled ? {} : { y: -2 }}
-        whileTap={disabled ? {} : { scale: 0.97 }}
-        target={href.startsWith("http") ? "_blank" : undefined}
-        rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-      >
-        {children}
-      </motion.a>
-    );
+const buttonVariants = cva(
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  {
+    variants: {
+      variant: {
+        default:
+          "bg-primary text-primary-foreground shadow hover:bg-primary/90",
+        destructive:
+          "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
+        outline:
+          "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
+        secondary:
+          "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
+        ghost: "hover:bg-accent hover:text-accent-foreground",
+        link: "text-primary underline-offset-4 hover:underline",
+      },
+      size: {
+        default: "h-9 px-4 py-2",
+        sm: "h-8 rounded-md px-3 text-xs",
+        lg: "h-10 rounded-md px-8",
+        icon: "h-9 w-9",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+      size: "default",
+    },
   }
+)
 
-  return (
-    <motion.button
-      type={type}
-      onClick={onClick}
-      disabled={disabled}
-      className={combinedStyles}
-      whileHover={disabled ? {} : { y: -2 }}
-      whileTap={disabled ? {} : { scale: 0.97 }}
-    >
-      {children}
-    </motion.button>
-  );
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonVariants> {
+  asChild?: boolean
 }
+
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, variant, size, asChild = false, ...props }, ref) => {
+    const Comp = asChild ? Slot : "button"
+    return (
+      <Comp
+        className={cn(buttonVariants({ variant, size, className }))}
+        ref={ref}
+        {...props}
+      />
+    )
+  }
+)
+Button.displayName = "Button"
+
+export { Button, buttonVariants }

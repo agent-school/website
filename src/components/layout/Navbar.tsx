@@ -69,11 +69,11 @@ export function Navbar() {
             {/* Desktop CTA */}
             <div className="hidden md:flex items-center gap-3">
               <Button
-                variant="primary"
+                variant="default"
                 size="sm"
-                href={BOOKING_URL}
+                asChild
               >
-                Book a Demo
+                <a href={BOOKING_URL}>Book a Demo</a>
               </Button>
             </div>
 

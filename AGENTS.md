@@ -6,6 +6,77 @@
 
 Marketing website for Agent School — a platform that teaches and certifies AI agents to automate software workflows. Single-page Next.js app with interactive demos, scroll animations, and a fully functional ROI calculator.
 
+## 🎨 Recent Redesign (2026)
+
+**Status:** 🚀 In Progress (Phase 1 - Foundation)
+
+A major redesign is underway to transform the website from an academic aesthetic to a **futuristic, visionary platform**. Key changes:
+
+### Design System: "Cyber Citrus"
+- **Colors:** Teal-orange gradient system (replacing navy/amber/cream)
+  - Teal (`#14b8a6` to `#134e4a`) - Primary brand
+  - Orange (`#fb923c` to `#ea580c`) - Accent/CTA
+  - Slate (50-950) - Neutrals for light & dark mode
+- **Dark Mode:** Auto-detect system preference (no manual toggle)
+- **Aesthetic:** Modern, futuristic, gradient-heavy (inspired by delve.co)
+
+### Interactive Mock UIs (New)
+Building **5 fully interactive demo UIs** that users can query with natural language:
+1. **Hotel PMS** (`/mocks/hotel-pms/`) - Reservations dashboard
+2. **CRM** (`/mocks/crm/`) - Sales pipeline Kanban
+3. **Instagram** (`/mocks/instagram/`) - DM categorization
+4. **Notion** (`/mocks/notion/`) - Task database automation
+5. **Granola** (`/mocks/granola/`) - Meeting transcript analysis
+
+All demos share a **Mock UI Framework** (`/mocks/_framework/`) with reusable components:
+- `MockUIShell` - Window chrome (macOS dots)
+- `AgentInterface` - Chat input/output
+- `MockUIContext` - State management
+- `InteractiveElement` - Clickable UI elements
+- `DataDisplay` - Tables/grids
+
+### Component Libraries (New)
+- **shadcn/ui** - Base primitives (button, card, input, etc.)
+- **Aceternity UI** - Animation effects (BackgroundBeams, Timeline, CardSpotlight)
+- **Magic UI** - Text animations (HyperText, NumberTicker, AnimatedList)
+
+### Content Strategy
+Rewriting all copy from "academic precision" to "futuristic & visionary":
+- Hero: "Turn Human Knowledge Into AI That Never Forgets"
+- Features: "Teach Once, Automate Forever" (not "Skill Builder")
+- CTAs: "Join The Revolution" (not "Learn More")
+
+### Key Documentation
+- **DESIGN_SYSTEM.md** - Complete color system, typography, effects
+- **MOCK_UI_FRAMEWORK.md** - Architecture for interactive demos
+- **COMPONENTS_GUIDE.md** - Component library usage
+- **REDESIGN_ROADMAP.md** - 7-phase implementation plan (28-32 days)
+
+### File Structure Changes
+```
+src/components/
+├── aceternity/          # NEW: Aceternity UI components
+├── magic/               # NEW: Magic UI components
+├── mocks/               # NEW: Interactive demo UIs
+│   ├── _framework/      # Shared mock UI framework
+│   ├── hotel-pms/
+│   ├── crm/
+│   ├── instagram/
+│   ├── notion/
+│   └── granola/
+├── ThemeProvider.tsx    # NEW: Dark mode provider
+src/types/               # NEW: TypeScript interfaces
+├── agent.ts             # Agent query types
+└── mock-ui.ts           # Mock UI types
+```
+
+### ⚠️ Important for Agents
+- **Old color palette is deprecated:** navy/amber/cream → Use teal/orange/slate
+- **Component migrations:** Old `Button`/`Card`/`Badge` → Replace with shadcn versions
+- **Dark mode required:** All new components must support light & dark modes
+- **Gradient usage:** Use `bg-gradient-to-br from-teal-600 to-orange-500` for brand moments
+- **Content tone:** Write futuristic/visionary, not academic/technical
+
 ## Tech Stack
 
 - **Next.js 16.1.0** (App Router, Turbopack)
