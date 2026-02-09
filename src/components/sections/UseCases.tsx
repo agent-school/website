@@ -1,99 +1,151 @@
 "use client";
 
-import { ScrollReveal } from "@/components/animations/ScrollReveal";
-import { SectionHeader } from "@/components/ui/SectionHeader";
-import { TabGroup } from "@/components/ui/TabGroup";
-import { USE_CASES } from "@/lib/constants";
-import { AnimatedCounter } from "@/components/animations/AnimatedCounter";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   Clock,
   DollarSign,
   TrendingDown,
-  ArrowRight,
   CheckCircle,
   AlertCircle,
+  Sparkles,
 } from "lucide-react";
 
-function UseCaseContent({
-  useCase,
-}: {
-  useCase: (typeof USE_CASES)[number];
-}) {
-  return (
-    <div className="space-y-8">
-      {/* Scenario */}
-      <div className="text-center">
-        <p className="text-caption font-semibold text-amber-500 uppercase tracking-wider mb-2">
-          Scenario
-        </p>
-        <p className="font-display text-heading-lg text-navy-800">
-          &ldquo;{useCase.scenario}&rdquo;
-        </p>
-      </div>
+import { ScrollReveal } from "@/components/animations/ScrollReveal";
+import { SectionHeader } from "@/components/ui/SectionHeader";
+import { CardSpotlight } from "@/components/aceternity/CardSpotlight";
+import { HotelPMSDemo } from "@/components/mocks/hotel-pms";
+import { CRMDemo } from "@/components/mocks/crm";
+import { InstagramDemo } from "@/components/mocks/instagram";
+import { NotionDemo } from "@/components/mocks/notion";
+import { GranolaDemo } from "@/components/mocks/granola";
+import { USE_CASES } from "@/lib/constants";
 
-      {/* Before / After */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+// Map use case IDs to their corresponding demo components
+const DEMO_COMPONENTS = {
+  hotel: HotelPMSDemo,
+  sales: CRMDemo,
+  operations: NotionDemo, // Using Notion for operations/task automation
+} as const;
+
+// Map for the two additional demos not in original USE_CASES
+const ADDITIONAL_DEMOS = [
+  {
+    id: "social",
+    label: "Social Media",
+    component: InstagramDemo,
+    scenario: "Categorize and prioritize Instagram DMs",
+    suggestedQuery: "Try: 'Show me high-priority messages'",
+  },
+  {
+    id: "meeting",
+    label: "Meeting Intelligence",
+    component: GranolaDemo,
+    scenario: "Extract action items from meeting transcripts",
+    suggestedQuery: "Try: 'What are the action items?'",
+  },
+] as const;
+
+interface UseCaseTabProps {
+  useCase: (typeof USE_CASES)[number];
+  isActive: boolean;
+  onClick: () => void;
+}
+
+function UseCaseTab({ useCase, isActive, onClick }: UseCaseTabProps) {
+  return (
+    <button
+      onClick={onClick}
+      className={`
+        relative px-6 py-3 rounded-lg font-medium text-sm transition-all duration-200
+        ${
+          isActive
+            ? "text-white dark:text-white"
+            : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
+        }
+      `}
+    >
+      {isActive && (
+        <motion.div
+          layoutId="active-tab"
+          className="absolute inset-0 bg-gradient-to-br from-teal-600 to-orange-500 rounded-lg"
+          transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+        />
+      )}
+      <span className="relative z-10">{useCase.label}</span>
+    </button>
+  );
+}
+
+interface MetricsDisplayProps {
+  useCase: (typeof USE_CASES)[number];
+}
+
+function MetricsDisplay({ useCase }: MetricsDisplayProps) {
+  return (
+    <div className="space-y-6">
+      {/* Before / After Comparison */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* Before */}
-        <div className="rounded-2xl border border-red-100 bg-red-50/20 p-6">
-          <div className="flex items-center gap-2 mb-4">
-            <AlertCircle size={18} className="text-red-400" />
-            <h4 className="font-display text-heading-sm text-navy-800">
-              Before — Today
+        <div className="rounded-xl border border-red-200/50 dark:border-red-900/30 bg-red-50/50 dark:bg-red-950/20 p-5">
+          <div className="flex items-center gap-2 mb-3">
+            <AlertCircle size={16} className="text-red-500 dark:text-red-400" />
+            <h4 className="font-display text-sm font-semibold text-slate-900 dark:text-slate-100">
+              Before — Manual
             </h4>
           </div>
 
-          <div className="space-y-2.5 mb-5">
-            {useCase.before.steps.map((step, i) => (
+          <div className="space-y-2 mb-4">
+            {useCase.before.steps.slice(0, 3).map((step, i) => (
               <div
                 key={i}
-                className="flex items-start gap-2.5 text-body-sm text-charcoal-600"
+                className="flex items-start gap-2 text-xs text-slate-600 dark:text-slate-400"
               >
-                <span className="w-5 h-5 rounded-full bg-red-100 text-red-500 flex items-center justify-center text-[10px] font-bold flex-shrink-0 mt-0.5">
+                <span className="w-4 h-4 rounded-full bg-red-100 dark:bg-red-900/40 text-red-600 dark:text-red-400 flex items-center justify-center text-[9px] font-bold flex-shrink-0 mt-0.5">
                   {i + 1}
                 </span>
                 {step}
               </div>
             ))}
+            {useCase.before.steps.length > 3 && (
+              <p className="text-xs text-slate-400 dark:text-slate-500 pl-6">
+                +{useCase.before.steps.length - 3} more steps...
+              </p>
+            )}
           </div>
 
-          <div className="space-y-2 pt-4 border-t border-red-100">
-            <div className="flex items-center justify-between text-body-sm">
-              <span className="text-charcoal-500">Time</span>
-              <span className="font-mono text-red-600 font-semibold">
+          <div className="space-y-1.5 pt-3 border-t border-red-200/50 dark:border-red-900/30">
+            <div className="flex items-center justify-between text-xs">
+              <span className="text-slate-500 dark:text-slate-400">Time</span>
+              <span className="font-mono text-red-600 dark:text-red-400 font-semibold">
                 {useCase.before.time}
               </span>
             </div>
-            <div className="flex items-center justify-between text-body-sm">
-              <span className="text-charcoal-500">Errors</span>
-              <span className="font-mono text-red-600">
+            <div className="flex items-center justify-between text-xs">
+              <span className="text-slate-500 dark:text-slate-400">Errors</span>
+              <span className="font-mono text-red-600 dark:text-red-400 text-[10px]">
                 {useCase.before.errors}
-              </span>
-            </div>
-            <div className="flex items-center justify-between text-body-sm">
-              <span className="text-charcoal-500">Cost</span>
-              <span className="font-mono text-red-600">
-                {useCase.before.cost}
               </span>
             </div>
           </div>
         </div>
 
         {/* After */}
-        <div className="rounded-2xl border border-green-100 bg-green-50/20 p-6">
-          <div className="flex items-center gap-2 mb-4">
-            <CheckCircle size={18} className="text-green-500" />
-            <h4 className="font-display text-heading-sm text-navy-800">
+        <div className="rounded-xl border border-teal-200/50 dark:border-teal-900/30 bg-teal-50/50 dark:bg-teal-950/20 p-5">
+          <div className="flex items-center gap-2 mb-3">
+            <CheckCircle size={16} className="text-teal-600 dark:text-teal-400" />
+            <h4 className="font-display text-sm font-semibold text-slate-900 dark:text-slate-100">
               After — Agent School
             </h4>
           </div>
 
-          <div className="space-y-2.5 mb-5">
+          <div className="space-y-2 mb-4">
             {useCase.after.steps.map((step, i) => (
               <div
                 key={i}
-                className="flex items-start gap-2.5 text-body-sm text-charcoal-600"
+                className="flex items-start gap-2 text-xs text-slate-600 dark:text-slate-400"
               >
-                <span className="w-5 h-5 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-[10px] font-bold flex-shrink-0 mt-0.5">
+                <span className="w-4 h-4 rounded-full bg-teal-100 dark:bg-teal-900/40 text-teal-600 dark:text-teal-400 flex items-center justify-center text-[9px] font-bold flex-shrink-0 mt-0.5">
                   {i + 1}
                 </span>
                 {step}
@@ -101,64 +153,64 @@ function UseCaseContent({
             ))}
           </div>
 
-          <div className="space-y-2 pt-4 border-t border-green-100">
-            <div className="flex items-center justify-between text-body-sm">
-              <span className="text-charcoal-500">Time</span>
-              <span className="font-mono text-green-600 font-semibold">
+          <div className="space-y-1.5 pt-3 border-t border-teal-200/50 dark:border-teal-900/30">
+            <div className="flex items-center justify-between text-xs">
+              <span className="text-slate-500 dark:text-slate-400">Time</span>
+              <span className="font-mono text-teal-600 dark:text-teal-400 font-semibold">
                 {useCase.after.time}
               </span>
             </div>
-            <div className="flex items-center justify-between text-body-sm">
-              <span className="text-charcoal-500">Errors</span>
-              <span className="font-mono text-green-600">
+            <div className="flex items-center justify-between text-xs">
+              <span className="text-slate-500 dark:text-slate-400">Errors</span>
+              <span className="font-mono text-teal-600 dark:text-teal-400 text-[10px]">
                 {useCase.after.errors}
-              </span>
-            </div>
-            <div className="flex items-center justify-between text-body-sm">
-              <span className="text-charcoal-500">Cost</span>
-              <span className="font-mono text-green-600">
-                {useCase.after.cost}
               </span>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Metric Badges */}
-      <div className="grid grid-cols-3 gap-4">
-        <div className="text-center p-5 rounded-xl bg-white border border-cream-200 shadow-soft">
-          <Clock size={18} className="text-amber-500 mx-auto mb-2" />
-          <p className="font-display text-heading-lg text-navy-800">
+      {/* Impact Metrics */}
+      <div className="grid grid-cols-3 gap-3">
+        <div className="text-center p-4 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800">
+          <Clock size={16} className="text-orange-500 dark:text-orange-400 mx-auto mb-2" />
+          <p className="font-display text-lg font-bold text-slate-900 dark:text-slate-100">
             {useCase.metrics.timeSaved}
           </p>
-          <p className="text-caption text-charcoal-500">Time Saved</p>
+          <p className="text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-wide">
+            Time Saved
+          </p>
         </div>
-        <div className="text-center p-5 rounded-xl bg-white border border-cream-200 shadow-soft">
-          <TrendingDown size={18} className="text-green-500 mx-auto mb-2" />
-          <p className="font-display text-heading-lg text-navy-800">
+        <div className="text-center p-4 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800">
+          <TrendingDown size={16} className="text-teal-600 dark:text-teal-400 mx-auto mb-2" />
+          <p className="font-display text-lg font-bold text-slate-900 dark:text-slate-100">
             {useCase.metrics.costReduction}
           </p>
-          <p className="text-caption text-charcoal-500">Cost Reduction</p>
+          <p className="text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-wide">
+            Cost Reduction
+          </p>
         </div>
-        <div className="text-center p-5 rounded-xl bg-white border border-cream-200 shadow-soft">
-          <DollarSign size={18} className="text-green-500 mx-auto mb-2" />
-          <p className="font-display text-heading-lg text-navy-800">
+        <div className="text-center p-4 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800">
+          <DollarSign size={16} className="text-teal-600 dark:text-teal-400 mx-auto mb-2" />
+          <p className="font-display text-lg font-bold text-slate-900 dark:text-slate-100">
             {useCase.metrics.monthlyImpact}
           </p>
-          <p className="text-caption text-charcoal-500">Monthly Impact</p>
+          <p className="text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-wide">
+            Monthly Impact
+          </p>
         </div>
       </div>
 
       {/* Additional Workflows */}
-      <div className="text-center">
-        <p className="text-caption font-semibold text-charcoal-400 uppercase tracking-wider mb-3">
-          Other automatable workflows
+      <div className="pt-2">
+        <p className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-2">
+          Other Automatable Workflows
         </p>
-        <div className="flex flex-wrap items-center justify-center gap-2">
+        <div className="flex flex-wrap gap-2">
           {useCase.additionalWorkflows.map((workflow) => (
             <span
               key={workflow}
-              className="px-3 py-1.5 rounded-full bg-cream-100 text-caption text-charcoal-600 border border-cream-200"
+              className="px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-[11px] text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700"
             >
               {workflow}
             </span>
@@ -169,35 +221,151 @@ function UseCaseContent({
   );
 }
 
-export function UseCases() {
-  const tabs = USE_CASES.map((uc) => ({
-    id: uc.id,
-    label: uc.label,
-    content: <UseCaseContent useCase={uc} />,
-  }));
+interface UseCaseContentProps {
+  useCase: (typeof USE_CASES)[number];
+}
+
+function UseCaseContent({ useCase }: UseCaseContentProps) {
+  const DemoComponent = DEMO_COMPONENTS[useCase.id as keyof typeof DEMO_COMPONENTS];
 
   return (
-    <section id="use-cases" className="py-24 md:py-32 px-6 bg-white">
-      <div className="max-w-5xl mx-auto">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.3 }}
+      className="space-y-6"
+    >
+      {/* Scenario */}
+      <div className="text-center max-w-2xl mx-auto">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-teal-500/10 to-orange-500/10 dark:from-teal-500/20 dark:to-orange-500/20 border border-teal-200/50 dark:border-teal-800/50 mb-3">
+          <Sparkles size={12} className="text-orange-500" />
+          <p className="text-xs font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wide">
+            Scenario
+          </p>
+        </div>
+        <p className="font-display text-2xl md:text-3xl text-slate-900 dark:text-slate-100">
+          &ldquo;{useCase.scenario}&rdquo;
+        </p>
+      </div>
+
+      {/* Main Content Grid: Demo + Metrics */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* Interactive Demo */}
+        <CardSpotlight
+          className="p-0 bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800"
+          color="#14b8a6"
+          radius={400}
+        >
+          <div className="relative z-10">
+            {DemoComponent ? (
+              <DemoComponent />
+            ) : (
+              <div className="h-[600px] flex items-center justify-center text-slate-400 dark:text-slate-600">
+                Demo component coming soon
+              </div>
+            )}
+          </div>
+        </CardSpotlight>
+
+        {/* Metrics & Impact */}
+        <div className="flex flex-col justify-center">
+          <MetricsDisplay useCase={useCase} />
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+export function UseCases() {
+  const [activeTab, setActiveTab] = useState<string>(USE_CASES[0].id);
+  const activeUseCase = USE_CASES.find((uc) => uc.id === activeTab) || USE_CASES[0];
+
+  return (
+    <section
+      id="use-cases"
+      className="py-24 md:py-32 px-6 bg-white dark:bg-slate-950 relative overflow-hidden"
+    >
+      {/* Background Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-teal-50/30 via-transparent to-orange-50/30 dark:from-teal-950/20 dark:via-transparent dark:to-orange-950/20 pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto relative z-10">
         <ScrollReveal>
           <SectionHeader
             overline="Use Cases"
             title="Real Workflows, Real Results"
-            description="See how Agent School transforms common business workflows across industries. These are concrete examples with measurable outcomes."
+            description="See how Agent School transforms common business workflows across industries. Try the interactive demos below."
           />
         </ScrollReveal>
 
+        {/* Tab Navigation */}
         <ScrollReveal delay={0.1}>
-          <TabGroup tabs={tabs} />
+          <div className="flex items-center justify-center gap-2 mb-12 flex-wrap">
+            {USE_CASES.map((useCase) => (
+              <UseCaseTab
+                key={useCase.id}
+                useCase={useCase}
+                isActive={activeTab === useCase.id}
+                onClick={() => setActiveTab(useCase.id)}
+              />
+            ))}
+          </div>
+        </ScrollReveal>
+
+        {/* Active Use Case Content */}
+        <ScrollReveal delay={0.2}>
+          <AnimatePresence mode="wait">
+            <UseCaseContent key={activeTab} useCase={activeUseCase} />
+          </AnimatePresence>
+        </ScrollReveal>
+
+        {/* Additional Demos Callout */}
+        <ScrollReveal delay={0.3}>
+          <div className="mt-20 text-center">
+            <h3 className="font-display text-2xl text-slate-900 dark:text-slate-100 mb-4">
+              More Interactive Demos
+            </h3>
+            <p className="text-slate-600 dark:text-slate-400 mb-8 max-w-2xl mx-auto">
+              Explore additional use cases with our interactive demos
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+              {ADDITIONAL_DEMOS.map((demo) => {
+                const DemoComp = demo.component;
+                return (
+                  <CardSpotlight
+                    key={demo.id}
+                    className="p-0 bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800"
+                    color="#fb923c"
+                    radius={300}
+                  >
+                    <div className="relative z-10">
+                      <div className="p-4 border-b border-slate-200 dark:border-slate-800">
+                        <h4 className="font-display text-lg font-semibold text-slate-900 dark:text-slate-100">
+                          {demo.label}
+                        </h4>
+                        <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">
+                          {demo.scenario}
+                        </p>
+                        <p className="text-xs text-orange-600 dark:text-orange-400 mt-2 font-mono">
+                          {demo.suggestedQuery}
+                        </p>
+                      </div>
+                      <DemoComp />
+                    </div>
+                  </CardSpotlight>
+                );
+              })}
+            </div>
+          </div>
         </ScrollReveal>
 
         {/* Industry Note */}
-        <ScrollReveal delay={0.2}>
-          <div className="mt-16 text-center p-8 rounded-2xl bg-cream-50 border border-cream-200">
-            <p className="text-body-md text-charcoal-600 mb-2">
+        <ScrollReveal delay={0.4}>
+          <div className="mt-16 text-center p-8 rounded-2xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800">
+            <p className="text-base text-slate-700 dark:text-slate-300 mb-2">
               Agent School works with any software stack in any industry.
             </p>
-            <p className="text-body-sm text-charcoal-400">
+            <p className="text-sm text-slate-500 dark:text-slate-400">
               These are starting examples. We evaluate each use case individually
               to ensure Agent School is the right fit for your specific workflows.
             </p>

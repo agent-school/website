@@ -12,6 +12,7 @@ import {
   ChevronDown,
 } from "lucide-react";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
+import { CardSpotlight } from "@/components/aceternity/CardSpotlight";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { FEATURES } from "@/lib/constants";
 import { SkillBuilderDemo } from "@/components/interactive/SkillBuilderDemo";
@@ -33,14 +34,14 @@ const featureDemos = [
 
 function ObservabilityVisual() {
   return (
-    <div className="bg-white rounded-2xl border border-cream-200 shadow-soft overflow-hidden">
-      <div className="flex items-center gap-2 px-5 py-3 bg-cream-50 border-b border-cream-200">
+    <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-lg overflow-hidden">
+      <div className="flex items-center gap-2 px-5 py-3 bg-slate-50 dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700">
         <div className="flex gap-1.5">
-          <div className="w-3 h-3 rounded-full bg-red-300" />
-          <div className="w-3 h-3 rounded-full bg-amber-300" />
-          <div className="w-3 h-3 rounded-full bg-green-300" />
+          <div className="w-3 h-3 rounded-full bg-red-400" />
+          <div className="w-3 h-3 rounded-full bg-amber-400" />
+          <div className="w-3 h-3 rounded-full bg-green-400" />
         </div>
-        <span className="font-mono text-caption text-charcoal-400 ml-2">
+        <span className="font-mono text-xs text-slate-600 dark:text-slate-400 ml-2">
           Observability Dashboard
         </span>
       </div>
@@ -48,7 +49,7 @@ function ObservabilityVisual() {
       <div className="p-6">
         {/* Activity Feed */}
         <div className="mb-6">
-          <p className="text-caption font-semibold text-charcoal-400 uppercase tracking-wider mb-3">
+          <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-3">
             Live Activity Feed
           </p>
           <div className="space-y-2">
@@ -61,21 +62,21 @@ function ObservabilityVisual() {
             ].map((item, i) => (
               <div
                 key={i}
-                className="flex items-center gap-3 px-3 py-2 rounded-lg bg-cream-50 border border-cream-100"
+                className="flex items-center gap-3 px-3 py-2 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700"
               >
                 <div
                   className={`w-2 h-2 rounded-full ${
                     item.status === "green"
-                      ? "bg-green-400"
+                      ? "bg-green-500"
                       : item.status === "amber"
-                        ? "bg-amber-400"
-                        : "bg-red-400"
+                        ? "bg-amber-500"
+                        : "bg-red-500"
                   }`}
                 />
-                <span className="text-body-sm text-navy-800 flex-1">
+                <span className="text-sm text-slate-900 dark:text-slate-100 flex-1">
                   {item.task}
                 </span>
-                <span className="text-caption text-charcoal-400 font-mono">
+                <span className="text-xs text-slate-500 dark:text-slate-400 font-mono">
                   {item.time}
                 </span>
               </div>
@@ -85,7 +86,7 @@ function ObservabilityVisual() {
 
         {/* Guardrails */}
         <div>
-          <p className="text-caption font-semibold text-charcoal-400 uppercase tracking-wider mb-3">
+          <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-3">
             Active Guardrails
           </p>
           <div className="grid grid-cols-2 gap-3">
@@ -97,14 +98,14 @@ function ObservabilityVisual() {
             ].map((guard) => (
               <div
                 key={guard.label}
-                className="flex items-center justify-between px-3 py-2 rounded-lg bg-cream-50 border border-cream-100"
+                className="flex items-center justify-between px-3 py-2 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700"
               >
-                <span className="text-caption text-navy-800">
+                <span className="text-xs text-slate-900 dark:text-slate-100">
                   {guard.label}
                 </span>
                 <div
                   className={`w-8 h-5 rounded-full relative transition-colors ${
-                    guard.enabled ? "bg-green-400" : "bg-cream-300"
+                    guard.enabled ? "bg-teal-500" : "bg-slate-300 dark:bg-slate-600"
                   }`}
                 >
                   <div
@@ -126,7 +127,7 @@ export function Features() {
   const [expandedFeature, setExpandedFeature] = useState<string | null>(null);
 
   return (
-    <section id="features" className="py-24 md:py-32 px-6 bg-white">
+    <section id="features" className="py-24 md:py-32 px-6 bg-slate-50 dark:bg-slate-950">
       <div className="max-w-7xl mx-auto">
         <ScrollReveal>
           <SectionHeader
@@ -136,7 +137,7 @@ export function Features() {
           />
         </ScrollReveal>
 
-        <div className="space-y-8">
+        <div className="space-y-8 mt-16">
           {FEATURES.map((feature, i) => {
             const Icon = featureIcons[i];
             const DemoComponent = featureDemos[i];
@@ -145,7 +146,7 @@ export function Features() {
 
             return (
               <ScrollReveal key={feature.id} delay={i * 0.05}>
-                <div className="rounded-2xl border border-cream-200 overflow-hidden bg-cream-50/30">
+                <CardSpotlight className="rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden bg-white dark:bg-slate-900">
                   {/* Feature Header — always visible */}
                   <div
                     className={`grid grid-cols-1 ${
@@ -163,24 +164,24 @@ export function Features() {
                       }`}
                     >
                       <div className="flex items-center gap-3 mb-4">
-                        <div className="w-10 h-10 rounded-xl bg-amber-50 flex items-center justify-center">
+                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-teal-500/20 to-orange-500/20 dark:from-teal-400/20 dark:to-orange-400/20 flex items-center justify-center">
                           <Icon
                             size={20}
-                            className="text-amber-500"
-                            strokeWidth={1.8}
+                            className="text-teal-600 dark:text-teal-400"
+                            strokeWidth={2}
                           />
                         </div>
                         <div>
-                          <h3 className="font-display text-heading-lg text-navy-800">
+                          <h3 className="font-display text-xl font-bold text-slate-900 dark:text-slate-100">
                             {feature.title}
                           </h3>
-                          <p className="text-caption text-amber-500 font-medium">
+                          <p className="text-xs text-teal-600 dark:text-teal-400 font-medium">
                             {feature.subtitle}
                           </p>
                         </div>
                       </div>
 
-                      <p className="text-body-md text-charcoal-500 mb-5 leading-relaxed">
+                      <p className="text-base text-slate-600 dark:text-slate-400 mb-5 leading-relaxed">
                         {feature.description}
                       </p>
 
@@ -188,9 +189,9 @@ export function Features() {
                         {feature.bullets.map((bullet) => (
                           <li
                             key={bullet}
-                            className="flex items-start gap-2.5 text-body-sm text-charcoal-600"
+                            className="flex items-start gap-2.5 text-sm text-slate-700 dark:text-slate-300"
                           >
-                            <div className="w-1.5 h-1.5 rounded-full bg-amber-400 mt-2 flex-shrink-0" />
+                            <div className="w-1.5 h-1.5 rounded-full bg-teal-500 mt-2 flex-shrink-0" />
                             {bullet}
                           </li>
                         ))}
@@ -204,7 +205,7 @@ export function Features() {
                               isExpanded ? null : feature.id
                             )
                           }
-                          className="flex items-center gap-1.5 mt-6 text-body-sm font-semibold text-navy-700 hover:text-amber-500 transition-colors"
+                          className="flex items-center gap-1.5 mt-6 text-sm font-semibold text-slate-900 dark:text-slate-100 hover:text-teal-600 dark:hover:text-teal-400 transition-colors group"
                         >
                           {isExpanded
                             ? "Hide Interactive Demo"
@@ -212,6 +213,7 @@ export function Features() {
                           <motion.div
                             animate={{ rotate: isExpanded ? 180 : 0 }}
                             transition={{ duration: 0.2 }}
+                            className="group-hover:translate-y-0.5 transition-transform"
                           >
                             <ChevronDown size={16} />
                           </motion.div>
@@ -222,19 +224,19 @@ export function Features() {
                     {/* Quick visual preview (visible on desktop when collapsed) */}
                     {(DemoComponent || i === 4) && !isExpanded && (
                       <div
-                        className={`hidden lg:flex items-center justify-center p-8 bg-cream-50 ${
+                        className={`hidden lg:flex items-center justify-center p-8 bg-gradient-to-br from-teal-50/50 to-orange-50/50 dark:from-teal-950/20 dark:to-orange-950/20 ${
                           !isEven ? "lg:order-1" : ""
                         }`}
                       >
                         <div className="w-full max-w-md text-center">
-                          <div className="w-20 h-20 rounded-2xl bg-white border border-cream-200 shadow-soft flex items-center justify-center mx-auto mb-4">
+                          <div className="w-20 h-20 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-lg flex items-center justify-center mx-auto mb-4 group-hover:scale-105 transition-transform">
                             <Icon
                               size={32}
-                              className="text-amber-500"
+                              className="text-teal-600 dark:text-teal-400"
                               strokeWidth={1.5}
                             />
                           </div>
-                          <p className="text-body-sm text-charcoal-400">
+                          <p className="text-sm text-slate-500 dark:text-slate-400">
                             Click &ldquo;Try Interactive Demo&rdquo; to explore
                           </p>
                         </div>
@@ -252,7 +254,7 @@ export function Features() {
                         transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
                         className="overflow-hidden"
                       >
-                        <div className="p-6 lg:p-8 border-t border-cream-200 bg-white">
+                        <div className="p-6 lg:p-8 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50">
                           {DemoComponent ? (
                             <DemoComponent />
                           ) : i === 4 ? (
@@ -262,7 +264,7 @@ export function Features() {
                       </motion.div>
                     )}
                   </AnimatePresence>
-                </div>
+                </CardSpotlight>
               </ScrollReveal>
             );
           })}

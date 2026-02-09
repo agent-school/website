@@ -42,23 +42,23 @@ const ctaCards = [
 
 export function CTA() {
   return (
-    <section className="py-24 md:py-32 px-6 bg-navy-900 relative overflow-hidden">
+    <section className="py-24 md:py-32 px-6 bg-gradient-to-br from-teal-600 to-orange-500 dark:from-teal-700 dark:to-orange-600 relative overflow-hidden">
       {/* Background accent */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden>
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[2px] bg-gradient-to-r from-transparent via-amber-500/30 to-transparent" />
-        <div className="absolute top-[-200px] left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-amber-500/5 blur-3xl" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[2px] bg-gradient-to-r from-transparent via-orange-300/30 dark:via-orange-400/30 to-transparent" />
+        <div className="absolute top-[-200px] left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-orange-400/10 dark:bg-orange-300/10 blur-3xl" />
       </div>
 
       <div className="max-w-5xl mx-auto relative z-10">
         <ScrollReveal>
           <div className="text-center mb-14">
-            <p className="font-mono text-caption uppercase tracking-widest text-amber-400 mb-4">
+            <p className="font-mono text-caption uppercase tracking-widest text-orange-100 dark:text-orange-200 mb-4">
               Ready to get started?
             </p>
             <h2 className="font-display text-display-md md:text-display-lg text-white mb-4 text-balance">
               Train Your First Agent in 30 Days
             </h2>
-            <p className="text-body-lg text-navy-200 max-w-xl mx-auto text-balance">
+            <p className="text-body-lg text-teal-50 dark:text-teal-100 max-w-xl mx-auto text-balance">
               Start with a risk-free pilot. We&apos;ll work with your team to certify
               your first workflow — satisfaction guaranteed.
             </p>
@@ -75,21 +75,21 @@ export function CTA() {
                 whileHover={{ y: -6, transition: { duration: 0.2 } }}
                 className={`rounded-2xl p-7 h-full flex flex-col ${
                   card.highlight
-                    ? "bg-amber-500/10 border border-amber-500/30"
-                    : "bg-navy-800/50 border border-navy-700"
+                    ? "bg-white/20 dark:bg-white/10 border border-white/40 dark:border-white/30 backdrop-blur-sm"
+                    : "bg-slate-900/30 dark:bg-slate-950/40 border border-slate-700/50 dark:border-slate-600/50 backdrop-blur-sm"
                 }`}
               >
                 <div
                   className={`w-11 h-11 rounded-xl flex items-center justify-center mb-5 ${
                     card.highlight
-                      ? "bg-amber-500/20"
-                      : "bg-navy-700/50"
+                      ? "bg-white/30 dark:bg-white/20"
+                      : "bg-slate-800/50 dark:bg-slate-700/50"
                   }`}
                 >
                   <card.icon
                     size={22}
                     className={
-                      card.highlight ? "text-amber-400" : "text-navy-300"
+                      card.highlight ? "text-white" : "text-slate-200 dark:text-slate-300"
                     }
                     strokeWidth={1.8}
                   />
@@ -98,24 +98,26 @@ export function CTA() {
                 <h3 className="font-display text-heading-md text-white mb-2">
                   {card.title}
                 </h3>
-                <p className="text-body-sm text-navy-200 mb-6 flex-1">
+                <p className="text-body-sm text-teal-50 dark:text-slate-200 mb-6 flex-1">
                   {card.description}
                 </p>
 
                 <Button
                   variant={card.variant === "primary" ? "secondary" : "outline"}
                   size="sm"
-                  href={card.href}
+                  asChild
                   className={
                     card.variant === "outline"
-                      ? "border-navy-600 text-white hover:border-amber-500 hover:text-amber-400"
+                      ? "border-slate-300/50 dark:border-slate-400/50 text-white hover:border-white hover:bg-white/10"
                       : card.variant === "ghost"
-                        ? "border-navy-700 text-navy-200 hover:text-white hover:border-navy-500"
-                        : ""
+                        ? "border-slate-400/50 dark:border-slate-500/50 text-slate-100 dark:text-slate-200 hover:text-white hover:border-white/50 hover:bg-white/10"
+                        : "bg-white text-teal-600 hover:bg-slate-50"
                   }
                 >
-                  {card.cta}
-                  <ArrowRight size={14} />
+                  <a href={card.href}>
+                    {card.cta}
+                    <ArrowRight size={14} />
+                  </a>
                 </Button>
               </motion.div>
             </StaggerItem>

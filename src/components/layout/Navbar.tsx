@@ -35,7 +35,7 @@ export function Navbar() {
         transition={{ duration: 0.5, delay: 0.1 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? "bg-cream-50/90 backdrop-blur-xl border-b border-cream-200 shadow-soft"
+            ? "bg-white/90 dark:bg-slate-950/90 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800 shadow-soft"
             : "bg-transparent"
         }`}
       >
@@ -43,12 +43,12 @@ export function Navbar() {
           <div className="flex items-center justify-between h-[72px]">
             {/* Logo */}
             <a href="#" className="flex items-center gap-2.5 group">
-              <div className="w-9 h-9 rounded-lg bg-navy-800 flex items-center justify-center">
+              <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-teal-600 to-orange-500 flex items-center justify-center">
                 <span className="text-white font-display font-bold text-lg leading-none">
                   A
                 </span>
               </div>
-              <span className="font-display font-semibold text-xl text-navy-800 tracking-tight">
+              <span className="font-display font-semibold text-xl text-slate-900 dark:text-slate-100 tracking-tight">
                 Agent School
               </span>
             </a>
@@ -59,7 +59,7 @@ export function Navbar() {
                 <a
                   key={item.href}
                   href={item.href}
-                  className="text-body-sm font-medium text-charcoal-500 hover:text-navy-800 transition-colors duration-200"
+                  className="text-body-sm font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors duration-200"
                 >
                   {item.label}
                 </a>
@@ -72,6 +72,7 @@ export function Navbar() {
                 variant="default"
                 size="sm"
                 asChild
+                className="bg-gradient-to-br from-teal-600 to-orange-500 hover:from-teal-700 hover:to-orange-600 text-white"
               >
                 <a href={BOOKING_URL}>Book a Demo</a>
               </Button>
@@ -79,7 +80,7 @@ export function Navbar() {
 
             {/* Mobile Hamburger */}
             <button
-              className="md:hidden p-2 text-navy-800"
+              className="md:hidden p-2 text-slate-900 dark:text-slate-100"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Toggle menu"
             >
@@ -97,7 +98,7 @@ export function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 bg-cream-50/98 backdrop-blur-xl md:hidden"
+            className="fixed inset-0 z-40 bg-white/98 dark:bg-slate-950/98 backdrop-blur-xl md:hidden"
           >
             <div className="flex flex-col items-center justify-center h-full gap-8 pt-20">
               {NAV_ITEMS.map((item, i) => (
@@ -107,7 +108,7 @@ export function Navbar() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.08 }}
-                  className="font-display text-display-sm text-navy-800"
+                  className="font-display text-display-sm text-slate-900 dark:text-slate-100"
                   onClick={() => setMobileOpen(false)}
                 >
                   {item.label}
@@ -119,11 +120,12 @@ export function Navbar() {
                 transition={{ delay: NAV_ITEMS.length * 0.08 }}
               >
                 <Button
-                  variant="primary"
+                  variant="default"
                   size="lg"
-                  href={BOOKING_URL}
+                  asChild
+                  className="bg-gradient-to-br from-teal-600 to-orange-500 hover:from-teal-700 hover:to-orange-600 text-white"
                 >
-                  Book a Demo
+                  <a href={BOOKING_URL}>Book a Demo</a>
                 </Button>
               </motion.div>
             </div>
