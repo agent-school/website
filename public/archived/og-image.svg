@@ -1,0 +1,24 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#FAF9F7"/>
+  
+  <!-- Gradient blob -->
+  <circle cx="900" cy="150" r="300" fill="#FE9F4D" opacity="0.1"/>
+  
+  <!-- Content -->
+  <text x="100" y="200" font-family="serif" font-size="72" font-weight="700" fill="#173440">
+    Agent School
+  </text>
+  
+  <text x="100" y="285" font-family="sans-serif" font-size="36" fill="#4C4C4C">
+    AI That Learns Once, Runs Repeatedly
+  </text>
+  
+  <text x="100" y="355" font-family="sans-serif" font-size="28" fill="#7B7977">
+    Train once, certify, and replay deterministically at 10x lower cost.
+  </text>
+  
+  <!-- Graduation cap icon -->
+  <path d="M 100 460 L 80 470 L 100 480 L 120 470 Z" fill="#FE9F4D"/>
+  <path d="M 80 470 L 80 485 L 100 495 L 120 485 L 120 470" stroke="#FE9F4D" stroke-width="2" fill="none"/>
+</svg>
