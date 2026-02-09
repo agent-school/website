@@ -34,3 +34,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# ai
+.codex/
+.opencode/
+.claude/
+.cursor/
+_bmad/
