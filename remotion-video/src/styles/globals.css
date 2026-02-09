@@ -4,7 +4,7 @@
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border-cream-200;
   }
   body {
     @apply bg-cream-50 text-charcoal-700;
