@@ -2,7 +2,10 @@ import { AbsoluteFill, Sequence } from "remotion";
 import { IntroSceneV2 } from "./scenes/IntroSceneV2";
 import { ProblemSceneV2 } from "./scenes/ProblemSceneV2";
 import { SolutionScene } from "./scenes/SolutionScene";
-// More scenes will be added as we build them
+import { CertificationScene } from "./scenes/CertificationScene";
+import { SelfHealingScene } from "./scenes/SelfHealingScene";
+import { SpeedRaceScene } from "./scenes/SpeedRaceScene";
+import { StatsScene } from "./scenes/StatsScene";
 
 export const AgentSchoolShowcase: React.FC = () => {
   return (
@@ -22,13 +25,25 @@ export const AgentSchoolShowcase: React.FC = () => {
         <SolutionScene startFrame={330} />
       </Sequence>
 
-      {/* TODO: Add remaining scenes
-      - Certification (Testing Grid)
-      - Self-Healing (Side-by-side comparison)
-      - Speed Race (Real-time comparison)
-      - Dashboard (Platform overview)
-      - Stats (Final metrics)
-      */}
+      {/* Certification: 840-990 frames (5 seconds) - Parallel testing grid */}
+      <Sequence from={840} durationInFrames={150}>
+        <CertificationScene startFrame={840} />
+      </Sequence>
+
+      {/* Self-Healing: 990-1110 frames (4 seconds) - UI adaptation demo */}
+      <Sequence from={990} durationInFrames={120}>
+        <SelfHealingScene startFrame={990} />
+      </Sequence>
+
+      {/* Speed Race: 1110-1290 frames (6 seconds) - Performance comparison */}
+      <Sequence from={1110} durationInFrames={180}>
+        <SpeedRaceScene startFrame={1110} />
+      </Sequence>
+
+      {/* Stats: 1290-1350 frames (2 seconds) - Final metrics and CTA */}
+      <Sequence from={1290} durationInFrames={60}>
+        <StatsScene startFrame={1290} />
+      </Sequence>
     </AbsoluteFill>
   );
 };
