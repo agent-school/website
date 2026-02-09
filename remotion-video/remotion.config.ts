@@ -1,5 +1,5 @@
 import { Config } from "@remotion/cli/config";
-import path from "path";
+import * as path from "path";
 
 Config.setVideoImageFormat("jpeg");
 Config.setOverwriteOutput(true);
@@ -11,8 +11,8 @@ Config.overrideWebpackConfig((config) => {
     resolve: {
       ...config.resolve,
       alias: {
-        ...config.resolve?.alias,
-        "@": path.resolve(__dirname, "src"),
+        ...(config.resolve?.alias ?? {}),
+        "@": path.join(process.cwd(), "src"),
       },
     },
   };
