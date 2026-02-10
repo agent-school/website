@@ -70,11 +70,15 @@ function generateDeals(): Deal[] {
 
   for (const [stage, count] of Object.entries(stageDistribution)) {
     for (let i = 0; i < count; i++) {
-      let company = getRandomElement(companies);
-      while (usedCompanies.has(company)) {
-        company = getRandomElement(companies);
+      const availableCompanies = companies.filter((companyName) => !usedCompanies.has(companyName));
+      const company = availableCompanies.length > 0
+        ? getRandomElement(availableCompanies)
+        : getRandomElement(companies);
+
+      // Keep names unique until the source pool is exhausted.
+      if (availableCompanies.length > 0) {
+        usedCompanies.add(company);
       }
-      usedCompanies.add(company);
 
       const value = getRandomValue(10000, 500000);
       const priority = value > 200000 ? "high" : value > 100000 ? "medium" : "low";
