@@ -1,5 +1,8 @@
 import { NotionDemo } from "@/components/mocks/notion";
 
+// Force dynamic rendering - don't try to statically generate at build time
+export const dynamic = 'force-dynamic';
+
 export default function TestNotionPage() {
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 py-12 px-6">

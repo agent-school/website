@@ -1,5 +1,8 @@
 import { CRMDemo } from "@/components/mocks/crm";
 
+// Force dynamic rendering - don't try to statically generate at build time
+export const dynamic = 'force-dynamic';
+
 export const metadata = {
   title: "CRM Pipeline Demo | Agent School",
   description: "Interactive sales pipeline CRM demo with AI agent queries"

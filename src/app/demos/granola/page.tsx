@@ -1,5 +1,8 @@
 import { GranolaDemo } from "@/components/mocks/granola";
 
+// Force dynamic rendering - don't try to statically generate at build time
+export const dynamic = 'force-dynamic';
+
 export default function GranolaDemoPage() {
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 p-6">

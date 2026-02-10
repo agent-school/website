@@ -1,5 +1,8 @@
 import { HotelPMSDemo } from "@/components/mocks/hotel-pms";
 
+// Force dynamic rendering - don't try to statically generate at build time
+export const dynamic = 'force-dynamic';
+
 export default function HotelPMSDemoPage() {
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 p-6">
