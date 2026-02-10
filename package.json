@@ -6,6 +6,8 @@
     "dev": "next dev",
     "dev:no-cache": "cross-env NEXT_TURBOPACK_PERSISTENT_CACHING=0 next dev",
     "dev:clean": "npm run clean:cache && npm run dev:no-cache",
+    "dev:webpack": "cross-env NEXT_TURBOPACK=0 next dev",
+    "dev:turbo": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
