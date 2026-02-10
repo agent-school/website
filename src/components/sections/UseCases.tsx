@@ -14,12 +14,12 @@ import {
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { CardSpotlight } from "@/components/aceternity/CardSpotlight";
+import { USE_CASES } from "@/lib/constants";
 import { HotelPMSDemo } from "@/components/mocks/hotel-pms";
 import { CRMDemo } from "@/components/mocks/crm";
 import { InstagramDemo } from "@/components/mocks/instagram";
 import { NotionDemo } from "@/components/mocks/notion";
 import { GranolaDemo } from "@/components/mocks/granola";
-import { USE_CASES } from "@/lib/constants";
 
 // Map use case IDs to their corresponding demo components
 const DEMO_COMPONENTS = {
