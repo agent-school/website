@@ -47,3 +47,8 @@ opencode.jsonc
 
 # remotion video project (separate from website)
 /remotion-video/
+
+# temporary build and debug files
+*.log
+*.tmp
+build-output.log
