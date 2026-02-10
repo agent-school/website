@@ -44,3 +44,6 @@ _bmad/
 
 # opencode
 opencode.jsonc
+
+# remotion video project (separate from website)
+/remotion-video/
