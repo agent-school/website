@@ -2,6 +2,10 @@
 const nextConfig = {
   reactStrictMode: true,
   
+  // Fix for WSL: prevent Next.js from scanning parent directories
+  // This stops it from hanging while looking for dependencies
+  outputFileTracingRoot: process.cwd(),
+  
   // Optimize build performance
   typescript: {
     // Already type-checked in CI/CD, skip during build for speed
@@ -12,12 +16,6 @@ const nextConfig = {
   experimental: {
     // Use worker threads for faster compilation
     webpackBuildWorker: true,
-    
-    // Turbopack configuration
-    turbopack: {
-      // Specify project root to silence lockfile warning
-      root: process.cwd(),
-    },
   },
 };
 
