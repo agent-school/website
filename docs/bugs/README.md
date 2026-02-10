@@ -6,7 +6,9 @@ This directory contains detailed bug reports for critical issues encountered dur
 
 | Report | Severity | Status | Date |
 |--------|----------|--------|------|
-| [BUILD-TIMEOUT-FEB-2026.md](./BUILD-TIMEOUT-FEB-2026.md) | 🔴 Critical | ✅ Resolved | Feb 9, 2026 |
+| [BUILD-TIMEOUT-FEB-2026.md](./build-timeout-feb-2026.md) | 🔴 Critical | ✅ Resolved | Feb 9, 2026 |
+| [TURBOPACK-WSL-HANG-FEB-2026.md](./turbopack-wsl-hang-feb-2026.md) | 🔴 Critical | ✅ Resolved | Feb 10, 2026 |
+| [INVALID-TURBOPACK-CONFIG-FEB-2026.md](./invalid-turbopack-config-feb-2026.md) | 🟡 Major | ✅ Resolved | Feb 10, 2026 |
 
 ---
 
@@ -56,14 +58,21 @@ This directory serves to:
 ### Common Issues
 
 #### Build Timeouts
-See: [BUILD-TIMEOUT-FEB-2026.md](./BUILD-TIMEOUT-FEB-2026.md)
+See: [build-timeout-feb-2026.md](./build-timeout-feb-2026.md)
 - **Quick Fix:** Add `export const dynamic = 'force-dynamic'` to pages with heavy client state
 - **Test:** `npm run build` should complete in < 5 minutes
 
-#### Turbopack Hangs (Windows)
-See: [BUILD-TIMEOUT-FEB-2026.md](./BUILD-TIMEOUT-FEB-2026.md#-issue-2-turbopack-compilation-hang)
-- **Quick Fix:** Use `npm run dev:webpack` or `npm run dev:no-cache`
-- **Test:** Dev server should compile and load pages
+#### Turbopack Dev Server Hangs (WSL)
+See: [turbopack-wsl-hang-feb-2026.md](./turbopack-wsl-hang-feb-2026.md)
+- **Root Cause:** Turbopack lockfile permission errors on Windows filesystems in WSL
+- **Quick Fix:** `npm run dev` now uses webpack by default (fully resolved)
+- **Test:** Dev server should be ready in < 30 seconds
+
+#### Invalid Config Warnings
+See: [invalid-turbopack-config-feb-2026.md](./invalid-turbopack-config-feb-2026.md)
+- **Root Cause:** Invalid `experimental.turbopack` key in next.config.mjs
+- **Quick Fix:** Remove invalid config keys (already resolved)
+- **Test:** No warnings should appear on startup
 
 ---
 
@@ -97,4 +106,4 @@ If you discover a new critical issue:
 ---
 
 **Maintained by:** Agent School Development Team  
-**Last Updated:** February 9, 2026
+**Last Updated:** February 10, 2026
