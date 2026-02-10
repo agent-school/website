@@ -6,6 +6,9 @@ This directory contains detailed bug reports for critical issues encountered dur
 
 | Report | Severity | Status | Date |
 |--------|----------|--------|------|
+| [DEMO-NOT-INTERACTIVE-FEB-2026.md](./demo-not-interactive-feb-2026.md) | 🔴 Critical | 🟡 **FIX APPLIED - NEEDS TESTING** | Feb 10, 2026 |
+| [BUILD-HANG-COLLECTING-PAGE-DATA-FEB-2026.md](./build-hang-collecting-page-data-feb-2026.md) | 🔴 Critical | ✅ Resolved | Feb 10, 2026 |
+| [PERFORMANCE-COMPILATION-ISSUES-FEB-2026.md](./performance-compilation-issues-feb-2026.md) | 🔴 Critical | ✅ Resolved | Feb 10, 2026 |
 | [BUILD-TIMEOUT-FEB-2026.md](./build-timeout-feb-2026.md) | 🔴 Critical | ✅ Resolved | Feb 9, 2026 |
 | [TURBOPACK-WSL-HANG-FEB-2026.md](./turbopack-wsl-hang-feb-2026.md) | 🔴 Critical | ✅ Resolved | Feb 10, 2026 |
 | [INVALID-TURBOPACK-CONFIG-FEB-2026.md](./invalid-turbopack-config-feb-2026.md) | 🟡 Major | ✅ Resolved | Feb 10, 2026 |
@@ -56,6 +59,33 @@ This directory serves to:
 ## 🔍 Quick Reference
 
 ### Common Issues
+
+#### 🟡 FIX APPLIED: Interactive Demos Not Working
+See: [demo-not-interactive-feb-2026.md](./demo-not-interactive-feb-2026.md)
+- **User Report:** "demo still not interactive" on homepage Use Cases section
+- **Status:** 🟡 **FIX APPLIED - NEEDS TESTING**
+- **Fix Applied:** Removed dynamic imports from `UseCases.tsx` (lines 21-44)
+- **What Changed:**
+  - ✅ Replaced `dynamic()` imports with eager imports for all 5 demos
+  - ✅ Removed DemoLoadingState component (no longer needed)
+  - ✅ TypeScript compilation passes with no errors
+- **Next Steps:** 
+  1. User needs to test on browser: http://localhost:3000 → scroll to Use Cases
+  2. Verify all 5 demos render and are interactive
+  3. Test clicking suggested queries + typing manual queries
+  4. Confirm mock UIs update based on agent responses
+- **Expected Outcome:** Demos should now load reliably without async import failures
+- **Impact:** 🔴 CRITICAL - Demos are core value prop, no demos = no conversions
+- **Note:** Cannot verify in WSL due to Turbopack lockfile bug (unrelated to demo issue)
+
+#### Performance & Compilation Issues
+See: [performance-compilation-issues-feb-2026.md](./performance-compilation-issues-feb-2026.md)
+- **Root Causes:**
+  1. 393MB Remotion video project being compiled (✅ excluded)
+  2. All 5 mock UIs loading eagerly (✅ lazy loaded)
+- **Status:** ✅ RESOLVED - Dev server + compilation now fast!
+- **Quick Fix:** Exclude remotion-video + lazy load demos
+- **Test:** Pages should compile in < 30 seconds
 
 #### Build Timeouts
 See: [build-timeout-feb-2026.md](./build-timeout-feb-2026.md)
