@@ -166,6 +166,33 @@
       background-color: #FFEDD5;
     }
     
+    /* Use Case Tabs */
+    .use-case-tab {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border: 1px solid #E0E0E0;
+      background: white;
+      font-size: 13px;
+      font-weight: 400;
+      color: #6A6A6A;
+      cursor: pointer;
+      transition: all 200ms ease-out;
+    }
+    
+    .use-case-tab:hover {
+      border-color: #C1D5A8;
+      color: #2A2A2A;
+    }
+    
+    .use-case-tab.active {
+      border-color: #8FB570;
+      background-color: #E8F0E3;
+      color: #2A2A2A;
+      font-weight: 500;
+    }
+    
     /* Input Fields - Orange focus */
     .underlined-input {
       border: none;
@@ -585,6 +612,144 @@
           <p class="text-xs uppercase tracking-wider text-charcoal-500 font-medium">SAVED</p>
           <p class="headline-serif text-6xl md:text-7xl text-charcoal-900">420h</p>
           <p class="text-xs uppercase tracking-wider text-charcoal-300">Per Month</p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- ===================== -->
+    <!-- SECTION: Trusted By (Logos) -->
+    <!-- ===================== -->
+    <section class="py-20 px-6 border-t border-hairline bg-stone">
+      <div class="max-w-7xl mx-auto">
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+          <p class="font-mono text-xs uppercase tracking-widest text-charcoal-500 mb-4">TRUSTED BY INDUSTRY LEADERS</p>
+          <h2 class="text-3xl md:text-4xl font-medium text-charcoal-900 max-w-3xl mx-auto">
+            Powering Automation Across Hospitality, Finance, & Operations
+          </h2>
+        </div>
+        
+        <!-- Logo Grid - Alternating Sage/Orange Borders -->
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-1 bg-hairline p-1 mb-12">
+          <!-- Logo 1 - Sage border -->
+          <div class="border-2 border-sage-300 bg-white p-8 flex items-center justify-center hover:border-sage-400 transition-colors">
+            <div class="text-center">
+              <span class="hollow-circle-lg mb-3 inline-block"></span>
+              <p class="text-lg font-medium text-charcoal-900">Kimpton</p>
+              <p class="text-xs text-charcoal-500 mt-1">Hotels</p>
+            </div>
+          </div>
+          
+          <!-- Logo 2 - Orange border -->
+          <div class="border-2 border-orange-300 bg-white p-8 flex items-center justify-center hover:border-orange-400 transition-colors">
+            <div class="text-center">
+              <span class="hollow-circle-orange mb-3 inline-block" style="width: 20px; height: 20px; border-width: 1.5px;"></span>
+              <p class="text-lg font-medium text-charcoal-900">FinServe</p>
+              <p class="text-xs text-charcoal-500 mt-1">Finance</p>
+            </div>
+          </div>
+          
+          <!-- Logo 3 - Sage border -->
+          <div class="border-2 border-sage-300 bg-white p-8 flex items-center justify-center hover:border-sage-400 transition-colors">
+            <div class="text-center">
+              <span class="hollow-circle-lg mb-3 inline-block"></span>
+              <p class="text-lg font-medium text-charcoal-900">CloudStack</p>
+              <p class="text-xs text-charcoal-500 mt-1">SaaS</p>
+            </div>
+          </div>
+          
+          <!-- Logo 4 - Orange border -->
+          <div class="border-2 border-orange-300 bg-white p-8 flex items-center justify-center hover:border-orange-400 transition-colors">
+            <div class="text-center">
+              <span class="hollow-circle-orange mb-3 inline-block" style="width: 20px; height: 20px; border-width: 1.5px;"></span>
+              <p class="text-lg font-medium text-charcoal-900">OrderFlow</p>
+              <p class="text-xs text-charcoal-500 mt-1">Operations</p>
+            </div>
+          </div>
+          
+          <!-- Logo 5 - Sage border -->
+          <div class="border-2 border-sage-300 bg-white p-8 flex items-center justify-center hover:border-sage-400 transition-colors">
+            <div class="text-center">
+              <span class="hollow-circle-lg mb-3 inline-block"></span>
+              <p class="text-lg font-medium text-charcoal-900">Meridian</p>
+              <p class="text-xs text-charcoal-500 mt-1">Hospitality</p>
+            </div>
+          </div>
+          
+          <!-- Logo 6 - Orange border -->
+          <div class="border-2 border-orange-300 bg-white p-8 flex items-center justify-center hover:border-orange-400 transition-colors">
+            <div class="text-center">
+              <span class="hollow-circle-orange mb-3 inline-block" style="width: 20px; height: 20px; border-width: 1.5px;"></span>
+              <p class="text-lg font-medium text-charcoal-900">TechStart</p>
+              <p class="text-xs text-charcoal-500 mt-1">Startup</p>
+            </div>
+          </div>
+          
+          <!-- Logo 7 - Sage border -->
+          <div class="border-2 border-sage-300 bg-white p-8 flex items-center justify-center hover:border-sage-400 transition-colors">
+            <div class="text-center">
+              <span class="hollow-circle-lg mb-3 inline-block"></span>
+              <p class="text-lg font-medium text-charcoal-900">GlobalCo</p>
+              <p class="text-xs text-charcoal-500 mt-1">Enterprise</p>
+            </div>
+          </div>
+          
+          <!-- Logo 8 - Orange border -->
+          <div class="border-2 border-orange-300 bg-white p-8 flex items-center justify-center hover:border-orange-400 transition-colors">
+            <div class="text-center">
+              <span class="hollow-circle-orange mb-3 inline-block" style="width: 20px; height: 20px; border-width: 1.5px;"></span>
+              <p class="text-lg font-medium text-charcoal-900">Apex</p>
+              <p class="text-xs text-charcoal-500 mt-1">Real Estate</p>
+            </div>
+          </div>
+          
+          <!-- Logo 9 - Sage border -->
+          <div class="border-2 border-sage-300 bg-white p-8 flex items-center justify-center hover:border-sage-400 transition-colors">
+            <div class="text-center">
+              <span class="hollow-circle-lg mb-3 inline-block"></span>
+              <p class="text-lg font-medium text-charcoal-900">Velocity</p>
+              <p class="text-xs text-charcoal-500 mt-1">Logistics</p>
+            </div>
+          </div>
+          
+          <!-- Logo 10 - Orange border -->
+          <div class="border-2 border-orange-300 bg-white p-8 flex items-center justify-center hover:border-orange-400 transition-colors">
+            <div class="text-center">
+              <span class="hollow-circle-orange mb-3 inline-block" style="width: 20px; height: 20px; border-width: 1.5px;"></span>
+              <p class="text-lg font-medium text-charcoal-900">Quantum</p>
+              <p class="text-xs text-charcoal-500 mt-1">Analytics</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Stats Below Logos -->
+        <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          <div class="text-center">
+            <div class="flex items-center justify-center gap-2 mb-3">
+              <span class="hollow-circle"></span>
+              <p class="font-mono text-xs uppercase tracking-wider text-charcoal-500">COMPANIES</p>
+            </div>
+            <p class="headline-serif text-5xl text-charcoal-900">50+</p>
+            <p class="text-xs text-charcoal-500 mt-2">Organizations automated</p>
+          </div>
+          
+          <div class="text-center">
+            <div class="flex items-center justify-center gap-2 mb-3">
+              <span class="hollow-circle-orange"></span>
+              <p class="font-mono text-xs uppercase tracking-wider text-charcoal-500">INDUSTRIES</p>
+            </div>
+            <p class="headline-serif text-5xl text-charcoal-900">12</p>
+            <p class="text-xs text-charcoal-500 mt-2">Sectors transformed</p>
+          </div>
+          
+          <div class="text-center">
+            <div class="flex items-center justify-center gap-2 mb-3">
+              <span class="hollow-circle"></span>
+              <p class="font-mono text-xs uppercase tracking-wider text-charcoal-500">WORKFLOWS</p>
+            </div>
+            <p class="headline-serif text-5xl text-charcoal-900">1.2k</p>
+            <p class="text-xs text-charcoal-500 mt-2">Agents certified</p>
+          </div>
         </div>
       </div>
     </section>
@@ -1143,6 +1308,415 @@
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- ===================== -->
+    <!-- SECTION: Use Cases / Before & After -->
+    <!-- ===================== -->
+    <section class="py-24 border-t border-hairline bg-orange-100">
+      <div class="max-w-7xl mx-auto px-6">
+        <!-- Section Header -->
+        <div class="mb-16 text-center">
+          <p class="font-mono text-xs uppercase tracking-widest text-orange-500 mb-4">TRANSFORMATION IN ACTION</p>
+          <h2 class="headline-serif text-5xl md:text-6xl text-charcoal-900 mb-4">
+            From Manual to Instant
+          </h2>
+          <p class="text-base text-charcoal-500 max-w-2xl mx-auto">
+            See how Agent School transforms tedious workflows into instant, accurate automation
+          </p>
+        </div>
+        
+        <!-- Use Case Tabs -->
+        <div class="flex flex-wrap items-center justify-center gap-2 mb-12">
+          <button 
+            class="use-case-tab active" 
+            data-case="hotel"
+            onclick="switchUseCase('hotel', this)"
+          >
+            <i data-lucide="hotel" class="w-4 h-4"></i>
+            <span>Hotel Operations</span>
+          </button>
+          <button 
+            class="use-case-tab" 
+            data-case="sales"
+            onclick="switchUseCase('sales', this)"
+          >
+            <i data-lucide="users" class="w-4 h-4"></i>
+            <span>Sales Pipeline</span>
+          </button>
+          <button 
+            class="use-case-tab" 
+            data-case="operations"
+            onclick="switchUseCase('operations', this)"
+          >
+            <i data-lucide="file-text" class="w-4 h-4"></i>
+            <span>Operations</span>
+          </button>
+        </div>
+        
+        <!-- Use Case Content -->
+        <div id="use-case-hotel" class="use-case-content">
+          <!-- Before/After Asymmetrical Grid -->
+          <div class="grid md:grid-cols-2 gap-1 bg-hairline p-1">
+            <!-- Before -->
+            <div class="border border-hairline bg-white p-8">
+              <div class="flex items-center gap-2 mb-6">
+                <i data-lucide="x-circle" class="w-5 h-5 text-charcoal-500"></i>
+                <p class="text-xs uppercase tracking-wider text-charcoal-700 font-medium">BEFORE</p>
+              </div>
+              
+              <p class="text-lg text-charcoal-900 mb-6 font-medium">
+                "How many arrivals and departures today?"
+              </p>
+              
+              <div class="space-y-4 mb-6">
+                <div class="flex items-start gap-3">
+                  <span class="text-charcoal-500 text-sm">01</span>
+                  <p class="text-sm text-charcoal-700">Open property management system</p>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="text-charcoal-500 text-sm">02</span>
+                  <p class="text-sm text-charcoal-700">Navigate to arrivals screen</p>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="text-charcoal-500 text-sm">03</span>
+                  <p class="text-sm text-charcoal-700">Count entries manually</p>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="text-charcoal-500 text-sm">04</span>
+                  <p class="text-sm text-charcoal-700">Switch to departures screen</p>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="text-charcoal-500 text-sm">05</span>
+                  <p class="text-sm text-charcoal-700">Count entries manually</p>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="text-charcoal-500 text-sm">06</span>
+                  <p class="text-sm text-charcoal-700">Write down totals on paper</p>
+                </div>
+              </div>
+              
+              <div class="border-t border-hairline pt-6 space-y-3">
+                <div class="flex items-center justify-between">
+                  <p class="text-xs uppercase tracking-wider text-charcoal-500">TIME</p>
+                  <p class="headline-serif text-2xl text-charcoal-900">5-10 min</p>
+                </div>
+                <div class="flex items-center justify-between">
+                  <p class="text-xs uppercase tracking-wider text-charcoal-500">ERRORS</p>
+                  <p class="text-sm text-charcoal-700">Frequent miscounts</p>
+                </div>
+                <div class="flex items-center justify-between">
+                  <p class="text-xs uppercase tracking-wider text-charcoal-500">COST</p>
+                  <p class="headline-serif text-2xl text-charcoal-900">$8.50</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- After -->
+            <div class="border-2 border-sage-400 bg-sage-100 p-8">
+              <div class="flex items-center gap-2 mb-6">
+                <i data-lucide="check-circle" class="w-5 h-5 text-sage-500"></i>
+                <p class="text-xs uppercase tracking-wider text-charcoal-900 font-medium">AFTER</p>
+              </div>
+              
+              <p class="text-lg text-charcoal-900 mb-6 font-medium">
+                "How many arrivals and departures today?"
+              </p>
+              
+              <div class="space-y-4 mb-6">
+                <div class="flex items-start gap-3">
+                  <span class="filled-circle mt-1"></span>
+                  <p class="text-sm text-charcoal-900">Ask agent in natural language</p>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="filled-circle mt-1"></span>
+                  <p class="text-sm text-charcoal-900">Instant response: "23 arrivals, 18 departures"</p>
+                </div>
+              </div>
+              
+              <div class="border border-sage-400 bg-white p-4 mb-6">
+                <p class="font-mono text-xs text-charcoal-700 mb-2">Agent Response:</p>
+                <p class="text-sm text-charcoal-900 font-medium">"Today you have <strong>23 arrivals</strong> and <strong>18 departures</strong>. Peak check-in time is 3-5 PM."</p>
+              </div>
+              
+              <div class="border-t border-sage-400 pt-6 space-y-3">
+                <div class="flex items-center justify-between">
+                  <p class="text-xs uppercase tracking-wider text-charcoal-500">TIME</p>
+                  <p class="headline-serif text-2xl text-sage-500">2 sec</p>
+                </div>
+                <div class="flex items-center justify-between">
+                  <p class="text-xs uppercase tracking-wider text-charcoal-500">ERRORS</p>
+                  <p class="text-sm text-charcoal-900 font-medium">Zero</p>
+                </div>
+                <div class="flex items-center justify-between">
+                  <p class="text-xs uppercase tracking-wider text-charcoal-500">COST</p>
+                  <p class="headline-serif text-2xl text-sage-500">$0.02</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Impact Stats -->
+          <div class="grid md:grid-cols-4 gap-4 mt-8">
+            <div class="border border-hairline bg-white p-6 text-center">
+              <p class="headline-serif text-4xl text-orange-500 mb-2">250x</p>
+              <p class="text-xs uppercase tracking-wider text-charcoal-500">Faster</p>
+            </div>
+            <div class="border border-hairline bg-white p-6 text-center">
+              <p class="headline-serif text-4xl text-sage-500 mb-2">425x</p>
+              <p class="text-xs uppercase tracking-wider text-charcoal-500">Cost Reduction</p>
+            </div>
+            <div class="border border-hairline bg-white p-6 text-center">
+              <p class="headline-serif text-4xl text-orange-500 mb-2">100%</p>
+              <p class="text-xs uppercase tracking-wider text-charcoal-500">Accuracy</p>
+            </div>
+            <div class="border border-hairline bg-white p-6 text-center">
+              <p class="headline-serif text-4xl text-sage-500 mb-2">24/7</p>
+              <p class="text-xs uppercase tracking-wider text-charcoal-500">Availability</p>
+            </div>
+          </div>
+        </div>
+        
+        <div id="use-case-sales" class="use-case-content hidden">
+          <div class="grid md:grid-cols-2 gap-1 bg-hairline p-1">
+            <!-- Before -->
+            <div class="border border-hairline bg-white p-8">
+              <div class="flex items-center gap-2 mb-6">
+                <i data-lucide="x-circle" class="w-5 h-5 text-charcoal-500"></i>
+                <p class="text-xs uppercase tracking-wider text-charcoal-700 font-medium">BEFORE</p>
+              </div>
+              
+              <p class="text-lg text-charcoal-900 mb-6 font-medium">
+                "What deals are stuck in negotiation?"
+              </p>
+              
+              <div class="space-y-4 mb-6">
+                <div class="flex items-start gap-3">
+                  <span class="text-charcoal-500 text-sm">01</span>
+                  <p class="text-sm text-charcoal-700">Open CRM dashboard</p>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="text-charcoal-500 text-sm">02</span>
+                  <p class="text-sm text-charcoal-700">Filter by "Negotiation" stage</p>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="text-charcoal-500 text-sm">03</span>
+                  <p class="text-sm text-charcoal-700">Sort by last activity date</p>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="text-charcoal-500 text-sm">04</span>
+                  <p class="text-sm text-charcoal-700">Manually review each deal</p>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="text-charcoal-500 text-sm">05</span>
+                  <p class="text-sm text-charcoal-700">Copy to spreadsheet for reporting</p>
+                </div>
+              </div>
+              
+              <div class="border-t border-hairline pt-6 space-y-3">
+                <div class="flex items-center justify-between">
+                  <p class="text-xs uppercase tracking-wider text-charcoal-500">TIME</p>
+                  <p class="headline-serif text-2xl text-charcoal-900">10-15 min</p>
+                </div>
+                <div class="flex items-center justify-between">
+                  <p class="text-xs uppercase tracking-wider text-charcoal-500">FREQUENCY</p>
+                  <p class="text-sm text-charcoal-700">Daily manual check</p>
+                </div>
+                <div class="flex items-center justify-between">
+                  <p class="text-xs uppercase tracking-wider text-charcoal-500">MONTHLY COST</p>
+                  <p class="headline-serif text-2xl text-charcoal-900">$180</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- After -->
+            <div class="border-2 border-sage-400 bg-sage-100 p-8">
+              <div class="flex items-center gap-2 mb-6">
+                <i data-lucide="check-circle" class="w-5 h-5 text-sage-500"></i>
+                <p class="text-xs uppercase tracking-wider text-charcoal-900 font-medium">AFTER</p>
+              </div>
+              
+              <p class="text-lg text-charcoal-900 mb-6 font-medium">
+                "What deals are stuck in negotiation?"
+              </p>
+              
+              <div class="space-y-4 mb-6">
+                <div class="flex items-start gap-3">
+                  <span class="filled-circle mt-1"></span>
+                  <p class="text-sm text-charcoal-900">Agent queries CRM in real-time</p>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="filled-circle mt-1"></span>
+                  <p class="text-sm text-charcoal-900">Returns formatted list with context</p>
+                </div>
+              </div>
+              
+              <div class="border border-sage-400 bg-white p-4 mb-6">
+                <p class="font-mono text-xs text-charcoal-700 mb-2">Agent Response:</p>
+                <p class="text-sm text-charcoal-900"><strong>3 deals in negotiation >7 days:</strong></p>
+                <ul class="text-sm text-charcoal-700 mt-2 space-y-1 pl-4">
+                  <li>• Acme Corp ($45k) - 12 days</li>
+                  <li>• TechStart Inc ($28k) - 9 days</li>
+                  <li>• GlobalCo ($67k) - 8 days</li>
+                </ul>
+              </div>
+              
+              <div class="border-t border-sage-400 pt-6 space-y-3">
+                <div class="flex items-center justify-between">
+                  <p class="text-xs uppercase tracking-wider text-charcoal-500">TIME</p>
+                  <p class="headline-serif text-2xl text-sage-500">3 sec</p>
+                </div>
+                <div class="flex items-center justify-between">
+                  <p class="text-xs uppercase tracking-wider text-charcoal-500">FREQUENCY</p>
+                  <p class="text-sm text-charcoal-900 font-medium">On-demand, instant</p>
+                </div>
+                <div class="flex items-center justify-between">
+                  <p class="text-xs uppercase tracking-wider text-charcoal-500">MONTHLY COST</p>
+                  <p class="headline-serif text-2xl text-sage-500">$0.60</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Impact Stats -->
+          <div class="grid md:grid-cols-4 gap-4 mt-8">
+            <div class="border border-hairline bg-white p-6 text-center">
+              <p class="headline-serif text-4xl text-orange-500 mb-2">300x</p>
+              <p class="text-xs uppercase tracking-wider text-charcoal-500">Faster</p>
+            </div>
+            <div class="border border-hairline bg-white p-6 text-center">
+              <p class="headline-serif text-4xl text-sage-500 mb-2">300x</p>
+              <p class="text-xs uppercase tracking-wider text-charcoal-500">Cost Reduction</p>
+            </div>
+            <div class="border border-hairline bg-white p-6 text-center">
+              <p class="headline-serif text-4xl text-orange-500 mb-2">$2.1k</p>
+              <p class="text-xs uppercase tracking-wider text-charcoal-500">Saved Annually</p>
+            </div>
+            <div class="border border-hairline bg-white p-6 text-center">
+              <p class="headline-serif text-4xl text-sage-500 mb-2">24/7</p>
+              <p class="text-xs uppercase tracking-wider text-charcoal-500">Monitoring</p>
+            </div>
+          </div>
+        </div>
+        
+        <div id="use-case-operations" class="use-case-content hidden">
+          <div class="grid md:grid-cols-2 gap-1 bg-hairline p-1">
+            <!-- Before -->
+            <div class="border border-hairline bg-white p-8">
+              <div class="flex items-center gap-2 mb-6">
+                <i data-lucide="x-circle" class="w-5 h-5 text-charcoal-500"></i>
+                <p class="text-xs uppercase tracking-wider text-charcoal-700 font-medium">BEFORE</p>
+              </div>
+              
+              <p class="text-lg text-charcoal-900 mb-6 font-medium">
+                "What tasks are overdue this week?"
+              </p>
+              
+              <div class="space-y-4 mb-6">
+                <div class="flex items-start gap-3">
+                  <span class="text-charcoal-500 text-sm">01</span>
+                  <p class="text-sm text-charcoal-700">Open project management tool</p>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="text-charcoal-500 text-sm">02</span>
+                  <p class="text-sm text-charcoal-700">Filter by due date</p>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="text-charcoal-500 text-sm">03</span>
+                  <p class="text-sm text-charcoal-700">Cross-reference with calendar</p>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="text-charcoal-500 text-sm">04</span>
+                  <p class="text-sm text-charcoal-700">Send follow-up emails manually</p>
+                </div>
+              </div>
+              
+              <div class="border-t border-hairline pt-6 space-y-3">
+                <div class="flex items-center justify-between">
+                  <p class="text-xs uppercase tracking-wider text-charcoal-500">TIME</p>
+                  <p class="headline-serif text-2xl text-charcoal-900">8-12 min</p>
+                </div>
+                <div class="flex items-center justify-between">
+                  <p class="text-xs uppercase tracking-wider text-charcoal-500">WEEKLY HOURS</p>
+                  <p class="text-sm text-charcoal-700">2-3 hours</p>
+                </div>
+                <div class="flex items-center justify-between">
+                  <p class="text-xs uppercase tracking-wider text-charcoal-500">MONTHLY COST</p>
+                  <p class="headline-serif text-2xl text-charcoal-900">$420</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- After -->
+            <div class="border-2 border-sage-400 bg-sage-100 p-8">
+              <div class="flex items-center gap-2 mb-6">
+                <i data-lucide="check-circle" class="w-5 h-5 text-sage-500"></i>
+                <p class="text-xs uppercase tracking-wider text-charcoal-900 font-medium">AFTER</p>
+              </div>
+              
+              <p class="text-lg text-charcoal-900 mb-6 font-medium">
+                "What tasks are overdue this week?"
+              </p>
+              
+              <div class="space-y-4 mb-6">
+                <div class="flex items-start gap-3">
+                  <span class="filled-circle mt-1"></span>
+                  <p class="text-sm text-charcoal-900">Agent scans all project boards</p>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="filled-circle mt-1"></span>
+                  <p class="text-sm text-charcoal-900">Auto-sends notifications to owners</p>
+                </div>
+              </div>
+              
+              <div class="border border-sage-400 bg-white p-4 mb-6">
+                <p class="font-mono text-xs text-charcoal-700 mb-2">Agent Response:</p>
+                <p class="text-sm text-charcoal-900"><strong>7 overdue tasks identified.</strong> Notifications sent to task owners. Summary:</p>
+                <ul class="text-sm text-charcoal-700 mt-2 space-y-1 pl-4">
+                  <li>• 3 in Design (avg 4 days late)</li>
+                  <li>• 2 in Engineering (avg 2 days late)</li>
+                  <li>• 2 in Marketing (avg 6 days late)</li>
+                </ul>
+              </div>
+              
+              <div class="border-t border-sage-400 pt-6 space-y-3">
+                <div class="flex items-center justify-between">
+                  <p class="text-xs uppercase tracking-wider text-charcoal-500">TIME</p>
+                  <p class="headline-serif text-2xl text-sage-500">4 sec</p>
+                </div>
+                <div class="flex items-center justify-between">
+                  <p class="text-xs uppercase tracking-wider text-charcoal-500">WEEKLY HOURS</p>
+                  <p class="text-sm text-charcoal-900 font-medium">Automated</p>
+                </div>
+                <div class="flex items-center justify-between">
+                  <p class="text-xs uppercase tracking-wider text-charcoal-500">MONTHLY COST</p>
+                  <p class="headline-serif text-2xl text-sage-500">$1.20</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Impact Stats -->
+          <div class="grid md:grid-cols-4 gap-4 mt-8">
+            <div class="border border-hairline bg-white p-6 text-center">
+              <p class="headline-serif text-4xl text-orange-500 mb-2">120x</p>
+              <p class="text-xs uppercase tracking-wider text-charcoal-500">Faster</p>
+            </div>
+            <div class="border border-hairline bg-white p-6 text-center">
+              <p class="headline-serif text-4xl text-sage-500 mb-2">350x</p>
+              <p class="text-xs uppercase tracking-wider text-charcoal-500">Cost Reduction</p>
+            </div>
+            <div class="border border-hairline bg-white p-6 text-center">
+              <p class="headline-serif text-4xl text-orange-500 mb-2">$5k</p>
+              <p class="text-xs uppercase tracking-wider text-charcoal-500">Saved Annually</p>
+            </div>
+            <div class="border border-hairline bg-white p-6 text-center">
+              <p class="headline-serif text-4xl text-sage-500 mb-2">Auto</p>
+              <p class="text-xs uppercase tracking-wider text-charcoal-500">Notifications</p>
             </div>
           </div>
         </div>
@@ -1851,6 +2425,21 @@
     document.addEventListener('DOMContentLoaded', function() {
       calculateROI();
     });
+    
+    // Switch Use Case tabs
+    function switchUseCase(caseId, button) {
+      // Hide all use case content
+      document.querySelectorAll('.use-case-content').forEach(el => el.classList.add('hidden'));
+      
+      // Remove active state from all tabs
+      document.querySelectorAll('.use-case-tab').forEach(tab => tab.classList.remove('active'));
+      
+      // Show selected use case
+      document.getElementById('use-case-' + caseId).classList.remove('hidden');
+      
+      // Add active state to clicked tab
+      button.classList.add('active');
+    }
   </script>
   
 </body>
