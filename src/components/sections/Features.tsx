@@ -265,7 +265,7 @@ export function Features() {
                         {isExpanded ? (
                           // Show demo on desktop when expanded
                           <div className="w-full relative flex items-center justify-center">
-                            <div className="w-full max-w-md relative">
+                            <div className="w-full max-w-3xl relative">
                               <button
                                 onClick={(e) => {
                                   e.stopPropagation();
