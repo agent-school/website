@@ -17,7 +17,8 @@ export async function handleCRMQuery(query: string): Promise<QueryResult> {
         highlightedStage: "proposal",
         highlightedDeals: proposalDeals.map(d => d.id),
         filterValue: null,
-        movingDeal: null
+        movingDeal: null,
+        selectedDeal: null
       }
     };
   }
@@ -33,7 +34,8 @@ export async function handleCRMQuery(query: string): Promise<QueryResult> {
         highlightedStage: "won",
         highlightedDeals: wonDeals.map(d => d.id),
         filterValue: null,
-        movingDeal: null
+        movingDeal: null,
+        selectedDeal: null
       }
     };
   }
@@ -49,7 +51,8 @@ export async function handleCRMQuery(query: string): Promise<QueryResult> {
         highlightedStage: "qualified",
         highlightedDeals: qualifiedDeals.map(d => d.id),
         filterValue: null,
-        movingDeal: null
+        movingDeal: null,
+        selectedDeal: null
       }
     };
   }
@@ -65,7 +68,8 @@ export async function handleCRMQuery(query: string): Promise<QueryResult> {
         highlightedStage: "lead",
         highlightedDeals: leadDeals.map(d => d.id),
         filterValue: null,
-        movingDeal: null
+        movingDeal: null,
+        selectedDeal: null
       }
     };
   }
@@ -81,7 +85,8 @@ export async function handleCRMQuery(query: string): Promise<QueryResult> {
         highlightedStage: "negotiation",
         highlightedDeals: negotiationDeals.map(d => d.id),
         filterValue: null,
-        movingDeal: null
+        movingDeal: null,
+        selectedDeal: null
       }
     };
   }
@@ -101,7 +106,8 @@ export async function handleCRMQuery(query: string): Promise<QueryResult> {
           highlightedStage: null,
           highlightedDeals: filteredDeals.map(d => d.id),
           filterValue: threshold,
-          movingDeal: null
+          movingDeal: null,
+        selectedDeal: null
         }
       };
     }
@@ -121,7 +127,8 @@ export async function handleCRMQuery(query: string): Promise<QueryResult> {
           highlightedStage: null,
           highlightedDeals: filteredDeals.map(d => d.id),
           filterValue: threshold,
-          movingDeal: null
+          movingDeal: null,
+        selectedDeal: null
         }
       };
     }
@@ -139,7 +146,8 @@ export async function handleCRMQuery(query: string): Promise<QueryResult> {
         highlightedStage: null,
         highlightedDeals: MOCK_DEALS.map(d => d.id),
         filterValue: null,
-        movingDeal: null
+        movingDeal: null,
+        selectedDeal: null
       }
     };
   }
@@ -154,7 +162,8 @@ export async function handleCRMQuery(query: string): Promise<QueryResult> {
         highlightedStage: null,
         highlightedDeals: [],
         filterValue: null,
-        movingDeal: null
+        movingDeal: null,
+        selectedDeal: null
       }
     };
   }
@@ -172,7 +181,8 @@ export async function handleCRMQuery(query: string): Promise<QueryResult> {
         highlightedStage: companyMatch.stage,
         highlightedDeals: [companyMatch.id],
         filterValue: null,
-        movingDeal: null
+        movingDeal: null,
+        selectedDeal: null
       }
     };
   }
@@ -215,7 +225,8 @@ export async function handleCRMQuery(query: string): Promise<QueryResult> {
         highlightedStage: null,
         highlightedDeals: highPriorityDeals.map(d => d.id),
         filterValue: null,
-        movingDeal: null
+        movingDeal: null,
+        selectedDeal: null
       }
     };
   }

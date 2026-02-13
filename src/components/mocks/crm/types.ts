@@ -34,4 +34,5 @@ export interface CRMState {
   highlightedDeals: string[];
   filterValue: number | null;
   movingDeal: { dealId: string; fromStage: DealStage; toStage: DealStage } | null;
+  selectedDeal: string | null;
 }

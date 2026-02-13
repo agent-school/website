@@ -11,8 +11,17 @@ import { MOCK_DEALS, STAGE_LABELS, STAGE_COLORS } from "./data";
 const STAGES: DealStage[] = ["lead", "qualified", "proposal", "negotiation", "won"];
 
 export function Pipeline() {
-  const { state } = useMockUI<CRMState>();
+  const { state, dispatch } = useMockUI<CRMState>();
   const crmState = state.data as CRMState;
+
+  const handleDealClick = (dealId: string) => {
+    dispatch({
+      type: "UPDATE_DATA",
+      payload: {
+        selectedDeal: crmState.selectedDeal === dealId ? null : dealId
+      }
+    });
+  };
 
   const dealsByStage = useMemo(() => {
     const grouped: Record<DealStage, Deal[]> = {
@@ -48,6 +57,10 @@ export function Pipeline() {
 
   const isDealHighlighted = (dealId: string) => {
     return crmState.highlightedDeals.includes(dealId);
+  };
+
+  const isDealSelected = (dealId: string) => {
+    return crmState.selectedDeal === dealId;
   };
 
   const formatCurrency = (value: number) => {
@@ -95,16 +108,19 @@ export function Pipeline() {
             <div className={`${colors.bg} ${colors.border} border-l border-r border-b rounded-b-lg p-3 flex-1 overflow-y-auto space-y-3 min-h-0`}>
               {dealsByStage[stage].map(deal => {
                 const dealHighlighted = isDealHighlighted(deal.id);
+                const dealSelected = isDealSelected(deal.id);
 
                 return (
                   <InteractiveElement
                     key={deal.id}
                     id={deal.id}
                     highlight={dealHighlighted}
+                    onClick={() => handleDealClick(deal.id)}
                     className={`
                       bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700
                       shadow-sm hover:shadow-md transition-all cursor-pointer p-4
                       ${dealHighlighted ? "ring-2 ring-teal-500 dark:ring-teal-400 shadow-lg" : ""}
+                      ${dealSelected ? "ring-2 ring-orange-500 dark:ring-orange-400 shadow-lg bg-orange-50 dark:bg-orange-950/20" : ""}
                       ${deal.priority === "high" ? "border-l-4 border-l-orange-500" : ""}
                     `}
                   >
