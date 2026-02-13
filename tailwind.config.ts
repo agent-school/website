@@ -281,7 +281,8 @@ const config: Config = {
   			'draw-line': 'draw-line 1.5s ease-out forwards',
   			'shimmer': 'shimmer 2s linear infinite',
   			'glow-pulse': 'glow-pulse 3s ease-in-out infinite',
-  			'scan-line': 'scan-line 8s linear infinite'
+  			'scan-line': 'scan-line 8s linear infinite',
+  			'border-beam': 'border-beam calc(var(--duration)*1s) infinite linear'
   		},
   		keyframes: {
   			float: {
@@ -332,6 +333,14 @@ const config: Config = {
   				},
   				'100%': {
   					transform: 'translateY(100vh)'
+  				}
+  			},
+  			'border-beam': {
+  				'0%': {
+  					'offset-distance': '0%'
+  				},
+  				'100%': {
+  					'offset-distance': '100%'
   				}
   			}
   		},
