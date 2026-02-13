@@ -1,9 +1,29 @@
 # Agent School Website - Documentation Index
 
-**Generated:** 2026-02-10  
+**Generated:** 2026-02-12  
 **Project Type:** Next.js Web Application (Monolith)  
 **Status:** 🚧 Redesign Phase 1 in Progress  
-**Build Status:** ⚠️ Not Compiling (Known Errors)
+**Build Status:** ⚠️ See [Known Issues](#-known-issues)
+
+---
+
+## 📑 Table of Contents
+
+| Section | Description |
+|---------|-------------|
+| [Project Overview](#-project-overview) | Type, stack, quick reference |
+| [Getting Started](#-getting-started) | First-time setup by role |
+| [Generated Documentation](#-generated-documentation) | Auto-generated core docs |
+| [Existing Documentation](#-existing-documentation) | Team-authored docs |
+| [Documentation by Topic](#-documentation-by-topic) | Browse by category |
+| [Quick Navigation](#-quick-navigation) | By role and task |
+| [Known Issues](#-known-issues) | Critical & high-priority bugs |
+| [Project Metrics](#-project-metrics) | Codebase stats |
+| [Current Development Phase](#-current-development-phase) | Redesign status |
+| [Next Steps](#-next-steps) | Immediate actions & goals |
+| [Support & Resources](#-support--resources) | Internal & external links |
+| [Documentation Maintenance](#-documentation-maintenance) | When & how to update |
+| [Changelog](#-changelog) | Index version history |
 
 ---
 
@@ -34,20 +54,20 @@
 ### For First-Time Contributors
 
 1. **Start Here:** [Project Overview](./project-overview.md) ← Comprehensive project summary
-2. **Setup Dev Environment:** [Development Guide](./development-guide.md) ← Prerequisites, commands, workflow
+2. **Setup Dev Environment:** [Development Guide](./dev/development-guide.md) ← Prerequisites, commands, workflow
 3. **Understand Tech Stack:** [Technology Stack](./technology-stack.md) ← All technologies explained
 4. **Browse Components:** [Component Inventory](./component-inventory.md) ← 79 components cataloged
 5. **Read AI Agent Context:** `../AGENTS.md` ← Context for AI coding agents
 
 ### For Designers/Product
 
-1. **Design System:** [Design System](./design/design-system.md) ← Cyber Citrus tokens (1042 lines)
+1. **Design System:** [Design System Proposal](./design/design-system-new-purposal.md) ← Cyber Citrus tokens
 2. **Redesign Plan:** [Redesign Roadmap](./planning/redesign-roadmap.md) ← 7-phase plan (891 lines)
 3. **Component Guide:** [Components Guide](./guides/components-guide.md) ← Component usage patterns
 
 ### For DevOps/Deployment
 
-1. **Deployment Guide:** [Deployment Guide](./deployment-guide.md) ← Vercel deployment process
+1. **Deployment Guide:** [Deployment Guide](./dev/deployment-guide.md) ← Vercel deployment process
 2. **Architecture:** [Architecture Document](./architecture.md) ← System architecture
 
 ---
@@ -67,8 +87,8 @@
 | **[Component Inventory](./component-inventory.md)** | All 79 components cataloged | ~600 | ✅ Complete |
 | **[Source Tree Analysis](./source-tree-analysis.md)** | Annotated directory structure | ~500 | ✅ Complete |
 | **[Architecture](./architecture.md)** | Comprehensive architecture doc | ~900 | ✅ Complete |
-| **[Development Guide](./development-guide.md)** | Local setup & dev workflow | ~600 | ✅ Complete |
-| **[Deployment Guide](./deployment-guide.md)** | Vercel deployment process | ~600 | ✅ Complete |
+| **[Development Guide](./dev/development-guide.md)** | Local setup & dev workflow | ~600 | ✅ Complete |
+| **[Deployment Guide](./dev/deployment-guide.md)** | Vercel deployment process | ~600 | ✅ Complete |
 
 **Total Generated:** ~3,900 lines of documentation
 
@@ -84,7 +104,7 @@
 | Document | Purpose | Lines | Status |
 |----------|---------|-------|--------|
 | **[Mock UI Framework](./architecture/mock-ui-framework.md)** | React mock UI architecture | 1,790 | ✅ Comprehensive |
-| **[Design System](./design/design-system.md)** | Cyber Citrus design tokens | 1,042 | ✅ Complete |
+| **[Design System Proposal](./design/design-system-new-purposal.md)** | Cyber Citrus design tokens | — | ✅ Active |
 
 ### Planning & Roadmap
 
@@ -97,7 +117,7 @@
 | Document | Purpose | Lines | Status |
 |----------|---------|-------|--------|
 | **[Components Guide](./guides/components-guide.md)** | Component usage patterns | ~200 | ✅ Complete |
-| **[MCP Setup](./guides/mcp-setup.md)** | MCP configuration | ~100 | ✅ Complete |
+| **[MCP Setup](./dev/mcp-setup.md)** | MCP configuration | ~100 | ✅ Complete |
 
 ### Bug Tracking
 
@@ -105,6 +125,8 @@
 |----------|---------|-------|--------|
 | **[Bug Index](./bugs/readme.md)** | Known issues index | ~50 | ✅ Active |
 | **[Build Timeout](./bugs/build-timeout-feb-2026.md)** | Build timeout issue | ~100 | ✅ Documented |
+| **[Demo Fix Summary](./bugs/DEMO_FIX_SUMMARY.md)** | Demo interactivity fixes | ~330 | ✅ Complete |
+| **[Debug Changelog](./bugs/debug-changelog-feb-2026.md)** | Feb 2026 debug log | ~80 | ✅ Active |
 
 **Total Existing:** ~4,173 lines of documentation
 
@@ -122,26 +144,29 @@
 ### Technology & Tools
 
 - **[Technology Stack](./technology-stack.md)** - Complete tech stack (generated)
-- **[Development Guide](./development-guide.md)** - Local dev setup (generated)
-- **[Deployment Guide](./deployment-guide.md)** - Vercel deployment (generated)
+- **[Development Guide](./dev/development-guide.md)** - Local dev setup (generated)
+- **[Deployment Guide](./dev/deployment-guide.md)** - Vercel deployment (generated)
 
 ### Design & UX
 
-- **[Design System](./design/design-system.md)** - Cyber Citrus tokens (existing)
+- **[Design System Proposal](./design/design-system-new-purposal.md)** - Cyber Citrus tokens (existing)
 - **[Components Guide](./guides/components-guide.md)** - Component patterns (existing)
 - **[Redesign Roadmap](./planning/redesign-roadmap.md)** - 7-phase plan (existing)
 
 ### Reference & Getting Started
 
 - **[Project Overview](./project-overview.md)** - Executive summary (generated)
+- **[Sitemap](./SITEMAP.md)** - Complete site structure & URLs (existing)
 - **[README](./README.md)** - Documentation index (existing)
 - **[AGENTS.md](../AGENTS.md)** - AI agent context (existing)
+- **[Session History](./session-history.md)** - Development session log (existing)
 
 ### Operations & Maintenance
 
 - **[Bug Index](./bugs/readme.md)** - Known issues (existing)
 - **[Build Timeout](./bugs/build-timeout-feb-2026.md)** - Build issue (existing)
-- **[MCP Setup](./guides/mcp-setup.md)** - MCP config (existing)
+- **[Demo Fix Summary](./bugs/DEMO_FIX_SUMMARY.md)** - Demo interactivity fixes (existing)
+- **[MCP Setup](./dev/mcp-setup.md)** - MCP config (existing)
 
 ---
 
@@ -150,18 +175,18 @@
 ### By Role
 
 **👨‍💻 Developers:**
-- Start → [Development Guide](./development-guide.md)
+- Start → [Development Guide](./dev/development-guide.md)
 - Components → [Component Inventory](./component-inventory.md)
 - Architecture → [Architecture](./architecture.md)
 - Tech Stack → [Technology Stack](./technology-stack.md)
 
 **🎨 Designers:**
-- Design System → [Design System](./design/design-system.md)
+- Design System → [Design System Proposal](./design/design-system-new-purposal.md)
 - Redesign Plan → [Redesign Roadmap](./planning/redesign-roadmap.md)
 - Component Guide → [Components Guide](./guides/components-guide.md)
 
 **🚀 DevOps:**
-- Deployment → [Deployment Guide](./deployment-guide.md)
+- Deployment → [Deployment Guide](./dev/deployment-guide.md)
 - Architecture → [Architecture](./architecture.md)
 - Known Issues → [Bug Index](./bugs/readme.md)
 
@@ -173,18 +198,18 @@
 ### By Task
 
 **Setting Up Locally:**
-1. [Development Guide](./development-guide.md) - Prerequisites & commands
+1. [Development Guide](./dev/development-guide.md) - Prerequisites & commands
 2. [Technology Stack](./technology-stack.md) - Understand the stack
 3. [Source Tree Analysis](./source-tree-analysis.md) - Navigate the codebase
 
 **Building Features:**
 1. [Component Inventory](./component-inventory.md) - Find reusable components
 2. [Components Guide](./guides/components-guide.md) - Usage patterns
-3. [Design System](./design/design-system.md) - Design tokens
-4. [Development Guide](./development-guide.md) - Development workflow
+3. [Design System Proposal](./design/design-system-new-purposal.md) - Design tokens
+4. [Development Guide](./dev/development-guide.md) - Development workflow
 
 **Deploying:**
-1. [Deployment Guide](./deployment-guide.md) - Vercel deployment
+1. [Deployment Guide](./dev/deployment-guide.md) - Vercel deployment
 2. [Architecture](./architecture.md) - System architecture
 3. [Bug Index](./bugs/readme.md) - Known issues
 
@@ -360,7 +385,7 @@ See **[Bug Index](./bugs/readme.md)** for complete list of known issues
 
 - **AI Agent Context:** `../AGENTS.md` (241 lines)
 - **Bug Tracking:** [Bug Index](./bugs/readme.md)
-- **Design Questions:** [Design System](./design/design-system.md)
+- **Design Questions:** [Design System Proposal](./design/design-system-new-purposal.md)
 - **Architecture Questions:** [Architecture](./architecture.md)
 
 ### External Resources
@@ -373,7 +398,7 @@ See **[Bug Index](./bugs/readme.md)** for complete list of known issues
 
 ### Development Setup
 
-**Start Here:** [Development Guide](./development-guide.md)
+**Start Here:** [Development Guide](./dev/development-guide.md)
 
 **Quick Start:**
 ```bash
@@ -418,6 +443,14 @@ http://localhost:3000
 
 ## 🔄 Changelog
 
+### 2026-02-12 - Index Update
+
+- ✅ Added Table of Contents with anchor links
+- ✅ Updated links: dev guides moved to `docs/dev/` (development-guide, deployment-guide, mcp-setup)
+- ✅ Updated design system link to `design-system-new-purposal.md`
+- ✅ Added Demo Fix Summary & Debug Changelog to bug docs
+- ✅ Refreshed "Generated" date
+
 ### 2026-02-10 - Initial Documentation Generation
 
 **Generated Documentation:**
@@ -436,10 +469,10 @@ http://localhost:3000
 
 ---
 
-**Index Version:** 1.0.0  
-**Last Updated:** 2026-02-10  
+**Index Version:** 1.1.0  
+**Last Updated:** 2026-02-12  
 **Next Review:** After compilation errors resolved
 
 ---
 
-**👋 Need help?** Start with [Project Overview](./project-overview.md) or [Development Guide](./development-guide.md)
+**👋 Need help?** Start with [Project Overview](./project-overview.md) or [Development Guide](./dev/development-guide.md)
