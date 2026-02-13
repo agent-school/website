@@ -1,26 +1,13 @@
 "use client";
 
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { Linkedin, ArrowRight, Mail, Twitter } from "lucide-react";
+import { Linkedin, Twitter } from "lucide-react";
 import { NAV_ITEMS, BOOKING_URL, LINKEDIN_URL, TWITTER_URL } from "@/lib/constants";
 
 export function Footer() {
-  const [email, setEmail] = useState("");
-  const [subscribed, setSubscribed] = useState(false);
-
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email) {
-      setSubscribed(true);
-      setEmail("");
-      setTimeout(() => setSubscribed(false), 3000);
-    }
-  };
-
   return (
     <footer className="bg-slate-900 dark:bg-slate-950 text-white">
-      {/* Newsletter Strip */}
+      {/* Newsletter Strip hidden until subscription feature is ready */}
+      {/*
       <div className="bg-gradient-to-r from-teal-600 to-orange-500">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
@@ -32,37 +19,10 @@ export function Footer() {
                 Get updates on Agent School features and industry insights.
               </p>
             </div>
-            <form
-              onSubmit={handleSubscribe}
-              className="flex items-center gap-2 w-full md:w-auto"
-            >
-              <div className="relative flex-1 md:w-72">
-                <Mail
-                  size={16}
-                  className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500"
-                />
-                <input
-                  type="email"
-                  placeholder="your@email.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="w-full pl-10 pr-4 py-3 rounded-xl bg-white/90 text-slate-900 text-body-sm placeholder:text-slate-500 border-2 border-transparent focus:border-slate-900 focus:outline-none transition-colors"
-                  required
-                />
-              </div>
-              <motion.button
-                type="submit"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="px-5 py-3 rounded-xl bg-slate-900 text-white font-semibold text-body-sm flex items-center gap-2 hover:bg-slate-800 transition-colors"
-              >
-                {subscribed ? "Subscribed!" : "Subscribe"}
-                <ArrowRight size={16} />
-              </motion.button>
-            </form>
           </div>
         </div>
       </div>
+      */}
 
       {/* Main Footer */}
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
