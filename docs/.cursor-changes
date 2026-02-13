@@ -1,3 +1,21 @@
+2026-02-12 skillbuilder-nested-button
+- Goal: fix invalid HTML / React error when clicking "Try Interactive Demo" in SkillBuilderDemo.
+- Prior state: `<motion.button>` wrapped an inner `<button>` for "Decision Point" — nesting buttons is invalid HTML and caused runtime error.
+- New effect:
+  - Replaced inner `<button>` with `<span role="button" tabIndex={0}>` for the "Decision Point" toggle.
+  - Added onKeyDown handler for Enter/Space to preserve keyboard accessibility.
+  - Added cursor-pointer to span for visual affordance.
+
+2026-02-12 legal-pages
+- Goal: add Privacy Policy and Terms of Service pages.
+- Prior state: Footer had placeholder "#" links for Privacy Policy and Terms of Service.
+- New effect:
+  - Created `src/app/privacy/page.tsx` with comprehensive Privacy Policy (15 sections) covering data collection, usage, GDPR, CCPA, cookies, security, retention, user rights, and contact.
+  - Created `src/app/terms/page.tsx` with Terms of Service (19 sections) covering acceptance, eligibility, license, IP, acceptable use, disclaimers, liability, termination, DMCA, and governing law.
+  - Updated Footer links from "#" to "/privacy" and "/terms".
+  - Added both pages to sitemap.ts for SEO discoverability.
+  - Content based on research (TermsFeed, GetTerms SaaS templates) and tailored for Agent School context.
+
 2026-02-10 debug-01
 - Goal: diagnose `next dev`/`next build` hangs with runtime evidence.
 - Prior state: no runtime telemetry around build/page-data execution paths.
@@ -111,3 +129,17 @@
   - Created docs/legacy/ folder: README.md (explains deprecated original docs), legacy-design-reference.md (navy/amber/cream palette for migration reference).
   - Updated docs/README.md: added "Original vs BMAD Redesign" section; fixed links (design-system-new-purposal, mock-ui-framework, components-guide, brownfield/redesign-roadmap).
   - Updated docs/index.md: added era section; fixed all broken paths (project-overview, technology-stack, component-inventory, source-tree-analysis → brownfield/; mock-ui-framework, components-guide → design/).
+2026-02-12 ui-fixes-02
+- Goal: fix stats label color, use square logos, fix scroll-to-top.
+- Prior state: Stats labels still gray in dark mode; non-square logos; page loaded at bottom.
+- New effect:
+  - Hero stats: dark:!text-white to force white labels (Accuracy Rate, Faster Training, Cost Reduction).
+  - Navbar/Footer: switched to agent school icon dark square.png / agent school icon light square.png.
+  - Scroll: head script sets scrollRestoration=manual + scrollTo(0,0) before React; ScrollToTop uses useLayoutEffect.
+2026-02-12 ui-fixes-03
+- Goal: stop homepage jumping to bottom, enforce logo/theme correctness, and keep hero stats readable.
+- Prior state: landing sometimes opened near the meeting demo/CTA area; navbar could show wrong light/dark logo; hero stat text still not visually white enough.
+- New effect:
+  - AgentInterface now scrolls only its own message container (`scrollTo` on panel) and no longer calls `scrollIntoView` that could move the page.
+  - Navbar logo now uses the dark square icon consistently to avoid light-logo-on-light-theme mismatch.
+  - Hero stat cards now render with dark glass styling and white number/label text for `99% Accuracy Rate`, `10x Faster Training`, and `95% Cost Reduction`.
