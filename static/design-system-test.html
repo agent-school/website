@@ -3,14 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Agent School — Design System v2</title>
+  <title>Agent School — Design System v3</title>
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
   
-  <!-- Tailwind CSS (via CDN) -->
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   
   <script>
@@ -41,6 +44,13 @@
               400: '#A8C686',
               500: '#8FB570',
             },
+            'orange': {
+              100: '#FFEDD5',
+              200: '#FED7AA',
+              300: '#FDBA74',
+              400: '#FB923C',
+              500: '#F97316',
+            },
           },
         }
       }
@@ -55,11 +65,11 @@
       color: #6A6A6A;
     }
     
-    /* Subtle sage background blooms */
+    /* Subtle sage background blooms + orange hints */
     .bg-sage-bloom {
       background: 
         radial-gradient(ellipse at 10% 20%, rgba(232, 240, 227, 0.3) 0%, transparent 50%),
-        radial-gradient(ellipse at 90% 80%, rgba(212, 229, 201, 0.2) 0%, transparent 60%),
+        radial-gradient(ellipse at 90% 80%, rgba(253, 186, 116, 0.15) 0%, transparent 60%),
         #FAFAFA;
     }
     
@@ -68,11 +78,19 @@
       letter-spacing: 0.02em;
     }
     
-    /* Hollow Circle Variations */
+    /* Hollow Circle Variations - Sage primary, Orange secondary */
     .hollow-circle {
       width: 12px;
       height: 12px;
       border: 1px solid #C1D5A8;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    
+    .hollow-circle-orange {
+      width: 12px;
+      height: 12px;
+      border: 1px solid #FB923C;
       border-radius: 50%;
       display: inline-block;
     }
@@ -101,7 +119,15 @@
       display: inline-block;
     }
     
-    /* Buttons - Much Lighter */
+    .filled-circle-orange {
+      width: 12px;
+      height: 12px;
+      background-color: #FB923C;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    
+    /* Buttons - Lighter with Orange secondary */
     .btn-primary {
       border: 1px solid #4A4A4A;
       background: transparent;
@@ -135,11 +161,12 @@
     }
     
     .btn-secondary:hover {
-      border-color: #C1D5A8;
+      border-color: #FB923C;
       color: #2A2A2A;
+      background-color: #FFEDD5;
     }
     
-    /* Input Fields */
+    /* Input Fields - Orange focus */
     .underlined-input {
       border: none;
       border-bottom: 1px solid #E0E0E0;
@@ -156,22 +183,28 @@
       border-bottom: 1.5px solid #C1D5A8;
     }
     
-    /* Navigation - Expandable */
+    .underlined-input.focus-orange:focus {
+      border-bottom: 1.5px solid #FB923C;
+    }
+    
+    /* Navigation - Pop Down from Top, Starting from Right */
     #navMenu {
       position: fixed;
-      top: 0;
-      right: -50%;
+      top: -100%;
+      right: 0;
       width: 50%;
-      height: 100vh;
+      max-height: 80vh;
       background: white;
-      border-left: 1px solid #E0E0E0;
-      transition: right 300ms ease-out;
+      border: 1px solid #E0E0E0;
+      border-top: none;
+      transition: top 400ms cubic-bezier(0.25, 0.1, 0.25, 1);
       z-index: 100;
       overflow-y: auto;
+      box-shadow: 0 20px 40px rgba(42, 42, 42, 0.1);
     }
     
     #navMenu.open {
-      right: 0;
+      top: 0;
     }
     
     #navOverlay {
@@ -192,30 +225,82 @@
       pointer-events: auto;
     }
     
-    /* Widget Layouts */
-    .widget-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background-color: #E0E0E0;
+    /* Code Block Component - Orange for strings */
+    .code-block {
+      background: #FAFAFA;
       border: 1px solid #E0E0E0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      line-height: 1.6;
+      overflow-x: auto;
     }
     
-    .widget-cell {
-      background: white;
-      padding: 16px;
-      min-height: 120px;
+    .code-line {
+      display: flex;
+      padding: 0;
+      border-bottom: 1px solid #F5F5F5;
     }
     
-    /* Integration Circle Animations (Magic UI inspired) */
-    @keyframes pulse-subtle {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.6; transform: scale(1.05); }
+    .code-line:last-child {
+      border-bottom: none;
     }
     
+    .line-number {
+      min-width: 48px;
+      padding: 6px 12px;
+      text-align: right;
+      color: #9A9A9A;
+      background: #F5F5F5;
+      border-right: 1px solid #E0E0E0;
+      user-select: none;
+    }
+    
+    .line-content {
+      padding: 6px 16px;
+      color: #4A4A4A;
+      flex: 1;
+    }
+    
+    .code-keyword {
+      color: #8FB570;
+      font-weight: 500;
+    }
+    
+    .code-string {
+      color: #F97316;
+    }
+    
+    .code-comment {
+      color: #9A9A9A;
+      font-style: italic;
+    }
+    
+    /* Phase Pills - Interactive with Orange secondary */
+    .phase-pill {
+      border: 1px solid #E0E0E0;
+      padding: 8px 20px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 200ms ease-out;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .phase-pill:hover {
+      border-color: #FB923C;
+      background: #FFEDD5;
+    }
+    
+    .phase-pill.active {
+      border-color: #C1D5A8;
+      background: #E8F0E3;
+    }
+    
+    /* Integration Circle Animations - Alternating Sage/Orange */
     .integration-circle {
-      width: 48px;
-      height: 48px;
+      width: 64px;
+      height: 64px;
       border: 1px solid #E0E0E0;
       border-radius: 50%;
       display: inline-flex;
@@ -223,58 +308,154 @@
       justify-content: center;
       background: white;
       position: relative;
+      transition: all 300ms ease-out;
     }
     
     .integration-circle:hover {
-      animation: pulse-subtle 1.5s ease-in-out infinite;
       border-color: #C1D5A8;
+      transform: translateY(-4px);
+      box-shadow: 0 8px 16px rgba(193, 213, 168, 0.2);
     }
     
-    .integration-circle::before {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 100%;
+    .integration-circle.orange:hover {
+      border-color: #FB923C;
+      box-shadow: 0 8px 16px rgba(251, 146, 60, 0.2);
+    }
+    
+    .integration-circle svg {
+      width: 24px;
+      height: 24px;
+      stroke: #6A6A6A;
+      transition: stroke 300ms ease-out;
+    }
+    
+    .integration-circle:hover svg {
+      stroke: #8FB570;
+    }
+    
+    .integration-circle.orange:hover svg {
+      stroke: #F97316;
+    }
+    
+    /* Chat Component */
+    .chat-container {
+      border: 1px solid #E0E0E0;
+      background: white;
+      height: 500px;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .chat-header {
+      padding: 16px 20px;
+      border-bottom: 1px solid #E0E0E0;
+      background: #FAFAFA;
+    }
+    
+    .chat-messages {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    
+    .chat-message {
+      display: flex;
+      gap: 12px;
+      max-width: 80%;
+    }
+    
+    .chat-message.agent {
+      align-self: flex-start;
+    }
+    
+    .chat-message.user {
+      align-self: flex-end;
+      flex-direction: row-reverse;
+    }
+    
+    .chat-avatar {
+      width: 32px;
+      height: 32px;
       border-radius: 50%;
-      border: 1px solid #C1D5A8;
-      opacity: 0;
-      transform: scale(1);
-      transition: all 400ms ease-out;
+      border: 1px solid #E0E0E0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      background: white;
     }
     
-    .integration-circle:hover::before {
-      opacity: 0.4;
-      transform: scale(1.3);
+    .chat-message.agent .chat-avatar {
+      background: #E8F0E3;
     }
     
-    /* Hairline Grid Containers */
-    .grid-container {
+    .chat-message.user .chat-avatar {
+      background: #FFEDD5;
+      border-color: #FED7AA;
+    }
+    
+    .chat-bubble {
+      padding: 12px 16px;
       border: 1px solid #E0E0E0;
       background: white;
     }
     
-    .grid-cell {
-      border-right: 1px solid #E0E0E0;
-      border-bottom: 1px solid #E0E0E0;
-      padding: 24px;
+    .chat-message.agent .chat-bubble {
+      background: #FAFAFA;
     }
     
-    .grid-cell:last-child {
-      border-right: none;
+    .chat-message.user .chat-bubble {
+      background: #FFEDD5;
+      border-color: #FED7AA;
     }
     
-    /* Sidebar Layout */
-    .sidebar-layout {
+    .chat-input-area {
+      padding: 16px 20px;
+      border-top: 1px solid #E0E0E0;
+      background: #FAFAFA;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    
+    .chat-input {
+      flex: 1;
+      border: 1px solid #E0E0E0;
+      background: white;
+      padding: 10px 16px;
+      font-size: 14px;
+      color: #4A4A4A;
+      outline: none;
+      transition: border-color 200ms ease-out;
+    }
+    
+    .chat-input:focus {
+      border-color: #FB923C;
+    }
+    
+    /* Asymmetrical Layouts */
+    .asymmetric-grid {
       display: grid;
-      grid-template-columns: 200px 1fr;
-      gap: 0;
+      grid-template-columns: 2fr 1fr;
+      gap: 1px;
+      background: #E0E0E0;
       border: 1px solid #E0E0E0;
     }
     
-    .sidebar-content {
-      border-right: 1px solid #E0E0E0;
-      padding: 24px;
-      background: #F5F5F5;
+    .asymmetric-grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 1px;
+      background: #E0E0E0;
+      border: 1px solid #E0E0E0;
+    }
+    
+    .grid-cell {
+      background: white;
+      padding: 32px;
     }
   </style>
 </head>
@@ -290,34 +471,47 @@
       
       <button onclick="toggleNav()" class="text-xs uppercase tracking-widest text-charcoal-700 hover:text-charcoal-900 transition flex items-center gap-2">
         <span>MENU</span>
-        <span class="hollow-circle"></span>
+        <span class="hollow-circle-orange"></span>
       </button>
     </div>
   </nav>
   
-  <!-- Half-Screen Expandable Menu -->
+  <!-- Pop-Down Menu from Top -->
   <div id="navOverlay" onclick="toggleNav()"></div>
   <div id="navMenu">
     <div class="p-12 border-b border-hairline">
       <button onclick="toggleNav()" class="text-xs uppercase tracking-widest text-charcoal-700 hover:text-charcoal-900 mb-8 flex items-center gap-2">
-        <span>← CLOSE</span>
+        <i data-lucide="x" class="w-4 h-4"></i>
+        <span>CLOSE</span>
       </button>
       
       <div class="space-y-6">
         <a href="#" class="block headline-serif text-5xl text-charcoal-900 hover:text-sage-400 transition">Methodology</a>
-        <a href="#" class="block headline-serif text-5xl text-charcoal-900 hover:text-sage-400 transition italic">Validation</a>
+        <a href="#" class="block headline-serif text-5xl text-charcoal-900 hover:text-orange-400 transition italic">Validation</a>
         <a href="#" class="block headline-serif text-5xl text-charcoal-900 hover:text-sage-400 transition">Certification</a>
-        <a href="https://cal.com/jackagentschool/15min" class="block headline-serif text-5xl text-charcoal-900 hover:text-sage-400 transition italic">Book Demo</a>
+        <a href="https://cal.com/jackagentschool/15min" class="block headline-serif text-5xl text-charcoal-900 hover:text-orange-400 transition italic">Book Demo</a>
       </div>
     </div>
     
     <div class="p-12">
       <p class="text-xs uppercase tracking-wider text-charcoal-500 mb-4">QUICK LINKS</p>
       <div class="space-y-3">
-        <a href="#" class="block text-sm text-charcoal-700 hover:text-sage-400 transition">Case Studies</a>
-        <a href="#" class="block text-sm text-charcoal-700 hover:text-sage-400 transition">ROI Calculator</a>
-        <a href="#" class="block text-sm text-charcoal-700 hover:text-sage-400 transition">Documentation</a>
-        <a href="#" class="block text-sm text-charcoal-700 hover:text-sage-400 transition">Pricing</a>
+        <a href="#" class="block text-sm text-charcoal-700 hover:text-sage-400 transition flex items-center gap-2">
+          <i data-lucide="book-open" class="w-4 h-4"></i>
+          Case Studies
+        </a>
+        <a href="#" class="block text-sm text-charcoal-700 hover:text-orange-400 transition flex items-center gap-2">
+          <i data-lucide="calculator" class="w-4 h-4"></i>
+          ROI Calculator
+        </a>
+        <a href="#" class="block text-sm text-charcoal-700 hover:text-sage-400 transition flex items-center gap-2">
+          <i data-lucide="file-text" class="w-4 h-4"></i>
+          Documentation
+        </a>
+        <a href="#" class="block text-sm text-charcoal-700 hover:text-orange-400 transition flex items-center gap-2">
+          <i data-lucide="tag" class="w-4 h-4"></i>
+          Pricing
+        </a>
       </div>
     </div>
   </div>
@@ -325,245 +519,406 @@
   <!-- Main Content -->
   <main class="bg-sage-bloom">
     
-    <!-- Section: Hero with Sidebar Asymmetry -->
-    <section class="border-b border-hairline">
-      <div class="sidebar-layout max-w-7xl mx-auto">
-        <div class="sidebar-content">
-          <p class="text-xs uppercase tracking-wider text-charcoal-700 mb-4 font-medium">INTRODUCTION</p>
-          <div class="space-y-8">
-            <div class="flex items-start gap-2">
-              <span class="hollow-circle mt-1"></span>
-              <p class="text-xs text-charcoal-500 leading-relaxed">Editorial luxury meets AI precision</p>
-            </div>
-            <div class="flex items-start gap-2">
-              <span class="hollow-circle mt-1"></span>
-              <p class="text-xs text-charcoal-500 leading-relaxed">Monochrome + subtle sage accents</p>
-            </div>
-            <div class="flex items-start gap-2">
-              <span class="hollow-circle mt-1"></span>
-              <p class="text-xs text-charcoal-500 leading-relaxed">Hairline grid structure</p>
-            </div>
-          </div>
-        </div>
-        
-        <div class="bg-white p-12 md:p-16">
-          <p class="text-xs uppercase tracking-wide text-charcoal-500 mb-6 font-medium">
+    <!-- Section: Hero -->
+    <section class="py-24 px-6 border-b border-hairline">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex items-center gap-2 mb-6">
+          <span class="hollow-circle-orange"></span>
+          <p class="text-xs uppercase tracking-wide text-charcoal-500 font-medium">
             CASE 001 — EDITORIAL AUTOMATION DESIGN
           </p>
-          <h1 class="headline-serif text-6xl md:text-7xl text-charcoal-900 leading-tight mb-2">
-            TEACH HUMAN
-          </h1>
-          <h1 class="headline-serif text-6xl md:text-7xl text-charcoal-900 italic leading-tight mb-8">
-            Knowledge Into AI.
-          </h1>
-          <p class="text-lg font-light text-charcoal-500 max-w-xl leading-relaxed mb-8">
-            Transform institutional expertise into certified, self-healing automation through natural demonstration. No APIs required.
-          </p>
-          
-          <div class="flex gap-4">
-            <button class="btn-primary">BOOK DEMO (○)</button>
-            <button class="btn-secondary">LEARN MORE</button>
-          </div>
+        </div>
+        <h1 class="headline-serif text-6xl md:text-7xl text-charcoal-900 leading-tight mb-2">
+          TEACH HUMAN
+        </h1>
+        <h1 class="headline-serif text-6xl md:text-7xl text-charcoal-900 italic leading-tight mb-8">
+          Knowledge Into AI.
+        </h1>
+        <p class="text-lg font-light text-charcoal-500 max-w-2xl leading-relaxed mb-8">
+          Transform institutional expertise into certified, self-healing automation through natural demonstration.
+        </p>
+        
+        <div class="flex gap-4">
+          <button class="btn-primary flex items-center gap-2">
+            <span>BOOK DEMO</span>
+            <span class="hollow-circle"></span>
+          </button>
+          <button class="btn-secondary">LEARN MORE</button>
         </div>
       </div>
     </section>
     
-    <!-- Section: Stats Band with MUCH Larger Numbers -->
+    <!-- Section: Stats Band (2/3 Size Numbers) -->
     <section class="border-b border-hairline bg-white">
       <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4">
-        <div class="grid-cell text-center space-y-4">
+        <div class="text-center space-y-4 p-8 border-r border-b border-hairline">
           <div class="flex justify-center">
             <span class="hollow-circle-lg"></span>
           </div>
           <p class="text-xs uppercase tracking-wider text-charcoal-500 font-medium">ACCURACY</p>
-          <p class="headline-serif text-8xl md:text-9xl text-charcoal-900">99%</p>
+          <p class="headline-serif text-6xl md:text-7xl text-charcoal-900">99%</p>
           <p class="text-xs uppercase tracking-wider text-charcoal-300">Certified</p>
         </div>
         
-        <div class="grid-cell text-center space-y-4">
+        <div class="text-center space-y-4 p-8 border-r border-b border-hairline">
           <div class="flex justify-center">
-            <span class="hollow-circle-lg"></span>
+            <span class="hollow-circle-orange"></span>
           </div>
           <p class="text-xs uppercase tracking-wider text-charcoal-500 font-medium">TRAINING</p>
-          <p class="headline-serif text-8xl md:text-9xl text-charcoal-900">14d</p>
+          <p class="headline-serif text-6xl md:text-7xl text-charcoal-900">14d</p>
           <p class="text-xs uppercase tracking-wider text-charcoal-300">Deploy Time</p>
         </div>
         
-        <div class="grid-cell text-center space-y-4">
+        <div class="text-center space-y-4 p-8 border-r border-b md:border-b-0 border-hairline">
           <div class="flex justify-center">
             <span class="hollow-circle-lg"></span>
           </div>
           <p class="text-xs uppercase tracking-wider text-charcoal-500 font-medium">UPTIME</p>
-          <p class="headline-serif text-8xl md:text-9xl text-charcoal-900">99.9%</p>
+          <p class="headline-serif text-6xl md:text-7xl text-charcoal-900">99.9%</p>
           <p class="text-xs uppercase tracking-wider text-charcoal-300">Production</p>
         </div>
         
-        <div class="grid-cell text-center space-y-4">
+        <div class="text-center space-y-4 p-8 border-b md:border-b-0 border-hairline">
           <div class="flex justify-center">
-            <span class="hollow-circle-lg"></span>
+            <span class="hollow-circle-orange"></span>
           </div>
           <p class="text-xs uppercase tracking-wider text-charcoal-500 font-medium">SAVED</p>
-          <p class="headline-serif text-8xl md:text-9xl text-charcoal-900">420h</p>
+          <p class="headline-serif text-6xl md:text-7xl text-charcoal-900">420h</p>
           <p class="text-xs uppercase tracking-wider text-charcoal-300">Per Month</p>
         </div>
       </div>
     </section>
     
-    <!-- Section: Feature Cards (Multiple Variations) -->
+    <!-- Section: Asymmetrical Feature Cards -->
     <section class="py-24 px-6">
       <div class="max-w-7xl mx-auto">
         <p class="text-xs uppercase tracking-widest text-charcoal-700 mb-12 font-medium">
-          FEATURE CARD VARIATIONS
+          ASYMMETRICAL FEATURE LAYOUTS
         </p>
         
-        <!-- Variation 1: Standard Grid -->
-        <div class="grid md:grid-cols-3 gap-8 mb-16">
-          <div class="border border-hairline bg-white p-8">
-            <div class="flex items-center gap-2 mb-4">
-              <span class="hollow-circle"></span>
-              <p class="text-xs uppercase tracking-wider text-charcoal-500 font-medium">FEATURE 01</p>
+        <!-- Layout 1: 2/3 + 1/3 Split -->
+        <div class="asymmetric-grid mb-8">
+          <div class="grid-cell">
+            <div class="flex items-center gap-2 mb-6">
+              <span class="hollow-circle-xl"></span>
+              <p class="text-xs uppercase tracking-wider text-charcoal-500 font-medium">PRIMARY FEATURE</p>
             </div>
-            <h3 class="headline-serif text-3xl text-charcoal-900 mb-2">Teach Once.</h3>
-            <h4 class="headline-serif text-2xl text-charcoal-900 italic mb-4">Automate Forever.</h4>
-            <p class="text-sm font-light text-charcoal-500 leading-relaxed">
-              Natural teaching transforms institutional knowledge into certified automation.
+            <h3 class="headline-serif text-4xl text-charcoal-900 mb-2">Teach Once.</h3>
+            <h4 class="headline-serif text-3xl text-charcoal-900 italic mb-6">Automate Forever.</h4>
+            <p class="text-base font-light text-charcoal-500 leading-relaxed mb-6">
+              Agent School transforms institutional knowledge into certified automation through natural teaching. No APIs. No scripting. Just demonstration. Your agents watch, learn, and execute—adapting to changes automatically.
             </p>
+            <button class="btn-primary">EXPLORE METHODOLOGY</button>
           </div>
           
-          <div class="border border-hairline bg-white p-8">
-            <div class="flex items-center gap-2 mb-4">
-              <span class="hollow-circle"></span>
-              <p class="text-xs uppercase tracking-wider text-charcoal-500 font-medium">FEATURE 02</p>
-            </div>
-            <h3 class="headline-serif text-3xl text-charcoal-900 mb-2">Visual Learning.</h3>
-            <h4 class="headline-serif text-2xl text-charcoal-900 italic mb-4">No Scripting.</h4>
-            <p class="text-sm font-light text-charcoal-500 leading-relaxed">
-              Agents watch and learn through demonstration, not code. Pure visual pedagogy.
-            </p>
-          </div>
-          
-          <div class="border border-hairline bg-white p-8">
-            <div class="flex items-center gap-2 mb-4">
-              <span class="hollow-circle"></span>
-              <p class="text-xs uppercase tracking-wider text-charcoal-500 font-medium">FEATURE 03</p>
-            </div>
-            <h3 class="headline-serif text-3xl text-charcoal-900 mb-2">Self-Healing.</h3>
-            <h4 class="headline-serif text-2xl text-charcoal-900 italic mb-4">Zero Maintenance.</h4>
-            <p class="text-sm font-light text-charcoal-500 leading-relaxed">
-              Agents adapt to UI changes automatically. No brittle selectors or brittle logic.
-            </p>
-          </div>
-        </div>
-        
-        <!-- Variation 2: Nested Borders (Diagram Style) -->
-        <div class="grid md:grid-cols-2 gap-8 mb-16">
-          <div class="border border-hairline bg-white p-2">
-            <div class="border border-hairline p-8">
-              <p class="text-xs uppercase tracking-wider text-charcoal-700 mb-6 font-medium">VISUAL CORTEX</p>
-              <div class="space-y-3">
-                <div class="border border-sage-300 bg-sage-100 px-4 py-2 font-mono text-xs text-charcoal-700">
-                  DETECT: button_checkout_primary
-                </div>
-                <div class="border border-sage-300 bg-sage-100 px-4 py-2 font-mono text-xs text-charcoal-700">
-                  COORDINATES: (x:320, y:540)
-                </div>
-                <div class="border border-sage-300 bg-sage-100 px-4 py-2 font-mono text-xs text-charcoal-700">
-                  STATE: clickable • enabled
+          <div class="grid-cell bg-sage-100">
+            <div class="space-y-6">
+              <div class="flex items-start gap-3">
+                <i data-lucide="eye" class="w-5 h-5 text-sage-500 mt-1"></i>
+                <div>
+                  <p class="text-sm font-medium text-charcoal-900 mb-1">Visual Learning</p>
+                  <p class="text-xs text-charcoal-500">Agents watch your screen</p>
                 </div>
               </div>
-            </div>
-          </div>
-          
-          <div class="border border-hairline bg-white p-2">
-            <div class="border border-hairline p-8">
-              <p class="text-xs uppercase tracking-wider text-charcoal-700 mb-6 font-medium">REASONING LAYER</p>
-              <div class="space-y-3">
-                <div class="border border-sage-300 bg-sage-100 px-4 py-2 font-mono text-xs text-charcoal-700">
-                  INTENT: complete_purchase_flow
+              <div class="flex items-start gap-3">
+                <i data-lucide="brain" class="w-5 h-5 text-orange-400 mt-1"></i>
+                <div>
+                  <p class="text-sm font-medium text-charcoal-900 mb-1">Natural Teaching</p>
+                  <p class="text-xs text-charcoal-500">Demonstrate workflows</p>
                 </div>
-                <div class="border border-sage-300 bg-sage-100 px-4 py-2 font-mono text-xs text-charcoal-700">
-                  CONFIDENCE: 98.7%
-                </div>
-                <div class="border border-sage-300 bg-sage-100 px-4 py-2 font-mono text-xs text-charcoal-700">
-                  NEXT: validate_payment_info
+              </div>
+              <div class="flex items-start gap-3">
+                <i data-lucide="shield-check" class="w-5 h-5 text-sage-500 mt-1"></i>
+                <div>
+                  <p class="text-sm font-medium text-charcoal-900 mb-1">Certified Agents</p>
+                  <p class="text-xs text-charcoal-500">Production-ready</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
         
-        <!-- Variation 3: Large Hero Cards -->
-        <div class="space-y-8 mb-16">
-          <div class="border border-hairline bg-white p-12 grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <div class="flex items-center gap-2 mb-6">
-                <span class="hollow-circle-xl"></span>
-                <p class="text-xs uppercase tracking-wider text-charcoal-500 font-medium">METHODOLOGY</p>
+        <!-- Layout 2: 1/3 + 2/3 Split (Reversed) -->
+        <div class="asymmetric-grid-3 mb-8">
+          <div class="grid-cell bg-orange-100">
+            <div class="border border-orange-200 bg-white p-6">
+              <div class="flex items-center gap-2 mb-4">
+                <span class="filled-circle-orange"></span>
+                <p class="text-xs uppercase tracking-wider text-charcoal-700 font-medium">IMPACT</p>
               </div>
-              <h3 class="headline-serif text-5xl text-charcoal-900 mb-3">The Agent</h3>
-              <h4 class="headline-serif text-4xl text-charcoal-900 italic mb-6">Pedagogy.</h4>
-              <p class="text-base font-light text-charcoal-500 leading-relaxed mb-6">
-                Our three-phase certification process transforms human expertise into validated, production-ready automation.
-              </p>
-              <button class="btn-primary">EXPLORE PHASES</button>
+              <p class="headline-serif text-5xl text-charcoal-900 mb-2">420</p>
+              <p class="text-xs text-charcoal-500">Hours Saved Monthly</p>
             </div>
-            <div class="border-l border-hairline pl-12">
-              <div class="space-y-6">
-                <div class="flex items-start gap-4">
-                  <span class="filled-circle mt-1"></span>
-                  <div>
-                    <p class="text-sm font-medium text-charcoal-900 mb-1">PHASE 01: Cartography</p>
-                    <p class="text-xs text-charcoal-500">Environmental mapping and workflow discovery</p>
-                  </div>
-                </div>
-                <div class="flex items-start gap-4">
-                  <span class="hollow-circle mt-1"></span>
-                  <div>
-                    <p class="text-sm font-medium text-charcoal-500 mb-1">PHASE 02: Pedagogy</p>
-                    <p class="text-xs text-charcoal-500">Visual teaching through demonstration</p>
-                  </div>
-                </div>
-                <div class="flex items-start gap-4">
-                  <span class="hollow-circle mt-1"></span>
-                  <div>
-                    <p class="text-sm font-medium text-charcoal-500 mb-1">PHASE 03: Validation</p>
-                    <p class="text-xs text-charcoal-500">Certification and production deployment</p>
-                  </div>
-                </div>
-              </div>
+          </div>
+          
+          <div class="grid-cell">
+            <div class="flex items-center gap-2 mb-6">
+              <span class="hollow-circle-orange"></span>
+              <p class="text-xs uppercase tracking-wider text-charcoal-500 font-medium">SELF-HEALING</p>
             </div>
+            <h3 class="headline-serif text-4xl text-charcoal-900 mb-2">Zero Maintenance.</h3>
+            <h4 class="headline-serif text-3xl text-charcoal-900 italic mb-6">Adaptive Intelligence.</h4>
+            <p class="text-base font-light text-charcoal-500 leading-relaxed">
+              When your UI changes, your agents adapt. No brittle selectors. No fragile scripts. Visual understanding means workflows continue working even as interfaces evolve.
+            </p>
           </div>
         </div>
         
-        <!-- Variation 4: Compact Grid with Hairlines -->
-        <div class="grid-container">
-          <div class="grid md:grid-cols-4">
-            <div class="grid-cell">
-              <span class="hollow-circle mb-3 block"></span>
-              <p class="text-xs uppercase tracking-wider text-charcoal-700 mb-2 font-medium">NO CODE</p>
-              <p class="text-xs text-charcoal-500 leading-relaxed">Pure visual demonstration</p>
+        <!-- Layout 3: Staggered Cards -->
+        <div class="grid md:grid-cols-3 gap-4">
+          <div class="border border-hairline bg-white p-6 md:mt-8">
+            <i data-lucide="zap" class="w-8 h-8 text-orange-400 mb-4"></i>
+            <h4 class="text-sm uppercase tracking-wider text-charcoal-900 mb-2 font-medium">INSTANT DEPLOY</h4>
+            <p class="text-xs text-charcoal-500 leading-relaxed">14-day average certification time</p>
+          </div>
+          
+          <div class="border border-hairline bg-white p-6">
+            <i data-lucide="layers" class="w-8 h-8 text-sage-400 mb-4"></i>
+            <h4 class="text-sm uppercase tracking-wider text-charcoal-900 mb-2 font-medium">MULTI-PLATFORM</h4>
+            <p class="text-xs text-charcoal-500 leading-relaxed">Works across any web interface</p>
+          </div>
+          
+          <div class="border border-hairline bg-white p-6 md:mt-8">
+            <i data-lucide="lock" class="w-8 h-8 text-orange-400 mb-4"></i>
+            <h4 class="text-sm uppercase tracking-wider text-charcoal-900 mb-2 font-medium">ENTERPRISE SECURE</h4>
+            <p class="text-xs text-charcoal-500 leading-relaxed">SOC2, HIPAA compliant</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section: Code Block Component -->
+    <section class="py-24 px-6 border-t border-hairline bg-white">
+      <div class="max-w-7xl mx-auto">
+        <p class="text-xs uppercase tracking-widest text-charcoal-700 mb-12 font-medium">
+          CODE BLOCK COMPONENT
+        </p>
+        
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <p class="text-xs uppercase tracking-wider text-charcoal-500 mb-4 font-medium">EXAMPLE: AGENT INSTRUCTION</p>
+            <div class="code-block">
+              <div class="code-line">
+                <div class="line-number">1</div>
+                <div class="line-content"><span class="code-comment">// Natural language instruction</span></div>
+              </div>
+              <div class="code-line">
+                <div class="line-number">2</div>
+                <div class="line-content"><span class="code-keyword">teach</span> agent <span class="code-string">"booking_workflow"</span> {</div>
+              </div>
+              <div class="code-line">
+                <div class="line-number">3</div>
+                <div class="line-content">  <span class="code-keyword">watch</span> screen;</div>
+              </div>
+              <div class="code-line">
+                <div class="line-number">4</div>
+                <div class="line-content">  <span class="code-keyword">learn</span> button_clicks;</div>
+              </div>
+              <div class="code-line">
+                <div class="line-number">5</div>
+                <div class="line-content">  <span class="code-keyword">record</span> inputs;</div>
+              </div>
+              <div class="code-line">
+                <div class="line-number">6</div>
+                <div class="line-content">}</div>
+              </div>
             </div>
-            <div class="grid-cell">
-              <span class="hollow-circle mb-3 block"></span>
-              <p class="text-xs uppercase tracking-wider text-charcoal-700 mb-2 font-medium">SELF-HEALING</p>
-              <p class="text-xs text-charcoal-500 leading-relaxed">Adapts to UI changes</p>
-            </div>
-            <div class="grid-cell">
-              <span class="hollow-circle mb-3 block"></span>
-              <p class="text-xs uppercase tracking-wider text-charcoal-700 mb-2 font-medium">CERTIFIED</p>
-              <p class="text-xs text-charcoal-500 leading-relaxed">Production validation</p>
-            </div>
-            <div class="grid-cell">
-              <span class="hollow-circle mb-3 block"></span>
-              <p class="text-xs uppercase tracking-wider text-charcoal-700 mb-2 font-medium">INSTANT</p>
-              <p class="text-xs text-charcoal-500 leading-relaxed">14-day deployment</p>
+          </div>
+          
+          <div>
+            <p class="text-xs uppercase tracking-wider text-charcoal-500 mb-4 font-medium">EXAMPLE: VISUAL DETECTION</p>
+            <div class="code-block">
+              <div class="code-line">
+                <div class="line-number">1</div>
+                <div class="line-content"><span class="code-comment">// Visual cortex output</span></div>
+              </div>
+              <div class="code-line">
+                <div class="line-number">2</div>
+                <div class="line-content"><span class="code-keyword">detected</span>: {</div>
+              </div>
+              <div class="code-line">
+                <div class="line-number">3</div>
+                <div class="line-content">  element: <span class="code-string">"checkout_button"</span>,</div>
+              </div>
+              <div class="code-line">
+                <div class="line-number">4</div>
+                <div class="line-content">  position: (x: 320, y: 540),</div>
+              </div>
+              <div class="code-line">
+                <div class="line-number">5</div>
+                <div class="line-content">  state: <span class="code-string">"clickable"</span>,</div>
+              </div>
+              <div class="code-line">
+                <div class="line-number">6</div>
+                <div class="line-content">  confidence: 98.7%</div>
+              </div>
+              <div class="code-line">
+                <div class="line-number">7</div>
+                <div class="line-content">}</div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
     
-    <!-- Section: Integration Circles (Magic UI / Aceternity Inspired) -->
+    <!-- Section: Interactive Methodology (Clickable Phases) -->
+    <section class="py-24 px-6 border-t border-hairline">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+          <p class="text-xs uppercase tracking-widest text-charcoal-500 mb-4 font-medium">INTERACTIVE METHODOLOGY</p>
+          <h2 class="headline-serif text-5xl text-charcoal-900 mb-2">The Three</h2>
+          <h3 class="headline-serif text-4xl text-charcoal-900 italic">Phases.</h3>
+        </div>
+        
+        <!-- Phase Pills -->
+        <div class="flex justify-center gap-4 mb-12 flex-wrap">
+          <button class="phase-pill active" onclick="showPhase(1, this)">
+            <span class="filled-circle"></span>
+            <span class="text-xs uppercase tracking-wider text-charcoal-900 font-medium">PHASE 01</span>
+          </button>
+          <button class="phase-pill" onclick="showPhase(2, this)">
+            <span class="hollow-circle"></span>
+            <span class="text-xs uppercase tracking-wider text-charcoal-500 font-medium">PHASE 02</span>
+          </button>
+          <button class="phase-pill" onclick="showPhase(3, this)">
+            <span class="hollow-circle"></span>
+            <span class="text-xs uppercase tracking-wider text-charcoal-500 font-medium">PHASE 03</span>
+          </button>
+        </div>
+        
+        <!-- Phase Content -->
+        <div class="border border-hairline bg-white">
+          <div id="phase-1" class="phase-content p-12">
+            <div class="grid md:grid-cols-2 gap-12">
+              <div>
+                <h3 class="headline-serif text-4xl text-charcoal-900 mb-2">Cartography.</h3>
+                <h4 class="headline-serif text-2xl text-charcoal-900 italic mb-6">Environmental Mapping</h4>
+                <p class="text-base font-light text-charcoal-500 leading-relaxed mb-6">
+                  The agent observes your digital environment, cataloging interfaces, workflows, and interaction patterns. No manual documentation required—pure visual discovery.
+                </p>
+                <div class="space-y-3">
+                  <div class="flex items-start gap-3">
+                    <i data-lucide="map" class="w-5 h-5 text-sage-400 mt-1"></i>
+                    <div>
+                      <p class="text-sm font-medium text-charcoal-900">Workflow Discovery</p>
+                      <p class="text-xs text-charcoal-500">Automatic process identification</p>
+                    </div>
+                  </div>
+                  <div class="flex items-start gap-3">
+                    <i data-lucide="scan" class="w-5 h-5 text-orange-400 mt-1"></i>
+                    <div>
+                      <p class="text-sm font-medium text-charcoal-900">UI Element Cataloging</p>
+                      <p class="text-xs text-charcoal-500">Visual element mapping</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="border border-hairline p-6 bg-off-white-2">
+                <p class="text-xs uppercase tracking-wider text-charcoal-700 mb-4 font-medium">DISCOVERY OUTPUT</p>
+                <div class="space-y-2">
+                  <div class="bg-white border border-sage-300 p-3">
+                    <p class="text-xs font-mono text-charcoal-700">✓ 47 workflows identified</p>
+                  </div>
+                  <div class="bg-white border border-orange-200 p-3">
+                    <p class="text-xs font-mono text-charcoal-700">✓ 1,243 UI elements mapped</p>
+                  </div>
+                  <div class="bg-white border border-sage-300 p-3">
+                    <p class="text-xs font-mono text-charcoal-700">✓ 15 integration points found</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div id="phase-2" class="phase-content p-12 hidden">
+            <div class="grid md:grid-cols-2 gap-12">
+              <div>
+                <h3 class="headline-serif text-4xl text-charcoal-900 mb-2">Pedagogy.</h3>
+                <h4 class="headline-serif text-2xl text-charcoal-900 italic mb-6">Visual Teaching</h4>
+                <p class="text-base font-light text-charcoal-500 leading-relaxed mb-6">
+                  Demonstrate your workflows naturally. The agent watches your screen, learning button sequences, data patterns, and decision logic through pure observation.
+                </p>
+                <div class="space-y-3">
+                  <div class="flex items-start gap-3">
+                    <i data-lucide="video" class="w-5 h-5 text-orange-400 mt-1"></i>
+                    <div>
+                      <p class="text-sm font-medium text-charcoal-900">Screen Recording</p>
+                      <p class="text-xs text-charcoal-500">Capture demonstrations</p>
+                    </div>
+                  </div>
+                  <div class="flex items-start gap-3">
+                    <i data-lucide="brain" class="w-5 h-5 text-sage-400 mt-1"></i>
+                    <div>
+                      <p class="text-sm font-medium text-charcoal-900">Pattern Recognition</p>
+                      <p class="text-xs text-charcoal-500">Learn intent from actions</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="border border-hairline p-6 bg-off-white-2">
+                <p class="text-xs uppercase tracking-wider text-charcoal-700 mb-4 font-medium">TRAINING PROGRESS</p>
+                <div class="space-y-2">
+                  <div class="bg-white border border-orange-200 p-3">
+                    <p class="text-xs font-mono text-charcoal-700">○ Recording session 1 of 5...</p>
+                  </div>
+                  <div class="bg-white border border-hairline p-3">
+                    <p class="text-xs font-mono text-charcoal-500">○ Analyzing patterns...</p>
+                  </div>
+                  <div class="bg-white border border-hairline p-3">
+                    <p class="text-xs font-mono text-charcoal-500">○ Building workflow model...</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div id="phase-3" class="phase-content p-12 hidden">
+            <div class="grid md:grid-cols-2 gap-12">
+              <div>
+                <h3 class="headline-serif text-4xl text-charcoal-900 mb-2">Validation.</h3>
+                <h4 class="headline-serif text-2xl text-charcoal-900 italic mb-6">Certification Process</h4>
+                <p class="text-base font-light text-charcoal-500 leading-relaxed mb-6">
+                  Your agent undergoes rigorous testing in a controlled environment, proving it can execute workflows with 99%+ accuracy before production deployment.
+                </p>
+                <div class="space-y-3">
+                  <div class="flex items-start gap-3">
+                    <i data-lucide="check-circle" class="w-5 h-5 text-sage-400 mt-1"></i>
+                    <div>
+                      <p class="text-sm font-medium text-charcoal-900">Accuracy Testing</p>
+                      <p class="text-xs text-charcoal-500">99% threshold required</p>
+                    </div>
+                  </div>
+                  <div class="flex items-start gap-3">
+                    <i data-lucide="shield" class="w-5 h-5 text-orange-400 mt-1"></i>
+                    <div>
+                      <p class="text-sm font-medium text-charcoal-900">Production Readiness</p>
+                      <p class="text-xs text-charcoal-500">Certified for deployment</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="border border-hairline p-6 bg-off-white-2">
+                <p class="text-xs uppercase tracking-wider text-charcoal-700 mb-4 font-medium">CERTIFICATION REPORT</p>
+                <div class="space-y-2">
+                  <div class="bg-white border border-sage-300 p-3">
+                    <p class="text-xs font-mono text-charcoal-700">✓ Accuracy: 99.2%</p>
+                  </div>
+                  <div class="bg-white border border-orange-200 p-3">
+                    <p class="text-xs font-mono text-charcoal-700">✓ 500 test iterations passed</p>
+                  </div>
+                  <div class="bg-white border border-sage-300 p-3">
+                    <p class="text-xs font-mono text-charcoal-700">✓ Ready for production</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section: Integration Icons (Lucide) - Alternating Sage/Orange -->
     <section class="py-24 px-6 border-t border-hairline bg-white">
       <div class="max-w-7xl mx-auto">
         <div class="text-center mb-16">
@@ -572,152 +927,219 @@
           <h3 class="headline-serif text-4xl text-charcoal-900 italic">Anywhere.</h3>
         </div>
         
-        <div class="flex justify-center items-center gap-8 flex-wrap">
+        <div class="flex justify-center items-center gap-6 flex-wrap">
           <div class="integration-circle">
-            <span class="text-xs font-medium text-charcoal-700">SF</span>
+            <i data-lucide="chrome" class="w-6 h-6"></i>
+          </div>
+          <div class="integration-circle orange">
+            <i data-lucide="database" class="w-6 h-6"></i>
           </div>
           <div class="integration-circle">
-            <span class="text-xs font-medium text-charcoal-700">HB</span>
+            <i data-lucide="mail" class="w-6 h-6"></i>
+          </div>
+          <div class="integration-circle orange">
+            <i data-lucide="calendar" class="w-6 h-6"></i>
           </div>
           <div class="integration-circle">
-            <span class="text-xs font-medium text-charcoal-700">IG</span>
+            <i data-lucide="message-square" class="w-6 h-6"></i>
+          </div>
+          <div class="integration-circle orange">
+            <i data-lucide="inbox" class="w-6 h-6"></i>
           </div>
           <div class="integration-circle">
-            <span class="text-xs font-medium text-charcoal-700">NT</span>
+            <i data-lucide="file-text" class="w-6 h-6"></i>
+          </div>
+          <div class="integration-circle orange">
+            <i data-lucide="briefcase" class="w-6 h-6"></i>
           </div>
           <div class="integration-circle">
-            <span class="text-xs font-medium text-charcoal-700">GR</span>
+            <i data-lucide="users" class="w-6 h-6"></i>
           </div>
-          <div class="integration-circle">
-            <span class="text-xs font-medium text-charcoal-700">LN</span>
-          </div>
-          <div class="integration-circle">
-            <span class="text-xs font-medium text-charcoal-700">AH</span>
-          </div>
-          <div class="integration-circle">
-            <span class="text-xs font-medium text-charcoal-700">ZP</span>
+          <div class="integration-circle orange">
+            <i data-lucide="credit-card" class="w-6 h-6"></i>
           </div>
         </div>
         
         <p class="text-center text-xs text-charcoal-300 mt-8 uppercase tracking-wider">
-          SALESFORCE • HUBSPOT • INSTAGRAM • NOTION • GRANOLA • LINEAR • AIRTABLE • ZENDESK + 500 MORE
+          CHROME • DATABASE • EMAIL • CALENDAR • CHAT • INBOX • DOCS • CRM • TEAM • BILLING + 500 MORE
         </p>
       </div>
     </section>
     
-    <!-- Section: Demo Widget Layouts (Multiple Variations) -->
+    <!-- Section: Beautiful Chat Component -->
     <section class="py-24 px-6 border-t border-hairline">
       <div class="max-w-7xl mx-auto">
         <p class="text-xs uppercase tracking-widest text-charcoal-700 mb-12 font-medium">
-          DEMO WIDGET LAYOUTS
+          CHAT INTERFACE COMPONENT
         </p>
         
-        <!-- Layout 1: Grid Widget -->
-        <div class="mb-16">
-          <p class="text-xs uppercase tracking-wider text-charcoal-500 mb-4 font-medium">LAYOUT 01: DATA GRID</p>
-          <div class="widget-grid">
-            <div class="widget-cell">
-              <p class="text-xs text-charcoal-700 font-medium mb-2">METRIC A</p>
-              <p class="headline-serif text-3xl text-charcoal-900">1,247</p>
-            </div>
-            <div class="widget-cell">
-              <p class="text-xs text-charcoal-700 font-medium mb-2">METRIC B</p>
-              <p class="headline-serif text-3xl text-charcoal-900">84%</p>
-            </div>
-            <div class="widget-cell">
-              <p class="text-xs text-charcoal-700 font-medium mb-2">METRIC C</p>
-              <p class="headline-serif text-3xl text-charcoal-900">+12.5</p>
-            </div>
-            <div class="widget-cell">
-              <p class="text-xs text-charcoal-700 font-medium mb-2">METRIC D</p>
-              <p class="headline-serif text-3xl text-charcoal-900">32ms</p>
-            </div>
-            <div class="widget-cell">
-              <p class="text-xs text-charcoal-700 font-medium mb-2">METRIC E</p>
-              <p class="headline-serif text-3xl text-charcoal-900">6.2k</p>
-            </div>
-            <div class="widget-cell">
-              <p class="text-xs text-charcoal-700 font-medium mb-2">METRIC F</p>
-              <p class="headline-serif text-3xl text-charcoal-900">99.9%</p>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Layout 2: Sidebar Widget -->
-        <div class="mb-16">
-          <p class="text-xs uppercase tracking-wider text-charcoal-500 mb-4 font-medium">LAYOUT 02: SIDEBAR FILTER</p>
-          <div class="sidebar-layout">
-            <div class="sidebar-content space-y-4">
+        <div class="chat-container max-w-3xl mx-auto">
+          <div class="chat-header flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 bg-sage-300 rounded-full flex items-center justify-center">
+                <i data-lucide="bot" class="w-4 h-4 text-charcoal-900"></i>
+              </div>
               <div>
-                <p class="text-xs uppercase tracking-wider text-charcoal-700 mb-2 font-medium">FILTERS</p>
-              </div>
-              <div class="space-y-2">
-                <label class="flex items-center gap-2 text-xs text-charcoal-700 cursor-pointer">
-                  <span class="filled-circle"></span>
-                  Active
-                </label>
-                <label class="flex items-center gap-2 text-xs text-charcoal-500 cursor-pointer">
-                  <span class="hollow-circle"></span>
-                  Pending
-                </label>
-                <label class="flex items-center gap-2 text-xs text-charcoal-500 cursor-pointer">
-                  <span class="hollow-circle"></span>
-                  Archived
-                </label>
+                <p class="text-sm font-medium text-charcoal-900">Agent Assistant</p>
+                <p class="text-xs text-charcoal-500">Online • Certified</p>
               </div>
             </div>
-            <div class="bg-white p-8">
-              <div class="space-y-4">
-                <div class="border border-hairline p-4">
-                  <p class="text-sm font-medium text-charcoal-900 mb-1">Reservation #1047</p>
-                  <p class="text-xs text-charcoal-500">Guest: Sarah Chen • Check-in: Today</p>
+            <span class="hollow-circle"></span>
+          </div>
+          
+          <div class="chat-messages">
+            <div class="chat-message agent">
+              <div class="chat-avatar">
+                <i data-lucide="bot" class="w-4 h-4 text-sage-500"></i>
+              </div>
+              <div>
+                <div class="chat-bubble">
+                  <p class="text-sm text-charcoal-700">Hello! I'm your certified booking agent. I can help you with reservations, guest inquiries, and property management tasks.</p>
                 </div>
-                <div class="border border-hairline p-4">
-                  <p class="text-sm font-medium text-charcoal-900 mb-1">Reservation #1048</p>
-                  <p class="text-xs text-charcoal-500">Guest: Michael Torres • Check-in: Tomorrow</p>
+                <p class="text-xs text-charcoal-300 mt-1 ml-1">10:32 AM</p>
+              </div>
+            </div>
+            
+            <div class="chat-message user">
+              <div class="chat-avatar">
+                <i data-lucide="user" class="w-4 h-4 text-orange-500"></i>
+              </div>
+              <div>
+                <div class="chat-bubble">
+                  <p class="text-sm text-charcoal-700">Show me all reservations for tomorrow</p>
                 </div>
-                <div class="border border-hairline p-4">
-                  <p class="text-sm font-medium text-charcoal-900 mb-1">Reservation #1049</p>
-                  <p class="text-xs text-charcoal-500">Guest: Emma Wilson • Check-in: Feb 15</p>
+                <p class="text-xs text-charcoal-300 mt-1 mr-1 text-right">10:33 AM</p>
+              </div>
+            </div>
+            
+            <div class="chat-message agent">
+              <div class="chat-avatar">
+                <i data-lucide="bot" class="w-4 h-4 text-sage-500"></i>
+              </div>
+              <div>
+                <div class="chat-bubble">
+                  <p class="text-sm text-charcoal-700 mb-3">I found 3 reservations for tomorrow, February 13th:</p>
+                  <div class="space-y-2">
+                    <div class="border border-sage-300 bg-sage-100 p-3">
+                      <p class="text-xs font-medium text-charcoal-900">Sarah Chen • Suite 204</p>
+                      <p class="text-xs text-charcoal-500">Check-in: 3:00 PM • 2 nights • $580</p>
+                    </div>
+                    <div class="border border-orange-200 bg-orange-100 p-3">
+                      <p class="text-xs font-medium text-charcoal-900">Michael Torres • Room 312</p>
+                      <p class="text-xs text-charcoal-500">Check-in: 4:00 PM • 4 nights • $1,120</p>
+                    </div>
+                    <div class="border border-sage-300 bg-sage-100 p-3">
+                      <p class="text-xs font-medium text-charcoal-900">Lisa Park • Penthouse</p>
+                      <p class="text-xs text-charcoal-500">Check-in: 2:00 PM • 1 night • $950</p>
+                    </div>
+                  </div>
                 </div>
+                <p class="text-xs text-charcoal-300 mt-1 ml-1">10:33 AM</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="chat-input-area">
+            <input type="text" class="chat-input" placeholder="Ask your agent anything...">
+            <button class="btn-primary px-4 py-2 flex items-center gap-2">
+              <i data-lucide="send" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section: Improved Widget Layouts -->
+    <section class="py-24 px-6 border-t border-hairline bg-white">
+      <div class="max-w-7xl mx-auto">
+        <p class="text-xs uppercase tracking-widest text-charcoal-700 mb-12 font-medium">
+          IMPROVED WIDGET LAYOUTS
+        </p>
+        
+        <!-- Better Data Display -->
+        <div class="mb-12">
+          <p class="text-xs uppercase tracking-wider text-charcoal-500 mb-4 font-medium">METRICS DASHBOARD</p>
+          <div class="border border-hairline">
+            <div class="grid md:grid-cols-4 gap-0">
+              <div class="p-6 border-r border-hairline bg-white">
+                <div class="flex items-center gap-2 mb-3">
+                  <i data-lucide="trending-up" class="w-4 h-4 text-sage-400"></i>
+                  <p class="text-xs uppercase tracking-wider text-charcoal-500">BOOKINGS</p>
+                </div>
+                <p class="headline-serif text-4xl text-charcoal-900 mb-1">1,247</p>
+                <p class="text-xs text-charcoal-300">+12.5% vs last month</p>
+              </div>
+              
+              <div class="p-6 border-r border-hairline bg-white">
+                <div class="flex items-center gap-2 mb-3">
+                  <i data-lucide="percent" class="w-4 h-4 text-orange-400"></i>
+                  <p class="text-xs uppercase tracking-wider text-charcoal-500">OCCUPANCY</p>
+                </div>
+                <p class="headline-serif text-4xl text-charcoal-900 mb-1">84%</p>
+                <p class="text-xs text-charcoal-300">Above target</p>
+              </div>
+              
+              <div class="p-6 border-r border-hairline bg-white">
+                <div class="flex items-center gap-2 mb-3">
+                  <i data-lucide="clock" class="w-4 h-4 text-sage-400"></i>
+                  <p class="text-xs uppercase tracking-wider text-charcoal-500">AVG RESPONSE</p>
+                </div>
+                <p class="headline-serif text-4xl text-charcoal-900 mb-1">32ms</p>
+                <p class="text-xs text-charcoal-300">Lightning fast</p>
+              </div>
+              
+              <div class="p-6 bg-white">
+                <div class="flex items-center gap-2 mb-3">
+                  <i data-lucide="star" class="w-4 h-4 text-orange-400"></i>
+                  <p class="text-xs uppercase tracking-wider text-charcoal-500">SATISFACTION</p>
+                </div>
+                <p class="headline-serif text-4xl text-charcoal-900 mb-1">4.9</p>
+                <p class="text-xs text-charcoal-300">Guest rating</p>
               </div>
             </div>
           </div>
         </div>
         
-        <!-- Layout 3: Split Widget -->
-        <div class="mb-16">
-          <p class="text-xs uppercase tracking-wider text-charcoal-500 mb-4 font-medium">LAYOUT 03: SPLIT VIEW</p>
-          <div class="border border-hairline bg-white">
+        <!-- Split View Widget -->
+        <div class="mb-12">
+          <p class="text-xs uppercase tracking-wider text-charcoal-500 mb-4 font-medium">AGENT EXECUTION VIEW</p>
+          <div class="border border-hairline">
             <div class="grid md:grid-cols-2">
-              <div class="p-8 border-r border-hairline">
-                <p class="text-xs uppercase tracking-wider text-charcoal-700 mb-6 font-medium">AGENT INPUT</p>
+              <div class="p-8 border-r border-hairline bg-off-white-2">
+                <p class="text-xs uppercase tracking-wider text-charcoal-700 mb-6 font-medium flex items-center gap-2">
+                  <i data-lucide="arrow-right" class="w-4 h-4 text-orange-400"></i>
+                  INPUT
+                </p>
                 <div class="space-y-3">
-                  <div class="bg-sage-100 border border-sage-300 p-3">
-                    <p class="text-xs font-mono text-charcoal-700">Query: "Find all reservations for tomorrow"</p>
+                  <div class="bg-white border border-hairline p-4">
+                    <p class="text-xs text-charcoal-500 mb-1">USER QUERY</p>
+                    <p class="text-sm text-charcoal-900">"Find guests checking in today"</p>
                   </div>
-                  <div class="bg-off-white-2 border border-hairline p-3">
-                    <p class="text-xs font-mono text-charcoal-500">Processing visual elements...</p>
-                  </div>
-                  <div class="bg-off-white-2 border border-hairline p-3">
-                    <p class="text-xs font-mono text-charcoal-500">Identified 3 matches</p>
+                  <div class="bg-white border border-hairline p-4">
+                    <p class="text-xs text-charcoal-500 mb-1">PROCESSING</p>
+                    <p class="text-xs font-mono text-orange-400">○ Scanning PMS interface...</p>
+                    <p class="text-xs font-mono text-sage-500">○ Filtering by date...</p>
                   </div>
                 </div>
               </div>
-              <div class="p-8">
-                <p class="text-xs uppercase tracking-wider text-charcoal-700 mb-6 font-medium">AGENT OUTPUT</p>
+              
+              <div class="p-8 bg-white">
+                <p class="text-xs uppercase tracking-wider text-charcoal-700 mb-6 font-medium flex items-center gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-sage-400"></i>
+                  OUTPUT
+                </p>
                 <div class="space-y-3">
-                  <div class="border border-hairline p-3">
-                    <p class="text-xs font-medium text-charcoal-900 mb-1">Sarah Chen</p>
-                    <p class="text-xs text-charcoal-500">Suite 204 • 2 nights • $580</p>
+                  <div class="border border-sage-300 bg-sage-100 p-4">
+                    <p class="text-sm font-medium text-charcoal-900 mb-1">4 Guests Found</p>
+                    <div class="space-y-2 mt-3">
+                      <p class="text-xs text-charcoal-700">• Sarah Chen - Suite 204</p>
+                      <p class="text-xs text-charcoal-700">• Michael Torres - Room 312</p>
+                      <p class="text-xs text-charcoal-700">• Lisa Park - Penthouse</p>
+                      <p class="text-xs text-charcoal-700">• James Wilson - Room 108</p>
+                    </div>
                   </div>
-                  <div class="border border-hairline p-3">
-                    <p class="text-xs font-medium text-charcoal-900 mb-1">Michael Torres</p>
-                    <p class="text-xs text-charcoal-500">Room 312 • 4 nights • $1,120</p>
-                  </div>
-                  <div class="border border-hairline p-3">
-                    <p class="text-xs font-medium text-charcoal-900 mb-1">Lisa Park</p>
-                    <p class="text-xs text-charcoal-500">Penthouse • 1 night • $950</p>
+                  <div class="border border-hairline p-4">
+                    <p class="text-xs text-charcoal-500">Execution time: 1.2s</p>
                   </div>
                 </div>
               </div>
@@ -728,7 +1150,7 @@
     </section>
     
     <!-- Section: Pricing -->
-    <section class="py-24 px-6 border-t border-hairline bg-white">
+    <section class="py-24 px-6 border-t border-hairline">
       <div class="max-w-7xl mx-auto">
         <div class="text-center mb-16">
           <p class="text-xs uppercase tracking-widest text-charcoal-500 mb-4 font-medium">INVESTMENT</p>
@@ -744,7 +1166,7 @@
               <p class="text-xs uppercase tracking-wider text-charcoal-700 font-medium">STARTER</p>
             </div>
             <div class="mb-6">
-              <p class="headline-serif text-6xl text-charcoal-900 mb-2">$2,500</p>
+              <p class="headline-serif text-6xl text-charcoal-900 mb-2">$2.5k</p>
               <p class="text-xs uppercase tracking-wider text-charcoal-500">Per Month</p>
             </div>
             <div class="space-y-3 mb-8">
@@ -769,37 +1191,40 @@
           </div>
           
           <!-- Tier 2 (Featured) -->
-          <div class="border-2 border-sage-300 bg-white p-8 relative">
-            <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-sage-300 px-4 py-1">
+          <div class="border-2 border-orange-300 bg-white p-8 relative">
+            <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-orange-300 px-4 py-1">
               <p class="text-xs uppercase tracking-wider text-charcoal-900 font-medium">MOST POPULAR</p>
             </div>
             <div class="flex items-center gap-2 mb-6 mt-4">
-              <span class="filled-circle"></span>
+              <span class="filled-circle-orange"></span>
               <p class="text-xs uppercase tracking-wider text-charcoal-900 font-medium">PROFESSIONAL</p>
             </div>
             <div class="mb-6">
-              <p class="headline-serif text-6xl text-charcoal-900 mb-2">$8,500</p>
+              <p class="headline-serif text-6xl text-charcoal-900 mb-2">$8.5k</p>
               <p class="text-xs uppercase tracking-wider text-charcoal-500">Per Month</p>
             </div>
             <div class="space-y-3 mb-8">
               <div class="flex items-start gap-2">
-                <span class="filled-circle mt-1"></span>
+                <span class="filled-circle-orange mt-1"></span>
                 <p class="text-xs text-charcoal-900">5 Agent Certifications</p>
               </div>
               <div class="flex items-start gap-2">
-                <span class="filled-circle mt-1"></span>
+                <span class="filled-circle-orange mt-1"></span>
                 <p class="text-xs text-charcoal-900">Unlimited Workflows</p>
               </div>
               <div class="flex items-start gap-2">
-                <span class="filled-circle mt-1"></span>
+                <span class="filled-circle-orange mt-1"></span>
                 <p class="text-xs text-charcoal-900">Advanced Self-Healing</p>
               </div>
               <div class="flex items-start gap-2">
-                <span class="filled-circle mt-1"></span>
+                <span class="filled-circle-orange mt-1"></span>
                 <p class="text-xs text-charcoal-900">Priority Support</p>
               </div>
             </div>
-            <button class="btn-primary w-full">GET STARTED (○)</button>
+            <button class="btn-primary w-full flex items-center justify-center gap-2">
+              <span>GET STARTED</span>
+              <span class="hollow-circle-orange"></span>
+            </button>
           </div>
           
           <!-- Tier 3 -->
@@ -836,54 +1261,118 @@
       </div>
     </section>
     
-    <!-- Section: Component Showcase -->
-    <section class="py-24 px-6 border-t border-hairline">
-      <div class="max-w-7xl mx-auto">
-        <p class="text-xs uppercase tracking-widest text-charcoal-700 mb-12 font-medium">
-          COMPONENT LIBRARY
-        </p>
+    <!-- ===================== -->
+    <!-- SECTION: Social Proof / Testimonials -->
+    <!-- ===================== -->
+    <section class="py-24 bg-sage-100 border-t border-hairline">
+      <div class="max-w-7xl mx-auto px-6">
+        <!-- Section Header -->
+        <div class="mb-16 text-center">
+          <p class="font-mono text-xs uppercase tracking-widest text-sage-500 mb-4">PROVEN RESULTS</p>
+          <h2 class="headline-serif text-5xl md:text-6xl text-charcoal-900 mb-4">
+            Trusted by Industry Leaders
+          </h2>
+          <p class="text-base text-charcoal-500 max-w-2xl mx-auto">
+            Organizations across hospitality, finance, and operations rely on Agent School to automate their most complex workflows.
+          </p>
+        </div>
         
-        <div class="space-y-12">
-          <!-- Buttons -->
-          <div>
-            <p class="text-xs uppercase tracking-wider text-charcoal-500 mb-4 font-medium">BUTTONS (LIGHTER STYLING)</p>
-            <div class="flex gap-4 flex-wrap">
-              <button class="btn-primary">PRIMARY BUTTON (○)</button>
-              <button class="btn-secondary">SECONDARY BUTTON</button>
-              <button class="btn-primary">BOOK DEMO →</button>
-              <button class="btn-secondary">LEARN MORE</button>
+        <!-- Testimonial Grid - Asymmetrical 2/3 + 1/3 -->
+        <div class="asymmetric-grid mb-16">
+          <!-- Featured Testimonial - 2/3 -->
+          <div class="border border-hairline bg-white p-10">
+            <div class="flex items-center gap-3 mb-6">
+              <span class="hollow-circle-lg"></span>
+              <div>
+                <p class="text-sm font-medium text-charcoal-900">Sarah Chen</p>
+                <p class="text-xs text-charcoal-500">Director of Operations, Kimpton Hotels</p>
+              </div>
+            </div>
+            <blockquote class="headline-serif text-2xl md:text-3xl text-charcoal-900 mb-6 leading-relaxed italic">
+              "We trained an agent to handle our guest check-in process in under two weeks. It now processes 420 check-ins per month with 99% accuracy, saving our team 120 hours monthly."
+            </blockquote>
+            <div class="flex items-center gap-8 pt-6 border-t border-hairline">
+              <div>
+                <p class="headline-serif text-4xl text-sage-500">420</p>
+                <p class="text-xs uppercase tracking-wider text-charcoal-500">Check-Ins/Month</p>
+              </div>
+              <div>
+                <p class="headline-serif text-4xl text-sage-500">99%</p>
+                <p class="text-xs uppercase tracking-wider text-charcoal-500">Accuracy</p>
+              </div>
+              <div>
+                <p class="headline-serif text-4xl text-sage-500">120h</p>
+                <p class="text-xs uppercase tracking-wider text-charcoal-500">Saved/Month</p>
+              </div>
             </div>
           </div>
           
-          <!-- Input Fields -->
-          <div>
-            <p class="text-xs uppercase tracking-wider text-charcoal-500 mb-4 font-medium">INPUT FIELDS</p>
-            <div class="max-w-md space-y-6">
-              <input type="text" class="underlined-input" placeholder="Enter your company name...">
-              <input type="email" class="underlined-input" placeholder="your.email@company.com">
-              <input type="text" class="underlined-input" placeholder="What workflows need automation?">
+          <!-- Side Stats - 1/3 -->
+          <div class="space-y-1 bg-hairline p-1">
+            <div class="border border-hairline bg-white p-6">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="filled-circle-orange"></span>
+                <p class="text-xs uppercase tracking-wider text-charcoal-700 font-medium">ACCURACY</p>
+              </div>
+              <p class="headline-serif text-5xl text-charcoal-900">99.2%</p>
+              <p class="text-xs text-charcoal-500 mt-2">Average across all workflows</p>
+            </div>
+            <div class="border border-hairline bg-white p-6">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="filled-circle"></span>
+                <p class="text-xs uppercase tracking-wider text-charcoal-700 font-medium">UPTIME</p>
+              </div>
+              <p class="headline-serif text-5xl text-charcoal-900">99.9%</p>
+              <p class="text-xs text-charcoal-500 mt-2">SLA-backed reliability</p>
+            </div>
+            <div class="border border-hairline bg-white p-6">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="filled-circle-orange"></span>
+                <p class="text-xs uppercase tracking-wider text-charcoal-700 font-medium">ROI</p>
+              </div>
+              <p class="headline-serif text-5xl text-charcoal-900">8.4x</p>
+              <p class="text-xs text-charcoal-500 mt-2">First year return</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Additional Testimonials - 3 Column Grid -->
+        <div class="grid md:grid-cols-3 gap-1 bg-hairline p-1">
+          <div class="border border-hairline bg-white p-6">
+            <p class="text-sm text-charcoal-700 mb-4 italic">
+              "The validation dashboard gives us complete confidence. We can see exactly how our agent performs before deploying."
+            </p>
+            <div class="flex items-center gap-2">
+              <span class="hollow-circle-orange"></span>
+              <div>
+                <p class="text-xs font-medium text-charcoal-900">Marcus Rivera</p>
+                <p class="text-xs text-charcoal-500">CTO, FinServe Inc</p>
+              </div>
             </div>
           </div>
           
-          <!-- Circle Variations -->
-          <div>
-            <p class="text-xs uppercase tracking-wider text-charcoal-500 mb-4 font-medium">CIRCLE MOTIFS</p>
-            <div class="flex items-center gap-8">
-              <div class="text-center">
-                <span class="hollow-circle block mb-2 mx-auto"></span>
-                <p class="text-xs text-charcoal-500">12px</p>
+          <div class="border border-hairline bg-white p-6">
+            <p class="text-sm text-charcoal-700 mb-4 italic">
+              "Self-healing is a game-changer. Our agent adapts to UI changes automatically—no more breaking on every update."
+            </p>
+            <div class="flex items-center gap-2">
+              <span class="hollow-circle"></span>
+              <div>
+                <p class="text-xs font-medium text-charcoal-900">Priya Sharma</p>
+                <p class="text-xs text-charcoal-500">VP Ops, CloudStack</p>
               </div>
-              <div class="text-center">
-                <span class="hollow-circle-lg block mb-2 mx-auto"></span>
-                <p class="text-xs text-charcoal-500">20px</p>
-              </div>
-              <div class="text-center">
-                <span class="hollow-circle-xl block mb-2 mx-auto"></span>
-                <p class="text-xs text-charcoal-500">32px</p>
-              </div>
-              <div class="text-center">
-                <span class="filled-circle block mb-2 mx-auto"></span>
-                <p class="text-xs text-charcoal-500">Filled</p>
+            </div>
+          </div>
+          
+          <div class="border border-hairline bg-white p-6">
+            <p class="text-sm text-charcoal-700 mb-4 italic">
+              "Training took 14 days. Implementation was seamless. We're now processing 10x more orders with the same team."
+            </p>
+            <div class="flex items-center gap-2">
+              <span class="hollow-circle-orange"></span>
+              <div>
+                <p class="text-xs font-medium text-charcoal-900">James Park</p>
+                <p class="text-xs text-charcoal-500">CEO, OrderFlow</p>
               </div>
             </div>
           </div>
@@ -891,62 +1380,477 @@
       </div>
     </section>
     
+    <!-- ===================== -->
+    <!-- SECTION: FAQ Accordion -->
+    <!-- ===================== -->
+    <section class="py-24 border-t border-hairline">
+      <div class="max-w-4xl mx-auto px-6">
+        <!-- Section Header -->
+        <div class="mb-16 text-center">
+          <p class="font-mono text-xs uppercase tracking-widest text-orange-500 mb-4">KNOWLEDGE BASE</p>
+          <h2 class="headline-serif text-5xl md:text-6xl text-charcoal-900 mb-4">
+            Frequently Asked Questions
+          </h2>
+        </div>
+        
+        <!-- Accordion Items -->
+        <div class="space-y-1 bg-hairline p-1">
+          <div class="faq-item border border-hairline bg-white">
+            <button class="faq-question w-full text-left p-6 flex items-center justify-between" onclick="toggleFaq(this)">
+              <span class="text-base font-medium text-charcoal-900">How long does it take to train an agent?</span>
+              <i data-lucide="chevron-down" class="w-5 h-5 text-charcoal-500 transition-transform"></i>
+            </button>
+            <div class="faq-answer hidden px-6 pb-6">
+              <p class="text-sm text-charcoal-700 leading-relaxed">
+                Most agents are fully trained and validated in <strong>14 days or less</strong>. The timeline depends on workflow complexity: simple tasks (e.g., data entry) can be trained in 3-5 days, while multi-step processes (e.g., guest check-in) typically take 10-14 days. Our Cartography phase alone maps 80% of edge cases before training begins.
+              </p>
+            </div>
+          </div>
+          
+          <div class="faq-item border border-hairline bg-white">
+            <button class="faq-question w-full text-left p-6 flex items-center justify-between" onclick="toggleFaq(this)">
+              <span class="text-base font-medium text-charcoal-900">What's the difference between Agent School and RPA tools?</span>
+              <i data-lucide="chevron-down" class="w-5 h-5 text-charcoal-500 transition-transform"></i>
+            </button>
+            <div class="faq-answer hidden px-6 pb-6">
+              <p class="text-sm text-charcoal-700 leading-relaxed mb-3">
+                Traditional RPA breaks on every UI update. Agent School agents use <strong>computer vision + self-healing algorithms</strong> to adapt automatically. When a button moves or a form changes, our agents re-map the interface in real-time—no human intervention needed.
+              </p>
+              <p class="text-sm text-charcoal-700 leading-relaxed">
+                Plus, we validate every agent through 500+ test scenarios before certification, guaranteeing 99%+ accuracy from day one.
+              </p>
+            </div>
+          </div>
+          
+          <div class="faq-item border border-hairline bg-white">
+            <button class="faq-question w-full text-left p-6 flex items-center justify-between" onclick="toggleFaq(this)">
+              <span class="text-base font-medium text-charcoal-900">Do I need technical expertise to train an agent?</span>
+              <i data-lucide="chevron-down" class="w-5 h-5 text-charcoal-500 transition-transform"></i>
+            </button>
+            <div class="faq-answer hidden px-6 pb-6">
+              <p class="text-sm text-charcoal-700 leading-relaxed">
+                <strong>No coding required.</strong> Our Pedagogy framework captures your expertise through screen recordings and task demonstrations. You teach by showing—our AI translates your actions into deterministic workflows. If you can perform the task manually, you can train an agent.
+              </p>
+            </div>
+          </div>
+          
+          <div class="faq-item border border-hairline bg-white">
+            <button class="faq-question w-full text-left p-6 flex items-center justify-between" onclick="toggleFaq(this)">
+              <span class="text-base font-medium text-charcoal-900">How does pricing work?</span>
+              <i data-lucide="chevron-down" class="w-5 h-5 text-charcoal-500 transition-transform"></i>
+            </button>
+            <div class="faq-answer hidden px-6 pb-6">
+              <p class="text-sm text-charcoal-700 leading-relaxed mb-3">
+                Pricing is based on <strong>agent certifications</strong>, not task volume. Each certified agent can execute unlimited workflows per month. Starter ($3k) includes 1 agent, Professional ($8.5k) includes 5 agents, and Enterprise offers unlimited agents with custom pricing.
+              </p>
+              <p class="text-sm text-charcoal-700 leading-relaxed">
+                All plans include: training, validation, hosting, monitoring, and self-healing infrastructure.
+              </p>
+            </div>
+          </div>
+          
+          <div class="faq-item border border-hairline bg-white">
+            <button class="faq-question w-full text-left p-6 flex items-center justify-between" onclick="toggleFaq(this)">
+              <span class="text-base font-medium text-charcoal-900">What happens if my workflow breaks?</span>
+              <i data-lucide="chevron-down" class="w-5 h-5 text-charcoal-500 transition-transform"></i>
+            </button>
+            <div class="faq-answer hidden px-6 pb-6">
+              <p class="text-sm text-charcoal-700 leading-relaxed">
+                Self-healing agents automatically detect and adapt to interface changes in real-time. If a workflow fails, our Observability dashboard alerts you instantly with a full error trace. For Professional+ plans, we offer <strong>automatic rollback</strong> and <strong>human-in-the-loop escalation</strong> for critical failures.
+              </p>
+            </div>
+          </div>
+          
+          <div class="faq-item border border-hairline bg-white">
+            <button class="faq-question w-full text-left p-6 flex items-center justify-between" onclick="toggleFaq(this)">
+              <span class="text-base font-medium text-charcoal-900">Can I integrate with my existing tools?</span>
+              <i data-lucide="chevron-down" class="w-5 h-5 text-charcoal-500 transition-transform"></i>
+            </button>
+            <div class="faq-answer hidden px-6 pb-6">
+              <p class="text-sm text-charcoal-700 leading-relaxed">
+                Yes. Agent School integrates with any web-based tool (Salesforce, HubSpot, Notion, custom internal apps, etc.). We also support API-based workflows via Zapier, Make, and native REST integrations. Enterprise plans include custom integration development.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- ===================== -->
+    <!-- SECTION: ROI Calculator (Interactive) -->
+    <!-- ===================== -->
+    <section class="py-24 bg-orange-100 border-t border-hairline">
+      <div class="max-w-5xl mx-auto px-6">
+        <!-- Section Header -->
+        <div class="mb-12 text-center">
+          <p class="font-mono text-xs uppercase tracking-widest text-orange-500 mb-4">CALCULATE YOUR SAVINGS</p>
+          <h2 class="headline-serif text-5xl md:text-6xl text-charcoal-900 mb-4">
+            ROI Calculator
+          </h2>
+          <p class="text-base text-charcoal-500 max-w-2xl mx-auto">
+            See exactly how much time and money Agent School can save your team
+          </p>
+        </div>
+        
+        <!-- Calculator Widget -->
+        <div class="border border-hairline bg-white p-8 md:p-10">
+          <div class="grid md:grid-cols-2 gap-8 mb-8">
+            <!-- Left: Inputs -->
+            <div class="space-y-6">
+              <div>
+                <label class="block text-xs uppercase tracking-wider text-charcoal-700 font-medium mb-2">
+                  Tasks Per Month
+                </label>
+                <input 
+                  type="number" 
+                  id="tasksPerMonth"
+                  value="400"
+                  class="w-full border border-hairline bg-off-white-1 px-4 py-3 text-base text-charcoal-900 focus:outline-none focus:border-orange-400"
+                  oninput="calculateROI()"
+                />
+              </div>
+              
+              <div>
+                <label class="block text-xs uppercase tracking-wider text-charcoal-700 font-medium mb-2">
+                  Minutes Per Task
+                </label>
+                <input 
+                  type="number" 
+                  id="minutesPerTask"
+                  value="15"
+                  class="w-full border border-hairline bg-off-white-1 px-4 py-3 text-base text-charcoal-900 focus:outline-none focus:border-orange-400"
+                  oninput="calculateROI()"
+                />
+              </div>
+              
+              <div>
+                <label class="block text-xs uppercase tracking-wider text-charcoal-700 font-medium mb-2">
+                  Hourly Labor Cost ($)
+                </label>
+                <input 
+                  type="number" 
+                  id="hourlyCost"
+                  value="35"
+                  class="w-full border border-hairline bg-off-white-1 px-4 py-3 text-base text-charcoal-900 focus:outline-none focus:border-orange-400"
+                  oninput="calculateROI()"
+                />
+              </div>
+              
+              <div>
+                <label class="block text-xs uppercase tracking-wider text-charcoal-700 font-medium mb-2">
+                  Error Rate (%)
+                </label>
+                <input 
+                  type="number" 
+                  id="errorRate"
+                  value="5"
+                  step="0.5"
+                  class="w-full border border-hairline bg-off-white-1 px-4 py-3 text-base text-charcoal-900 focus:outline-none focus:border-orange-400"
+                  oninput="calculateROI()"
+                />
+              </div>
+            </div>
+            
+            <!-- Right: Results -->
+            <div class="border-l border-hairline pl-8">
+              <div class="space-y-6">
+                <div>
+                  <p class="text-xs uppercase tracking-wider text-charcoal-500 mb-2">MONTHLY TIME SAVED</p>
+                  <p class="headline-serif text-6xl text-orange-500">
+                    <span id="hoursSaved">100</span><span class="text-3xl">h</span>
+                  </p>
+                </div>
+                
+                <div class="border-t border-hairline pt-6">
+                  <p class="text-xs uppercase tracking-wider text-charcoal-500 mb-2">MONTHLY COST SAVED</p>
+                  <p class="headline-serif text-5xl text-charcoal-900">
+                    $<span id="costSaved">3,500</span>
+                  </p>
+                </div>
+                
+                <div class="border-t border-hairline pt-6">
+                  <p class="text-xs uppercase tracking-wider text-charcoal-500 mb-2">ANNUAL SAVINGS</p>
+                  <p class="headline-serif text-5xl text-charcoal-900">
+                    $<span id="annualSavings">42,000</span>
+                  </p>
+                </div>
+                
+                <div class="border-t border-hairline pt-6">
+                  <p class="text-xs uppercase tracking-wider text-charcoal-500 mb-2">ROI (FIRST YEAR)</p>
+                  <p class="headline-serif text-6xl text-sage-500">
+                    <span id="roi">4.9</span><span class="text-3xl">x</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Additional Metrics -->
+          <div class="border-t border-hairline pt-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+              <div>
+                <p class="text-xs uppercase tracking-wider text-charcoal-500 mb-1">TASKS AUTOMATED</p>
+                <p class="headline-serif text-3xl text-charcoal-900">
+                  <span id="tasksAutomated">380</span>
+                </p>
+              </div>
+              <div>
+                <p class="text-xs uppercase tracking-wider text-charcoal-500 mb-1">ERRORS PREVENTED</p>
+                <p class="headline-serif text-3xl text-charcoal-900">
+                  <span id="errorsPrevented">20</span>
+                </p>
+              </div>
+              <div>
+                <p class="text-xs uppercase tracking-wider text-charcoal-500 mb-1">PAYBACK PERIOD</p>
+                <p class="headline-serif text-3xl text-charcoal-900">
+                  <span id="paybackPeriod">2.4</span><span class="text-lg">mo</span>
+                </p>
+              </div>
+              <div>
+                <p class="text-xs uppercase tracking-wider text-charcoal-500 mb-1">3-YEAR SAVINGS</p>
+                <p class="headline-serif text-3xl text-charcoal-900">
+                  $<span id="threeYearSavings">126</span><span class="text-lg">k</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- CTA Below Calculator -->
+        <div class="mt-8 text-center">
+          <p class="text-sm text-charcoal-500 mb-4">Ready to automate your workflows?</p>
+          <button class="btn-primary inline-flex items-center gap-2">
+            <span>BOOK A CONSULTATION</span>
+            <span class="hollow-circle-orange"></span>
+          </button>
+        </div>
+      </div>
+    </section>
+    
+    <!-- ===================== -->
+    <!-- SECTION: Final CTA -->
+    <!-- ===================== -->
+    <section class="py-24 border-t border-hairline">
+      <div class="max-w-4xl mx-auto px-6 text-center">
+        <span class="hollow-circle-xl mb-8 inline-block"></span>
+        <h2 class="headline-serif text-6xl md:text-7xl text-charcoal-900 mb-6">
+          Start Building Your<br />First Agent Today
+        </h2>
+        <p class="text-lg text-charcoal-500 max-w-2xl mx-auto mb-10">
+          Join industry leaders who trust Agent School to automate their most complex workflows. 14-day training. 99% accuracy. Guaranteed.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="https://cal.com/jackagentschool/15min" class="btn-primary inline-flex items-center gap-2">
+            <span>BOOK DEMONSTRATION</span>
+            <span class="hollow-circle-orange"></span>
+          </a>
+          <button class="btn-secondary">VIEW CASE STUDIES</button>
+        </div>
+        
+        <!-- Trust Indicators -->
+        <div class="mt-16 flex items-center justify-center gap-12 text-xs uppercase tracking-wider text-charcoal-500">
+          <div class="flex items-center gap-2">
+            <i data-lucide="shield-check" class="w-4 h-4 text-sage-500"></i>
+            <span>SOC 2 Certified</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i data-lucide="lock" class="w-4 h-4 text-orange-500"></i>
+            <span>GDPR Compliant</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i data-lucide="award" class="w-4 h-4 text-sage-500"></i>
+            <span>99.9% Uptime SLA</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    
   </main>
   
-  <!-- Footer - Custom Layout -->
-  <footer class="border-t border-hairline bg-charcoal-900 text-white py-16">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="grid md:grid-cols-3 gap-12 mb-12">
-        <!-- Column 1 -->
-        <div>
-          <p class="text-xs uppercase tracking-wider text-white mb-4 font-medium">AGENT SCHOOL HEADQUARTERS</p>
-          <p class="text-sm text-charcoal-300 mb-8">San Francisco, CA</p>
-          
-          <div class="flex items-center gap-2 mb-2">
+  <!-- Footer - Asymmetrical Layout (Future Proof Removed) -->
+  <footer class="border-t border-hairline bg-charcoal-900 text-white">
+    <div class="max-w-7xl mx-auto px-6 py-16">
+      <!-- Asymmetrical Grid -->
+      <div class="grid md:grid-cols-12 gap-12 mb-12">
+        <!-- Left: 6 columns -->
+        <div class="md:col-span-6">
+          <div class="flex items-center gap-2 mb-6">
             <span class="hollow-circle" style="border-color: #9A9A9A;"></span>
-            <p class="text-xs uppercase tracking-wider text-charcoal-300">Future Proof</p>
+            <span class="text-sm lowercase tracking-wide">agent school</span>
+          </div>
+          <div class="mb-8">
+            <p class="text-xs uppercase tracking-wider text-white mb-2 font-medium">HEADQUARTERS</p>
+            <p class="text-base text-charcoal-300">San Francisco, CA</p>
           </div>
         </div>
         
-        <!-- Column 2 -->
-        <div>
+        <!-- Middle: 3 columns -->
+        <div class="md:col-span-3">
           <p class="text-xs uppercase tracking-wider text-white mb-4 font-medium">CONNECT</p>
           <div class="space-y-3">
-            <a href="#" class="block text-sm text-charcoal-300 hover:text-white transition">(TW) Twitter</a>
-            <a href="#" class="block text-sm text-charcoal-300 hover:text-white transition">(LI) LinkedIn</a>
-            <a href="mailto:hello@agentschool.io" class="block text-sm text-charcoal-300 hover:text-white transition">(EMAIL) hello@agentschool.io</a>
+            <a href="#" class="flex items-center gap-2 text-sm text-charcoal-300 hover:text-orange-400 transition">
+              <i data-lucide="twitter" class="w-4 h-4"></i>
+              <span>(TW) Twitter</span>
+            </a>
+            <a href="#" class="flex items-center gap-2 text-sm text-charcoal-300 hover:text-sage-400 transition">
+              <i data-lucide="linkedin" class="w-4 h-4"></i>
+              <span>(LI) LinkedIn</span>
+            </a>
+            <a href="mailto:hello@agentschool.io" class="flex items-center gap-2 text-sm text-charcoal-300 hover:text-orange-400 transition">
+              <i data-lucide="mail" class="w-4 h-4"></i>
+              <span>(EMAIL) Contact</span>
+            </a>
           </div>
         </div>
         
-        <!-- Column 3 -->
-        <div>
+        <!-- Right: 3 columns -->
+        <div class="md:col-span-3">
           <p class="text-xs uppercase tracking-wider text-white mb-4 font-medium">QUICK ACTIONS</p>
           <div class="space-y-3">
-            <a href="https://cal.com/jackagentschool/15min" class="block text-sm text-charcoal-300 hover:text-white transition">(○) Book Demonstration</a>
-            <a href="#" class="block text-sm text-charcoal-300 hover:text-white transition">View Case Studies</a>
-            <a href="#" class="block text-sm text-charcoal-300 hover:text-white transition">Download Whitepaper</a>
+            <a href="https://cal.com/jackagentschool/15min" class="flex items-center gap-2 text-sm text-charcoal-300 hover:text-orange-400 transition">
+              <span class="hollow-circle-orange" style="border-color: #FB923C;"></span>
+              <span>Book Demonstration</span>
+            </a>
+            <a href="#" class="flex items-center gap-2 text-sm text-charcoal-300 hover:text-sage-400 transition">
+              <i data-lucide="book-open" class="w-4 h-4"></i>
+              <span>View Case Studies</span>
+            </a>
+            <a href="#" class="flex items-center gap-2 text-sm text-charcoal-300 hover:text-orange-400 transition">
+              <i data-lucide="file-text" class="w-4 h-4"></i>
+              <span>Download Whitepaper</span>
+            </a>
+            <a href="#" class="flex items-center gap-2 text-sm text-charcoal-300 hover:text-sage-400 transition">
+              <i data-lucide="shield" class="w-4 h-4"></i>
+              <span>Security Overview</span>
+            </a>
           </div>
         </div>
       </div>
       
-      <div class="border-t border-charcoal-700 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-        <p class="text-xs text-charcoal-500">© 2026 Agent School. All rights reserved.</p>
-        <div class="flex gap-6">
-          <a href="#" class="text-xs text-charcoal-500 hover:text-white transition">Privacy Policy</a>
-          <a href="#" class="text-xs text-charcoal-500 hover:text-white transition">Terms of Service</a>
-          <a href="#" class="text-xs text-charcoal-500 hover:text-white transition">Security</a>
+      <!-- Bottom Bar -->
+      <div class="border-t border-charcoal-700 pt-8">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <p class="text-xs text-charcoal-500">© 2026 Agent School. All rights reserved.</p>
+          </div>
+          <div class="flex gap-6 md:justify-end">
+            <a href="#" class="text-xs text-charcoal-500 hover:text-orange-400 transition">Privacy Policy</a>
+            <a href="#" class="text-xs text-charcoal-500 hover:text-sage-400 transition">Terms of Service</a>
+            <a href="#" class="text-xs text-charcoal-500 hover:text-orange-400 transition">Security</a>
+          </div>
         </div>
       </div>
     </div>
   </footer>
   
   <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+    
+    // Toggle navigation
     function toggleNav() {
       const menu = document.getElementById('navMenu');
       const overlay = document.getElementById('navOverlay');
       menu.classList.toggle('open');
       overlay.classList.toggle('visible');
     }
+    
+    // Show phase content
+    function showPhase(phaseNum, button) {
+      // Hide all phases
+      document.querySelectorAll('.phase-content').forEach(el => el.classList.add('hidden'));
+      
+      // Remove active state from all pills
+      document.querySelectorAll('.phase-pill').forEach(pill => {
+        pill.classList.remove('active');
+        const circle = pill.querySelector('span:first-child');
+        if (circle) {
+          circle.className = 'hollow-circle';
+        }
+        const text = pill.querySelector('span:last-child');
+        if (text) {
+          text.classList.remove('text-charcoal-900');
+          text.classList.add('text-charcoal-500');
+        }
+      });
+      
+      // Show selected phase
+      document.getElementById('phase-' + phaseNum).classList.remove('hidden');
+      
+      // Add active state to clicked pill
+      button.classList.add('active');
+      const circle = button.querySelector('span:first-child');
+      if (circle) {
+        circle.className = 'filled-circle';
+      }
+      const text = button.querySelector('span:last-child');
+      if (text) {
+        text.classList.remove('text-charcoal-500');
+        text.classList.add('text-charcoal-900');
+      }
+    }
+    
+    // Toggle FAQ accordion
+    function toggleFaq(button) {
+      const faqItem = button.parentElement;
+      const answer = faqItem.querySelector('.faq-answer');
+      const icon = button.querySelector('i');
+      
+      // Toggle answer visibility
+      answer.classList.toggle('hidden');
+      
+      // Rotate chevron icon
+      if (answer.classList.contains('hidden')) {
+        icon.style.transform = 'rotate(0deg)';
+      } else {
+        icon.style.transform = 'rotate(180deg)';
+      }
+    }
+    
+    // Calculate ROI
+    function calculateROI() {
+      const tasksPerMonth = parseFloat(document.getElementById('tasksPerMonth').value) || 0;
+      const minutesPerTask = parseFloat(document.getElementById('minutesPerTask').value) || 0;
+      const hourlyCost = parseFloat(document.getElementById('hourlyCost').value) || 0;
+      const errorRate = parseFloat(document.getElementById('errorRate').value) || 0;
+      
+      // Calculate time saved (assuming 95% automation rate)
+      const automationRate = 0.95;
+      const tasksAutomated = Math.round(tasksPerMonth * automationRate);
+      const hoursSaved = Math.round((tasksPerMonth * minutesPerTask * automationRate) / 60);
+      
+      // Calculate cost savings
+      const costSaved = Math.round(hoursSaved * hourlyCost);
+      const annualSavings = costSaved * 12;
+      
+      // Calculate errors prevented
+      const errorsPrevented = Math.round((tasksPerMonth * errorRate) / 100);
+      
+      // Calculate ROI (assuming $8.5k/month subscription)
+      const monthlyCost = 8500;
+      const roi = (annualSavings / (monthlyCost * 12)).toFixed(1);
+      
+      // Calculate payback period in months
+      const paybackPeriod = ((monthlyCost * 12) / annualSavings * 12).toFixed(1);
+      
+      // Calculate 3-year savings
+      const threeYearSavings = Math.round((annualSavings * 3 - monthlyCost * 36) / 1000);
+      
+      // Update DOM
+      document.getElementById('hoursSaved').textContent = hoursSaved;
+      document.getElementById('costSaved').textContent = costSaved.toLocaleString();
+      document.getElementById('annualSavings').textContent = annualSavings.toLocaleString();
+      document.getElementById('roi').textContent = roi;
+      document.getElementById('tasksAutomated').textContent = tasksAutomated;
+      document.getElementById('errorsPrevented').textContent = errorsPrevented;
+      document.getElementById('paybackPeriod').textContent = paybackPeriod;
+      document.getElementById('threeYearSavings').textContent = threeYearSavings;
+    }
+    
+    // Initialize ROI calculator on load
+    document.addEventListener('DOMContentLoaded', function() {
+      calculateROI();
+    });
   </script>
   
 </body>
