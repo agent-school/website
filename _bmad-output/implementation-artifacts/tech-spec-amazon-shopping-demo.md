@@ -200,11 +200,410 @@ Build a new mock UI demo featuring:
    - Show order summary + confirmation message
    - Keep focus on agent capabilities, not form complexity
 
-6. **State Management Architecture:**
-   - `mode: 'manual' | 'jump' | 'auto'`
-   - `currentStep: 1-5` (Search → Product → Cart → Checkout → Confirmation)
-   - `currentCapability: 1-6` (which Agent School feature being demonstrated)
-   - `tooltips: []` (queue of auto-advancing tooltips)
+6. **State Management Architecture (RESOLVED F4):**
+   - `stepMode: 'manual' | 'jump' | 'auto'` (navigation mode - renamed from 'mode' for clarity)
+   - `currentStep: 1-5` (step number in workflow: 1=Search, 2=Product, 3=Cart, 4=Checkout, 5=Confirmation)
+   - `currentView: 'search' | 'product' | 'cart' | 'checkout' | 'confirmation'` (current page view - ALWAYS synchronized 1:1 with currentStep)
+   - `currentCapability: 0-6` (which capability is being demonstrated, 0=none, 1-6=active capability)
+   - `tooltipQueue: TooltipData[]` (queue of auto-advancing tooltips with id, text, targetElement, position)
+   - **State Synchronization Rule**: currentView and currentStep must ALWAYS map 1:1 (step 1 → 'search', step 2 → 'product', etc.)
+
+## Detailed Technical Specifications (Addressing Critical & High Findings)
+
+### Magic UI Component Verification (RESOLVED F1)
+
+**Component Availability Check:**
+- ✅ Pointer: https://magicui.design/docs/components/pointer (verified available, React 19 compatible)
+- ✅ BorderBeam: https://magicui.design/docs/components/border-beam (verified available)
+- ✅ MagicCard: https://magicui.design/docs/components/magic-card (verified available)
+- ✅ InteractiveGridPattern: https://magicui.design/docs/components/interactive-grid-pattern (verified available)
+
+**Customization Requirements:**
+- **Pointer**: Props `className` for teal/orange gradient, custom SVG children for Agent School logo mark (32x32px icon)
+- **BorderBeam**: Props `colorFrom="#14b8a6"`, `colorTo="#fb923c"`, `duration={15}`, `size={200}`
+- **MagicCard**: Props `gradientColor="#14b8a6"`, spotlight size 400px
+- **InteractiveGridPattern**: Props `width={40}`, `height={40}`, `squaresClassName="fill-teal-500/20 dark:fill-teal-400/10"`
+
+### Amazon UI Layout Structure (RESOLVED F5)
+
+**Design Approach:** Replicate Amazon's core layout structure with Agent School branding (teal/orange colors, NOT Amazon's orange/yellow).
+
+**Layout Specifications:**
+
+1. **SearchView** (Step 1):
+   - Top: Search bar (full width, rounded, BorderBeam effect)
+   - Main: Product grid (4 columns desktop, 2 tablet, 1 mobile)
+   - Products: MagicCard wrapped, image + title + price + rating
+   - Layout: Standard e-commerce grid, resembles Amazon's search results
+
+2. **ProductDetailView** (Step 2):
+   - Left: Product image (large, 500x500px on desktop)
+   - Right: Product details panel (title, price, rating, description, "Add to Cart" button with BorderBeam)
+   - Layout: Two-column split (60/40), resembles Amazon's product page
+
+3. **CartView** (Step 3):
+   - Main: Cart items list (left 70%, each item in MagicCard)
+   - Sidebar: Order summary (right 30%, MagicCard wrapper)
+   - Each item: Image (100x100px) + details + quantity controls + remove button
+   - Layout: Resembles Amazon's cart page
+
+4. **CheckoutView** (Step 4):
+   - Main: Order summary (simplified, no form)
+   - Items list + subtotal + tax + shipping + total
+   - Single "Place Order" button (large, BorderBeam)
+   - Layout: Single column, centered, MagicCard wrapper
+
+5. **ConfirmationView** (Step 5):
+   - Success icon (large checkmark, teal)
+   - Order number (e.g., "#AS-2026-12345")
+   - Order summary (items, total)
+   - "Track Order" button (decorative, no action)
+   - Layout: Centered, celebratory design
+
+### Query Handler State Machine (RESOLVED F2)
+
+**State Transitions:**
+
+```typescript
+type QueryHandlerState = {
+  stepMode: 'manual' | 'jump' | 'auto';
+  currentStep: 1 | 2 | 3 | 4 | 5;
+  isAutoPlaying: boolean;
+  autoPlayTimeout?: NodeJS.Timeout;
+};
+
+// Transition Rules:
+// 1. Manual Mode:
+//    - Previous button: currentStep > 1 → currentStep - 1
+//    - Next button: currentStep < 5 → currentStep + 1
+//    - No auto-play, user controls all transitions
+
+// 2. Jump Mode:
+//    - Click step N: currentStep → N (direct jump)
+//    - Cancels auto-play if active
+//    - No validation, any step accessible
+
+// 3. Auto Mode:
+//    - Play button: Start auto-progression from currentStep
+//    - Progression: currentStep → currentStep + 1 (every 3s after tooltip dismissal)
+//    - Pause: Stops auto-play, stays at currentStep, can resume
+//    - Manual/Jump interaction: Pauses auto mode, switches to manual/jump
+
+// 4. Mode Switching:
+//    - Any manual button click → stepMode = 'manual', stops auto-play
+//    - Any step pill click → stepMode = 'jump', stops auto-play
+//    - Play button → stepMode = 'auto', starts auto-play
+//    - Pause button → isAutoPlaying = false, stays in stepMode = 'auto'
+
+// 5. Edge Cases:
+//    - currentStep === 5 && stepMode === 'auto' → Stop auto-play, show completion message
+//    - Rapid mode switching → Debounce transitions (200ms), cancel pending timeouts
+```
+
+**Error Handling (RESOLVED F8):**
+```typescript
+// Query Handler Error Recovery:
+try {
+  const result = await handleQuery(query);
+  return result;
+} catch (error) {
+  // Fallback response
+  return {
+    response: "I encountered an issue processing that request. Please try again or choose a different action.",
+    highlight: [],
+    dataUpdate: undefined,
+    error: true
+  };
+}
+
+// State Update Error Recovery:
+try {
+  dispatch({ type: 'UPDATE_STATE', payload: newState });
+} catch (error) {
+  console.error('State update failed:', error);
+  // Revert to last known good state
+  dispatch({ type: 'REVERT_STATE' });
+}
+
+// Timeout Handling:
+const QUERY_TIMEOUT = 5000; // 5 seconds
+const queryWithTimeout = Promise.race([
+  handleQuery(query),
+  new Promise((_, reject) => 
+    setTimeout(() => reject(new Error('Query timeout')), QUERY_TIMEOUT)
+  )
+]);
+```
+
+### Capability Simulation Return Type (RESOLVED F3)
+
+```typescript
+// Capability simulation interface:
+interface CapabilitySimulation {
+  capabilityId: 1 | 2 | 3 | 4 | 5 | 6;
+  tooltips: TooltipData[];
+  uiUpdates: {
+    overlayComponent?: React.ComponentType;
+    highlightElements?: string[]; // CSS selectors
+    animationTriggers?: AnimationTrigger[];
+  };
+  visualEffects: {
+    type: 'workflow-checklist' | 'confidence-meter' | 'assertions-panel' | 
+          'self-healing-demo' | 'metrics-dashboard' | 'speed-comparison';
+    duration: number; // milliseconds
+    data: Record<string, any>;
+  };
+  agentMessage: string;
+}
+
+interface TooltipData {
+  id: string;
+  text: string;
+  targetElement: string; // CSS selector
+  position: 'top' | 'bottom' | 'left' | 'right';
+  duration: number; // milliseconds
+}
+
+interface AnimationTrigger {
+  elementSelector: string;
+  animation: Variants; // Framer Motion variants
+  delay: number;
+}
+```
+
+### Pointer Teleport Logic (RESOLVED F6)
+
+**Implementation Specification:**
+
+```typescript
+// Pointer positioning system:
+const teleportPointer = (targetSelector: string) => {
+  const target = document.querySelector(targetSelector);
+  if (!target) return;
+  
+  // Get target position relative to viewport
+  const rect = target.getBoundingClientRect();
+  const scrollX = window.pageXOffset;
+  const scrollY = window.pageYOffset;
+  
+  // Calculate center of target element
+  const targetX = rect.left + scrollX + (rect.width / 2);
+  const targetY = rect.top + scrollY + (rect.height / 2);
+  
+  // Animate pointer to target
+  pointerControls.start({
+    x: targetX,
+    y: targetY,
+    opacity: [0, 1], // Fade in at destination
+    transition: { 
+      duration: 0.4, 
+      ease: [0.25, 0.1, 0.25, 1] 
+    }
+  });
+};
+
+// Z-index layering: Pointer at z-50, tooltips at z-40, UI at z-10
+// Scroll handling: Pointer position updates on scroll events
+// Off-screen targets: Scroll target into view before teleport
+```
+
+**Position Calculation:**
+- Use `getBoundingClientRect()` for viewport-relative coordinates
+- Add `window.pageXOffset/pageYOffset` for document-relative position
+- Target center point: `left + width/2`, `top + height/2`
+- Pointer offset: -16px x, -16px y (to center 32x32px pointer on target)
+
+### Capability Visual Specifications (RESOLVED F7)
+
+**Detailed Visual Requirements:**
+
+1. **Capability 1: Teach Once, Automate Forever**
+   - Display: Floating panel (300px wide, top-right corner)
+   - Content: 5 workflow steps with animated checkmarks
+   - Animation: Checkmarks appear sequentially (0.5s stagger)
+   - Steps: "Navigate to Amazon" ✓ → "Search for product" ✓ → "Add to cart" ✓ → "Checkout" ✓ → "Confirm order" ✓
+   - Style: White panel, teal checkmarks, MagicCard wrapper
+
+2. **Capability 2: 99% Reliability**
+   - Display: Confidence meter overlay (200px wide, center-top)
+   - Content: Circular progress gauge showing "99.2%"
+   - Animation: Number counts from 0 to 99.2 (NumberTicker component)
+   - Colors: Teal gauge fill, gradient from teal to orange
+   - Duration: 2 seconds
+
+3. **Capability 3: Perfect Transparency**
+   - Display: Assertions panel (400px wide, right sidebar overlay)
+   - Content: 8-10 assertion statements with checkmarks
+   - Example: "✓ Product found: 'Organic Apples'" → "✓ Price matches: $5.99" → "✓ Cart updated: 1 item"
+   - Animation: Each assertion appears sequentially (0.3s stagger)
+   - Style: Code-like monospace font, teal checkmarks
+
+4. **Capability 4: Self-Healing**
+   - Display: Side-by-side comparison (split screen effect)
+   - Left: "Before" - Button at original position (top-right)
+   - Right: "After" - Button moved to bottom-left
+   - Animation: Button slides to new position, pointer follows and clicks
+   - Duration: 3 seconds total (1s move, 1s pointer follow, 1s click)
+   - Overlay text: "UI changed → Agent adapted"
+
+5. **Capability 5: Mission Control**
+   - Display: Metrics dashboard overlay (500px wide, full-height right panel)
+   - Content: 4 metric cards:
+     - Steps executed: 5/5
+     - Success rate: 100%
+     - Avg. step time: 2.1s
+     - Total time: 10.5s
+   - Animation: Metrics count up simultaneously (NumberTicker)
+   - Style: Dark panel, teal accent lines, gradient borders
+
+6. **Capability 6: 10x Speed**
+   - Display: Speed comparison bars (300px wide, center overlay)
+   - Content: Two horizontal bars showing "Manual: 45s" vs "Agent School: 2s"
+   - Animation: Bars grow from left to right, agent bar grows much faster
+   - Colors: Gray for manual, gradient teal-to-orange for agent
+   - Label: "22.5x faster" appears after animation
+   - Duration: 3 seconds
+
+### Auto Mode Timing Specification (RESOLVED F9)
+
+**Precise Timing Rules:**
+
+```typescript
+// Auto mode progression sequence:
+// 1. Step render completes
+// 2. Agent message appears in chat (instant)
+// 3. Wait 1 second
+// 4. Capability demonstration starts (if applicable)
+// 5. Capability demo completes (2-3 seconds)
+// 6. Tooltips appear sequentially (3 seconds each)
+// 7. Last tooltip dismisses
+// 8. Wait 3 seconds (PAUSE HERE - this is the "3-second pause between steps")
+// 9. Transition to next step
+
+// Total time per step: 1s + capability_duration + (num_tooltips * 3s) + 3s
+// Example: Step 2 with capability + 2 tooltips = 1s + 3s + 6s + 3s = 13s
+
+const AUTO_MODE_DELAYS = {
+  afterStepRender: 1000,        // 1s delay after step renders
+  capabilityDuration: 3000,     // 3s for capability demo
+  tooltipDuration: 3000,        // 3s per tooltip
+  betweenSteps: 3000,           // 3s pause before next step
+};
+```
+
+### Dark Mode Color Validation (RESOLVED F10)
+
+**WCAG 2.1 AA Compliance Requirements:**
+
+- **Minimum contrast ratio**: 4.5:1 for text, 3:1 for UI components
+- **Teal colors** (dark mode):
+  - Primary teal: `#14b8a6` (adjust to `#2dd4bf` for better contrast on dark backgrounds)
+  - Text on dark: Use `text-teal-300` (#5eead4) instead of `text-teal-600`
+- **Orange colors** (dark mode):
+  - Primary orange: `#fb923c` (passes contrast on slate-900)
+  - No adjustments needed
+- **Validation tool**: Use WebAIM Contrast Checker before finalizing colors
+- **Testing requirement**: All text must pass 4.5:1 contrast in both light and dark modes
+
+**Dark Mode Specific Classes:**
+```css
+/* Light mode (default) */
+.bg-primary { @apply bg-teal-600; }
+.text-primary { @apply text-teal-700; }
+
+/* Dark mode (adjusted for contrast) */
+.dark .bg-primary { @apply bg-teal-500; } /* Lighter for visibility */
+.dark .text-primary { @apply text-teal-300; } /* Lighter for readability */
+```
+
+### Important Medium Findings (Partial Resolution)
+
+**Tooltip Queue Implementation (RESOLVED F11):**
+```typescript
+// Queue data structure and processing:
+class TooltipQueue {
+  private queue: TooltipData[] = [];
+  private isProcessing = false;
+  private currentTimeout?: NodeJS.Timeout;
+
+  enqueue(tooltip: TooltipData) {
+    this.queue.push(tooltip);
+    if (!this.isProcessing) this.processNext();
+  }
+
+  private async processNext() {
+    if (this.queue.length === 0) {
+      this.isProcessing = false;
+      return;
+    }
+
+    this.isProcessing = true;
+    const tooltip = this.queue.shift()!;
+    
+    // Show tooltip
+    showTooltip(tooltip);
+    
+    // Auto-dismiss after duration
+    this.currentTimeout = setTimeout(() => {
+      hideTooltip(tooltip.id);
+      this.processNext(); // Process next in queue
+    }, tooltip.duration);
+  }
+
+  clear() {
+    this.queue = [];
+    if (this.currentTimeout) clearTimeout(this.currentTimeout);
+    this.isProcessing = false;
+  }
+}
+```
+
+**Product Image Requirements (RESOLVED F13):**
+- Source: Use placeholder images from Unsplash (https://source.unsplash.com/400x400/?product,[category])
+- Dimensions: 400x400px (square, consistent sizing)
+- Format: JPEG, optimized for web (<100KB per image)
+- Hosting: External URLs (Unsplash CDN), no local hosting needed
+- Alt text pattern: "{product.name} - {product.category}" (e.g., "Organic Apples - Grocery")
+- Categories for Unsplash: grocery, electronics, books, home, fashion
+
+**Suggested Queries (RESOLVED F16):**
+```typescript
+// Step-specific suggested queries:
+const SUGGESTED_QUERIES = {
+  search: [
+    "Show me grocery items under $10",
+    "Find the highest rated electronics",
+    "Search for 'apple'",
+  ],
+  product: [
+    "Add this to my cart",
+    "Show me similar products",
+    "What's the rating?",
+  ],
+  cart: [
+    "Update quantity to 3",
+    "Remove the first item",
+    "Proceed to checkout",
+  ],
+  checkout: [
+    "Place this order",
+    "Show order summary",
+    "What's the total cost?",
+  ],
+  confirmation: [
+    "Show my order details",
+    "Start a new order",
+    "What was my order number?",
+  ],
+};
+```
+
+**Cart State Persistence (RESOLVED F19):**
+- Cart state persists across ALL step navigation (manual, jump, auto modes)
+- When jumping from step 2 to step 4, cart contains items added at step 2
+- Cart is part of global AmazonData state, not step-specific
+- Cart clears only when demo fully restarts (user refreshes page or clicks "Start New Order")
+- Sequential progression NOT required - jump mode still maintains cart state
 
 ## Implementation Plan
 
@@ -240,15 +639,21 @@ Build a new mock UI demo featuring:
     - `Product` (id, name, price, rating, image, category)
     - `CartItem` (product, quantity)
     - `Order` (items, subtotal, tax, shipping, total)
+    - `TooltipData` (id, text, targetElement, position, duration)
+    - `CapabilitySimulation` (see "Detailed Technical Specifications" section for full interface)
     - `AmazonData` extends `MockData` (products, cart, order, currentView, currentStep, currentCapability, stepMode, tooltipQueue)
-  - Notes: Include state for tri-mode navigation and capability tracking
+  - Notes: Includes all interfaces from RESOLVED F3 and F4 specifications
 
 **Phase 3: Amazon Mock Data**
 
 - [ ] Task 6: Create mock product catalog
   - File: `src/components/mocks/amazon/data.ts`
   - Action: Generate mock data with 15-20 products across categories (Electronics, Grocery, Books, Home, Fashion)
-  - Notes: Include apples in Grocery, variety of price points ($5-$500), realistic product names and ratings
+  - Notes: 
+    - Include apples in Grocery, variety of price points ($5-$500)
+    - Product images from Unsplash: `https://source.unsplash.com/400x400/?product,{category}` (see RESOLVED F13)
+    - Alt text pattern: "{product.name} - {product.category}"
+    - Realistic product names and ratings (4.0-5.0 stars)
 
 **Phase 4: Amazon UI Components (5 Page Views)**
 
@@ -310,25 +715,27 @@ Build a new mock UI demo featuring:
   - File: `src/components/mocks/amazon/queries.ts`
   - Action: Implement autonomous workflow logic:
     - Parse user commands ("order an apple", "start demo", "show checkout")
-    - Handle tri-mode navigation (manual, jump, auto)
-    - Progress through 5 steps sequentially in auto mode
+    - Implement state machine from RESOLVED F2 (see "Detailed Technical Specifications")
+    - Handle tri-mode navigation (manual, jump, auto) with proper transitions
+    - Progress through 5 steps sequentially in auto mode with precise timing (RESOLVED F9)
     - Trigger capability demonstrations at appropriate steps
-    - Queue tooltips for auto-advance
-    - Update state (currentView, currentStep, currentCapability, cart, order)
+    - Queue tooltips using TooltipQueue class (RESOLVED F11)
+    - Update state (currentView synchronized with currentStep per RESOLVED F4)
+    - Error handling with fallbacks (RESOLVED F8)
   - Notes: Reference hotel-pms/queries.ts pattern, return QueryResult with response, dataUpdate, highlight
 
 **Phase 7: Capability Demonstration Logic**
 
 - [ ] Task 16: Create capability simulation helpers
   - File: `src/components/mocks/amazon/capabilities.ts`
-  - Action: Implement visual simulation functions for each of 6 capabilities:
-    1. **Teach Once, Automate Forever**: Show workflow steps with checkmarks
-    2. **99% Reliability**: Display confidence meter (99.2%)
-    3. **Perfect Transparency**: Show step-by-step assertions panel
-    4. **Self-Healing**: Simulate button position change + agent adapting
-    5. **Mission Control**: Show metrics dashboard overlay
-    6. **10x Speed**: Display speed comparison (2s vs 45s)
-  - Notes: Each function returns tooltip text, UI updates, and visual effects
+  - Action: Implement visual simulation functions for each of 6 capabilities (return CapabilitySimulation interface from RESOLVED F3):
+    1. **Teach Once, Automate Forever**: 5-step workflow checklist with animated checkmarks (see RESOLVED F7)
+    2. **99% Reliability**: Confidence meter at 99.2% with NumberTicker animation (see RESOLVED F7)
+    3. **Perfect Transparency**: Assertions panel with 8-10 checkmarked statements (see RESOLVED F7)
+    4. **Self-Healing**: Split-screen button movement with pointer following (see RESOLVED F7)
+    5. **Mission Control**: 4-metric dashboard overlay with count-up animations (see RESOLVED F7)
+    6. **10x Speed**: Speed comparison bars (45s vs 2s, "22.5x faster" label) (see RESOLVED F7)
+  - Notes: Each function returns CapabilitySimulation with tooltips, uiUpdates, visualEffects, agentMessage
 
 **Phase 8: Main Demo Component Assembly**
 
@@ -345,8 +752,13 @@ Build a new mock UI demo featuring:
 
 - [ ] Task 18: Wire up Pointer teleport logic
   - File: `src/components/mocks/amazon/AmazonDemo.tsx`
-  - Action: Implement pointer animation that teleports to interaction targets
-  - Notes: Use Framer Motion `animate` with x/y coordinates, trigger on agent actions, fade in/out transitions
+  - Action: Implement pointer animation that teleports to interaction targets using specifications from RESOLVED F6
+  - Notes: 
+    - Use Framer Motion `animate` with x/y coordinates from getBoundingClientRect()
+    - Target center calculation: rect.left + width/2, rect.top + height/2
+    - Fade in/out transitions (opacity: [0, 1], duration: 0.4s)
+    - Z-index: pointer at z-50, scroll target into view if off-screen
+    - Trigger on agent actions with 200ms debounce
 
 **Phase 9: Landing Page Integration**
 
