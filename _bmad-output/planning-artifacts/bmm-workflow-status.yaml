@@ -54,8 +54,12 @@ workflow_status:
         note: "Optional - Not requested by user"
       - id: "product-brief"
         name: "Product Brief"
-        status: "skipped"
-        note: "Optional - Not requested by user"
+        status: "_bmad-output/planning-artifacts/product-brief-website-2026-02-10.md"
+        agent: "analyst"
+        command: "/bmad:bmm:workflows:create-product-brief"
+        output_expected: "_bmad-output/planning-artifacts/"
+        note: "✅ Complete - Comprehensive product brief with personas, metrics, MVP scope"
+        completed_date: "2026-02-12"
 
   # Phase 2: Planning (Required)
   - phase: 2
