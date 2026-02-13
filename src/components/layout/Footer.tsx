@@ -205,6 +205,57 @@ export function Footer() {
           </div>
         </div>
       </div>
+
+      {/* CTA Footer Section */}
+      <div className="bg-[#FF6B3D] py-20 px-6 lg:px-32">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col gap-10">
+            <h2 className="font-display text-7xl md:text-8xl font-semibold text-white leading-tight tracking-tight">
+              Creating the future
+            </h2>
+            <a
+              href="mailto:hello@agentschool.io"
+              className="text-white text-3xl md:text-4xl hover:opacity-80 transition-opacity"
+            >
+              hello@agentschool.io
+            </a>
+            <div className="flex items-center gap-6 mt-2">
+              <a
+                href={TWITTER_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="X (Twitter)"
+                className="text-white hover:opacity-80 transition-opacity"
+              >
+                <Twitter size={28} />
+              </a>
+              <a
+                href="#"
+                aria-label="Discord"
+                className="text-white hover:opacity-80 transition-opacity"
+              >
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="currentColor" className="w-8 h-8">
+                  <path d="M26.96 7.33a23.84 23.84 0 0 0-5.88-1.82.09.09 0 0 0-.09.05 16.6 16.6 0 0 0-.73 1.5 22 22 0 0 0-6.6 0 15.16 15.16 0 0 0-.74-1.5.09.09 0 0 0-.09-.05 23.77 23.77 0 0 0-5.88 1.82.08.08 0 0 0-.04.04C2.7 12.15 1.84 16.83 2.31 21.45a.1.1 0 0 0 .04.07 24 24 0 0 0 7.22 3.64.09.09 0 0 0 .1-.03 17.16 17.16 0 0 0 1.48-2.4.09.09 0 0 0-.05-.12 15.8 15.8 0 0 1-2.26-1.08.09.09 0 0 1-.01-.15c.15-.11.3-.23.45-.35a.09.09 0 0 1 .09-.01c4.74 2.17 9.87 2.17 14.55 0a.09.09 0 0 1 .09.01c.14.12.29.24.44.35a.09.09 0 0 1-.01.15c-.72.42-1.47.78-2.25 1.08a.09.09 0 0 0-.05.12c.43.83.92 1.63 1.48 2.4a.09.09 0 0 0 .1.03 23.93 23.93 0 0 0 7.23-3.64.09.09 0 0 0 .04-.07c.56-5.34-.94-9.98-3.99-14.08a.07.07 0 0 0-.04-.04ZM11.52 18.55c-1.33 0-2.43-1.22-2.43-2.72s1.08-2.72 2.43-2.72c1.36 0 2.45 1.23 2.43 2.72 0 1.5-1.08 2.72-2.43 2.72Zm8.98 0c-1.33 0-2.42-1.22-2.42-2.72s1.07-2.72 2.42-2.72c1.36 0 2.45 1.23 2.43 2.72 0 1.5-1.07 2.72-2.43 2.72Z"/>
+                </svg>
+              </a>
+              <a
+                href={LINKEDIN_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="text-white hover:opacity-80 transition-opacity"
+              >
+                <Linkedin size={28} />
+              </a>
+            </div>
+            <div className="mt-8">
+              <p className="text-white text-sm opacity-70">
+                Copyright {new Date().getFullYear()} Agent School. All rights reserved
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </footer>
   );
 }

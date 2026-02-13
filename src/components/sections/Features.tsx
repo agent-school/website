@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ChevronDown,
+  X,
 } from "lucide-react";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
 import { CardSpotlight } from "@/components/aceternity/CardSpotlight";
@@ -176,10 +177,15 @@ export function Features() {
                 >
                   {/* Feature Header — always visible */}
                   <div
-                    className={`grid grid-cols-1 ${DemoComponent || i === 4
-                      ? "lg:grid-cols-2"
-                      : "lg:grid-cols-1"
-                      } gap-0`}
+                    className={`grid grid-cols-1 ${
+                      DemoComponent || i === 4
+                        ? isExpanded
+                          ? isEven
+                            ? "lg:grid-cols-[minmax(320px,1fr)_2fr]"
+                            : "lg:grid-cols-[2fr_minmax(320px,1fr)]"
+                          : "lg:grid-cols-2"
+                        : "lg:grid-cols-1"
+                    } gap-0`}
                   >
                     {/* Text */}
                     <div
@@ -218,7 +224,7 @@ export function Features() {
                         ))}
                       </ul>
 
-                      {/* Expand/Collapse for demo */}
+                      {/* Expand/Collapse for demo (mobile only) */}
                       {(DemoComponent || i === 4) && (
                         <button
                           onClick={() =>
@@ -226,7 +232,7 @@ export function Features() {
                               isExpanded ? null : feature.id
                             )
                           }
-                          className="flex items-center gap-1.5 mt-6 text-sm font-semibold text-slate-900 dark:text-slate-100 hover:text-orange-600 dark:hover:text-orange-400 transition-colors group"
+                          className="flex lg:hidden items-center gap-1.5 mt-6 text-sm font-semibold text-slate-900 dark:text-slate-100 hover:text-orange-600 dark:hover:text-orange-400 transition-colors group"
                         >
                           {isExpanded
                             ? "Hide Interactive Demo"
@@ -242,25 +248,57 @@ export function Features() {
                       )}
                     </div>
 
-                    {/* Quick visual preview (visible on desktop when collapsed) */}
-                    {(DemoComponent || i === 4) && !isExpanded && (
+                    {/* Right side: Preview when collapsed, Demo when expanded (desktop only) */}
+                    {(DemoComponent || i === 4) && (
                       <div
-                        className={`hidden lg:flex items-center justify-center p-8 bg-orange-50/50 dark:bg-orange-950/20 ${!isEven ? "lg:order-1" : ""
-                          }`}
+                        className={`hidden lg:flex items-center justify-center p-8 ${
+                          isExpanded
+                            ? "bg-slate-50 dark:bg-slate-900/50"
+                            : "bg-orange-50/50 dark:bg-orange-950/20 cursor-pointer hover:bg-orange-100/50 dark:hover:bg-orange-950/30 transition-colors"
+                        } ${!isEven ? "lg:order-1" : ""}`}
+                        onClick={() => {
+                          if (!isExpanded) {
+                            setExpandedFeature(feature.id);
+                          }
+                        }}
                       >
-                        <div className="w-full max-w-md text-center">
-                          <div className="w-24 h-24 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-lg flex items-center justify-center mx-auto mb-4 group-hover:scale-105 transition-transform">
-                            <Agent variant={AgentVariant} scale={0.6} />
+                        {isExpanded ? (
+                          // Show demo on desktop when expanded
+                          <div className="w-full relative flex items-center justify-center">
+                            <div className="w-full max-w-3xl relative">
+                              <button
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  setExpandedFeature(null);
+                                }}
+                                className="absolute -top-4 -right-4 z-10 p-1.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors shadow-sm"
+                                aria-label="Close demo"
+                              >
+                                <X size={16} className="text-slate-600 dark:text-slate-400" />
+                              </button>
+                              {DemoComponent ? (
+                                <DemoComponent />
+                              ) : i === 4 ? (
+                                <ObservabilityVisual />
+                              ) : null}
+                            </div>
                           </div>
-                          <p className="text-sm text-slate-500 dark:text-slate-400">
-                            Click &ldquo;Try Interactive Demo&rdquo; to explore
-                          </p>
-                        </div>
+                        ) : (
+                          // Show preview when collapsed - clickable to expand
+                          <div className="w-full max-w-md text-center">
+                            <div className="w-24 h-24 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-lg flex items-center justify-center mx-auto mb-4 group-hover:scale-105 transition-transform">
+                              <Agent variant={AgentVariant} scale={0.6} />
+                            </div>
+                            <p className="text-sm text-slate-500 dark:text-slate-400">
+                              Click to explore the interactive demo
+                            </p>
+                          </div>
+                        )}
                       </div>
                     )}
                   </div>
 
-                  {/* Expanded Demo */}
+                  {/* Expanded Demo (mobile only - dropdown below) */}
                   <AnimatePresence>
                     {isExpanded && (
                       <motion.div
@@ -268,9 +306,9 @@ export function Features() {
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-                        className="overflow-hidden"
+                        className="overflow-hidden lg:hidden"
                       >
-                        <div className="p-6 lg:p-8 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50">
+                        <div className="p-6 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50">
                           {DemoComponent ? (
                             <DemoComponent />
                           ) : i === 4 ? (
