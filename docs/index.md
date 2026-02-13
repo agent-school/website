@@ -457,6 +457,16 @@ http://localhost:3000
 
 ## 🔄 Changelog
 
+### 2026-02-12 - UI/UX Fixes
+
+- ✅ Hero stats labels (99% Accuracy, 10x Faster Training) — white text in dark mode
+- ✅ CardSpotlight — removed harsh black hover; subtle teal glow (opacity 6%)
+- ✅ Timeline — removed Aceternity boilerplate ("Changelog from my journey")
+- ✅ ScrollToTop — page loads at top instead of bottom
+- ✅ LinkedIn URL — updated to https://linkedin.com/company/agentschool
+- ✅ Navbar/Footer — Agent School logo images (replacing gradient "A")
+- ✅ Docs — AGENTS.md, README.md, sitemap.md updated
+
 ### 2026-02-12 - Original vs BMAD Redesign Organization
 
 - ✅ Added **Original vs BMAD Redesign** section at top

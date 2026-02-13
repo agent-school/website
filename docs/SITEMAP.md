@@ -150,7 +150,7 @@ All nav items are **anchor links** to sections on the homepage:
 ### Footer
 - Company: Agent School
 - Email: hello@agentschool.io
-- LinkedIn: https://linkedin.com/company/agent-school
+- LinkedIn: https://linkedin.com/company/agentschool
 - Copyright © 2026
 
 ---
@@ -211,7 +211,7 @@ All nav items are **anchor links** to sections on the homepage:
 ### External Links 🔗
 ```
 https://cal.com/jackagentschool/15min  # Booking calendar
-https://linkedin.com/company/agent-school  # LinkedIn
+https://linkedin.com/company/agentschool  # LinkedIn
 mailto:hello@agentschool.io  # Contact email
 ```
 
