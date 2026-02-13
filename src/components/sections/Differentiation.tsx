@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { X, Check } from "lucide-react";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
 import { SectionHeader } from "@/components/ui/SectionHeader";
@@ -128,6 +129,8 @@ function ComparisonBlock({
 }
 
 export function Differentiation() {
+  const [activeTab, setActiveTab] = useState<"rpa" | "ai">("rpa");
+
   return (
     <section id="differentiation" className="relative py-24 md:py-32 px-6 bg-white dark:bg-slate-950 overflow-hidden">
       {/* Background decorations */}
@@ -145,29 +148,81 @@ export function Differentiation() {
           />
         </ScrollReveal>
 
-        {/* vs RPA */}
+        {/* Tab Navigation */}
         <ScrollReveal>
-          <h3 className="font-display text-heading-lg text-slate-900 dark:text-slate-100 mb-6 text-center">
-            vs Traditional RPA
-          </h3>
-          <ComparisonBlock
-            title="vs Traditional RPA"
-            competitor={rpaComparison.competitor}
-            agentSchool={rpaComparison.agentSchool}
-          />
+          <div className="flex justify-center mb-12">
+            <div className="inline-flex rounded-2xl bg-slate-100 dark:bg-slate-900 p-1.5 gap-1.5">
+              <button
+                onClick={() => setActiveTab("rpa")}
+                className={`relative px-6 py-3 rounded-xl font-display text-sm md:text-base font-semibold transition-colors ${
+                  activeTab === "rpa"
+                    ? "text-white"
+                    : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
+                }`}
+              >
+                {activeTab === "rpa" && (
+                  <motion.div
+                    layoutId="activeTab"
+                    className="absolute inset-0 bg-gradient-to-br from-teal-500 to-orange-500 rounded-xl"
+                    transition={{ type: "spring", duration: 0.5, bounce: 0.15 }}
+                  />
+                )}
+                <span className="relative z-10">vs Traditional RPA</span>
+              </button>
+              <button
+                onClick={() => setActiveTab("ai")}
+                className={`relative px-6 py-3 rounded-xl font-display text-sm md:text-base font-semibold transition-colors ${
+                  activeTab === "ai"
+                    ? "text-white"
+                    : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
+                }`}
+              >
+                {activeTab === "ai" && (
+                  <motion.div
+                    layoutId="activeTab"
+                    className="absolute inset-0 bg-gradient-to-br from-teal-500 to-orange-500 rounded-xl"
+                    transition={{ type: "spring", duration: 0.5, bounce: 0.15 }}
+                  />
+                )}
+                <span className="relative z-10">vs Generic AI Agents</span>
+              </button>
+            </div>
+          </div>
         </ScrollReveal>
 
-        {/* vs Generic AI */}
-        <ScrollReveal delay={0.1}>
-          <h3 className="font-display text-heading-lg text-slate-900 dark:text-slate-100 mb-6 text-center">
-            vs Generic AI Agents
-          </h3>
-          <ComparisonBlock
-            title="vs Generic AI Agents"
-            competitor={aiComparison.competitor}
-            agentSchool={aiComparison.agentSchool}
-          />
-        </ScrollReveal>
+        {/* Comparison Content */}
+        <AnimatePresence mode="wait">
+          {activeTab === "rpa" && (
+            <motion.div
+              key="rpa"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+            >
+              <ComparisonBlock
+                title="vs Traditional RPA"
+                competitor={rpaComparison.competitor}
+                agentSchool={rpaComparison.agentSchool}
+              />
+            </motion.div>
+          )}
+          {activeTab === "ai" && (
+            <motion.div
+              key="ai"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+            >
+              <ComparisonBlock
+                title="vs Generic AI Agents"
+                competitor={aiComparison.competitor}
+                agentSchool={aiComparison.agentSchool}
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* ROI Calculator */}
         <ScrollReveal delay={0.15}>
