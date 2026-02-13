@@ -24,7 +24,7 @@ const ctaCards = [
     description:
       "Experience Agent School hands-on. Explore the Skill Builder, run a certification test, and see the self-healing in action.",
     cta: "Explore Features",
-    href: "#skill-builder",
+    href: "#features",
     variant: "outline" as const,
     highlight: false,
   },
