@@ -288,13 +288,12 @@ Desktop: 1024px+        (12 columns)
 
 ---
 
-## Editorial Numbering System (FIG Pattern)
+## Section Labeling System (Simplified)
 
-Inspired by Linear's "FIG 0.2" labeling, Agent School uses **editorial numbering** to create structure:
+Agent School uses **clean section kickers** for structure without over-labeling:
 
 ### Hierarchy
 
-**FIG [Section].[Component]** — Primary visual/interactive elements  
 **CASE [Number]** — Case studies (001, 002, etc.)  
 **STEP [Number]** — Process steps (01, 02, 03)  
 **PHASE [Number]** — Timeline phases (01, 02, 03)
@@ -303,50 +302,30 @@ Inspired by Linear's "FIG 0.2" labeling, Agent School uses **editorial numbering
 
 **Homepage Sections:**
 ```
-FIG 1.0 — Hero Section
-FIG 1.1 — Stats Band (99% accuracy, 14d training)
-FIG 1.2 — Headline Animation
+Hero Section
+├─ CASE STUDY 001 — Hotel Operations Automation
+└─ Stats Band (99% accuracy, 14d training, etc.)
 
-FIG 2.0 — Methodology Hero
-FIG 2.1 — Phase Timeline Bar
-FIG 2.2 — Teaching Demo
+Methodology Section
+├─ HOW WE BUILD TRUST (kicker)
+├─ Headline + Subhead
+└─ PHASE 01 — Environmental Mapping (timeline)
 
-FIG 3.0 — Certification Section
-FIG 3.1 — Step Breakdown
-FIG 3.2 — Diagram (Shadow Discovery)
-
-FIG 4.0 — Use Cases
-FIG 4.1 — Hotel PMS Demo
-FIG 4.2 — CRM Demo
-
-FIG 5.0 — Call to Action
-```
-
-**Case Studies:**
-```
-CASE 001 — Hotel Operations Automation
-CASE 002 — ERP Workflow Automation
-CASE 003 — CRM Data Entry Automation
-```
-
-**Process Steps:**
-```
-STEP 01: CARTOGRAPHY — Shadow Discovery
-STEP 02: PEDAGOGY — Teaching Interface
-STEP 03: VALIDATION — Certification Testing
+Process Steps
+├─ STEP 01: CARTOGRAPHY — Shadow Discovery
+├─ STEP 02: PEDAGOGY — Teaching Interface
+└─ STEP 03: VALIDATION — Certification Testing
 ```
 
 **Visual Treatment:**
 
 ```
-┌──────────┐
-│ FIG 1.0  │  <- Small uppercase, Inter Medium, 11px
-└──────────┘     Letter-spacing: 0.15em
-                 Color: Charcoal 500
-                 Positioned top-left of component
+CASE STUDY 001 — HOTEL OPERATIONS AUTOMATION
+↑ Small uppercase kicker, Inter Medium, 11px, 0.12em tracking
+  Color: Charcoal 700
 ```
 
-This creates **editorial authority** — like reading a design magazine or annual report.
+This creates **editorial clarity** without over-numbering — cleaner, more focused.
 
 ---
 
@@ -1003,27 +982,27 @@ Focus: 2px solid Sage 300 outline
 
 ---
 
-## Open Questions for Jack
+## Design Decisions (Confirmed)
 
-Based on research and design decisions:
+Based on research and design discussions with Jack:
 
-1. **Hollow Circle Motif:** Do you want the ○ to be more prominent (larger size, more frequent) or keep it subtle as specified?
+1. **Hollow Circle Motif:** ✅ **Keep subtle** — 8-12px diameter, used for navigation, stats, phase indicators. Not over-prominent.
 
-2. **FIG Numbering:** Should we apply FIG labels to *every* major component, or only key sections? (Linear uses it extensively)
+2. **FIG Numbering:** ✅ **Removed** — Simpler editorial approach with CASE/STEP/PHASE labels only. No exhaustive FIG numbering.
 
-3. **Real Data Validation:** Confirm these numbers from product briefs are accurate:
+3. **Real Data Validation:** ⏳ **Pending confirmation** — Please validate these numbers:
    - 99% Accuracy (certification pass rate)
    - 14d Training Time (average deployment time)
    - 99.9% Uptime (production reliability)
-   - 420h Saved Per Month (28-property chain estimate)
+   - 420h Saved Per Month (28-property chain, 15h/week/property)
 
-4. **Consultation Form Backend:** Should this connect to Cal.com (current booking) or build a custom form handler?
+4. **Consultation Form:** ✅ **Cal.com link** — Use existing booking URL (https://cal.com/jackagentschool/15min), not custom form.
 
-5. **Sage Accent Intensity:** Current spec is 5% of design (very subtle) — do you want more prominence or keep minimal?
+5. **Sage Accent Intensity:** ✅ **Keep subtle** — 5% of design (E8F0E3, D4E5C9, C1D5A8). Minimal, refined.
 
-6. **Content Rewrite:** Should ALL existing copy be rewritten in editorial tone (periods, formal language), or keep some casual phrasing?
+6. **Content Rewrite:** ✅ **Editorial tone** — Periods for finality, formal language, confident phrasing (not casual).
 
-7. **Interactive Demos:** The current site has 5 interactive mock UIs (Hotel PMS, CRM, etc.) — should these be restyled to match the new editorial aesthetic, or keep as separate experiences?
+7. **Interactive Demos:** ✅ **Restyle in new aesthetic** — All 5 demos (Hotel PMS, CRM, Instagram, Notion, Granola) will match monochrome editorial design.
 
 ---
 
