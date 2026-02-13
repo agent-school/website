@@ -58,6 +58,8 @@ const DEMO_COMPONENTS = {
   hotel: HotelPMSDemo,
   sales: CRMDemo,
   operations: NotionDemo, // Using Notion for operations/task automation
+  social: InstagramDemo,
+  meeting: GranolaDemo,
 } as const;
 
 // Map for the two additional demos not in original USE_CASES
@@ -79,7 +81,10 @@ const ADDITIONAL_DEMOS = [
 ] as const;
 
 interface UseCaseTabProps {
-  useCase: (typeof USE_CASES)[number];
+  useCase: {
+    id: string;
+    label: string;
+  };
   isActive: boolean;
   onClick: () => void;
 }
@@ -281,9 +286,8 @@ function UseCaseContent({ useCase }: UseCaseContentProps) {
         </p>
       </div>
 
-      {/* Main Content Grid: Demo + Metrics */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Interactive Demo */}
+      {/* Full-width demo, with comparison and metrics below */}
+      <div className="space-y-6">
         <CardSpotlight
           className="p-0 bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800"
           color="#14b8a6"
@@ -299,12 +303,57 @@ function UseCaseContent({ useCase }: UseCaseContentProps) {
             )}
           </div>
         </CardSpotlight>
-
-        {/* Metrics & Impact */}
-        <div className="flex flex-col justify-center">
-          <MetricsDisplay useCase={useCase} />
-        </div>
+        <MetricsDisplay useCase={useCase} />
       </div>
+    </motion.div>
+  );
+}
+
+interface AdditionalDemoContentProps {
+  demo: (typeof ADDITIONAL_DEMOS)[number];
+}
+
+function AdditionalDemoContent({ demo }: AdditionalDemoContentProps) {
+  const DemoComponent = DEMO_COMPONENTS[demo.id as keyof typeof DEMO_COMPONENTS];
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.3 }}
+      className="space-y-6"
+    >
+      <div className="text-center max-w-2xl mx-auto">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-teal-500/10 to-orange-500/10 dark:from-teal-500/20 dark:to-orange-500/20 border border-teal-200/50 dark:border-teal-800/50 mb-3">
+          <Sparkles size={12} className="text-orange-500" />
+          <p className="text-xs font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wide">
+            Scenario
+          </p>
+        </div>
+        <p className="font-display text-2xl md:text-3xl text-slate-900 dark:text-slate-100">
+          &ldquo;{demo.scenario}&rdquo;
+        </p>
+        <p className="text-sm text-orange-600 dark:text-orange-400 mt-3 font-mono">
+          {demo.suggestedQuery}
+        </p>
+      </div>
+
+      <CardSpotlight
+        className="p-0 bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800"
+        color="#14b8a6"
+        radius={400}
+      >
+        <div className="relative z-10">
+          {DemoComponent ? (
+            <DemoComponent />
+          ) : (
+            <div className="h-[600px] flex items-center justify-center text-slate-400 dark:text-slate-600">
+              Demo component coming soon
+            </div>
+          )}
+        </div>
+      </CardSpotlight>
     </motion.div>
   );
 }
@@ -312,6 +361,8 @@ function UseCaseContent({ useCase }: UseCaseContentProps) {
 export function UseCases() {
   const [activeTab, setActiveTab] = useState<string>(USE_CASES[0].id);
   const activeUseCase = USE_CASES.find((uc) => uc.id === activeTab) || USE_CASES[0];
+  const activeAdditionalDemo = ADDITIONAL_DEMOS.find((demo) => demo.id === activeTab);
+  const tabItems = [...USE_CASES, ...ADDITIONAL_DEMOS];
 
   return (
     <section
@@ -333,7 +384,7 @@ export function UseCases() {
         {/* Tab Navigation */}
         <ScrollReveal delay={0.1}>
           <div className="flex items-center justify-center gap-2 mb-12 flex-wrap">
-            {USE_CASES.map((useCase) => (
+            {tabItems.map((useCase) => (
               <UseCaseTab
                 key={useCase.id}
                 useCase={useCase}
@@ -347,48 +398,12 @@ export function UseCases() {
         {/* Active Use Case Content */}
         <ScrollReveal delay={0.2}>
           <AnimatePresence mode="wait">
-            <UseCaseContent key={activeTab} useCase={activeUseCase} />
+            {activeAdditionalDemo ? (
+              <AdditionalDemoContent key={activeTab} demo={activeAdditionalDemo} />
+            ) : (
+              <UseCaseContent key={activeTab} useCase={activeUseCase} />
+            )}
           </AnimatePresence>
-        </ScrollReveal>
-
-        {/* Additional Demos Callout */}
-        <ScrollReveal delay={0.3}>
-          <div className="mt-20 text-center">
-            <h3 className="font-display text-2xl text-slate-900 dark:text-slate-100 mb-4">
-              More Interactive Demos
-            </h3>
-            <p className="text-slate-600 dark:text-slate-400 mb-8 max-w-2xl mx-auto">
-              Explore additional use cases with our interactive demos
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-              {ADDITIONAL_DEMOS.map((demo) => {
-                const DemoComp = demo.component;
-                return (
-                  <CardSpotlight
-                    key={demo.id}
-                    className="p-0 bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800"
-                    color="#fb923c"
-                    radius={300}
-                  >
-                    <div className="relative z-10">
-                      <div className="p-4 border-b border-slate-200 dark:border-slate-800">
-                        <h4 className="font-display text-lg font-semibold text-slate-900 dark:text-slate-100">
-                          {demo.label}
-                        </h4>
-                        <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">
-                          {demo.scenario}
-                        </p>
-                        <p className="text-xs text-orange-600 dark:text-orange-400 mt-2 font-mono">
-                          {demo.suggestedQuery}
-                        </p>
-                      </div>
-                      <DemoComp />
-                    </div>
-                  </CardSpotlight>
-                );
-              })}
-            </div>
-          </div>
         </ScrollReveal>
 
         {/* Industry Note */}

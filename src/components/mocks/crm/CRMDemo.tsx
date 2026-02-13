@@ -26,25 +26,27 @@ function CRMDemoContent() {
   const { state, sendQuery } = useMockUI<CRMState>();
 
   return (
-    <div className="flex h-[700px] gap-4">
+    <div className="flex flex-col lg:flex-row min-h-[700px] gap-4">
       {/* Main Pipeline View */}
       <MockUIShell
         title="Sales CRM - Pipeline"
-        className="flex-1"
+        className="flex-1 min-h-[420px]"
       >
         <Pipeline />
       </MockUIShell>
 
       {/* Agent Interface Sidebar */}
-      <AgentInterface
-        messages={state.responses}
-        onSendQuery={sendQuery}
-        isLoading={state.isLoading}
-        placeholder="Ask about deals, stages, or pipeline..."
-        suggestedQueries={SUGGESTED_QUERIES}
-        title="CRM Agent"
-        subtitle="Query your sales pipeline"
-      />
+      <div className="w-full lg:w-[400px] min-h-[280px]">
+        <AgentInterface
+          messages={state.responses}
+          onSendQuery={sendQuery}
+          isLoading={state.isLoading}
+          placeholder="Ask about deals, stages, or pipeline..."
+          suggestedQueries={SUGGESTED_QUERIES}
+          title="CRM Agent"
+          subtitle="Query your sales pipeline"
+        />
+      </div>
     </div>
   );
 }
