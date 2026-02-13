@@ -1,11 +1,11 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { ArrowRight, Check, X, Code, Users, Zap, DollarSign, Activity, Shield, Wrench } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { BOOKING_URL } from "@/lib/constants";
 
 export const metadata = {
   title: "Agent School vs n8n | Built for Operations Teams, Not Developers",
-  description: "Why operations teams choose Agent School over n8n: no coding required, self-healing included, 99% certified reliability, and 10x faster than manual workflows.",
+  description: "n8n is excellent for technical teams who want full code control. Agent School is built for business operations teams who need reliable automation without developer resources.",
 };
 
 export default function N8nComparisonPage() {
@@ -16,15 +16,18 @@ export default function N8nComparisonPage() {
         {/* Hero Section */}
         <section className="pt-36 pb-20 px-6 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-teal-600/10 via-transparent to-orange-600/10" />
-          <div className="max-w-7xl mx-auto relative">
+          <div className="max-w-4xl mx-auto relative">
             <p className="font-mono text-caption uppercase tracking-widest text-teal-300 mb-4">
-              Competitive Comparison
+              Comparison
             </p>
-            <h1 className="font-display text-display-xl md:text-7xl text-white max-w-4xl mb-6">
+            <h1 className="font-display text-display-xl md:text-7xl text-white mb-6">
               Agent School vs n8n
             </h1>
-            <p className="text-heading-lg text-slate-300 max-w-3xl mb-8">
-              Built for <span className="text-teal-300">operations teams</span>, not developers. Get certified AI agents with no coding, self-healing, and 99% reliability.
+            <p className="text-heading-md text-slate-300 mb-3">
+              n8n is great for technical teams who want visual workflows with code flexibility.
+            </p>
+            <p className="text-heading-md text-slate-300 mb-8">
+              Agent School is built for business operations teams who need reliable AI agents without writing code.
             </p>
 
             <div className="flex flex-wrap gap-4">
@@ -32,751 +35,362 @@ export default function N8nComparisonPage() {
                 href={BOOKING_URL}
                 className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-teal-600 to-orange-500 px-8 py-4 font-semibold text-white transition hover:shadow-lg hover:shadow-teal-500/25"
               >
-                See Why Non-Technical Teams Choose Us
+                Book a Demo
                 <ArrowRight className="w-5 h-5" />
               </a>
-              <a
-                href="#comparison-table"
-                className="inline-flex items-center gap-2 rounded-full border border-slate-600 bg-slate-800/50 px-8 py-4 font-semibold text-white transition hover:bg-slate-700/50"
-              >
-                View Detailed Comparison
-              </a>
             </div>
           </div>
         </section>
 
-        {/* Quick Context - Different Audiences */}
-        <section className="py-20 px-6 bg-slate-900/50">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {/* Agent School */}
-              <div className="rounded-2xl border border-teal-500/40 bg-gradient-to-br from-teal-500/10 to-slate-900/60 p-8">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-500/20 to-teal-600/10 flex items-center justify-center mb-6">
-                  <Users className="w-6 h-6 text-teal-300" />
-                </div>
-                <h3 className="font-display text-heading-xl text-white mb-4">
-                  Agent School
-                </h3>
-                <p className="text-body-md text-slate-300 mb-6">
-                  Built for <strong className="text-teal-300">business operations teams</strong> who need reliable automation without coding.
-                </p>
-                <ul className="space-y-3">
-                  <li className="flex items-center gap-2 text-body-sm text-slate-300">
-                    <Check className="w-4 h-4 text-teal-300" />
-                    Demonstrate workflows, no coding
-                  </li>
-                  <li className="flex items-center gap-2 text-body-sm text-slate-300">
-                    <Check className="w-4 h-4 text-teal-300" />
-                    Self-healing included
-                  </li>
-                  <li className="flex items-center gap-2 text-body-sm text-slate-300">
-                    <Check className="w-4 h-4 text-teal-300" />
-                    99% certified reliability
-                  </li>
-                  <li className="flex items-center gap-2 text-body-sm text-slate-300">
-                    <Check className="w-4 h-4 text-teal-300" />
-                    Minimal maintenance
-                  </li>
-                </ul>
-                <p className="mt-6 text-body-sm text-teal-200">
-                  <strong>Target:</strong> VP Operations, IT Directors, business process owners
-                </p>
-              </div>
+        {/* Main Content */}
+        <section className="py-20 px-6">
+          <div className="max-w-4xl mx-auto prose prose-invert prose-slate">
+            <p className="text-body-lg text-slate-300 leading-relaxed mb-8">
+              Both n8n and Agent School help teams automate workflows, but they're designed for completely different audiences. n8n targets DevOps engineers and IT teams who are comfortable with code. Agent School empowers non-technical operations teams to create certified AI agents through demonstration—no coding required.
+            </p>
 
-              {/* n8n */}
-              <div className="rounded-2xl border border-slate-700 bg-slate-900/60 p-8">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-slate-600/20 to-slate-700/10 flex items-center justify-center mb-6">
-                  <Code className="w-6 h-6 text-slate-400" />
-                </div>
-                <h3 className="font-display text-heading-xl text-slate-300 mb-4">
-                  n8n
-                </h3>
-                <p className="text-body-md text-slate-400 mb-6">
-                  Built for <strong className="text-slate-300">technical teams</strong> who want full code control and self-hosting options.
-                </p>
-                <ul className="space-y-3">
-                  <li className="flex items-center gap-2 text-body-sm text-slate-400">
-                    <Check className="w-4 h-4 text-slate-500" />
-                    Visual workflows + JavaScript/Python
-                  </li>
-                  <li className="flex items-center gap-2 text-body-sm text-slate-400">
-                    <Check className="w-4 h-4 text-slate-500" />
-                    1700+ integrations
-                  </li>
-                  <li className="flex items-center gap-2 text-body-sm text-slate-400">
-                    <Check className="w-4 h-4 text-slate-500" />
-                    Self-hostable (open-source)
-                  </li>
-                  <li className="flex items-center gap-2 text-body-sm text-slate-400">
-                    <X className="w-4 h-4 text-slate-600" />
-                    Manual maintenance required
-                  </li>
-                </ul>
-                <p className="mt-6 text-body-sm text-slate-500">
-                  <strong>Target:</strong> DevOps engineers, IT Ops managers, technical teams
-                </p>
+            <p className="text-body-lg text-slate-300 leading-relaxed mb-12">
+              Let's explore the differences.
+            </p>
+
+            {/* Comparison Table */}
+            <div className="not-prose mb-16">
+              <div className="overflow-x-auto">
+                <table className="w-full border-collapse">
+                  <thead>
+                    <tr className="border-b border-slate-700">
+                      <th className="text-left py-4 px-6 font-display text-heading-md text-white">
+                        
+                      </th>
+                      <th className="text-left py-4 px-6 font-display text-heading-md text-teal-300">
+                        Agent School
+                      </th>
+                      <th className="text-left py-4 px-6 font-display text-heading-md text-slate-400">
+                        n8n
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-800">
+                    <tr className="hover:bg-slate-800/30 transition">
+                      <td className="py-4 px-6 text-body-md text-white font-semibold">
+                        Target users
+                      </td>
+                      <td className="py-4 px-6 text-body-md text-slate-200">
+                        Business operations teams who need reliable automation without developer help
+                      </td>
+                      <td className="py-4 px-6 text-body-md text-slate-400">
+                        Technical teams (DevOps, IT Ops) comfortable with JavaScript/Python
+                      </td>
+                    </tr>
+
+                    <tr className="hover:bg-slate-800/30 transition">
+                      <td className="py-4 px-6 text-body-md text-white font-semibold">
+                        Ease of use
+                      </td>
+                      <td className="py-4 px-6 text-body-md text-slate-200">
+                        Demonstrate workflows in plain English or by example. No coding required.
+                      </td>
+                      <td className="py-4 px-6 text-body-md text-slate-400">
+                        Visual node builder with optional JavaScript/Python. Steeper learning curve.
+                      </td>
+                    </tr>
+
+                    <tr className="hover:bg-slate-800/30 transition">
+                      <td className="py-4 px-6 text-body-md text-white font-semibold">
+                        Integrations
+                      </td>
+                      <td className="py-4 px-6 text-body-md text-slate-200">
+                        Works with any UI, API, or database through AI understanding
+                      </td>
+                      <td className="py-4 px-6 text-body-md text-slate-400">
+                        1,700+ pre-built nodes. Largest integration library in open-source.
+                      </td>
+                    </tr>
+
+                    <tr className="hover:bg-slate-800/30 transition">
+                      <td className="py-4 px-6 text-body-md text-white font-semibold">
+                        Reliability
+                      </td>
+                      <td className="py-4 px-6 text-body-md text-slate-200">
+                        99% certified before deployment. Agents tested hundreds of times.
+                      </td>
+                      <td className="py-4 px-6 text-body-md text-slate-400">
+                        Depends on workflow design. No built-in certification or testing framework.
+                      </td>
+                    </tr>
+
+                    <tr className="hover:bg-slate-800/30 transition">
+                      <td className="py-4 px-6 text-body-md text-white font-semibold">
+                        Self-healing
+                      </td>
+                      <td className="py-4 px-6 text-body-md text-slate-200">
+                        Included. Adapts when UIs change using semantic understanding.
+                      </td>
+                      <td className="py-4 px-6 text-body-md text-slate-400">
+                        Not available. Workflows break when apps update—requires manual fixes.
+                      </td>
+                    </tr>
+
+                    <tr className="hover:bg-slate-800/30 transition">
+                      <td className="py-4 px-6 text-body-md text-white font-semibold">
+                        Pricing
+                      </td>
+                      <td className="py-4 px-6 text-body-md text-slate-200">
+                        Consultation-based (enterprise focus)
+                      </td>
+                      <td className="py-4 px-6 text-body-md text-slate-400">
+                        €20-50/mo cloud OR free self-hosted (infrastructure costs apply)
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
 
-            <div className="mt-8 p-6 rounded-xl border border-orange-500/30 bg-orange-500/5">
+            <h2 className="font-display text-display-md text-white mt-16 mb-8">
+              Ease of Use
+            </h2>
+
+            <p className="text-body-lg text-slate-300 leading-relaxed mb-6">
+              n8n is designed for technical teams. You build workflows by dragging nodes onto a canvas and connecting them—each node represents an action like "Get data from Google Sheets" or "Send Slack message." It's visual, but you'll often need to write JavaScript or Python to handle complex logic, transform data, or work around limitations in pre-built nodes.
+            </p>
+
+            <p className="text-body-lg text-slate-300 leading-relaxed mb-6">
+              The learning curve is real. Setting up your first workflow can take anywhere from 1-16 hours depending on complexity, and you'll spend time debugging, testing, and maintaining it as apps change their APIs.
+            </p>
+
+            <p className="text-body-lg text-slate-300 leading-relaxed mb-6">
+              Agent School takes a fundamentally different approach. You demonstrate what you want automated—either by describing it in plain English or by showing the agent how to do it once. The platform captures every decision point, converts it into a reliable workflow, and certifies it before deployment.
+            </p>
+
+            <p className="text-body-lg text-slate-300 leading-relaxed mb-8">
+              <strong className="text-white">What this means in practice:</strong>
+            </p>
+
+            <ul className="space-y-3 mb-12">
+              <li className="text-body-md text-slate-300 pl-4">
+                <strong className="text-slate-200">n8n:</strong> Great if you have a DevOps team available. Time to first workflow: 1-16 hours (depending on complexity and technical skill).
+              </li>
+              <li className="text-body-md text-slate-300 pl-4">
+                <strong className="text-slate-200">Agent School:</strong> Designed for non-technical teams. Time to first agent: 30 minutes to 4 hours (no coding required).
+              </li>
+            </ul>
+
+            <h2 className="font-display text-display-md text-white mb-8">
+              Integrations
+            </h2>
+
+            <p className="text-body-lg text-slate-300 leading-relaxed mb-6">
+              n8n has one of the largest integration libraries in the open-source automation space—over 1,700 pre-built nodes covering everything from Slack and Google Workspace to databases, CRMs, and niche SaaS tools. If you're working with popular enterprise tools or need quick plug-and-play access, n8n's got you covered.
+            </p>
+
+            <p className="text-body-lg text-slate-300 leading-relaxed mb-6">
+              But here's the catch: if the pre-built node doesn't do exactly what you need, you're writing custom JavaScript or hitting APIs directly via HTTP requests. It's flexible, but it requires technical expertise.
+            </p>
+
+            <p className="text-body-lg text-slate-300 leading-relaxed mb-12">
+              Agent School uses AI to understand interfaces, APIs, and databases without needing pre-built connectors. Demonstrate what you want once, and the agent learns to interact with any system—whether it's a legacy tool with no API, a modern SaaS app, or your internal database. No hunting through integration libraries or writing glue code.
+            </p>
+
+            <h2 className="font-display text-display-md text-white mb-8">
+              Self-Healing vs Manual Maintenance
+            </h2>
+
+            <p className="text-body-lg text-slate-300 leading-relaxed mb-6">
+              Here's where the difference becomes expensive over time.
+            </p>
+
+            <p className="text-body-lg text-slate-300 leading-relaxed mb-6">
+              n8n workflows are brittle. When Salesforce updates their UI, or your CRM changes an API endpoint, your workflow breaks. You'll get an error notification, and someone on your team (usually a developer) needs to:
+            </p>
+
+            <ul className="space-y-3 mb-6">
+              <li className="text-body-md text-slate-300 pl-4">
+                Investigate what broke
+              </li>
+              <li className="text-body-md text-slate-300 pl-4">
+                Update the workflow nodes
+              </li>
+              <li className="text-body-md text-slate-300 pl-4">
+                Test everything again
+              </li>
+              <li className="text-body-md text-slate-300 pl-4">
+                Re-deploy
+              </li>
+            </ul>
+
+            <p className="text-body-lg text-slate-300 leading-relaxed mb-6">
+              For a single workflow, this might be 1-2 hours. For 20 workflows? That's a part-time job.
+            </p>
+
+            <p className="text-body-lg text-slate-300 leading-relaxed mb-6">
+              Agent School agents are self-healing. When UIs change, the agent adapts automatically using semantic understanding (it knows what a "Save" button does, even if the button text or location changes). If adaptation fails, the system alerts you—but 95% of UI changes are handled without human intervention.
+            </p>
+
+            <p className="text-body-lg text-slate-300 leading-relaxed mb-12">
+              This isn't theoretical. Traditional RPA tools (which n8n resembles in this regard) typically require 30-50% of development time spent on maintenance. Self-healing eliminates most of that.
+            </p>
+
+            <h2 className="font-display text-display-md text-white mb-8">
+              Reliability and Certification
+            </h2>
+
+            <p className="text-body-lg text-slate-300 leading-relaxed mb-6">
+              n8n gives you full transparency—you can see every node in your workflow and inspect the code. But it doesn't test your workflow for you. You're responsible for:
+            </p>
+
+            <ul className="space-y-3 mb-6">
+              <li className="text-body-md text-slate-300 pl-4">
+                Manually testing edge cases
+              </li>
+              <li className="text-body-md text-slate-300 pl-4">
+                Handling errors gracefully
+              </li>
+              <li className="text-body-md text-slate-300 pl-4">
+                Ensuring the workflow works reliably in production
+              </li>
+            </ul>
+
+            <p className="text-body-lg text-slate-300 leading-relaxed mb-6">
+              This is fine for internal tools where occasional failures are acceptable. But for mission-critical workflows—processing payments, verifying insurance claims, managing hotel reservations—you need guarantees.
+            </p>
+
+            <p className="text-body-lg text-slate-300 leading-relaxed mb-12">
+              Agent School requires certification before deployment. Agents are tested hundreds of times across different scenarios, and you set the reliability threshold (90%, 95%, 99%). If an agent doesn't meet the threshold, it doesn't go to production. This addresses the #1 barrier to enterprise AI adoption: trust.
+            </p>
+
+            <h2 className="font-display text-display-md text-white mb-8">
+              What They're Actually Used For
+            </h2>
+
+            <p className="text-body-lg text-slate-300 leading-relaxed mb-6">
+              <strong className="text-white">n8n excels at:</strong>
+            </p>
+
+            <ul className="space-y-3 mb-8">
+              <li className="text-body-md text-slate-300 pl-4">
+                <strong className="text-slate-200">IT Operations:</strong> User onboarding, provisioning, infrastructure monitoring
+              </li>
+              <li className="text-body-md text-slate-300 pl-4">
+                <strong className="text-slate-200">DevOps:</strong> CI/CD pipelines, deployment automation, incident response
+              </li>
+              <li className="text-body-md text-slate-300 pl-4">
+                <strong className="text-slate-200">Data pipelines:</strong> ETL workflows, database syncing, API integrations
+              </li>
+              <li className="text-body-md text-slate-300 pl-4">
+                <strong className="text-slate-200">Marketing automation:</strong> Social media posting, SEO tracking, content distribution (when you have dev support)
+              </li>
+            </ul>
+
+            <p className="text-body-lg text-slate-300 leading-relaxed mb-6">
+              <strong className="text-white">Agent School is built for:</strong>
+            </p>
+
+            <ul className="space-y-3 mb-12">
+              <li className="text-body-md text-slate-300 pl-4">
+                <strong className="text-slate-200">Hotel operations:</strong> Reservation management, occupancy tracking, rate updates across booking platforms
+              </li>
+              <li className="text-body-md text-slate-300 pl-4">
+                <strong className="text-slate-200">Healthcare:</strong> Patient scheduling, insurance verification, claims processing (HIPAA-compliant)
+              </li>
+              <li className="text-body-md text-slate-300 pl-4">
+                <strong className="text-slate-200">Financial services:</strong> Reconciliation, compliance reporting, transaction processing
+              </li>
+              <li className="text-body-md text-slate-300 pl-4">
+                <strong className="text-slate-200">Customer support:</strong> Ticket routing, response drafting, escalation workflows
+              </li>
+            </ul>
+
+            <div className="not-prose bg-teal-500/5 border border-teal-500/30 rounded-2xl p-8 mb-12">
               <p className="text-body-md text-slate-300">
-                <strong className="text-orange-300">Key Insight:</strong> Both platforms serve automation needs but target <strong>different audiences</strong>. Agent School empowers non-technical teams; n8n requires developer resources.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Key Differentiators Grid */}
-        <section className="py-24 px-6">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <p className="font-mono text-caption uppercase tracking-widest text-teal-300 mb-4">
-                Why Non-Technical Teams Choose Agent School
-              </p>
-              <h2 className="font-display text-display-lg md:text-6xl text-white max-w-3xl mx-auto">
-                7 Key Advantages
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {/* Advantage 1: No Coding */}
-              <div className="rounded-2xl border border-teal-500/30 bg-slate-900/60 p-8 backdrop-blur-sm">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-500/20 to-teal-600/10 flex items-center justify-center mb-6">
-                  <Users className="w-6 h-6 text-teal-300" />
-                </div>
-                <h3 className="font-display text-heading-lg text-white mb-3">
-                  Zero Coding Required
-                </h3>
-                <p className="text-body-md text-slate-300 mb-4">
-                  Demonstrate workflows in plain English or by example. No JavaScript, Python, or technical expertise needed.
-                </p>
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2 text-body-sm">
-                    <Check className="w-4 h-4 text-teal-300" />
-                    <span className="text-slate-400">Natural language teaching</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-body-sm">
-                    <Check className="w-4 h-4 text-teal-300" />
-                    <span className="text-slate-400">Visual demonstration</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-body-sm">
-                    <Check className="w-4 h-4 text-teal-300" />
-                    <span className="text-slate-400">30min-4hr to first agent</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Advantage 2: Self-Healing */}
-              <div className="rounded-2xl border border-orange-500/30 bg-slate-900/60 p-8 backdrop-blur-sm">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500/20 to-orange-600/10 flex items-center justify-center mb-6">
-                  <Wrench className="w-6 h-6 text-orange-300" />
-                </div>
-                <h3 className="font-display text-heading-lg text-white mb-3">
-                  Self-Healing Built-In
-                </h3>
-                <p className="text-body-md text-slate-300 mb-4">
-                  95% of UI changes handled automatically. n8n workflows break and require manual fixes.
-                </p>
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2 text-body-sm">
-                    <Check className="w-4 h-4 text-orange-300" />
-                    <span className="text-slate-400">Auto-adapts to changes</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-body-sm">
-                    <Check className="w-4 h-4 text-orange-300" />
-                    <span className="text-slate-400">No maintenance overhead</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-body-sm">
-                    <Check className="w-4 h-4 text-orange-300" />
-                    <span className="text-slate-400">Eliminates 90% of RPA costs</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Advantage 3: Reliability */}
-              <div className="rounded-2xl border border-teal-500/30 bg-slate-900/60 p-8 backdrop-blur-sm">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-500/20 to-teal-600/10 flex items-center justify-center mb-6">
-                  <Shield className="w-6 h-6 text-teal-300" />
-                </div>
-                <h3 className="font-display text-heading-lg text-white mb-3">
-                  99% Certified Reliability
-                </h3>
-                <p className="text-body-md text-slate-300 mb-4">
-                  Agents tested hundreds of times before deployment. n8n offers no reliability guarantees.
-                </p>
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2 text-body-sm">
-                    <Check className="w-4 h-4 text-teal-300" />
-                    <span className="text-slate-400">Certification pipeline</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-body-sm">
-                    <Check className="w-4 h-4 text-teal-300" />
-                    <span className="text-slate-400">Configurable thresholds</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-body-sm">
-                    <Check className="w-4 h-4 text-teal-300" />
-                    <span className="text-slate-400">Production-ready guarantee</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Advantage 4: Speed */}
-              <div className="rounded-2xl border border-orange-500/30 bg-slate-900/60 p-8 backdrop-blur-sm">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500/20 to-orange-600/10 flex items-center justify-center mb-6">
-                  <Zap className="w-6 h-6 text-orange-300" />
-                </div>
-                <h3 className="font-display text-heading-lg text-white mb-3">
-                  2-3 Second Execution
-                </h3>
-                <p className="text-body-md text-slate-300 mb-4">
-                  Deterministic execution optimized for speed. n8n execution time varies by workflow complexity.
-                </p>
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2 text-body-sm">
-                    <Check className="w-4 h-4 text-orange-300" />
-                    <span className="text-slate-400">Real-time capable</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-body-sm">
-                    <Check className="w-4 h-4 text-orange-300" />
-                    <span className="text-slate-400">High-volume ready</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-body-sm">
-                    <Check className="w-4 h-4 text-orange-300" />
-                    <span className="text-slate-400">Predictable performance</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Advantage 5: Time to Value */}
-              <div className="rounded-2xl border border-teal-500/30 bg-slate-900/60 p-8 backdrop-blur-sm">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-500/20 to-teal-600/10 flex items-center justify-center mb-6">
-                  <Activity className="w-6 h-6 text-teal-300" />
-                </div>
-                <h3 className="font-display text-heading-lg text-white mb-3">
-                  Days vs Weeks to Deploy
-                </h3>
-                <p className="text-body-md text-slate-300 mb-4">
-                  30min-4hr to first agent. n8n requires 1-16 hours for technical teams to build and test.
-                </p>
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2 text-body-sm">
-                    <Check className="w-4 h-4 text-teal-300" />
-                    <span className="text-slate-400">Rapid onboarding</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-body-sm">
-                    <Check className="w-4 h-4 text-teal-300" />
-                    <span className="text-slate-400">No developer queue</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-body-sm">
-                    <Check className="w-4 h-4 text-teal-300" />
-                    <span className="text-slate-400">Immediate productivity</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Advantage 6: Transparency */}
-              <div className="rounded-2xl border border-orange-500/30 bg-slate-900/60 p-8 backdrop-blur-sm">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500/20 to-orange-600/10 flex items-center justify-center mb-6">
-                  <Shield className="w-6 h-6 text-orange-300" />
-                </div>
-                <h3 className="font-display text-heading-lg text-white mb-3">
-                  Compliance-Ready
-                </h3>
-                <p className="text-body-md text-slate-300 mb-4">
-                  Full audit trails for SOX, HIPAA, GDPR. Both platforms offer transparency; we add certification.
-                </p>
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2 text-body-sm">
-                    <Check className="w-4 h-4 text-orange-300" />
-                    <span className="text-slate-400">Visual timeline</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-body-sm">
-                    <Check className="w-4 h-4 text-orange-300" />
-                    <span className="text-slate-400">Executable code</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-body-sm">
-                    <Check className="w-4 h-4 text-orange-300" />
-                    <span className="text-slate-400">Deterministic audits</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Advantage 7: No DevOps Team Needed */}
-              <div className="rounded-2xl border border-teal-500/30 bg-slate-900/60 p-8 backdrop-blur-sm md:col-span-2 lg:col-span-3">
-                <div className="flex items-start gap-6">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-500/20 to-teal-600/10 flex items-center justify-center flex-shrink-0">
-                    <DollarSign className="w-6 h-6 text-teal-300" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="font-display text-heading-lg text-white mb-3">
-                      Lower Total Cost of Ownership
-                    </h3>
-                    <p className="text-body-md text-slate-300 mb-4 max-w-3xl">
-                      No DevOps team needed. No maintenance costs. Self-healing eliminates 90% of ongoing work. n8n requires developer resources for building, debugging, and maintenance.
-                    </p>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                      <div className="flex items-center gap-2 text-body-sm">
-                        <Check className="w-4 h-4 text-teal-300" />
-                        <span className="text-slate-400">No developer costs</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-body-sm">
-                        <Check className="w-4 h-4 text-teal-300" />
-                        <span className="text-slate-400">Minimal maintenance</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-body-sm">
-                        <Check className="w-4 h-4 text-teal-300" />
-                        <span className="text-slate-400">3-year TCO advantage</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Detailed Comparison Table */}
-        <section id="comparison-table" className="py-24 px-6 bg-slate-900/50">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <p className="font-mono text-caption uppercase tracking-widest text-teal-300 mb-4">
-                Side-by-Side Analysis
-              </p>
-              <h2 className="font-display text-display-lg md:text-6xl text-white max-w-3xl mx-auto mb-6">
-                Feature Comparison
-              </h2>
-              <p className="text-body-lg text-slate-300 max-w-2xl mx-auto">
-                A comprehensive comparison of capabilities, ease of use, and total cost of ownership
+                <strong className="text-teal-300">The pattern:</strong> n8n shines when you have technical resources and need flexibility. Agent School wins when you need business teams to automate reliably without developer support.
               </p>
             </div>
 
-            <div className="overflow-x-auto">
-              <table className="w-full border-collapse">
-                <thead>
-                  <tr className="border-b border-slate-700">
-                    <th className="text-left py-4 px-6 font-display text-heading-md text-white">
-                      Feature
-                    </th>
-                    <th className="text-left py-4 px-6 font-display text-heading-md text-teal-300">
-                      Agent School
-                    </th>
-                    <th className="text-left py-4 px-6 font-display text-heading-md text-slate-400">
-                      n8n
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-800">
-                  <tr className="hover:bg-slate-800/30 transition">
-                    <td className="py-4 px-6 text-body-md text-slate-300">
-                      <strong className="text-white">Target User</strong>
-                    </td>
-                    <td className="py-4 px-6">
-                      <div className="flex items-center gap-2">
-                        <Check className="w-5 h-5 text-teal-300" />
-                        <span className="text-body-md text-slate-200">Business operations teams</span>
-                      </div>
-                    </td>
-                    <td className="py-4 px-6">
-                      <div className="flex items-center gap-2">
-                        <Check className="w-5 h-5 text-slate-500" />
-                        <span className="text-body-md text-slate-400">Technical teams (DevOps, IT)</span>
-                      </div>
-                    </td>
-                  </tr>
+            <h2 className="font-display text-display-md text-white mb-8">
+              Total Cost of Ownership
+            </h2>
 
-                  <tr className="hover:bg-slate-800/30 transition">
-                    <td className="py-4 px-6 text-body-md text-slate-300">
-                      <strong className="text-white">Coding Required</strong>
-                    </td>
-                    <td className="py-4 px-6">
-                      <div className="flex items-center gap-2">
-                        <Check className="w-5 h-5 text-teal-300" />
-                        <span className="text-body-md text-slate-200">No coding needed</span>
-                      </div>
-                    </td>
-                    <td className="py-4 px-6">
-                      <div className="flex items-center gap-2">
-                        <X className="w-5 h-5 text-slate-500" />
-                        <span className="text-body-md text-slate-400">Optional (JS/Python)</span>
-                      </div>
-                    </td>
-                  </tr>
+            <p className="text-body-lg text-slate-300 leading-relaxed mb-6">
+              Let's talk real numbers. n8n appears cheaper upfront, but the hidden costs add up fast.
+            </p>
 
-                  <tr className="hover:bg-slate-800/30 transition">
-                    <td className="py-4 px-6 text-body-md text-slate-300">
-                      <strong className="text-white">Learning Method</strong>
-                    </td>
-                    <td className="py-4 px-6">
-                      <div className="flex items-center gap-2">
-                        <Check className="w-5 h-5 text-teal-300" />
-                        <span className="text-body-md text-slate-200">Demonstrate once</span>
-                      </div>
-                    </td>
-                    <td className="py-4 px-6">
-                      <div className="flex items-center gap-2">
-                        <Check className="w-5 h-5 text-slate-500" />
-                        <span className="text-body-md text-slate-400">Visual nodes + code</span>
-                      </div>
-                    </td>
-                  </tr>
+            <p className="text-body-lg text-slate-300 leading-relaxed mb-8">
+              <strong className="text-white">n8n pricing for a mid-size company (50-500 employees):</strong>
+            </p>
 
-                  <tr className="hover:bg-slate-800/30 transition">
-                    <td className="py-4 px-6 text-body-md text-slate-300">
-                      <strong className="text-white">Time to First Agent</strong>
-                    </td>
-                    <td className="py-4 px-6">
-                      <div className="flex items-center gap-2">
-                        <Check className="w-5 h-5 text-teal-300" />
-                        <span className="text-body-md text-slate-200">30min-4hr</span>
-                      </div>
-                    </td>
-                    <td className="py-4 px-6">
-                      <div className="flex items-center gap-2">
-                        <X className="w-5 h-5 text-slate-500" />
-                        <span className="text-body-md text-slate-400">1h-16h (technical teams)</span>
-                      </div>
-                    </td>
-                  </tr>
+            <ul className="space-y-3 mb-8">
+              <li className="text-body-md text-slate-300 pl-4">
+                <strong className="text-slate-200">Cloud:</strong> €50/month (~$660/year) for 10,000 executions, or enterprise pricing for unlimited
+              </li>
+              <li className="text-body-md text-slate-300 pl-4">
+                <strong className="text-slate-200">Self-hosted:</strong> Free (open-source) + $60-240/year for infrastructure (VPS/cloud hosting)
+              </li>
+            </ul>
 
-                  <tr className="hover:bg-slate-800/30 transition">
-                    <td className="py-4 px-6 text-body-md text-slate-300">
-                      <strong className="text-white">Reliability</strong>
-                    </td>
-                    <td className="py-4 px-6">
-                      <div className="flex items-center gap-2">
-                        <Check className="w-5 h-5 text-teal-300" />
-                        <span className="text-body-md text-slate-200">95-99% certified</span>
-                      </div>
-                    </td>
-                    <td className="py-4 px-6">
-                      <div className="flex items-center gap-2">
-                        <X className="w-5 h-5 text-slate-500" />
-                        <span className="text-body-md text-slate-400">Depends on workflow</span>
-                      </div>
-                    </td>
-                  </tr>
+            <p className="text-body-lg text-slate-300 leading-relaxed mb-6">
+              But here's what they don't advertise:
+            </p>
 
-                  <tr className="hover:bg-slate-800/30 transition">
-                    <td className="py-4 px-6 text-body-md text-slate-300">
-                      <strong className="text-white">Self-Healing</strong>
-                    </td>
-                    <td className="py-4 px-6">
-                      <div className="flex items-center gap-2">
-                        <Check className="w-5 h-5 text-teal-300" />
-                        <span className="text-body-md text-slate-200">Yes (95% success)</span>
-                      </div>
-                    </td>
-                    <td className="py-4 px-6">
-                      <div className="flex items-center gap-2">
-                        <X className="w-5 h-5 text-slate-500" />
-                        <span className="text-body-md text-slate-400">No (manual fixes)</span>
-                      </div>
-                    </td>
-                  </tr>
+            <ul className="space-y-3 mb-8">
+              <li className="text-body-md text-slate-300 pl-4">
+                <strong className="text-slate-200">Developer time to build workflows:</strong> $20K-40K/year (part-time DevOps resource at $80-120K salary)
+              </li>
+              <li className="text-body-md text-slate-300 pl-4">
+                <strong className="text-slate-200">Ongoing maintenance:</strong> $10K-30K/year (fixing broken workflows, updating integrations, handling edge cases)
+              </li>
+              <li className="text-body-md text-slate-300 pl-4">
+                <strong className="text-slate-200">Infrastructure management (self-hosted):</strong> $5K-15K/year (monitoring, updates, security patches)
+              </li>
+            </ul>
 
-                  <tr className="hover:bg-slate-800/30 transition">
-                    <td className="py-4 px-6 text-body-md text-slate-300">
-                      <strong className="text-white">Maintenance</strong>
-                    </td>
-                    <td className="py-4 px-6">
-                      <div className="flex items-center gap-2">
-                        <Check className="w-5 h-5 text-teal-300" />
-                        <span className="text-body-md text-slate-200">Minimal (auto-healing)</span>
-                      </div>
-                    </td>
-                    <td className="py-4 px-6">
-                      <div className="flex items-center gap-2">
-                        <X className="w-5 h-5 text-slate-500" />
-                        <span className="text-body-md text-slate-400">High (manual updates)</span>
-                      </div>
-                    </td>
-                  </tr>
+            <p className="text-body-lg text-slate-300 leading-relaxed mb-12">
+              <strong className="text-white">Total 3-year cost for n8n:</strong> $105K-255K (assuming part-time dev support + maintenance)
+            </p>
 
-                  <tr className="hover:bg-slate-800/30 transition">
-                    <td className="py-4 px-6 text-body-md text-slate-300">
-                      <strong className="text-white">Execution Speed</strong>
-                    </td>
-                    <td className="py-4 px-6">
-                      <div className="flex items-center gap-2">
-                        <Check className="w-5 h-5 text-teal-300" />
-                        <span className="text-body-md text-slate-200">2-3 seconds</span>
-                      </div>
-                    </td>
-                    <td className="py-4 px-6">
-                      <div className="flex items-center gap-2">
-                        <X className="w-5 h-5 text-slate-500" />
-                        <span className="text-body-md text-slate-400">Variable</span>
-                      </div>
-                    </td>
-                  </tr>
+            <p className="text-body-lg text-slate-300 leading-relaxed mb-8">
+              <strong className="text-white">Agent School pricing:</strong>
+            </p>
 
-                  <tr className="hover:bg-slate-800/30 transition">
-                    <td className="py-4 px-6 text-body-md text-slate-300">
-                      <strong className="text-white">Certification</strong>
-                    </td>
-                    <td className="py-4 px-6">
-                      <div className="flex items-center gap-2">
-                        <Check className="w-5 h-5 text-teal-300" />
-                        <span className="text-body-md text-slate-200">Required before deployment</span>
-                      </div>
-                    </td>
-                    <td className="py-4 px-6">
-                      <div className="flex items-center gap-2">
-                        <X className="w-5 h-5 text-slate-500" />
-                        <span className="text-body-md text-slate-400">No certification</span>
-                      </div>
-                    </td>
-                  </tr>
+            <ul className="space-y-3 mb-12">
+              <li className="text-body-md text-slate-300 pl-4">
+                Platform cost: $60K-180K over 3 years (enterprise pricing varies by scale)
+              </li>
+              <li className="text-body-md text-slate-300 pl-4">
+                Developer time: $0 (non-technical teams build agents)
+              </li>
+              <li className="text-body-md text-slate-300 pl-4">
+                Maintenance: Minimal (self-healing handles 95% of changes automatically)
+              </li>
+              <li className="text-body-md text-slate-300 pl-4">
+                Infrastructure: $0 (fully managed)
+              </li>
+            </ul>
 
-                  <tr className="hover:bg-slate-800/30 transition">
-                    <td className="py-4 px-6 text-body-md text-slate-300">
-                      <strong className="text-white">Transparency</strong>
-                    </td>
-                    <td className="py-4 px-6">
-                      <div className="flex items-center gap-2">
-                        <Check className="w-5 h-5 text-teal-300" />
-                        <span className="text-body-md text-slate-200">Full (timeline + code + audit)</span>
-                      </div>
-                    </td>
-                    <td className="py-4 px-6">
-                      <div className="flex items-center gap-2">
-                        <Check className="w-5 h-5 text-slate-500" />
-                        <span className="text-body-md text-slate-400">Full (code visible)</span>
-                      </div>
-                    </td>
-                  </tr>
-
-                  <tr className="hover:bg-slate-800/30 transition">
-                    <td className="py-4 px-6 text-body-md text-slate-300">
-                      <strong className="text-white">Deployment</strong>
-                    </td>
-                    <td className="py-4 px-6">
-                      <span className="text-body-md text-slate-200">Cloud (managed)</span>
-                    </td>
-                    <td className="py-4 px-6">
-                      <span className="text-body-md text-slate-400">Cloud OR self-hosted</span>
-                    </td>
-                  </tr>
-
-                  <tr className="hover:bg-slate-800/30 transition">
-                    <td className="py-4 px-6 text-body-md text-slate-300">
-                      <strong className="text-white">Pricing Model</strong>
-                    </td>
-                    <td className="py-4 px-6">
-                      <span className="text-body-md text-slate-200">Consultation-based</span>
-                    </td>
-                    <td className="py-4 px-6">
-                      <span className="text-body-md text-slate-400">Execution-based (€20-50+/mo)</span>
-                    </td>
-                  </tr>
-
-                  <tr className="hover:bg-slate-800/30 transition">
-                    <td className="py-4 px-6 text-body-md text-slate-300">
-                      <strong className="text-white">Integrations</strong>
-                    </td>
-                    <td className="py-4 px-6">
-                      <span className="text-body-md text-slate-200">Any UI/API/Database</span>
-                    </td>
-                    <td className="py-4 px-6">
-                      <span className="text-body-md text-slate-400">1700+ pre-built nodes</span>
-                    </td>
-                  </tr>
-
-                  <tr className="hover:bg-slate-800/30 transition">
-                    <td className="py-4 px-6 text-body-md text-slate-300">
-                      <strong className="text-white">DevOps Team Needed</strong>
-                    </td>
-                    <td className="py-4 px-6">
-                      <div className="flex items-center gap-2">
-                        <Check className="w-5 h-5 text-teal-300" />
-                        <span className="text-body-md text-slate-200">No</span>
-                      </div>
-                    </td>
-                    <td className="py-4 px-6">
-                      <div className="flex items-center gap-2">
-                        <X className="w-5 h-5 text-slate-500" />
-                        <span className="text-body-md text-slate-400">Yes (for building & maintenance)</span>
-                      </div>
-                    </td>
-                  </tr>
-
-                  <tr className="hover:bg-slate-800/30 transition">
-                    <td className="py-4 px-6 text-body-md text-slate-300">
-                      <strong className="text-white">Best For</strong>
-                    </td>
-                    <td className="py-4 px-6">
-                      <span className="text-body-md text-slate-200">
-                        Non-technical teams needing reliable, low-maintenance automation
-                      </span>
-                    </td>
-                    <td className="py-4 px-6">
-                      <span className="text-body-md text-slate-400">
-                        Technical teams wanting code control and self-hosting
-                      </span>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </section>
-
-        {/* Who Should Choose What */}
-        <section className="py-24 px-6">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <p className="font-mono text-caption uppercase tracking-widest text-teal-300 mb-4">
-                Making The Right Choice
+            <div className="not-prose bg-orange-500/5 border border-orange-500/30 rounded-2xl p-8 mb-12">
+              <p className="text-body-md text-slate-300 mb-4">
+                <strong className="text-orange-300">The math:</strong> If you don't have a DevOps team available, n8n's "free" tier can end up costing $30K-80K/year in developer resources. Agent School eliminates that entirely by letting operations teams build and maintain agents themselves.
               </p>
-              <h2 className="font-display text-display-lg md:text-6xl text-white max-w-3xl mx-auto">
-                Which Platform Is Right for You?
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {/* Choose Agent School */}
-              <div className="rounded-2xl border border-teal-500/40 bg-gradient-to-br from-teal-500/10 to-slate-900/60 p-8 backdrop-blur-sm">
-                <h3 className="font-display text-heading-xl text-white mb-6">
-                  Choose Agent School If:
-                </h3>
-                <ul className="space-y-4">
-                  {[
-                    "Your team doesn't have developer resources",
-                    "You need 99%+ reliability for mission-critical work",
-                    "You want self-healing with minimal maintenance",
-                    "You need agents deployed in days, not weeks",
-                    "Your team works in operations, not engineering",
-                    "You need certified, compliance-ready automation",
-                    "You want predictable execution speed (2-3s)",
-                    "Reducing IT backlog is a priority",
-                  ].map((item) => (
-                    <li key={item} className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-teal-300 flex-shrink-0 mt-1" />
-                      <span className="text-body-md text-slate-200">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Choose n8n */}
-              <div className="rounded-2xl border border-slate-700 bg-slate-900/60 p-8 backdrop-blur-sm">
-                <h3 className="font-display text-heading-xl text-slate-300 mb-6">
-                  n8n Works Better If:
-                </h3>
-                <ul className="space-y-4">
-                  {[
-                    "You have a DevOps or IT Ops team available",
-                    "You want full code control (JavaScript/Python)",
-                    "You need self-hosting for data sovereignty",
-                    "You prefer open-source platforms",
-                    "Your team is comfortable with visual + code workflows",
-                    "You need 1700+ pre-built integrations",
-                    "You're willing to handle manual maintenance",
-                    "You have budget for developer resources",
-                  ].map((item) => (
-                    <li key={item} className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-slate-500 flex-shrink-0 mt-1" />
-                      <span className="text-body-md text-slate-400">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-6 pt-6 border-t border-slate-700">
-                  <p className="text-body-sm text-slate-500">
-                    <strong>Note:</strong> n8n is excellent for technical teams. Agent School is built for everyone else.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Total Cost of Ownership */}
-        <section className="py-24 px-6 bg-slate-900/50">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <p className="font-mono text-caption uppercase tracking-widest text-teal-300 mb-4">
-                3-Year TCO Analysis
-              </p>
-              <h2 className="font-display text-display-lg md:text-6xl text-white max-w-3xl mx-auto mb-6">
-                Hidden Costs of n8n
-              </h2>
-              <p className="text-body-lg text-slate-300 max-w-2xl mx-auto">
-                n8n appears cheaper upfront but requires significant developer and maintenance resources
+              <p className="text-body-sm text-slate-400">
+                Note: If you already have in-house DevOps capacity and they're not at full utilization, n8n can be extremely cost-effective. The trade-off is time-to-value and maintenance overhead.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {/* Agent School TCO */}
-              <div className="rounded-2xl border border-teal-500/30 bg-slate-900/60 p-8">
-                <h3 className="font-display text-heading-xl text-white mb-6">
-                  Agent School 3-Year TCO
-                </h3>
-                <div className="space-y-4 mb-6">
-                  <div className="flex justify-between items-center pb-3 border-b border-slate-700">
-                    <span className="text-body-md text-slate-300">Platform cost</span>
-                    <span className="text-body-md font-semibold text-white">$60K-180K</span>
-                  </div>
-                  <div className="flex justify-between items-center pb-3 border-b border-slate-700">
-                    <span className="text-body-md text-slate-300">Developer time</span>
-                    <span className="text-body-md font-semibold text-teal-300">$0</span>
-                  </div>
-                  <div className="flex justify-between items-center pb-3 border-b border-slate-700">
-                    <span className="text-body-md text-slate-300">Maintenance</span>
-                    <span className="text-body-md font-semibold text-teal-300">$0 (self-healing)</span>
-                  </div>
-                  <div className="flex justify-between items-center pb-3 border-b border-slate-700">
-                    <span className="text-body-md text-slate-300">Infrastructure</span>
-                    <span className="text-body-md font-semibold text-teal-300">$0 (managed)</span>
-                  </div>
-                </div>
-                <div className="pt-4 border-t-2 border-teal-500/40">
-                  <div className="flex justify-between items-center">
-                    <span className="text-heading-md text-white">Total 3-Year Cost</span>
-                    <span className="text-heading-xl text-teal-300">$60K-180K</span>
-                  </div>
-                </div>
-              </div>
+            <h2 className="font-display text-display-md text-white mb-8">
+              Agent School vs n8n
+            </h2>
 
-              {/* n8n TCO */}
-              <div className="rounded-2xl border border-slate-700 bg-slate-900/60 p-8">
-                <h3 className="font-display text-heading-xl text-slate-300 mb-6">
-                  n8n 3-Year TCO
-                </h3>
-                <div className="space-y-4 mb-6">
-                  <div className="flex justify-between items-center pb-3 border-b border-slate-700">
-                    <span className="text-body-md text-slate-400">Platform cost</span>
-                    <span className="text-body-md font-semibold text-slate-300">$12K-50K</span>
-                  </div>
-                  <div className="flex justify-between items-center pb-3 border-b border-slate-700">
-                    <span className="text-body-md text-slate-400">Developer time (build)</span>
-                    <span className="text-body-md font-semibold text-orange-300">$60K-120K</span>
-                  </div>
-                  <div className="flex justify-between items-center pb-3 border-b border-slate-700">
-                    <span className="text-body-md text-slate-400">Maintenance (3 years)</span>
-                    <span className="text-body-md font-semibold text-orange-300">$90K-180K</span>
-                  </div>
-                  <div className="flex justify-between items-center pb-3 border-b border-slate-700">
-                    <span className="text-body-md text-slate-400">Infrastructure (self-host)</span>
-                    <span className="text-body-md font-semibold text-slate-300">$720-7.2K</span>
-                  </div>
-                </div>
-                <div className="pt-4 border-t-2 border-orange-500/40">
-                  <div className="flex justify-between items-center">
-                    <span className="text-heading-md text-slate-300">Total 3-Year Cost</span>
-                    <span className="text-heading-xl text-orange-300">$163K-357K</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <p className="text-body-lg text-slate-300 leading-relaxed mb-6">
+              n8n is the right tool if you have technical teams who want full control over workflows, need to integrate with 1,700+ tools, or prefer self-hosting for data sovereignty.
+            </p>
 
-            <div className="mt-8 p-6 rounded-xl border border-teal-500/30 bg-teal-500/5 text-center">
-              <p className="text-heading-md text-white mb-2">
-                Agent School saves <span className="text-teal-300">$103K-177K</span> over 3 years
-              </p>
-              <p className="text-body-md text-slate-300">
-                Lower upfront cost + no developer overhead + minimal maintenance = superior TCO
-              </p>
-            </div>
+            <p className="text-body-lg text-slate-300 leading-relaxed mb-6">
+              But if your organization is short on developer resources, needs business teams to automate independently, or requires mission-critical reliability with minimal maintenance, Agent School is a smarter choice.
+            </p>
+
+            <p className="text-body-lg text-slate-300 leading-relaxed">
+              No workarounds to do what should be simple. Just reliable agents, built by the teams who know the work best.
+            </p>
           </div>
         </section>
 
@@ -784,26 +398,18 @@ export default function N8nComparisonPage() {
         <section className="py-24 px-6 bg-gradient-to-br from-teal-600/10 via-transparent to-orange-600/10">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="font-display text-display-lg md:text-6xl text-white mb-6">
-              Empower Your Operations Team
+              See Agent School in Action
             </h2>
             <p className="text-heading-md text-slate-300 mb-8 max-w-2xl mx-auto">
-              Join businesses automating workflows without developer resources. Get certified agents in days, not weeks.
+              Learn how operations teams automate workflows without developer resources.
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <a
-                href={BOOKING_URL}
-                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-teal-600 to-orange-500 px-8 py-4 font-semibold text-white transition hover:shadow-lg hover:shadow-teal-500/25"
-              >
-                Book a Demo
-                <ArrowRight className="w-5 h-5" />
-              </a>
-              <a
-                href="/"
-                className="inline-flex items-center gap-2 rounded-full border border-slate-600 bg-slate-800/50 px-8 py-4 font-semibold text-white transition hover:bg-slate-700/50"
-              >
-                Explore Platform
-              </a>
-            </div>
+            <a
+              href={BOOKING_URL}
+              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-teal-600 to-orange-500 px-8 py-4 font-semibold text-white transition hover:shadow-lg hover:shadow-teal-500/25"
+            >
+              Book a Demo
+              <ArrowRight className="w-5 h-5" />
+            </a>
             <p className="mt-8 text-body-sm text-slate-400">
               30-day pilot program with satisfaction guarantee
             </p>

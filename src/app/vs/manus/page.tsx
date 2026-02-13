@@ -1,6 +1,6 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { ArrowRight, Check, X, AlertTriangle, Shield, Zap, DollarSign, Lock, Activity, Users } from "lucide-react";
+import { ArrowRight, AlertTriangle } from "lucide-react";
 import { BOOKING_URL } from "@/lib/constants";
 
 export const metadata = {
@@ -16,7 +16,7 @@ export default function ManusComparisonPage() {
         {/* Hero Section */}
         <section className="pt-36 pb-20 px-6 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-teal-600/10 via-transparent to-orange-600/10" />
-          <div className="max-w-7xl mx-auto relative">
+          <div className="max-w-4xl mx-auto relative">
             {/* Alert Banner */}
             <div className="mb-8 inline-flex items-center gap-3 rounded-full border border-orange-500/40 bg-orange-500/10 px-6 py-3">
               <AlertTriangle className="w-5 h-5 text-orange-300" />
@@ -26,13 +26,16 @@ export default function ManusComparisonPage() {
             </div>
 
             <p className="font-mono text-caption uppercase tracking-widest text-teal-300 mb-4">
-              Competitive Comparison
+              Comparison
             </p>
-            <h1 className="font-display text-display-xl md:text-7xl text-white max-w-4xl mb-6">
+            <h1 className="font-display text-display-xl md:text-7xl text-white mb-6">
               Agent School vs Manus
             </h1>
-            <p className="text-heading-lg text-slate-300 max-w-3xl mb-8">
-              The <span className="text-teal-300">independent, enterprise-grade</span> alternative to Meta-owned AI agents. Built for reliability, compliance, and trust.
+            <p className="text-heading-md text-slate-300 mb-3">
+              Manus helped define AI agents for knowledge workers.
+            </p>
+            <p className="text-heading-md text-slate-300 mb-8">
+              Agent School is built for enterprises that need reliability, compliance, and independence from Big Tech.
             </p>
 
             <div className="flex flex-wrap gap-4">
@@ -40,577 +43,337 @@ export default function ManusComparisonPage() {
                 href={BOOKING_URL}
                 className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-teal-600 to-orange-500 px-8 py-4 font-semibold text-white transition hover:shadow-lg hover:shadow-teal-500/25"
               >
-                See Why Enterprises Choose Us
+                Book a Demo
                 <ArrowRight className="w-5 h-5" />
               </a>
-              <a
-                href="#comparison-table"
-                className="inline-flex items-center gap-2 rounded-full border border-slate-600 bg-slate-800/50 px-8 py-4 font-semibold text-white transition hover:bg-slate-700/50"
-              >
-                View Detailed Comparison
-              </a>
             </div>
           </div>
         </section>
 
-        {/* Quick Context - What Happened */}
-        <section className="py-20 px-6 bg-slate-900/50">
-          <div className="max-w-7xl mx-auto">
-            <div className="rounded-2xl border border-orange-500/40 bg-gradient-to-br from-orange-500/10 to-red-500/5 p-8 md:p-12">
-              <div className="flex items-start gap-4 mb-6">
-                <AlertTriangle className="w-8 h-8 text-orange-300 flex-shrink-0 mt-1" />
-                <div>
-                  <h2 className="font-display text-heading-xl text-white mb-4">
-                    The Manus-Meta Acquisition: What Changed
-                  </h2>
-                  <div className="space-y-4 text-body-md text-slate-300">
-                    <p>
-                      In <strong className="text-white">late 2025</strong>, Meta acquired Manus for <strong className="text-white">over $2 billion</strong>, fundamentally changing the competitive landscape for AI agent platforms.
-                    </p>
-                    <p>
-                      <strong className="text-orange-300">The Impact:</strong> Some enterprise customers have left the platform due to concerns about Meta's data practices, regulatory scrutiny in China, and uncertainty about the product roadmap.
-                    </p>
-                    <p>
-                      <strong className="text-teal-300">The Opportunity:</strong> Organizations seeking an independent, enterprise-focused alternative with stronger security, compliance, and predictable evolution.
-                    </p>
-                  </div>
-                </div>
-              </div>
+        {/* Main Content */}
+        <section className="py-20 px-6">
+          <div className="max-w-4xl mx-auto prose prose-invert prose-slate">
+            <p className="text-body-lg text-slate-300 leading-relaxed mb-8">
+              Manus (now owned by Meta) is an excellent general-purpose AI agent for research, content creation, and browser automation. It's designed for individual knowledge workers and small teams who want quick, flexible AI assistance.
+            </p>
 
-              <div className="mt-8 pt-8 border-t border-orange-500/20">
-                <p className="text-body-sm text-slate-400">
-                  <strong>Sources:</strong> CNBC (Jan 2026), Wall Street Journal, New York Times
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+            <p className="text-body-lg text-slate-300 leading-relaxed mb-12">
+              Agent School is purpose-built for enterprises that need certified, mission-critical automation with 99% reliability, full transparency, and no Big Tech ownership concerns.
+            </p>
 
-        {/* Key Differentiators Grid */}
-        <section className="py-24 px-6">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <p className="font-mono text-caption uppercase tracking-widest text-teal-300 mb-4">
-                Why Enterprises Choose Agent School
-              </p>
-              <h2 className="font-display text-display-lg md:text-6xl text-white max-w-3xl mx-auto">
-                7 Critical Advantages
-              </h2>
-            </div>
+            <h2 className="font-display text-display-md text-white mb-8">
+              What Happened: The Meta Acquisition
+            </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {/* Advantage 1: Independent */}
-              <div className="rounded-2xl border border-teal-500/30 bg-slate-900/60 p-8 backdrop-blur-sm">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-500/20 to-teal-600/10 flex items-center justify-center mb-6">
-                  <Shield className="w-6 h-6 text-teal-300" />
-                </div>
-                <h3 className="font-display text-heading-lg text-white mb-3">
-                  Independent & Trusted
-                </h3>
-                <p className="text-body-md text-slate-300 mb-4">
-                  Not owned by Big Tech. No data mining. SOC 2 ready. Your data stays yours.
-                </p>
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2 text-body-sm">
-                    <Check className="w-4 h-4 text-teal-300" />
-                    <span className="text-slate-400">Independent company</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-body-sm">
-                    <Check className="w-4 h-4 text-teal-300" />
-                    <span className="text-slate-400">Predictable roadmap</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-body-sm">
-                    <Check className="w-4 h-4 text-teal-300" />
-                    <span className="text-slate-400">Enterprise-first focus</span>
-                  </div>
-                </div>
-              </div>
+            <p className="text-body-lg text-slate-300 leading-relaxed mb-6">
+              In late 2025, Meta acquired Manus for over $2 billion, marking one of the largest AI agent acquisitions to date. For individual users, this might not matter much. For enterprises? It fundamentally changed the equation.
+            </p>
 
-              {/* Advantage 2: Reliability */}
-              <div className="rounded-2xl border border-orange-500/30 bg-slate-900/60 p-8 backdrop-blur-sm">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500/20 to-orange-600/10 flex items-center justify-center mb-6">
-                  <Activity className="w-6 h-6 text-orange-300" />
-                </div>
-                <h3 className="font-display text-heading-lg text-white mb-3">
-                  99% Certified Reliability
-                </h3>
-                <p className="text-body-md text-slate-300 mb-4">
-                  Agents must pass hundreds of test scenarios before production. Not typical 85-90% AI reliability.
-                </p>
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2 text-body-sm">
-                    <Check className="w-4 h-4 text-orange-300" />
-                    <span className="text-slate-400">Certification pipeline</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-body-sm">
-                    <Check className="w-4 h-4 text-orange-300" />
-                    <span className="text-slate-400">Configurable thresholds</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-body-sm">
-                    <Check className="w-4 h-4 text-orange-300" />
-                    <span className="text-slate-400">Continuous re-testing</span>
-                  </div>
-                </div>
-              </div>
+            <p className="text-body-lg text-slate-300 leading-relaxed mb-8">
+              <strong className="text-white">Why enterprises are concerned:</strong>
+            </p>
 
-              {/* Advantage 3: Speed */}
-              <div className="rounded-2xl border border-teal-500/30 bg-slate-900/60 p-8 backdrop-blur-sm">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-500/20 to-teal-600/10 flex items-center justify-center mb-6">
-                  <Zap className="w-6 h-6 text-teal-300" />
-                </div>
-                <h3 className="font-display text-heading-lg text-white mb-3">
-                  10x Faster Execution
-                </h3>
-                <p className="text-body-md text-slate-300 mb-4">
-                  <strong>2-3 seconds</strong> vs 45-60 seconds for generic AI agents. Deterministic replay, not LLM reasoning.
-                </p>
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2 text-body-sm">
-                    <Check className="w-4 h-4 text-teal-300" />
-                    <span className="text-slate-400">Real-time use cases</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-body-sm">
-                    <Check className="w-4 h-4 text-teal-300" />
-                    <span className="text-slate-400">High-volume workflows</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-body-sm">
-                    <Check className="w-4 h-4 text-teal-300" />
-                    <span className="text-slate-400">Lower infrastructure cost</span>
-                  </div>
-                </div>
-              </div>
+            <ul className="space-y-3 mb-6">
+              <li className="text-body-md text-slate-300 pl-4">
+                <strong className="text-slate-200">Data privacy:</strong> Meta's business model relies on data monetization. Many enterprises have policies against using Meta-owned tools for sensitive workflows.
+              </li>
+              <li className="text-body-md text-slate-300 pl-4">
+                <strong className="text-slate-200">Regulatory scrutiny:</strong> China is investigating whether the acquisition violated technology export laws. Regulatory uncertainty creates risk for mission-critical deployments.
+              </li>
+              <li className="text-body-md text-slate-300 pl-4">
+                <strong className="text-slate-200">Product roadmap:</strong> Meta has committed to "continue delivering current services while accelerating product improvements," but long-term direction is uncertain.
+              </li>
+              <li className="text-body-md text-slate-300 pl-4">
+                <strong className="text-slate-200">Customer exodus:</strong> According to CNBC (January 2026), some enterprise customers have already left the platform due to privacy concerns.
+              </li>
+            </ul>
 
-              {/* Advantage 4: Cost */}
-              <div className="rounded-2xl border border-orange-500/30 bg-slate-900/60 p-8 backdrop-blur-sm">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500/20 to-orange-600/10 flex items-center justify-center mb-6">
-                  <DollarSign className="w-6 h-6 text-orange-300" />
-                </div>
-                <h3 className="font-display text-heading-lg text-white mb-3">
-                  Predictable Costs
-                </h3>
-                <p className="text-body-md text-slate-300 mb-4">
-                  <strong>$0.01-$0.15</strong> per task vs $0.10-$0.50 for LLM-based agents. No variable token costs.
-                </p>
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2 text-body-sm">
-                    <Check className="w-4 h-4 text-orange-300" />
-                    <span className="text-slate-400">Fixed execution cost</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-body-sm">
-                    <Check className="w-4 h-4 text-orange-300" />
-                    <span className="text-slate-400">No surprise LLM bills</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-body-sm">
-                    <Check className="w-4 h-4 text-orange-300" />
-                    <span className="text-slate-400">Clear ROI calculation</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Advantage 5: Self-Healing */}
-              <div className="rounded-2xl border border-teal-500/30 bg-slate-900/60 p-8 backdrop-blur-sm">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-500/20 to-teal-600/10 flex items-center justify-center mb-6">
-                  <Activity className="w-6 h-6 text-teal-300" />
-                </div>
-                <h3 className="font-display text-heading-lg text-white mb-3">
-                  Self-Healing Agents
-                </h3>
-                <p className="text-body-md text-slate-300 mb-4">
-                  95% of UI changes handled automatically. Semantic understanding, not pixel-based.
-                </p>
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2 text-body-sm">
-                    <Check className="w-4 h-4 text-teal-300" />
-                    <span className="text-slate-400">Auto-adapts to changes</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-body-sm">
-                    <Check className="w-4 h-4 text-teal-300" />
-                    <span className="text-slate-400">No maintenance overhead</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-body-sm">
-                    <Check className="w-4 h-4 text-teal-300" />
-                    <span className="text-slate-400">Auto re-certification</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Advantage 6: Compliance */}
-              <div className="rounded-2xl border border-orange-500/30 bg-slate-900/60 p-8 backdrop-blur-sm">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500/20 to-orange-600/10 flex items-center justify-center mb-6">
-                  <Lock className="w-6 h-6 text-orange-300" />
-                </div>
-                <h3 className="font-display text-heading-lg text-white mb-3">
-                  Compliance-Ready
-                </h3>
-                <p className="text-body-md text-slate-300 mb-4">
-                  Full transparency with visual timelines, executable code, and audit trails for SOX, HIPAA, GDPR.
-                </p>
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2 text-body-sm">
-                    <Check className="w-4 h-4 text-orange-300" />
-                    <span className="text-slate-400">Complete audit trails</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-body-sm">
-                    <Check className="w-4 h-4 text-orange-300" />
-                    <span className="text-slate-400">Deterministic execution</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-body-sm">
-                    <Check className="w-4 h-4 text-orange-300" />
-                    <span className="text-slate-400">Regulatory compliance</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Advantage 7: Non-Technical */}
-              <div className="rounded-2xl border border-teal-500/30 bg-slate-900/60 p-8 backdrop-blur-sm md:col-span-2 lg:col-span-3">
-                <div className="flex items-start gap-6">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-500/20 to-teal-600/10 flex items-center justify-center flex-shrink-0">
-                    <Users className="w-6 h-6 text-teal-300" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="font-display text-heading-lg text-white mb-3">
-                      Built for Operations Teams, Not Just Data Scientists
-                    </h3>
-                    <p className="text-body-md text-slate-300 mb-4 max-w-3xl">
-                      Demonstrate workflows in plain English or by example. No coding required. Empowers non-technical teams to create reliable automation.
-                    </p>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                      <div className="flex items-center gap-2 text-body-sm">
-                        <Check className="w-4 h-4 text-teal-300" />
-                        <span className="text-slate-400">Zero coding needed</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-body-sm">
-                        <Check className="w-4 h-4 text-teal-300" />
-                        <span className="text-slate-400">Natural language teaching</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-body-sm">
-                        <Check className="w-4 h-4 text-teal-300" />
-                        <span className="text-slate-400">Reduces IT backlog</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Detailed Comparison Table */}
-        <section id="comparison-table" className="py-24 px-6 bg-slate-900/50">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <p className="font-mono text-caption uppercase tracking-widest text-teal-300 mb-4">
-                Side-by-Side Analysis
-              </p>
-              <h2 className="font-display text-display-lg md:text-6xl text-white max-w-3xl mx-auto mb-6">
-                Feature Comparison
-              </h2>
-              <p className="text-body-lg text-slate-300 max-w-2xl mx-auto">
-                A comprehensive comparison of capabilities, reliability, and enterprise readiness
+            <div className="not-prose bg-orange-500/5 border border-orange-500/30 rounded-2xl p-8 mb-12">
+              <p className="text-body-md text-slate-300">
+                <strong className="text-orange-300">The opportunity:</strong> Organizations seeking an independent, enterprise-focused alternative with stronger security, compliance, and predictable evolution are looking beyond Meta-owned solutions.
               </p>
             </div>
 
-            <div className="overflow-x-auto">
-              <table className="w-full border-collapse">
-                <thead>
-                  <tr className="border-b border-slate-700">
-                    <th className="text-left py-4 px-6 font-display text-heading-md text-white">
-                      Feature
-                    </th>
-                    <th className="text-left py-4 px-6 font-display text-heading-md text-teal-300">
-                      Agent School
-                    </th>
-                    <th className="text-left py-4 px-6 font-display text-heading-md text-slate-400">
-                      Manus (Meta)
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-800">
-                  <tr className="hover:bg-slate-800/30 transition">
-                    <td className="py-4 px-6 text-body-md text-slate-300">
-                      <strong className="text-white">Ownership</strong>
-                    </td>
-                    <td className="py-4 px-6">
-                      <div className="flex items-center gap-2">
-                        <Check className="w-5 h-5 text-teal-300" />
-                        <span className="text-body-md text-slate-200">Independent company</span>
-                      </div>
-                    </td>
-                    <td className="py-4 px-6">
-                      <div className="flex items-center gap-2">
-                        <AlertTriangle className="w-5 h-5 text-orange-300" />
-                        <span className="text-body-md text-slate-400">Meta-owned ($2B+ acquisition)</span>
-                      </div>
-                    </td>
-                  </tr>
+            {/* Comparison Table */}
+            <div className="not-prose mb-16">
+              <div className="overflow-x-auto">
+                <table className="w-full border-collapse">
+                  <thead>
+                    <tr className="border-b border-slate-700">
+                      <th className="text-left py-4 px-6 font-display text-heading-md text-white">
+                        
+                      </th>
+                      <th className="text-left py-4 px-6 font-display text-heading-md text-teal-300">
+                        Agent School
+                      </th>
+                      <th className="text-left py-4 px-6 font-display text-heading-md text-slate-400">
+                        Manus (Meta)
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-800">
+                    <tr className="hover:bg-slate-800/30 transition">
+                      <td className="py-4 px-6 text-body-md text-white font-semibold">
+                        Ownership
+                      </td>
+                      <td className="py-4 px-6 text-body-md text-slate-200">
+                        Independent company focused on enterprise automation
+                      </td>
+                      <td className="py-4 px-6 text-body-md text-slate-400">
+                        Meta subsidiary (acquired for $2B+ in late 2025)
+                      </td>
+                    </tr>
 
-                  <tr className="hover:bg-slate-800/30 transition">
-                    <td className="py-4 px-6 text-body-md text-slate-300">
-                      <strong className="text-white">Reliability</strong>
-                    </td>
-                    <td className="py-4 px-6">
-                      <div className="flex items-center gap-2">
-                        <Check className="w-5 h-5 text-teal-300" />
-                        <span className="text-body-md text-slate-200">95-99% certified</span>
-                      </div>
-                    </td>
-                    <td className="py-4 px-6">
-                      <div className="flex items-center gap-2">
-                        <X className="w-5 h-5 text-slate-500" />
-                        <span className="text-body-md text-slate-400">85-90% typical AI</span>
-                      </div>
-                    </td>
-                  </tr>
+                    <tr className="hover:bg-slate-800/30 transition">
+                      <td className="py-4 px-6 text-body-md text-white font-semibold">
+                        Target users
+                      </td>
+                      <td className="py-4 px-6 text-body-md text-slate-200">
+                        Enterprise operations teams (500+ employees) needing certified, mission-critical automation
+                      </td>
+                      <td className="py-4 px-6 text-body-md text-slate-400">
+                        Individual knowledge workers and small teams (1-50 employees)
+                      </td>
+                    </tr>
 
-                  <tr className="hover:bg-slate-800/30 transition">
-                    <td className="py-4 px-6 text-body-md text-slate-300">
-                      <strong className="text-white">Execution Speed</strong>
-                    </td>
-                    <td className="py-4 px-6">
-                      <div className="flex items-center gap-2">
-                        <Check className="w-5 h-5 text-teal-300" />
-                        <span className="text-body-md text-slate-200">2-3 seconds</span>
-                      </div>
-                    </td>
-                    <td className="py-4 px-6">
-                      <div className="flex items-center gap-2">
-                        <X className="w-5 h-5 text-slate-500" />
-                        <span className="text-body-md text-slate-400">45-60 seconds</span>
-                      </div>
-                    </td>
-                  </tr>
+                    <tr className="hover:bg-slate-800/30 transition">
+                      <td className="py-4 px-6 text-body-md text-white font-semibold">
+                        Reliability
+                      </td>
+                      <td className="py-4 px-6 text-body-md text-slate-200">
+                        99% certified before deployment through automated testing pipeline
+                      </td>
+                      <td className="py-4 px-6 text-body-md text-slate-400">
+                        85-90% typical for generic AI agents (no certification framework)
+                      </td>
+                    </tr>
 
-                  <tr className="hover:bg-slate-800/30 transition">
-                    <td className="py-4 px-6 text-body-md text-slate-300">
-                      <strong className="text-white">Cost Per Task</strong>
-                    </td>
-                    <td className="py-4 px-6">
-                      <div className="flex items-center gap-2">
-                        <Check className="w-5 h-5 text-teal-300" />
-                        <span className="text-body-md text-slate-200">$0.01-$0.15</span>
-                      </div>
-                    </td>
-                    <td className="py-4 px-6">
-                      <div className="flex items-center gap-2">
-                        <X className="w-5 h-5 text-slate-500" />
-                        <span className="text-body-md text-slate-400">$0.10-$0.50</span>
-                      </div>
-                    </td>
-                  </tr>
+                    <tr className="hover:bg-slate-800/30 transition">
+                      <td className="py-4 px-6 text-body-md text-white font-semibold">
+                        Speed
+                      </td>
+                      <td className="py-4 px-6 text-body-md text-slate-200">
+                        2-3 seconds per task (deterministic execution layer)
+                      </td>
+                      <td className="py-4 px-6 text-body-md text-slate-400">
+                        45-60 seconds (LLM reasoning for each step)
+                      </td>
+                    </tr>
 
-                  <tr className="hover:bg-slate-800/30 transition">
-                    <td className="py-4 px-6 text-body-md text-slate-300">
-                      <strong className="text-white">Self-Healing</strong>
-                    </td>
-                    <td className="py-4 px-6">
-                      <div className="flex items-center gap-2">
-                        <Check className="w-5 h-5 text-teal-300" />
-                        <span className="text-body-md text-slate-200">Yes (95% success)</span>
-                      </div>
-                    </td>
-                    <td className="py-4 px-6">
-                      <div className="flex items-center gap-2">
-                        <AlertTriangle className="w-5 h-5 text-orange-300" />
-                        <span className="text-body-md text-slate-400">Partial</span>
-                      </div>
-                    </td>
-                  </tr>
+                    <tr className="hover:bg-slate-800/30 transition">
+                      <td className="py-4 px-6 text-body-md text-white font-semibold">
+                        Cost per task
+                      </td>
+                      <td className="py-4 px-6 text-body-md text-slate-200">
+                        $0.01-$0.15 (no variable LLM costs)
+                      </td>
+                      <td className="py-4 px-6 text-body-md text-slate-400">
+                        $0.10-$0.50 (credit-based, varies by complexity)
+                      </td>
+                    </tr>
 
-                  <tr className="hover:bg-slate-800/30 transition">
-                    <td className="py-4 px-6 text-body-md text-slate-300">
-                      <strong className="text-white">Certification</strong>
-                    </td>
-                    <td className="py-4 px-6">
-                      <div className="flex items-center gap-2">
-                        <Check className="w-5 h-5 text-teal-300" />
-                        <span className="text-body-md text-slate-200">Required before deployment</span>
-                      </div>
-                    </td>
-                    <td className="py-4 px-6">
-                      <div className="flex items-center gap-2">
-                        <X className="w-5 h-5 text-slate-500" />
-                        <span className="text-body-md text-slate-400">No certification</span>
-                      </div>
-                    </td>
-                  </tr>
+                    <tr className="hover:bg-slate-800/30 transition">
+                      <td className="py-4 px-6 text-body-md text-white font-semibold">
+                        Self-healing
+                      </td>
+                      <td className="py-4 px-6 text-body-md text-slate-200">
+                        Included. 95% of UI changes handled automatically.
+                      </td>
+                      <td className="py-4 px-6 text-body-md text-slate-400">
+                        Partial. Requires re-prompting when systems change.
+                      </td>
+                    </tr>
 
-                  <tr className="hover:bg-slate-800/30 transition">
-                    <td className="py-4 px-6 text-body-md text-slate-300">
-                      <strong className="text-white">Transparency</strong>
-                    </td>
-                    <td className="py-4 px-6">
-                      <div className="flex items-center gap-2">
-                        <Check className="w-5 h-5 text-teal-300" />
-                        <span className="text-body-md text-slate-200">Full (timeline + code + audit)</span>
-                      </div>
-                    </td>
-                    <td className="py-4 px-6">
-                      <div className="flex items-center gap-2">
-                        <AlertTriangle className="w-5 h-5 text-orange-300" />
-                        <span className="text-body-md text-slate-400">Partial (black box LLM)</span>
-                      </div>
-                    </td>
-                  </tr>
-
-                  <tr className="hover:bg-slate-800/30 transition">
-                    <td className="py-4 px-6 text-body-md text-slate-300">
-                      <strong className="text-white">Data Privacy</strong>
-                    </td>
-                    <td className="py-4 px-6">
-                      <div className="flex items-center gap-2">
-                        <Check className="w-5 h-5 text-teal-300" />
-                        <span className="text-body-md text-slate-200">Independent, SOC 2 ready</span>
-                      </div>
-                    </td>
-                    <td className="py-4 px-6">
-                      <div className="flex items-center gap-2">
-                        <AlertTriangle className="w-5 h-5 text-orange-300" />
-                        <span className="text-body-md text-slate-400">Meta-owned (privacy concerns)</span>
-                      </div>
-                    </td>
-                  </tr>
-
-                  <tr className="hover:bg-slate-800/30 transition">
-                    <td className="py-4 px-6 text-body-md text-slate-300">
-                      <strong className="text-white">Target User</strong>
-                    </td>
-                    <td className="py-4 px-6">
-                      <div className="flex items-center gap-2">
-                        <Check className="w-5 h-5 text-teal-300" />
-                        <span className="text-body-md text-slate-200">Business operations teams</span>
-                      </div>
-                    </td>
-                    <td className="py-4 px-6">
-                      <div className="flex items-center gap-2">
-                        <Check className="w-5 h-5 text-slate-500" />
-                        <span className="text-body-md text-slate-400">Individual knowledge workers</span>
-                      </div>
-                    </td>
-                  </tr>
-
-                  <tr className="hover:bg-slate-800/30 transition">
-                    <td className="py-4 px-6 text-body-md text-slate-300">
-                      <strong className="text-white">Coding Required</strong>
-                    </td>
-                    <td className="py-4 px-6">
-                      <div className="flex items-center gap-2">
-                        <Check className="w-5 h-5 text-teal-300" />
-                        <span className="text-body-md text-slate-200">No coding needed</span>
-                      </div>
-                    </td>
-                    <td className="py-4 px-6">
-                      <div className="flex items-center gap-2">
-                        <Check className="w-5 h-5 text-slate-500" />
-                        <span className="text-body-md text-slate-400">No coding needed</span>
-                      </div>
-                    </td>
-                  </tr>
-
-                  <tr className="hover:bg-slate-800/30 transition">
-                    <td className="py-4 px-6 text-body-md text-slate-300">
-                      <strong className="text-white">Enterprise Guardrails</strong>
-                    </td>
-                    <td className="py-4 px-6">
-                      <div className="flex items-center gap-2">
-                        <Check className="w-5 h-5 text-teal-300" />
-                        <span className="text-body-md text-slate-200">Mission Control dashboard</span>
-                      </div>
-                    </td>
-                    <td className="py-4 px-6">
-                      <div className="flex items-center gap-2">
-                        <X className="w-5 h-5 text-slate-500" />
-                        <span className="text-body-md text-slate-400">Basic monitoring</span>
-                      </div>
-                    </td>
-                  </tr>
-
-                  <tr className="hover:bg-slate-800/30 transition">
-                    <td className="py-4 px-6 text-body-md text-slate-300">
-                      <strong className="text-white">Best For</strong>
-                    </td>
-                    <td className="py-4 px-6">
-                      <span className="text-body-md text-slate-200">
-                        Enterprise automation requiring reliability, compliance, and audit trails
-                      </span>
-                    </td>
-                    <td className="py-4 px-6">
-                      <span className="text-body-md text-slate-400">
-                        Individual users, research tasks, uncertain post-Meta
-                      </span>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+                    <tr className="hover:bg-slate-800/30 transition">
+                      <td className="py-4 px-6 text-body-md text-white font-semibold">
+                        Transparency
+                      </td>
+                      <td className="py-4 px-6 text-body-md text-slate-200">
+                        Full. Visual timeline + executable code + audit trails for SOX, HIPAA, GDPR.
+                      </td>
+                      <td className="py-4 px-6 text-body-md text-slate-400">
+                        Partial. Black box LLM reasoning limits auditability.
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
-          </div>
-        </section>
 
-        {/* Who Should Choose What */}
-        <section className="py-24 px-6">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <p className="font-mono text-caption uppercase tracking-widest text-teal-300 mb-4">
-                Making The Right Choice
+            <h2 className="font-display text-display-md text-white mb-8">
+              Reliability: 99% vs 85-90%
+            </h2>
+
+            <p className="text-body-lg text-slate-300 leading-relaxed mb-6">
+              Manus, like most generic AI agents, operates by reasoning through tasks using large language models. Every time it executes a workflow, it's "thinking" through the problem fresh. This makes it flexible and powerful for exploratory tasks like research or content generation.
+            </p>
+
+            <p className="text-body-lg text-slate-300 leading-relaxed mb-6">
+              The trade-off? Unpredictability. Generic AI agents typically achieve 85-90% reliability in production—fine for individual users doing research, but unacceptable for enterprises processing thousands of transactions daily.
+            </p>
+
+            <p className="text-body-lg text-slate-300 leading-relaxed mb-6">
+              Agent School takes a different approach. Once you demonstrate a workflow, the platform converts it into deterministic, certified automation. Before any agent reaches production:
+            </p>
+
+            <ul className="space-y-3 mb-6">
+              <li className="text-body-md text-slate-300 pl-4">
+                Tested hundreds of times across different scenarios
+              </li>
+              <li className="text-body-md text-slate-300 pl-4">
+                Validated against your reliability threshold (90%, 95%, or 99%)
+              </li>
+              <li className="text-body-md text-slate-300 pl-4">
+                Continuously re-certified as systems change
+              </li>
+            </ul>
+
+            <p className="text-body-lg text-slate-300 leading-relaxed mb-12">
+              For hotel reservations, insurance claims, or financial reconciliation, that 10-15% reliability gap translates to real business risk. Agent School closes that gap.
+            </p>
+
+            <h2 className="font-display text-display-md text-white mb-8">
+              Speed: 2-3 Seconds vs 45-60 Seconds
+            </h2>
+
+            <p className="text-body-lg text-slate-300 leading-relaxed mb-6">
+              Manus agents spend 45-60 seconds per task because they're reasoning through each step using LLMs. For research tasks or occasional automation, that's acceptable. For high-volume workflows—thousands of reservations, claims, or transactions daily—it's prohibitively slow and expensive.
+            </p>
+
+            <p className="text-body-lg text-slate-300 leading-relaxed mb-6">
+              Agent School agents execute in 2-3 seconds because they use a proprietary deterministic execution layer. Once certified, agents replay workflows without LLM reasoning, achieving 10-20x faster execution at a fraction of the cost.
+            </p>
+
+            <p className="text-body-lg text-slate-300 leading-relaxed mb-12">
+              <strong className="text-white">What this enables:</strong> Real-time use cases (customer-facing workflows), high-volume automation (10,000+ tasks/day), and predictable infrastructure costs.
+            </p>
+
+            <h2 className="font-display text-display-md text-white mb-8">
+              Privacy and Independence
+            </h2>
+
+            <p className="text-body-lg text-slate-300 leading-relaxed mb-6">
+              This is the elephant in the room. Meta's business model is built on data monetization. While Manus may have strong privacy commitments, the reality is that many enterprises have corporate policies that explicitly prohibit using Meta-owned tools for sensitive workflows.
+            </p>
+
+            <p className="text-body-lg text-slate-300 leading-relaxed mb-6">
+              Beyond policy, there's regulatory risk. China's investigation into the acquisition creates uncertainty for global deployments, and Meta's track record with data privacy hasn't always inspired confidence among enterprise compliance teams.
+            </p>
+
+            <p className="text-body-lg text-slate-300 leading-relaxed mb-12">
+              Agent School is an independent company focused exclusively on enterprise automation. No data mining, no advertising business, no Big Tech platform strategies. Just reliable automation with SOC 2 Type II readiness and predictable governance.
+            </p>
+
+            <h2 className="font-display text-display-md text-white mb-8">
+              Pricing and Total Cost
+            </h2>
+
+            <p className="text-body-lg text-slate-300 leading-relaxed mb-6">
+              Manus uses credit-based pricing starting at $19/month (4,000 credits) up to $199/month (40,000 credits) for individual users, with custom enterprise pricing. Credits are consumed per task, with more complex tasks costing more credits.
+            </p>
+
+            <p className="text-body-lg text-slate-300 leading-relaxed mb-6">
+              For low-volume use (research, occasional automation), this is extremely affordable. For high-volume enterprise workflows? The math changes quickly. A single complex task might consume 10-50 credits, meaning your 40,000-credit plan covers 800-4,000 tasks—potentially just a few days of operation for an enterprise workflow.
+            </p>
+
+            <p className="text-body-lg text-slate-300 leading-relaxed mb-6">
+              <strong className="text-white">Estimated annual costs for enterprises:</strong>
+            </p>
+
+            <ul className="space-y-3 mb-12">
+              <li className="text-body-md text-slate-300 pl-4">
+                <strong className="text-slate-200">Manus:</strong> $24K-48K/year for moderate enterprise use (uncertain post-Meta; costs may rise)
+              </li>
+              <li className="text-body-md text-slate-300 pl-4">
+                <strong className="text-slate-200">Agent School:</strong> $60K-300K/year (consultation-based, varies by scale and use case)
+              </li>
+            </ul>
+
+            <p className="text-body-lg text-slate-300 leading-relaxed mb-12">
+              Agent School has higher upfront costs but predictable execution costs ($0.01-$0.15/task vs $0.10-$0.50), no LLM token surprises, and self-healing that eliminates maintenance overhead. For mission-critical workflows with high volume, the 3-year TCO typically favors Agent School.
+            </p>
+
+            <h2 className="font-display text-display-md text-white mb-8">
+              What They're Actually Used For
+            </h2>
+
+            <p className="text-body-lg text-slate-300 leading-relaxed mb-6">
+              <strong className="text-white">Manus excels at:</strong>
+            </p>
+
+            <ul className="space-y-3 mb-8">
+              <li className="text-body-md text-slate-300 pl-4">
+                <strong className="text-slate-200">Research aggregation:</strong> Multi-source information gathering
+              </li>
+              <li className="text-body-md text-slate-300 pl-4">
+                <strong className="text-slate-200">Content creation:</strong> Presentations, web apps, AI-generated content
+              </li>
+              <li className="text-body-md text-slate-300 pl-4">
+                <strong className="text-slate-200">Browser automation:</strong> Flexible, exploratory tasks
+              </li>
+              <li className="text-body-md text-slate-300 pl-4">
+                <strong className="text-slate-200">Email management:</strong> Drafting, categorization, follow-ups
+              </li>
+            </ul>
+
+            <p className="text-body-lg text-slate-300 leading-relaxed mb-6">
+              <strong className="text-white">Agent School is built for:</strong>
+            </p>
+
+            <ul className="space-y-3 mb-12">
+              <li className="text-body-md text-slate-300 pl-4">
+                <strong className="text-slate-200">Mission-critical operations:</strong> Hotel reservations, healthcare scheduling, financial reconciliation
+              </li>
+              <li className="text-body-md text-slate-300 pl-4">
+                <strong className="text-slate-200">Regulated industries:</strong> Healthcare (HIPAA), finance (SOX), government
+              </li>
+              <li className="text-body-md text-slate-300 pl-4">
+                <strong className="text-slate-200">High-volume workflows:</strong> Processing thousands of tasks daily with 99% reliability
+              </li>
+              <li className="text-body-md text-slate-300 pl-4">
+                <strong className="text-slate-200">Compliance-first:</strong> Full audit trails, deterministic execution, regulatory adherence
+              </li>
+            </ul>
+
+            <div className="not-prose bg-teal-500/5 border border-teal-500/30 rounded-2xl p-8 mb-12">
+              <p className="text-body-md text-slate-300">
+                <strong className="text-teal-300">The pattern:</strong> Manus is excellent for individual knowledge workers and small teams doing flexible, exploratory work. Agent School wins for enterprises that need certified, mission-critical automation without Big Tech dependencies.
               </p>
-              <h2 className="font-display text-display-lg md:text-6xl text-white max-w-3xl mx-auto">
-                Which Platform Is Right for You?
-              </h2>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {/* Choose Agent School */}
-              <div className="rounded-2xl border border-teal-500/40 bg-gradient-to-br from-teal-500/10 to-slate-900/60 p-8 backdrop-blur-sm">
-                <h3 className="font-display text-heading-xl text-white mb-6">
-                  Choose Agent School If You Need:
-                </h3>
-                <ul className="space-y-4">
-                  {[
-                    "99%+ reliability for mission-critical workflows",
-                    "Enterprise-grade compliance (SOX, HIPAA, GDPR)",
-                    "Independent platform not owned by Big Tech",
-                    "Self-healing agents with minimal maintenance",
-                    "10x speed for real-time or high-volume tasks",
-                    "Predictable costs without LLM token surprises",
-                    "Full transparency with audit trails",
-                    "No-code automation for non-technical teams",
-                  ].map((item) => (
-                    <li key={item} className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-teal-300 flex-shrink-0 mt-1" />
-                      <span className="text-body-md text-slate-200">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            <h2 className="font-display text-display-md text-white mb-8">
+              Agent School vs Manus
+            </h2>
 
-              {/* Choose Manus */}
-              <div className="rounded-2xl border border-slate-700 bg-slate-900/60 p-8 backdrop-blur-sm">
-                <h3 className="font-display text-heading-xl text-slate-300 mb-6">
-                  Manus (Meta) Might Work If:
-                </h3>
-                <ul className="space-y-4">
-                  {[
-                    "You're an individual user with low-volume needs",
-                    "Privacy concerns about Meta ownership don't apply",
-                    "You're comfortable with 85-90% reliability",
-                    "You need general-purpose research and content tools",
-                    "You're not in a regulated industry",
-                    "Variable costs ($0.10-$0.50/task) are acceptable",
-                    "You don't need self-healing capabilities",
-                    "Not operating mission-critical workflows",
-                  ].map((item) => (
-                    <li key={item} className="flex items-start gap-3">
-                      <AlertTriangle className="w-5 h-5 text-orange-400 flex-shrink-0 mt-1" />
-                      <span className="text-body-md text-slate-400">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-6 pt-6 border-t border-slate-700">
-                  <p className="text-body-sm text-slate-500">
-                    <strong>Note:</strong> Many enterprise customers have left Manus following the Meta acquisition due to privacy concerns.
-                  </p>
-                </div>
-              </div>
-            </div>
+            <p className="text-body-lg text-slate-300 leading-relaxed mb-6">
+              Manus helped pioneer AI agents for mainstream users. For individual knowledge workers, small teams, and low-stakes automation, it's a powerful tool—Meta ownership notwithstanding.
+            </p>
+
+            <p className="text-body-lg text-slate-300 leading-relaxed mb-6">
+              But for enterprises that need:
+            </p>
+
+            <ul className="space-y-3 mb-6">
+              <li className="text-body-md text-slate-300 pl-4">
+                99% reliability for mission-critical workflows
+              </li>
+              <li className="text-body-md text-slate-300 pl-4">
+                Independence from Big Tech data concerns
+              </li>
+              <li className="text-body-md text-slate-300 pl-4">
+                10x faster execution for high-volume operations
+              </li>
+              <li className="text-body-md text-slate-300 pl-4">
+                Full transparency for compliance and audit trails
+              </li>
+              <li className="text-body-md text-slate-300 pl-4">
+                Self-healing to eliminate maintenance overhead
+              </li>
+            </ul>
+
+            <p className="text-body-lg text-slate-300 leading-relaxed">
+              Agent School is the enterprise-grade alternative.
+            </p>
           </div>
         </section>
 
@@ -623,21 +386,13 @@ export default function ManusComparisonPage() {
             <p className="text-heading-md text-slate-300 mb-8 max-w-2xl mx-auto">
               Join enterprises choosing the independent, certified alternative to Meta-owned AI agents.
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <a
-                href={BOOKING_URL}
-                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-teal-600 to-orange-500 px-8 py-4 font-semibold text-white transition hover:shadow-lg hover:shadow-teal-500/25"
-              >
-                Book a Demo
-                <ArrowRight className="w-5 h-5" />
-              </a>
-              <a
-                href="/"
-                className="inline-flex items-center gap-2 rounded-full border border-slate-600 bg-slate-800/50 px-8 py-4 font-semibold text-white transition hover:bg-slate-700/50"
-              >
-                Explore Platform
-              </a>
-            </div>
+            <a
+              href={BOOKING_URL}
+              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-teal-600 to-orange-500 px-8 py-4 font-semibold text-white transition hover:shadow-lg hover:shadow-teal-500/25"
+            >
+              Book a Demo
+              <ArrowRight className="w-5 h-5" />
+            </a>
             <p className="mt-8 text-body-sm text-slate-400">
               30-day pilot program with satisfaction guarantee
             </p>
