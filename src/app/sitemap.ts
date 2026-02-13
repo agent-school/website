@@ -41,6 +41,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.7,
     },
+    // Blog posts
+    {
+      url: `${baseUrl}/blog/agent-school-manifesto`,
+      lastModified: "2026-01-20",
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/blog/memory-management`,
+      lastModified: "2026-02-12",
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
     // Demo pages
     {
       url: `${baseUrl}/demos/all`,
