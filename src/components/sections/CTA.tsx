@@ -9,16 +9,6 @@ import { BOOKING_URL } from "@/lib/constants";
 
 const ctaCards = [
   {
-    icon: Calendar,
-    title: "Book a Pilot Meeting",
-    description:
-      "Talk to our team about your specific workflows. We'll map out a 30-day pilot plan tailored to your operations.",
-    cta: "Schedule Call",
-    href: BOOKING_URL,
-    variant: "primary" as const,
-    highlight: true,
-  },
-  {
     icon: Play,
     title: "Try Interactive Demo",
     description:
@@ -27,6 +17,16 @@ const ctaCards = [
     href: "#features",
     variant: "outline" as const,
     highlight: false,
+  },
+  {
+    icon: Calendar,
+    title: "Book a Pilot Meeting",
+    description:
+      "Talk to our team about your specific workflows. We'll map out a 30-day pilot plan tailored to your operations.",
+    cta: "Schedule Call",
+    href: BOOKING_URL,
+    variant: "primary" as const,
+    highlight: true,
   },
   {
     icon: MessageCircle,

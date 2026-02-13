@@ -144,7 +144,7 @@ export function Hero() {
                 ease: [0.25, 0.1, 0.25, 1],
               }}
               whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="relative glass-card rounded-2xl p-6 shadow-lg border border-orange-200/50 group"
+              className="relative bg-white rounded-2xl p-6 shadow-lg border border-orange-200/50 group"
             >
               {/* Agent Icon */}
               <div className="w-16 h-16 flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform">
@@ -152,7 +152,7 @@ export function Hero() {
               </div>
 
               {/* Animated Number */}
-              <div className="text-4xl md:text-5xl font-display font-bold mb-2 text-orange-600">
+              <div className="text-4xl md:text-5xl font-display font-bold mb-2 text-black">
                 <NumberTicker value={stat.value} />
                 {stat.suffix}
               </div>
