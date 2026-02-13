@@ -57,7 +57,9 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/favicon.svg",
+    icon: [{ url: "/logo/agent school icon dark square.png", type: "image/png" }],
+    shortcut: "/logo/agent school icon dark square.png",
+    apple: "/logo/agent school icon dark square.png",
   },
   openGraph: {
     title: "Agent School — Turn Human Knowledge Into AI That Never Forgets",
@@ -113,7 +115,7 @@ const jsonLd = {
     "@type": "Organization",
     name: "Agent School",
     url: "https://agentschool.io",
-    logo: "https://agentschool.io/favicon.svg",
+    logo: "https://agentschool.io/logo/agent%20school%20icon%20dark%20square.png",
   },
 };
 

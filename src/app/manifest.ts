@@ -12,9 +12,9 @@ export default function manifest(): MetadataRoute.Manifest {
     theme_color: "#173440",
     icons: [
       {
-        src: "/favicon.svg",
-        sizes: "any",
-        type: "image/svg+xml",
+        src: "/logo/agent school icon dark square.png",
+        sizes: "512x512",
+        type: "image/png",
       },
     ],
   };
