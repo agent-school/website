@@ -24,27 +24,27 @@ export interface CalcResults {
 }
 
 const TIME_MAP: Record<Complexity, Record<CurrentMethod, number>> = {
-  simple: { manual: 5, rpa: 1, ai_agent: 0.5 },
-  multi_step: { manual: 15, rpa: 5, ai_agent: 3 },
-  complex: { manual: 30, rpa: 15, ai_agent: 8 },
+  simple: { manual: 5, rpa: 2, ai_agent: 1.5 },
+  multi_step: { manual: 12, rpa: 6, ai_agent: 4 },
+  complex: { manual: 25, rpa: 12, ai_agent: 8 },
 };
 
 const AGENT_SCHOOL_TIME_SECONDS: Record<Complexity, number> = {
-  simple: 3,
-  multi_step: 20,
-  complex: 45,
+  simple: 15,
+  multi_step: 45,
+  complex: 90,
 };
 
 const AGENT_SCHOOL_COST: Record<Complexity, number> = {
-  simple: 0.01,
-  multi_step: 0.05,
-  complex: 0.15,
+  simple: 0.05,
+  multi_step: 0.15,
+  complex: 0.30,
 };
 
 const SETUP_COST: Record<Complexity, number> = {
-  simple: 2000,
-  multi_step: 5000,
-  complex: 10000,
+  simple: 3000,
+  multi_step: 8000,
+  complex: 15000,
 };
 
 const RELIABILITY: Record<CurrentMethod, number> = {

@@ -136,23 +136,23 @@ export const USE_CASES = [
         "Count entries manually",
         "Write down totals on paper",
       ],
-      time: "5\u201310 minutes",
+      time: "3–5 minutes",
       errors: "Frequent miscounts during busy periods",
-      cost: "~$8.50 per query at $50/hr",
+      cost: "~$4.17 per query at $50/hr",
     },
     after: {
       steps: [
         'Ask: "How many arrivals and departures today?"',
         "Instant response: 23 arrivals, 18 departures",
       ],
-      time: "2 seconds",
-      errors: "Zero\u2014data pulled directly from system",
-      cost: "$0.02 per query",
+      time: "5 seconds",
+      errors: "Zero—data pulled directly from system",
+      cost: "$0.05 per query",
     },
     metrics: {
-      timeSaved: "99.6%",
-      costReduction: "425x",
-      monthlyImpact: "$4,200",
+      timeSaved: "93%",
+      costReduction: "83x",
+      monthlyImpact: "$2,100",
     },
     additionalWorkflows: [
       "Reservation modifications",
@@ -188,9 +188,9 @@ export const USE_CASES = [
       cost: "$0.05 per update",
     },
     metrics: {
-      timeSaved: "98%",
-      costReduction: "170x",
-      monthlyImpact: "$8,500",
+      timeSaved: "91%",
+      costReduction: "50x",
+      monthlyImpact: "$3,800",
     },
     additionalWorkflows: [
       "Lead scoring and qualification",
@@ -226,9 +226,9 @@ export const USE_CASES = [
       cost: "$0.15 per invoice",
     },
     metrics: {
-      timeSaved: "96%",
-      costReduction: "110x",
-      monthlyImpact: "$12,000",
+      timeSaved: "88%",
+      costReduction: "52x",
+      monthlyImpact: "$5,200",
     },
     additionalWorkflows: [
       "Cross-system data sync",
