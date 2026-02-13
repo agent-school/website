@@ -10,6 +10,8 @@ import {
   CheckCircle,
   AlertCircle,
   Sparkles,
+  ChevronDown,
+  ChevronUp,
 } from "lucide-react";
 
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
@@ -119,10 +121,47 @@ interface MetricsDisplayProps {
 }
 
 function MetricsDisplay({ useCase }: MetricsDisplayProps) {
+  const [showMetrics, setShowMetrics] = useState(false);
+  const [showWorkflows, setShowWorkflows] = useState(false);
+
   return (
     <div className="space-y-6">
-      {/* Before / After Comparison */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {/* Toggle Button for Before/After + Metrics */}
+      <button
+        onClick={() => setShowMetrics(!showMetrics)}
+        className="w-full flex items-center justify-between px-6 py-4 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-colors group border border-slate-200 dark:border-slate-700"
+      >
+        <div className="flex items-center gap-3">
+          <div className="p-2 rounded-lg bg-gradient-to-br from-teal-500/10 to-orange-500/10 dark:from-teal-500/20 dark:to-orange-500/20">
+            <Clock className="w-4 h-4 text-teal-600 dark:text-teal-400" />
+          </div>
+          <div className="text-left">
+            <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">
+              View Detailed Breakdown
+            </p>
+            <p className="text-xs text-slate-500 dark:text-slate-400">
+              See before/after comparison, metrics, and impact
+            </p>
+          </div>
+        </div>
+        {showMetrics ? (
+          <ChevronUp size={18} className="text-slate-400 dark:text-slate-500 group-hover:text-slate-600 dark:group-hover:text-slate-400 transition-colors" />
+        ) : (
+          <ChevronDown size={18} className="text-slate-400 dark:text-slate-500 group-hover:text-slate-600 dark:group-hover:text-slate-400 transition-colors" />
+        )}
+      </button>
+
+      <AnimatePresence>
+        {showMetrics && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="overflow-hidden space-y-6"
+          >
+            {/* Before / After Comparison */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* Before */}
         <div className="rounded-xl border border-red-200/50 dark:border-red-900/30 bg-red-50/50 dark:bg-red-950/20 p-5">
           <div className="flex items-center gap-2 mb-3">
@@ -238,22 +277,48 @@ function MetricsDisplay({ useCase }: MetricsDisplayProps) {
         </div>
       </div>
 
-      {/* Additional Workflows */}
+      {/* Additional Workflows - Collapsible */}
       <div className="pt-2">
-        <p className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-2">
-          Other Automatable Workflows
-        </p>
-        <div className="flex flex-wrap gap-2">
-          {useCase.additionalWorkflows.map((workflow) => (
-            <span
-              key={workflow}
-              className="px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-[11px] text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700"
+        <button
+          onClick={() => setShowWorkflows(!showWorkflows)}
+          className="w-full flex items-center justify-between px-4 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-colors group"
+        >
+          <p className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider group-hover:text-slate-600 dark:group-hover:text-slate-400 transition-colors">
+            Other Automatable Workflows
+          </p>
+          {showWorkflows ? (
+            <ChevronUp size={14} className="text-slate-400 dark:text-slate-500 group-hover:text-slate-600 dark:group-hover:text-slate-400 transition-colors" />
+          ) : (
+            <ChevronDown size={14} className="text-slate-400 dark:text-slate-500 group-hover:text-slate-600 dark:group-hover:text-slate-400 transition-colors" />
+          )}
+        </button>
+        
+        <AnimatePresence>
+          {showWorkflows && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="overflow-hidden"
             >
-              {workflow}
-            </span>
-          ))}
-        </div>
+              <div className="flex flex-wrap gap-2 pt-3 px-4">
+                {useCase.additionalWorkflows.map((workflow) => (
+                  <span
+                    key={workflow}
+                    className="px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-[11px] text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700"
+                  >
+                    {workflow}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
