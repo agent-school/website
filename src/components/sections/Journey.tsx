@@ -15,7 +15,7 @@ export function Journey() {
       content: (
         <div className="space-y-6 pb-8">
           {/* Agent character */}
-          <Agent variant={variant} scale={0.6} />
+          <Agent variant={variant} scale={0.45} />
 
           {/* Stage title */}
           <h3 className="font-display text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-100">

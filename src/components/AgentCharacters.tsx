@@ -170,7 +170,7 @@ export function Agent({ variant, scale = 1, className = "" }: AgentProps) {
   };
 
   const wrapperStyle: CSSProperties =
-    scale !== 1 ? { transform: `scale(${scale})`, transformOrigin: "center bottom" } : {};
+    scale !== 1 ? { transform: `scale(${scale})`, transformOrigin: "center center" } : {};
 
   const eyeClass = cfg.eyeStyle ? `ag-eyes ag-eyes--${cfg.eyeStyle}` : "ag-eyes";
 

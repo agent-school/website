@@ -30,7 +30,7 @@ export default function SquadPage() {
                                 style={{ width: "95px" }}
                             >
                                 <div className="transition-transform duration-300 group-hover:-translate-y-2 h-[100px] flex items-end justify-center pb-2">
-                                    <Agent variant={variant} scale={0.7} />
+                                    <Agent variant={variant} scale={0.55} />
                                 </div>
 
                                 <span className="font-mono text-[11px] uppercase tracking-widest text-slate-500 dark:text-slate-400 group-hover:text-slate-900 dark:group-hover:text-slate-200 transition-colors z-10 relative">

@@ -148,7 +148,7 @@ export function Hero() {
             >
               {/* Agent Icon */}
               <div className="w-16 h-16 flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform">
-                <Agent variant={stat.agent as AgentVariant} scale={0.7} />
+                <Agent variant={stat.agent as AgentVariant} scale={0.5} />
               </div>
 
               {/* Animated Number */}
