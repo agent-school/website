@@ -161,7 +161,7 @@ export function Hero() {
               </div>
 
               {/* Label */}
-              <p className="text-sm font-medium text-slate-600 dark:text-slate-400 uppercase tracking-wide">
+              <p className="text-sm font-medium text-white uppercase tracking-wide">
                 {stat.label}
               </p>
 
