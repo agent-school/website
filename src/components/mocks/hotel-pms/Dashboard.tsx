@@ -32,11 +32,11 @@ export function Dashboard() {
   const getRoomStatusColor = (status: Room["status"]) => {
     switch (status) {
       case "available":
-        return "bg-orange-500 dark:bg-orange-600";
+        return "bg-orange-500";
       case "occupied":
-        return "bg-red-500 dark:bg-red-600";
+        return "bg-red-500";
       case "cleaning":
-        return "bg-amber-500 dark:bg-amber-600";
+        return "bg-amber-500";
     }
   };
 
@@ -44,10 +44,10 @@ export function Dashboard() {
     <div className="space-y-3 h-full overflow-y-auto">
       {/* Header */}
       <div className="flex-shrink-0">
-        <h1 className="text-lg font-bold text-slate-900 dark:text-slate-100">
+        <h1 className="text-lg font-bold text-slate-900">
           Property Dashboard
         </h1>
-        <p className="text-xs text-slate-600 dark:text-slate-400 mt-0.5">
+        <p className="text-xs text-slate-600 mt-0.5">
           Grand Plaza Hotel • February 9, 2026
         </p>
       </div>
@@ -58,18 +58,18 @@ export function Dashboard() {
           id="arrivals-card"
           highlight={highlightedIds.includes("arrivals-card")}
         >
-          <div className="bg-white dark:bg-slate-800 rounded-lg p-3 border border-slate-200 dark:border-slate-700 shadow-sm">
+          <div className="bg-white rounded-lg p-3 border border-slate-200 shadow-sm">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-xs font-medium text-slate-600 dark:text-slate-400">
+                <p className="text-xs font-medium text-slate-600">
                   Today's Arrivals
                 </p>
-                <p className="text-2xl font-bold text-slate-900 dark:text-slate-100 mt-0.5">
+                <p className="text-2xl font-bold text-slate-900 mt-0.5">
                   {data.stats.todayArrivals}
                 </p>
               </div>
-              <div className="bg-orange-100 dark:bg-orange-900/30 p-2 rounded-lg">
-                <Users className="w-4 h-4 text-orange-600 dark:text-orange-400" />
+              <div className="bg-orange-100 p-2 rounded-lg">
+                <Users className="w-4 h-4 text-orange-600" />
               </div>
             </div>
           </div>
@@ -79,18 +79,18 @@ export function Dashboard() {
           id="departures-card"
           highlight={highlightedIds.includes("departures-card")}
         >
-          <div className="bg-white dark:bg-slate-800 rounded-lg p-3 border border-slate-200 dark:border-slate-700 shadow-sm">
+          <div className="bg-white rounded-lg p-3 border border-slate-200 shadow-sm">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-xs font-medium text-slate-600 dark:text-slate-400">
+                <p className="text-xs font-medium text-slate-600">
                   Today's Departures
                 </p>
-                <p className="text-2xl font-bold text-slate-900 dark:text-slate-100 mt-0.5">
+                <p className="text-2xl font-bold text-slate-900 mt-0.5">
                   {data.stats.todayDepartures}
                 </p>
               </div>
-              <div className="bg-orange-100 dark:bg-orange-900/30 p-2 rounded-lg">
-                <LogOut className="w-4 h-4 text-orange-600 dark:text-orange-400" />
+              <div className="bg-orange-100 p-2 rounded-lg">
+                <LogOut className="w-4 h-4 text-orange-600" />
               </div>
             </div>
           </div>
@@ -100,18 +100,18 @@ export function Dashboard() {
           id="occupancy-card"
           highlight={highlightedIds.includes("occupancy-card")}
         >
-          <div className="bg-white dark:bg-slate-800 rounded-lg p-3 border border-slate-200 dark:border-slate-700 shadow-sm">
+          <div className="bg-white rounded-lg p-3 border border-slate-200 shadow-sm">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-xs font-medium text-slate-600 dark:text-slate-400">
+                <p className="text-xs font-medium text-slate-600">
                   Occupancy Rate
                 </p>
-                <p className="text-2xl font-bold text-slate-900 dark:text-slate-100 mt-0.5">
+                <p className="text-2xl font-bold text-slate-900 mt-0.5">
                   {data.stats.occupancyRate}%
                 </p>
               </div>
-              <div className="bg-purple-100 dark:bg-purple-900/30 p-2 rounded-lg">
-                <Home className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+              <div className="bg-purple-100 p-2 rounded-lg">
+                <Home className="w-4 h-4 text-purple-600" />
               </div>
             </div>
           </div>
@@ -121,18 +121,18 @@ export function Dashboard() {
           id="revenue-card"
           highlight={highlightedIds.includes("revenue-card")}
         >
-          <div className="bg-white dark:bg-slate-800 rounded-lg p-3 border border-slate-200 dark:border-slate-700 shadow-sm">
+          <div className="bg-white rounded-lg p-3 border border-slate-200 shadow-sm">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-xs font-medium text-slate-600 dark:text-slate-400">
+                <p className="text-xs font-medium text-slate-600">
                   Today's Revenue
                 </p>
-                <p className="text-2xl font-bold text-slate-900 dark:text-slate-100 mt-0.5">
+                <p className="text-2xl font-bold text-slate-900 mt-0.5">
                   ${data.stats.todayRevenue.toLocaleString()}
                 </p>
               </div>
-              <div className="bg-green-100 dark:bg-green-900/30 p-2 rounded-lg">
-                <DollarSign className="w-4 h-4 text-green-600 dark:text-green-400" />
+              <div className="bg-green-100 p-2 rounded-lg">
+                <DollarSign className="w-4 h-4 text-green-600" />
               </div>
             </div>
           </div>
@@ -144,23 +144,23 @@ export function Dashboard() {
         id="room-grid"
         highlight={highlightedIds.includes("room-grid")}
       >
-        <div className="bg-white dark:bg-slate-800 rounded-lg p-3 border border-slate-200 dark:border-slate-700 shadow-sm">
+        <div className="bg-white rounded-lg p-3 border border-slate-200 shadow-sm">
           <div className="flex items-center justify-between mb-2">
-            <h2 className="text-sm font-semibold text-slate-900 dark:text-slate-100">
+            <h2 className="text-sm font-semibold text-slate-900">
               Room Status
             </h2>
             <div className="flex gap-2 text-xs">
               <div className="flex items-center gap-1">
                 <div className="w-2 h-2 rounded-full bg-orange-500" />
-                <span className="text-slate-600 dark:text-slate-400">Available</span>
+                <span className="text-slate-600">Available</span>
               </div>
               <div className="flex items-center gap-1">
                 <div className="w-2 h-2 rounded-full bg-red-500" />
-                <span className="text-slate-600 dark:text-slate-400">Occupied</span>
+                <span className="text-slate-600">Occupied</span>
               </div>
               <div className="flex items-center gap-1">
                 <div className="w-2 h-2 rounded-full bg-amber-500" />
-                <span className="text-slate-600 dark:text-slate-400">Cleaning</span>
+                <span className="text-slate-600">Cleaning</span>
               </div>
             </div>
           </div>
@@ -171,7 +171,7 @@ export function Dashboard() {
               .slice(0, 3)
               .map(([floor, rooms]) => (
                 <div key={floor}>
-                  <p className="text-xs font-medium text-slate-500 dark:text-slate-400 mb-1">
+                  <p className="text-xs font-medium text-slate-500 mb-1">
                     Floor {floor}
                   </p>
                   <div className="grid grid-cols-10 gap-1.5">
@@ -202,8 +202,8 @@ export function Dashboard() {
       </InteractiveElement>
 
       {/* Upcoming Reservations */}
-      <div className="bg-white dark:bg-slate-800 rounded-lg p-3 border border-slate-200 dark:border-slate-700 shadow-sm">
-        <h2 className="text-sm font-semibold text-slate-900 dark:text-slate-100 mb-2">
+      <div className="bg-white rounded-lg p-3 border border-slate-200 shadow-sm">
+        <h2 className="text-sm font-semibold text-slate-900 mb-2">
           Upcoming Reservations
         </h2>
         <DataDisplay

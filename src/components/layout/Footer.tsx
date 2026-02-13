@@ -5,7 +5,7 @@ import { NAV_ITEMS, BOOKING_URL, LINKEDIN_URL, TWITTER_URL } from "@/lib/constan
 
 export function Footer() {
   return (
-    <footer className="bg-slate-900 dark:bg-slate-950 text-white">
+    <footer className="bg-slate-900 text-white">
       {/* Newsletter Strip hidden until subscription feature is ready */}
       {/*
       <div className="bg-gradient-to-r from-orange-600 to-orange-500">
@@ -39,7 +39,7 @@ export function Footer() {
                 Agent School
               </span>
             </div>
-            <p className="text-body-sm text-slate-400 dark:text-slate-500 leading-relaxed max-w-xs">
+            <p className="text-body-sm text-slate-400 leading-relaxed max-w-xs">
               The fastest way to teach and certify AI agents to operate on your
               software stack reliably.
             </p>
@@ -55,7 +55,7 @@ export function Footer() {
                 <li key={item.href}>
                   <a
                     href={item.href}
-                    className="text-body-sm text-slate-400 dark:text-slate-500 hover:text-orange-400 dark:hover:text-orange-500 transition-colors"
+                    className="text-body-sm text-slate-400 hover:text-orange-400 transition-colors"
                   >
                     {item.label}
                   </a>
@@ -64,7 +64,7 @@ export function Footer() {
               <li>
                 <a
                   href={BOOKING_URL}
-                  className="text-body-sm text-slate-400 dark:text-slate-500 hover:text-orange-400 dark:hover:text-orange-500 transition-colors"
+                  className="text-body-sm text-slate-400 hover:text-orange-400 transition-colors"
                 >
                   Book a Demo
                 </a>
@@ -81,7 +81,7 @@ export function Footer() {
               <li>
                 <a
                   href="/blog"
-                  className="text-body-sm text-slate-400 dark:text-slate-500 hover:text-orange-400 dark:hover:text-orange-500 transition-colors"
+                  className="text-body-sm text-slate-400 hover:text-orange-400 transition-colors"
                 >
                   Blog
                 </a>
@@ -89,7 +89,7 @@ export function Footer() {
               <li>
                 <a
                   href="/blog/geometry-solution-case-study"
-                  className="text-body-sm text-slate-400 dark:text-slate-500 hover:text-orange-400 dark:hover:text-orange-500 transition-colors"
+                  className="text-body-sm text-slate-400 hover:text-orange-400 transition-colors"
                 >
                   Case Study
                 </a>
@@ -106,7 +106,7 @@ export function Footer() {
               <li>
                 <a
                   href="/vs/manus"
-                  className="text-body-sm text-slate-400 dark:text-slate-500 hover:text-orange-400 dark:hover:text-orange-500 transition-colors"
+                  className="text-body-sm text-slate-400 hover:text-orange-400 transition-colors"
                 >
                   vs Manus
                 </a>
@@ -114,7 +114,7 @@ export function Footer() {
               <li>
                 <a
                   href="/vs/n8n"
-                  className="text-body-sm text-slate-400 dark:text-slate-500 hover:text-orange-400 dark:hover:text-orange-500 transition-colors"
+                  className="text-body-sm text-slate-400 hover:text-orange-400 transition-colors"
                 >
                   vs n8n
                 </a>
@@ -131,7 +131,7 @@ export function Footer() {
               <li>
                 <a
                   href="mailto:hello@agentschool.io"
-                  className="text-body-sm text-slate-400 dark:text-slate-500 hover:text-orange-400 dark:hover:text-orange-500 transition-colors"
+                  className="text-body-sm text-slate-400 hover:text-orange-400 transition-colors"
                 >
                   Contact
                 </a>
@@ -141,7 +141,7 @@ export function Footer() {
                   href={LINKEDIN_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-body-sm text-slate-400 dark:text-slate-500 hover:text-orange-400 dark:hover:text-orange-500 transition-colors inline-flex items-center gap-1.5"
+                  className="text-body-sm text-slate-400 hover:text-orange-400 transition-colors inline-flex items-center gap-1.5"
                 >
                   <Linkedin size={14} />
                   LinkedIn
@@ -152,7 +152,7 @@ export function Footer() {
                   href={TWITTER_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-body-sm text-slate-400 dark:text-slate-500 hover:text-orange-400 dark:hover:text-orange-500 transition-colors inline-flex items-center gap-1.5"
+                  className="text-body-sm text-slate-400 hover:text-orange-400 transition-colors inline-flex items-center gap-1.5"
                 >
                   <Twitter size={14} />
                   X (Twitter)
@@ -161,7 +161,7 @@ export function Footer() {
               <li>
                 <a
                   href="/privacy"
-                  className="text-body-sm text-slate-400 dark:text-slate-500 hover:text-orange-400 dark:hover:text-orange-500 transition-colors"
+                  className="text-body-sm text-slate-400 hover:text-orange-400 transition-colors"
                 >
                   Privacy
                 </a>
@@ -169,7 +169,7 @@ export function Footer() {
               <li>
                 <a
                   href="/terms"
-                  className="text-body-sm text-slate-400 dark:text-slate-500 hover:text-orange-400 dark:hover:text-orange-500 transition-colors"
+                  className="text-body-sm text-slate-400 hover:text-orange-400 transition-colors"
                 >
                   Terms
                 </a>
@@ -179,8 +179,8 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-16 pt-8 border-t border-slate-800 dark:border-slate-900 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-caption text-slate-500 dark:text-slate-600">
+        <div className="mt-16 pt-8 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-caption text-slate-500">
             &copy; {new Date().getFullYear()} Agent School. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
@@ -189,7 +189,7 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
-              className="text-slate-500 dark:text-slate-600 hover:text-orange-400 dark:hover:text-orange-500 transition-colors"
+              className="text-slate-500 hover:text-orange-400 transition-colors"
             >
               <Linkedin size={18} />
             </a>
@@ -198,7 +198,7 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="X (Twitter)"
-              className="text-slate-500 dark:text-slate-600 hover:text-orange-400 dark:hover:text-orange-500 transition-colors"
+              className="text-slate-500 hover:text-orange-400 transition-colors"
             >
               <Twitter size={18} />
             </a>
@@ -210,8 +210,8 @@ export function Footer() {
       <div className="bg-[#FF6B3D] py-20 px-6 lg:px-32">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col gap-10">
-            <h2 className="font-display text-7xl md:text-8xl font-semibold text-white leading-tight tracking-tight">
-              Creating the future
+            <h2 className="font-playfair text-7xl md:text-8xl font-bold text-white leading-tight tracking-tight opacity-70">
+              Creating the future.
             </h2>
             <a
               href="mailto:hello@agentschool.io"
@@ -235,7 +235,7 @@ export function Footer() {
                 className="text-white hover:opacity-80 transition-opacity"
               >
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="currentColor" className="w-8 h-8">
-                  <path d="M26.96 7.33a23.84 23.84 0 0 0-5.88-1.82.09.09 0 0 0-.09.05 16.6 16.6 0 0 0-.73 1.5 22 22 0 0 0-6.6 0 15.16 15.16 0 0 0-.74-1.5.09.09 0 0 0-.09-.05 23.77 23.77 0 0 0-5.88 1.82.08.08 0 0 0-.04.04C2.7 12.15 1.84 16.83 2.31 21.45a.1.1 0 0 0 .04.07 24 24 0 0 0 7.22 3.64.09.09 0 0 0 .1-.03 17.16 17.16 0 0 0 1.48-2.4.09.09 0 0 0-.05-.12 15.8 15.8 0 0 1-2.26-1.08.09.09 0 0 1-.01-.15c.15-.11.3-.23.45-.35a.09.09 0 0 1 .09-.01c4.74 2.17 9.87 2.17 14.55 0a.09.09 0 0 1 .09.01c.14.12.29.24.44.35a.09.09 0 0 1-.01.15c-.72.42-1.47.78-2.25 1.08a.09.09 0 0 0-.05.12c.43.83.92 1.63 1.48 2.4a.09.09 0 0 0 .1.03 23.93 23.93 0 0 0 7.23-3.64.09.09 0 0 0 .04-.07c.56-5.34-.94-9.98-3.99-14.08a.07.07 0 0 0-.04-.04ZM11.52 18.55c-1.33 0-2.43-1.22-2.43-2.72s1.08-2.72 2.43-2.72c1.36 0 2.45 1.23 2.43 2.72 0 1.5-1.08 2.72-2.43 2.72Zm8.98 0c-1.33 0-2.42-1.22-2.42-2.72s1.07-2.72 2.42-2.72c1.36 0 2.45 1.23 2.43 2.72 0 1.5-1.07 2.72-2.43 2.72Z"/>
+                  <path d="M26.96 7.33a23.84 23.84 0 0 0-5.88-1.82.09.09 0 0 0-.09.05 16.6 16.6 0 0 0-.73 1.5 22 22 0 0 0-6.6 0 15.16 15.16 0 0 0-.74-1.5.09.09 0 0 0-.09-.05 23.77 23.77 0 0 0-5.88 1.82.08.08 0 0 0-.04.04C2.7 12.15 1.84 16.83 2.31 21.45a.1.1 0 0 0 .04.07 24 24 0 0 0 7.22 3.64.09.09 0 0 0 .1-.03 17.16 17.16 0 0 0 1.48-2.4.09.09 0 0 0-.05-.12 15.8 15.8 0 0 1-2.26-1.08.09.09 0 0 1-.01-.15c.15-.11.3-.23.45-.35a.09.09 0 0 1 .09-.01c4.74 2.17 9.87 2.17 14.55 0a.09.09 0 0 1 .09.01c.14.12.29.24.44.35a.09.09 0 0 1-.01.15c-.72.42-1.47.78-2.25 1.08a.09.09 0 0 0-.05.12c.43.83.92 1.63 1.48 2.4a.09.09 0 0 0 .1.03 23.93 23.93 0 0 0 7.23-3.64.09.09 0 0 0 .04-.07c.56-5.34-.94-9.98-3.99-14.08a.07.07 0 0 0-.04-.04ZM11.52 18.55c-1.33 0-2.43-1.22-2.43-2.72s1.08-2.72 2.43-2.72c1.36 0 2.45 1.23 2.43 2.72 0 1.5-1.08 2.72-2.43 2.72Zm8.98 0c-1.33 0-2.42-1.22-2.42-2.72s1.07-2.72 2.42-2.72c1.36 0 2.45 1.23 2.43 2.72 0 1.5-1.07 2.72-2.43 2.72Z" />
                 </svg>
               </a>
               <a

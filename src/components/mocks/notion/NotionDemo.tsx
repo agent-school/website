@@ -48,13 +48,13 @@ function NotionContent() {
           {/* Header */}
           <div className="flex items-center justify-between">
             <div>
-              <h2 className="font-display text-2xl text-slate-900 dark:text-slate-100">
+              <h2 className="font-display text-2xl text-slate-900">
                 All Tasks
               </h2>
-              <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
+              <p className="text-sm text-slate-500 mt-1">
                 {state.data.tasks.length} task(s)
                 {state.selectedElements.length > 0 && (
-                  <span className="ml-2 text-orange-600 dark:text-orange-400">
+                  <span className="ml-2 text-orange-600">
                     • {state.selectedElements.length} selected
                   </span>
                 )}

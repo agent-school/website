@@ -18,9 +18,9 @@ export function SectionHeader({
   children,
 }: SectionHeaderProps) {
   const alignClass = align === "center" ? "text-center mx-auto" : "text-left";
-  const textColor = dark ? "text-white" : "text-slate-900 dark:text-slate-100";
-  const mutedColor = dark ? "text-slate-300" : "text-slate-600 dark:text-slate-400";
-  const overlineColor = dark ? "text-orange-400" : "text-orange-600 dark:text-orange-400";
+  const textColor = dark ? "text-white" : "text-slate-900";
+  const mutedColor = dark ? "text-slate-300" : "text-slate-600";
+  const overlineColor = dark ? "text-orange-400" : "text-orange-600";
 
   return (
     <div className={`max-w-3xl ${alignClass} mb-16`}>

@@ -12,30 +12,30 @@ export default function TermsOfServicePage() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen bg-slate-50 dark:bg-slate-950">
+      <main className="min-h-screen bg-slate-50">
         <article className="max-w-3xl mx-auto px-6 py-16 lg:py-24">
           <header className="mb-12">
-            <h1 className="font-display text-display-md md:text-display-lg text-slate-900 dark:text-slate-100 mb-4">
+            <h1 className="font-display text-display-md md:text-display-lg text-slate-900 mb-4">
               Terms of Service
             </h1>
-            <p className="font-mono text-caption uppercase tracking-widest text-teal-600 dark:text-teal-400 mb-2">
+            <p className="font-mono text-caption uppercase tracking-widest text-teal-600 mb-2">
               Agent School
             </p>
-            <p className="text-body-sm text-slate-600 dark:text-slate-400">
+            <p className="text-body-sm text-slate-600">
               Last updated: February 12, 2025
             </p>
           </header>
 
-          <div className="prose prose-slate dark:prose-invert max-w-none space-y-10 text-body-md text-slate-700 dark:text-slate-300">
+          <div className="prose prose-slate max-w-none space-y-10 text-body-md text-slate-700">
             <section>
-              <h2 className="font-display text-heading-md text-slate-900 dark:text-slate-100 mb-4">
+              <h2 className="font-display text-heading-md text-slate-900 mb-4">
                 1. Acceptance of Terms
               </h2>
               <p>
                 By accessing or using the Agent School website at{" "}
                 <a
                   href="https://agentschool.io"
-                  className="text-teal-600 dark:text-teal-400 hover:underline"
+                  className="text-teal-600 hover:underline"
                 >
                   agentschool.io
                 </a>
@@ -44,7 +44,7 @@ export default function TermsOfServicePage() {
             </section>
 
             <section>
-              <h2 className="font-display text-heading-md text-slate-900 dark:text-slate-100 mb-4">
+              <h2 className="font-display text-heading-md text-slate-900 mb-4">
                 2. Description of Service
               </h2>
               <p>
@@ -53,7 +53,7 @@ export default function TermsOfServicePage() {
             </section>
 
             <section>
-              <h2 className="font-display text-heading-md text-slate-900 dark:text-slate-100 mb-4">
+              <h2 className="font-display text-heading-md text-slate-900 mb-4">
                 3. Eligibility
               </h2>
               <p>
@@ -62,7 +62,7 @@ export default function TermsOfServicePage() {
             </section>
 
             <section>
-              <h2 className="font-display text-heading-md text-slate-900 dark:text-slate-100 mb-4">
+              <h2 className="font-display text-heading-md text-slate-900 mb-4">
                 4. Account Registration and Security
               </h2>
               <p>
@@ -71,7 +71,7 @@ export default function TermsOfServicePage() {
             </section>
 
             <section>
-              <h2 className="font-display text-heading-md text-slate-900 dark:text-slate-100 mb-4">
+              <h2 className="font-display text-heading-md text-slate-900 mb-4">
                 5. License and Use Restrictions
               </h2>
               <p>
@@ -80,7 +80,7 @@ export default function TermsOfServicePage() {
             </section>
 
             <section>
-              <h2 className="font-display text-heading-md text-slate-900 dark:text-slate-100 mb-4">
+              <h2 className="font-display text-heading-md text-slate-900 mb-4">
                 6. Intellectual Property
               </h2>
               <p>
@@ -89,7 +89,7 @@ export default function TermsOfServicePage() {
             </section>
 
             <section>
-              <h2 className="font-display text-heading-md text-slate-900 dark:text-slate-100 mb-4">
+              <h2 className="font-display text-heading-md text-slate-900 mb-4">
                 7. Acceptable Use
               </h2>
               <p>
@@ -111,7 +111,7 @@ export default function TermsOfServicePage() {
             </section>
 
             <section>
-              <h2 className="font-display text-heading-md text-slate-900 dark:text-slate-100 mb-4">
+              <h2 className="font-display text-heading-md text-slate-900 mb-4">
                 8. Demo Bookings and Payments
               </h2>
               <p>
@@ -120,14 +120,14 @@ export default function TermsOfServicePage() {
             </section>
 
             <section>
-              <h2 className="font-display text-heading-md text-slate-900 dark:text-slate-100 mb-4">
+              <h2 className="font-display text-heading-md text-slate-900 mb-4">
                 9. Privacy
               </h2>
               <p>
                 Your use of the Service is also governed by our{" "}
                 <a
                   href="/privacy"
-                  className="text-teal-600 dark:text-teal-400 hover:underline"
+                  className="text-teal-600 hover:underline"
                 >
                   Privacy Policy
                 </a>
@@ -136,7 +136,7 @@ export default function TermsOfServicePage() {
             </section>
 
             <section>
-              <h2 className="font-display text-heading-md text-slate-900 dark:text-slate-100 mb-4">
+              <h2 className="font-display text-heading-md text-slate-900 mb-4">
                 10. Third-Party Links and Services
               </h2>
               <p>
@@ -145,7 +145,7 @@ export default function TermsOfServicePage() {
             </section>
 
             <section>
-              <h2 className="font-display text-heading-md text-slate-900 dark:text-slate-100 mb-4">
+              <h2 className="font-display text-heading-md text-slate-900 mb-4">
                 11. Disclaimer of Warranties
               </h2>
               <p>
@@ -154,7 +154,7 @@ export default function TermsOfServicePage() {
             </section>
 
             <section>
-              <h2 className="font-display text-heading-md text-slate-900 dark:text-slate-100 mb-4">
+              <h2 className="font-display text-heading-md text-slate-900 mb-4">
                 12. Limitation of Liability
               </h2>
               <p>
@@ -163,7 +163,7 @@ export default function TermsOfServicePage() {
             </section>
 
             <section>
-              <h2 className="font-display text-heading-md text-slate-900 dark:text-slate-100 mb-4">
+              <h2 className="font-display text-heading-md text-slate-900 mb-4">
                 13. Indemnification
               </h2>
               <p>
@@ -172,7 +172,7 @@ export default function TermsOfServicePage() {
             </section>
 
             <section>
-              <h2 className="font-display text-heading-md text-slate-900 dark:text-slate-100 mb-4">
+              <h2 className="font-display text-heading-md text-slate-900 mb-4">
                 14. Termination
               </h2>
               <p>
@@ -181,7 +181,7 @@ export default function TermsOfServicePage() {
             </section>
 
             <section>
-              <h2 className="font-display text-heading-md text-slate-900 dark:text-slate-100 mb-4">
+              <h2 className="font-display text-heading-md text-slate-900 mb-4">
                 15. DMCA and Copyright
               </h2>
               <p>
@@ -190,7 +190,7 @@ export default function TermsOfServicePage() {
             </section>
 
             <section>
-              <h2 className="font-display text-heading-md text-slate-900 dark:text-slate-100 mb-4">
+              <h2 className="font-display text-heading-md text-slate-900 mb-4">
                 16. Changes to Terms
               </h2>
               <p>
@@ -199,7 +199,7 @@ export default function TermsOfServicePage() {
             </section>
 
             <section>
-              <h2 className="font-display text-heading-md text-slate-900 dark:text-slate-100 mb-4">
+              <h2 className="font-display text-heading-md text-slate-900 mb-4">
                 17. Governing Law and Dispute Resolution
               </h2>
               <p>
@@ -208,7 +208,7 @@ export default function TermsOfServicePage() {
             </section>
 
             <section>
-              <h2 className="font-display text-heading-md text-slate-900 dark:text-slate-100 mb-4">
+              <h2 className="font-display text-heading-md text-slate-900 mb-4">
                 18. General
               </h2>
               <p>
@@ -217,7 +217,7 @@ export default function TermsOfServicePage() {
             </section>
 
             <section>
-              <h2 className="font-display text-heading-md text-slate-900 dark:text-slate-100 mb-4">
+              <h2 className="font-display text-heading-md text-slate-900 mb-4">
                 19. Contact Us
               </h2>
               <p>
@@ -229,7 +229,7 @@ export default function TermsOfServicePage() {
                 Email:{" "}
                 <a
                   href="mailto:hello@agentschool.io"
-                  className="text-teal-600 dark:text-teal-400 hover:underline"
+                  className="text-teal-600 hover:underline"
                 >
                   hello@agentschool.io
                 </a>

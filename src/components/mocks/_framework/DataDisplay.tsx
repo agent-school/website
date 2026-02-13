@@ -65,11 +65,11 @@ export function DataDisplay<T extends Record<string, any>>({
     <div className={`overflow-x-auto ${className}`}>
       <table className="w-full border-collapse">
         <thead>
-          <tr className="border-b border-slate-200 dark:border-slate-700">
+          <tr className="border-b border-slate-200">
             {columns.map((column) => (
               <th
                 key={String(column.key)}
-                className={`px-4 py-3 text-left text-sm font-semibold text-slate-700 dark:text-slate-300 ${
+                className={`px-4 py-3 text-left text-sm font-semibold text-slate-700 ${
                   column.sortable ? "cursor-pointer select-none" : ""
                 }`}
                 onClick={column.sortable ? () => handleSort(column.key) : undefined}
@@ -81,14 +81,14 @@ export function DataDisplay<T extends Record<string, any>>({
                       <ChevronUp
                         className={`w-3 h-3 -mb-1 ${
                           sortConfig?.key === column.key && sortConfig?.direction === "asc"
-                            ? "text-orange-600 dark:text-orange-400"
+                            ? "text-orange-600"
                             : "text-slate-400"
                         }`}
                       />
                       <ChevronDown
                         className={`w-3 h-3 ${
                           sortConfig?.key === column.key && sortConfig?.direction === "desc"
-                            ? "text-orange-600 dark:text-orange-400"
+                            ? "text-orange-600"
                             : "text-slate-400"
                         }`}
                       />
@@ -106,11 +106,11 @@ export function DataDisplay<T extends Record<string, any>>({
               <motion.tr
                 key={rowIndex}
                 onClick={onRowClick ? () => onRowClick(row, rowIndex) : undefined}
-                className={`border-b border-slate-100 dark:border-slate-800 transition-colors ${
-                  onRowClick ? "cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800/50" : ""
+                className={`border-b border-slate-100 transition-colors ${
+                  onRowClick ? "cursor-pointer hover:bg-slate-50" : ""
                 } ${
                   isHighlighted
-                    ? "bg-orange-50 dark:bg-orange-900/20 ring-2 ring-orange-500 dark:ring-orange-400"
+                    ? "bg-orange-50 ring-2 ring-orange-500"
                     : ""
                 }`}
                 animate={{
@@ -131,7 +131,7 @@ export function DataDisplay<T extends Record<string, any>>({
                 {columns.map((column) => (
                   <td
                     key={String(column.key)}
-                    className="px-4 py-3 text-sm text-slate-600 dark:text-slate-400"
+                    className="px-4 py-3 text-sm text-slate-600"
                   >
                     {column.render
                       ? column.render(row[column.key], row)

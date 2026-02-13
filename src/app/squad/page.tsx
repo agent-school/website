@@ -9,12 +9,12 @@ export default function SquadPage() {
     return (
         <>
             <Navbar />
-            <main className="min-h-screen bg-white dark:bg-slate-950 pt-32 pb-20 px-4 sm:px-6 flex flex-col items-center">
+            <main className="min-h-screen bg-white pt-32 pb-20 px-4 sm:px-6 flex flex-col items-center">
                 <div className="max-w-7xl mx-auto text-center w-full">
                     <motion.h1
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="font-display text-4xl font-bold tracking-tight mb-16 text-slate-900 dark:text-slate-100"
+                        className="font-display text-4xl font-bold tracking-tight mb-16 text-slate-900"
                     >
                         The Squad
                     </motion.h1>
@@ -33,7 +33,7 @@ export default function SquadPage() {
                                     <Agent variant={variant} scale={0.55} />
                                 </div>
 
-                                <span className="font-mono text-[11px] uppercase tracking-widest text-slate-500 dark:text-slate-400 group-hover:text-slate-900 dark:group-hover:text-slate-200 transition-colors z-10 relative">
+                                <span className="font-mono text-[11px] uppercase tracking-widest text-slate-500 group-hover:text-slate-900 transition-colors z-10 relative">
                                     {variant}
                                 </span>
                             </motion.div>

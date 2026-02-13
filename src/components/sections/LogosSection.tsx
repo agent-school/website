@@ -22,10 +22,10 @@ const LOGOS: Logo[] = [
 
 export function LogosSection() {
   return (
-    <section className="py-16 border-y border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
+    <section className="py-16 border-y border-slate-200 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-12">
-          <p className="text-sm font-mono uppercase tracking-widest text-slate-500 dark:text-slate-400">
+          <p className="text-sm font-mono uppercase tracking-widest text-slate-500">
             Trusted by Teams From
           </p>
         </div>
@@ -33,8 +33,8 @@ export function LogosSection() {
         {/* Infinite Scrolling Container */}
         <div className="relative overflow-hidden">
           {/* Gradient Masks */}
-          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white dark:from-slate-950 to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white dark:from-slate-950 to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
 
           {/* Scrolling Logos */}
           <motion.div
@@ -67,8 +67,8 @@ export function LogosSection() {
                     />
                   </div>
                 ) : (
-                  <div className="w-full h-full flex items-center justify-center rounded-lg border-2 border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50">
-                    <span className="font-semibold text-slate-700 dark:text-slate-300 text-sm">
+                  <div className="w-full h-full flex items-center justify-center rounded-lg border-2 border-slate-200 bg-slate-50">
+                    <span className="font-semibold text-slate-700 text-sm">
                       {logo.name}
                     </span>
                   </div>

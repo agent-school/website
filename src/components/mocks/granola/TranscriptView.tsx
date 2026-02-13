@@ -5,9 +5,9 @@ import { InteractiveElement } from "@/components/mocks/_framework/InteractiveEle
 import { type GranolaData, type Speaker, type TranscriptSegment } from "./types";
 
 const SPEAKER_COLORS = {
-  teal: "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200",
-  orange: "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200",
-  purple: "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200",
+  teal: "bg-orange-100 text-orange-800",
+  orange: "bg-orange-100 text-orange-800",
+  purple: "bg-purple-100 text-purple-800",
 };
 
 export function TranscriptView() {
@@ -23,15 +23,15 @@ export function TranscriptView() {
   const showDecisions = selectedElements.includes("decisions");
 
   return (
-    <div className="flex flex-col lg:flex-row h-full bg-white dark:bg-slate-900">
+    <div className="flex flex-col lg:flex-row h-full bg-white">
       {/* Transcript Panel */}
-      <div className="flex-1 overflow-y-auto lg:border-r border-slate-200 dark:border-slate-700">
+      <div className="flex-1 overflow-y-auto lg:border-r border-slate-200">
         <div className="p-4 lg:p-6 space-y-4">
           <div className="mb-6">
-            <h2 className="text-lg lg:text-xl font-semibold text-slate-900 dark:text-slate-100 mb-1">
+            <h2 className="text-lg lg:text-xl font-semibold text-slate-900 mb-1">
               Product Launch Planning Meeting
             </h2>
-            <p className="text-sm text-slate-500 dark:text-slate-400">
+            <p className="text-sm text-slate-500">
               March 8, 2026 • 5 minutes
             </p>
           </div>
@@ -48,7 +48,7 @@ export function TranscriptView() {
                 highlight={isHighlighted}
               >
                 <div className="flex gap-2 lg:gap-3">
-                  <div className="flex-shrink-0 w-10 lg:w-14 text-xs text-slate-400 dark:text-slate-500 pt-1">
+                  <div className="flex-shrink-0 w-10 lg:w-14 text-xs text-slate-400 pt-1">
                     {segment.timestamp}
                   </div>
                   <div className="flex-1 min-w-0">
@@ -57,7 +57,7 @@ export function TranscriptView() {
                         {speaker.name}
                       </span>
                     </div>
-                    <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+                    <p className="text-sm text-slate-700 leading-relaxed">
                       {segment.text}
                     </p>
                   </div>
@@ -70,23 +70,23 @@ export function TranscriptView() {
 
       {/* Summary Panel */}
       {(showSummaryPanel || showActionItems || showDecisions) && (
-        <div className="w-full lg:w-96 overflow-y-auto bg-slate-50 dark:bg-slate-800 p-4 lg:p-6 space-y-4 lg:space-y-6 border-t lg:border-t-0 border-slate-200 dark:border-slate-700">
+        <div className="w-full lg:w-96 overflow-y-auto bg-slate-50 p-4 lg:p-6 space-y-4 lg:space-y-6 border-t lg:border-t-0 border-slate-200">
           {showSummaryPanel && (
             <InteractiveElement id="summary-panel" highlight={true}>
-              <div className="bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-700 p-4">
-                <h3 className="text-base lg:text-lg font-semibold text-slate-900 dark:text-slate-100 mb-3">
+              <div className="bg-white rounded-lg border border-slate-200 p-4">
+                <h3 className="text-base lg:text-lg font-semibold text-slate-900 mb-3">
                   AI Summary
                 </h3>
-                <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
+                <p className="text-sm text-slate-700 leading-relaxed mb-4">
                   {data.summary.overview}
                 </p>
                 <div>
-                  <h4 className="text-sm font-medium text-slate-900 dark:text-slate-100 mb-2">
+                  <h4 className="text-sm font-medium text-slate-900 mb-2">
                     Key Points
                   </h4>
                   <ul className="space-y-2">
                     {data.summary.keyPoints.map((point, idx) => (
-                      <li key={idx} className="flex gap-2 text-sm text-slate-600 dark:text-slate-400">
+                      <li key={idx} className="flex gap-2 text-sm text-slate-600">
                         <span className="text-orange-500 flex-shrink-0">•</span>
                         <span>{point}</span>
                       </li>
@@ -99,17 +99,17 @@ export function TranscriptView() {
 
           {showActionItems && (
             <InteractiveElement id="action-items" highlight={true}>
-              <div className="bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-700 p-4">
-                <h3 className="text-base lg:text-lg font-semibold text-slate-900 dark:text-slate-100 mb-3">
+              <div className="bg-white rounded-lg border border-slate-200 p-4">
+                <h3 className="text-base lg:text-lg font-semibold text-slate-900 mb-3">
                   Action Items
                 </h3>
                 <ul className="space-y-3">
                   {data.actionItems.map((item) => (
                     <li key={item.id} className="border-l-2 border-orange-500 pl-3">
-                      <p className="text-sm text-slate-700 dark:text-slate-300 mb-1">
+                      <p className="text-sm text-slate-700 mb-1">
                         {item.text}
                       </p>
-                      <div className="flex items-center gap-3 text-xs text-slate-500 dark:text-slate-400">
+                      <div className="flex items-center gap-3 text-xs text-slate-500">
                         <span className="font-medium">{item.owner}</span>
                         {item.dueDate && (
                           <>
@@ -127,17 +127,17 @@ export function TranscriptView() {
 
           {showDecisions && (
             <InteractiveElement id="decisions" highlight={true}>
-              <div className="bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-700 p-4">
-                <h3 className="text-base lg:text-lg font-semibold text-slate-900 dark:text-slate-100 mb-3">
+              <div className="bg-white rounded-lg border border-slate-200 p-4">
+                <h3 className="text-base lg:text-lg font-semibold text-slate-900 mb-3">
                   Key Decisions
                 </h3>
                 <ul className="space-y-3">
                   {data.decisions.map((decision) => (
                     <li key={decision.id} className="border-l-2 border-purple-500 pl-3">
-                      <p className="text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">
+                      <p className="text-sm font-medium text-slate-700 mb-1">
                         {decision.text}
                       </p>
-                      <p className="text-xs text-slate-500 dark:text-slate-400">
+                      <p className="text-xs text-slate-500">
                         {decision.context}
                       </p>
                     </li>

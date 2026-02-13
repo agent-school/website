@@ -18,12 +18,12 @@ export function Journey() {
           <Agent variant={variant} scale={0.45} />
 
           {/* Stage title */}
-          <h3 className="font-display text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-100">
+          <h3 className="font-display text-3xl md:text-4xl font-bold text-slate-900">
             {stage.title}
           </h3>
 
           {/* Stage description */}
-          <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl">
+          <p className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl">
             {stage.description}
           </p>
 
@@ -37,24 +37,24 @@ export function Journey() {
   return (
     <section
       id="journey"
-      className="relative bg-white dark:bg-slate-950"
+      className="relative bg-white"
     >
       {/* Background decoration */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden>
-        <div className="absolute top-[10%] left-[-5%] w-[500px] h-[500px] rounded-full bg-orange-500/10 dark:bg-orange-500/5 blur-3xl" />
-        <div className="absolute bottom-[20%] right-[-10%] w-[600px] h-[600px] rounded-full bg-orange-500/10 dark:bg-orange-500/5 blur-3xl" />
+        <div className="absolute top-[10%] left-[-5%] w-[500px] h-[500px] rounded-full bg-orange-500/10 blur-3xl" />
+        <div className="absolute bottom-[20%] right-[-10%] w-[600px] h-[600px] rounded-full bg-orange-500/10 blur-3xl" />
       </div>
 
       {/* Custom header section */}
       <div className="relative z-10 max-w-7xl mx-auto pt-20 md:pt-32 px-4 md:px-8 lg:px-10">
         <div className="text-center mb-16">
-          <p className="font-mono text-sm uppercase tracking-widest text-orange-600 dark:text-orange-500 mb-4">
+          <p className="font-mono text-sm uppercase tracking-widest text-orange-600 mb-4">
             How It Works
           </p>
-          <h2 className="font-display text-4xl md:text-6xl font-bold text-slate-900 dark:text-slate-100 mb-6">
+          <h2 className="font-display text-4xl md:text-6xl font-bold text-slate-900 mb-6">
             Four Steps to Certified Automation
           </h2>
-          <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto">
             From teaching your first workflow to monitoring self-healing agents in
             production. The entire journey is designed for reliability.
           </p>

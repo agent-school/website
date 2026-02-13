@@ -163,6 +163,11 @@ const config: Config = {
   				'var(--font-jetbrains)',
   				'Consolas',
   				'monospace'
+  			],
+  			playfair: [
+  				'var(--font-playfair)',
+  				'Georgia',
+  				'serif'
   			]
   		},
   		fontSize: {

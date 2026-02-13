@@ -15,30 +15,30 @@ export default function GeometrySolutionCaseStudyPage() {
   return (
     <>
       <Navbar />
-      <main className="bg-white dark:bg-slate-900 min-h-screen">
+      <main className="bg-white min-h-screen">
         <article className="pt-36 pb-24 px-6">
           <div className="max-w-4xl mx-auto">
             <Link
               href="/blog"
-              className="inline-flex items-center gap-2 text-body-sm text-slate-600 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-400 transition-colors mb-8"
+              className="inline-flex items-center gap-2 text-body-sm text-slate-600 hover:text-orange-600 transition-colors mb-8"
             >
               <ArrowLeft className="w-4 h-4" />
               Back to Blog
             </Link>
 
             <header className="mb-16">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800 mb-6">
-                <span className="text-body-sm font-semibold text-orange-700 dark:text-orange-300">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-200 mb-6">
+                <span className="text-body-sm font-semibold text-orange-700">
                   Case Study
                 </span>
               </div>
-              <h1 className="font-display text-display-lg md:text-6xl text-slate-900 dark:text-slate-100 mb-6">
+              <h1 className="font-display text-display-lg md:text-6xl text-slate-900 mb-6">
                 How Geometry Solution Automated 40+ Hours of Weekly Invoicing
               </h1>
-              <p className="text-body-xl text-slate-600 dark:text-slate-400 leading-relaxed mb-8">
+              <p className="text-body-xl text-slate-600 leading-relaxed mb-8">
                 From drowning in Amazon logistics paperwork to running deterministic workflows on top of legacy systems—processing hundreds of transactions with self-healing automation.
               </p>
-              <div className="flex items-center gap-4 text-body-sm text-slate-500 dark:text-slate-500">
+              <div className="flex items-center gap-4 text-body-sm text-slate-500">
                 <span>Agent School Team</span>
                 <span>•</span>
                 <time>February 12th, 2026</time>
@@ -49,47 +49,47 @@ export default function GeometrySolutionCaseStudyPage() {
 
             {/* Key Metrics */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16">
-              <div className="bg-gradient-to-br from-orange-50 to-orange-50 dark:from-orange-900/20 dark:to-orange-900/20 rounded-2xl p-6 border border-orange-200/50 dark:border-orange-800/50">
-                <div className="w-10 h-10 rounded-lg bg-orange-600 dark:bg-orange-500 flex items-center justify-center mb-4">
+              <div className="bg-gradient-to-br from-orange-50 to-orange-50 rounded-2xl p-6 border border-orange-200/50">
+                <div className="w-10 h-10 rounded-lg bg-orange-600 flex items-center justify-center mb-4">
                   <Clock className="w-5 h-5 text-white" />
                 </div>
-                <p className="font-display text-4xl text-slate-900 dark:text-slate-100 mb-2">
+                <p className="font-display text-4xl text-slate-900 mb-2">
                   40+
                 </p>
-                <p className="text-body-sm text-slate-600 dark:text-slate-400">
+                <p className="text-body-sm text-slate-600">
                   Hours saved per week
                 </p>
               </div>
-              <div className="bg-gradient-to-br from-orange-50 to-orange-50 dark:from-orange-900/20 dark:to-orange-900/20 rounded-2xl p-6 border border-orange-200/50 dark:border-orange-800/50">
-                <div className="w-10 h-10 rounded-lg bg-orange-600 dark:bg-orange-500 flex items-center justify-center mb-4">
+              <div className="bg-gradient-to-br from-orange-50 to-orange-50 rounded-2xl p-6 border border-orange-200/50">
+                <div className="w-10 h-10 rounded-lg bg-orange-600 flex items-center justify-center mb-4">
                   <TrendingDown className="w-5 h-5 text-white" />
                 </div>
-                <p className="font-display text-4xl text-slate-900 dark:text-slate-100 mb-2">
+                <p className="font-display text-4xl text-slate-900 mb-2">
                   85%
                 </p>
-                <p className="text-body-sm text-slate-600 dark:text-slate-400">
+                <p className="text-body-sm text-slate-600">
                   Reduction in manual data entry
                 </p>
               </div>
-              <div className="bg-gradient-to-br from-orange-50 to-orange-50 dark:from-orange-900/20 dark:to-orange-900/20 rounded-2xl p-6 border border-orange-200/50 dark:border-orange-800/50">
-                <div className="w-10 h-10 rounded-lg bg-orange-600 dark:bg-orange-500 flex items-center justify-center mb-4">
+              <div className="bg-gradient-to-br from-orange-50 to-orange-50 rounded-2xl p-6 border border-orange-200/50">
+                <div className="w-10 h-10 rounded-lg bg-orange-600 flex items-center justify-center mb-4">
                   <Zap className="w-5 h-5 text-white" />
                 </div>
-                <p className="font-display text-4xl text-slate-900 dark:text-slate-100 mb-2">
+                <p className="font-display text-4xl text-slate-900 mb-2">
                   2 weeks
                 </p>
-                <p className="text-body-sm text-slate-600 dark:text-slate-400">
+                <p className="text-body-sm text-slate-600">
                   From pilot to production
                 </p>
               </div>
             </div>
 
             {/* Article Content */}
-            <div className="prose prose-slate dark:prose-invert max-w-none">
-              <div className="space-y-8 text-slate-700 dark:text-slate-300 leading-relaxed">
+            <div className="prose prose-slate max-w-none">
+              <div className="space-y-8 text-slate-700 leading-relaxed">
                 {/* The Problem */}
                 <section>
-                  <h2 className="font-display text-heading-xl text-slate-900 dark:text-slate-100 mb-6">
+                  <h2 className="font-display text-heading-xl text-slate-900 mb-6">
                     The Problem: Drowning in Repetitive Logistics Work
                   </h2>
                   <p className="text-body-md mb-4">
@@ -104,8 +104,8 @@ export default function GeometrySolutionCaseStudyPage() {
                 </section>
 
                 {/* What They Tried */}
-                <section className="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-8 my-12">
-                  <h3 className="font-display text-heading-lg text-slate-900 dark:text-slate-100 mb-4">
+                <section className="bg-slate-50 rounded-2xl p-8 my-12">
+                  <h3 className="font-display text-heading-lg text-slate-900 mb-4">
                     What They Tried Before Agent School
                   </h3>
                   <p className="text-body-md mb-4">
@@ -118,7 +118,7 @@ export default function GeometrySolutionCaseStudyPage() {
 
                 {/* The Solution */}
                 <section>
-                  <h2 className="font-display text-heading-xl text-slate-900 dark:text-slate-100 mb-6">
+                  <h2 className="font-display text-heading-xl text-slate-900 mb-6">
                     The Solution: Building a Software Layer for Legacy Systems
                   </h2>
                   <p className="text-body-md mb-4">
@@ -131,30 +131,30 @@ export default function GeometrySolutionCaseStudyPage() {
                     The workflows were then structured as JSON files that chained these operation nodes together. When a workflow ran, it executed the stored sequence of actions deterministically—no heavy LLM reasoning on every run, just fast, predictable execution. This meant workflows that used to take 45 seconds with traditional AI approaches now ran in under 2 seconds. And because the workflows were certified before deployment—tested across hundreds of edge cases in isolated environments—Ryan's team could trust them to run in production without constant monitoring.
                   </p>
 
-                  <h3 className="font-display text-heading-lg text-slate-900 dark:text-slate-100 mb-4 mt-8">
+                  <h3 className="font-display text-heading-lg text-slate-900 mb-4 mt-8">
                     Four Workflows That Transformed Operations
                   </h3>
                   
                   <p className="text-body-md mb-4">
-                    <strong className="text-slate-900 dark:text-slate-100">Invoice Processing Workflow:</strong> Ryan walked through his invoice entry process once while Agent School recorded every step. The resulting workflow learned to extract data from supplier invoices (whether they came in as PDFs, emails, or web portals), validate line items against purchase orders, and enter clean data into their accounting system. The workflow now handles over 200 invoices per day with 99.2% accuracy—higher than the team's previous manual error rate. After four weeks of operation, this workflow alone is consistently saving the team 27 hours per week.
+                    <strong className="text-slate-900">Invoice Processing Workflow:</strong> Ryan walked through his invoice entry process once while Agent School recorded every step. The resulting workflow learned to extract data from supplier invoices (whether they came in as PDFs, emails, or web portals), validate line items against purchase orders, and enter clean data into their accounting system. The workflow now handles over 200 invoices per day with 99.2% accuracy—higher than the team's previous manual error rate. After four weeks of operation, this workflow alone is consistently saving the team 27 hours per week.
                   </p>
 
                   <p className="text-body-md mb-4">
-                    <strong className="text-slate-900 dark:text-slate-100">Warehouse Receipt Verification Workflow:</strong> Every shipment that arrives at their warehouse generates a receipt that needs to be matched with the original purchase order. Agent School built a workflow that logs into warehouse portals, downloads receipts, cross-references SKUs and quantities, and flags discrepancies for human review. What used to take 10 hours per week now happens automatically overnight, with the team only stepping in when the workflow detects an anomaly that requires judgment.
+                    <strong className="text-slate-900">Warehouse Receipt Verification Workflow:</strong> Every shipment that arrives at their warehouse generates a receipt that needs to be matched with the original purchase order. Agent School built a workflow that logs into warehouse portals, downloads receipts, cross-references SKUs and quantities, and flags discrepancies for human review. What used to take 10 hours per week now happens automatically overnight, with the team only stepping in when the workflow detects an anomaly that requires judgment.
                   </p>
 
                   <p className="text-body-md mb-4">
-                    <strong className="text-slate-900 dark:text-slate-100">Inventory Tracking Workflow:</strong> Managing stock across four different warehouses meant constant spreadsheet updates and manual syncing. The new workflow monitors inventory levels in real-time, syncs data across systems, and triggers reorder alerts when stock runs low. Ryan's team gets a consolidated dashboard without lifting a finger, and the workflow self-heals when warehouse systems change their data formats.
+                    <strong className="text-slate-900">Inventory Tracking Workflow:</strong> Managing stock across four different warehouses meant constant spreadsheet updates and manual syncing. The new workflow monitors inventory levels in real-time, syncs data across systems, and triggers reorder alerts when stock runs low. Ryan's team gets a consolidated dashboard without lifting a finger, and the workflow self-heals when warehouse systems change their data formats.
                   </p>
 
                   <p className="text-body-md mb-4">
-                    <strong className="text-slate-900 dark:text-slate-100">Print & File Automation Workflow:</strong> For compliance, certain documents need to be printed and physically filed. The workflow automatically identifies which documents require printing, queues them to the network printer, and logs them in the filing system. Even the most mundane task is now hands-off, freeing the team to focus on higher-value work.
+                    <strong className="text-slate-900">Print & File Automation Workflow:</strong> For compliance, certain documents need to be printed and physically filed. The workflow automatically identifies which documents require printing, queues them to the network printer, and logs them in the filing system. Even the most mundane task is now hands-off, freeing the team to focus on higher-value work.
                   </p>
                 </section>
 
                 {/* The Results */}
                 <section className="mt-16">
-                  <h2 className="font-display text-heading-xl text-slate-900 dark:text-slate-100 mb-6">
+                  <h2 className="font-display text-heading-xl text-slate-900 mb-6">
                     The Results: From Bottleneck to Competitive Advantage
                   </h2>
                   <p className="text-body-md mb-4">
@@ -166,18 +166,18 @@ export default function GeometrySolutionCaseStudyPage() {
                 </section>
 
                 {/* Testimonial */}
-                <blockquote className="border-l-4 border-orange-500 dark:border-orange-400 pl-6 py-4 my-12 bg-slate-50 dark:bg-slate-800/50 rounded-r-xl">
-                  <p className="font-display text-xl text-slate-900 dark:text-slate-100 leading-relaxed mb-4">
+                <blockquote className="border-l-4 border-orange-500 pl-6 py-4 my-12 bg-slate-50 rounded-r-xl">
+                  <p className="font-display text-xl text-slate-900 leading-relaxed mb-4">
                     "Agent School transformed how we approach automation at Geometry Solution. What used to take our team days to configure now happens in minutes. The self-healing capabilities alone have saved us countless hours of maintenance work. This is the future of workflow automation."
                   </p>
-                  <footer className="text-body-md text-slate-600 dark:text-slate-400">
-                    — <strong className="text-slate-900 dark:text-slate-100">Ryan Li</strong>, CEO at Geometry Solution
+                  <footer className="text-body-md text-slate-600">
+                    — <strong className="text-slate-900">Ryan Li</strong>, CEO at Geometry Solution
                   </footer>
                 </blockquote>
 
                 {/* Why It Worked */}
                 <section>
-                  <h2 className="font-display text-heading-xl text-slate-900 dark:text-slate-100 mb-6">
+                  <h2 className="font-display text-heading-xl text-slate-900 mb-6">
                     Why It Worked: The Agent School Difference
                   </h2>
                   <p className="text-body-md mb-4">
@@ -193,7 +193,7 @@ export default function GeometrySolutionCaseStudyPage() {
 
                 {/* What's Next */}
                 <section className="mt-16">
-                  <h2 className="font-display text-heading-xl text-slate-900 dark:text-slate-100 mb-6">
+                  <h2 className="font-display text-heading-xl text-slate-900 mb-6">
                     What's Next for Geometry Solution
                   </h2>
                   <p className="text-body-md mb-4">
@@ -205,7 +205,7 @@ export default function GeometrySolutionCaseStudyPage() {
                 </section>
 
                 {/* CTA */}
-                <section className="mt-16 bg-gradient-to-br from-orange-600 to-orange-600 dark:from-orange-700 dark:to-orange-700 rounded-2xl p-12 text-center">
+                <section className="mt-16 bg-gradient-to-br from-orange-600 to-orange-600 rounded-2xl p-12 text-center">
                   <h2 className="font-display text-heading-xl text-white mb-4">
                     Ready to Automate Your Repetitive Workflows?
                   </h2>
@@ -216,7 +216,7 @@ export default function GeometrySolutionCaseStudyPage() {
                     href="https://cal.com/jackagentschool/15min"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-8 py-4 bg-white text-orange-700 dark:text-orange-700 font-semibold rounded-xl hover:bg-orange-50 transition-colors shadow-lg"
+                    className="inline-flex items-center gap-2 px-8 py-4 bg-white text-orange-700 font-semibold rounded-xl hover:bg-orange-50 transition-colors shadow-lg"
                   >
                     Schedule a Demo
                   </Link>

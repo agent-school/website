@@ -41,7 +41,7 @@ const stats = [
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-white dark:bg-slate-950 pt-24 pb-20 px-6">
+    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-white pt-24 pb-20 px-6">
       {/* Aceternity Background Beams */}
       <BackgroundBeams className="opacity-40" />
 
@@ -53,7 +53,7 @@ export function Hero() {
           transition={{ delay: 0.1, duration: 0.5 }}
           className="mb-8"
         >
-          <Badge className="px-4 py-2 text-sm font-mono uppercase tracking-widest border border-orange-500/50 text-orange-600 dark:text-orange-400 bg-orange-50/50 dark:bg-orange-950/30">
+          <Badge className="px-4 py-2 text-sm font-mono uppercase tracking-widest border border-orange-500/50 text-orange-600 bg-orange-50/50">
             The Future of AI Automation
           </Badge>
         </motion.div>
@@ -67,14 +67,14 @@ export function Hero() {
         >
           <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight">
             <HyperText
-              className="text-orange-600 dark:text-orange-400"
+              className="text-orange-600"
               duration={1500}
               delay={400}
             >
               Turn Human Knowledge
             </HyperText>
             <br />
-            <span className="text-slate-900 dark:text-slate-100">
+            <span className="text-slate-900">
               Into AI That Never Forgets
             </span>
           </h1>
@@ -86,7 +86,7 @@ export function Hero() {
           initial="hidden"
           animate="visible"
           transition={{ delay: 0.9, duration: 0.6 }}
-          className="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto mb-4 leading-relaxed"
+          className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto mb-4 leading-relaxed"
         >
           The first platform that transforms human expertise into certified AI
           agents. Teach once. Deploy everywhere. Automate forever.
@@ -97,7 +97,7 @@ export function Hero() {
           initial="hidden"
           animate="visible"
           transition={{ delay: 1.1, duration: 0.6 }}
-          className="text-base md:text-lg text-slate-500 dark:text-slate-500 max-w-2xl mx-auto mb-12"
+          className="text-base md:text-lg text-slate-500 max-w-2xl mx-auto mb-12"
         >
           Stop paying for AI that rethinks every task. Train deterministic
           workflows that execute flawlessly at a fraction of the cost.
@@ -114,7 +114,7 @@ export function Hero() {
           <Button
             size="lg"
             asChild
-            className="bg-orange-600 hover:bg-orange-700 dark:bg-orange-500 dark:hover:bg-orange-600 text-white shadow-glow-orange border-0 text-base font-semibold px-8 py-6 h-auto"
+            className="bg-orange-600 hover:bg-orange-700 text-white shadow-glow-orange border-0 text-base font-semibold px-8 py-6 h-auto"
           >
             <a href={BOOKING_URL} className="flex items-center gap-2">
               Join The Revolution
@@ -125,7 +125,7 @@ export function Hero() {
             variant="outline"
             size="lg"
             asChild
-            className="border-2 border-stone-300 dark:border-stone-700 text-stone-700 dark:text-stone-300 hover:border-orange-500 dark:hover:border-orange-400 hover:text-orange-600 dark:hover:text-orange-400 text-base font-semibold px-8 py-6 h-auto"
+            className="border-2 border-stone-300 text-stone-700 hover:border-orange-500 hover:text-orange-600 text-base font-semibold px-8 py-6 h-auto"
           >
             <a href="#features">Explore Capabilities</a>
           </Button>
@@ -144,7 +144,7 @@ export function Hero() {
                 ease: [0.25, 0.1, 0.25, 1],
               }}
               whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="relative glass-card rounded-2xl p-6 shadow-lg border border-slate-200/50 dark:border-slate-800/50 group"
+              className="relative glass-card rounded-2xl p-6 shadow-lg border border-orange-200/50 group"
             >
               {/* Agent Icon */}
               <div className="w-16 h-16 flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform">
@@ -152,13 +152,13 @@ export function Hero() {
               </div>
 
               {/* Animated Number */}
-              <div className="text-4xl md:text-5xl font-display font-bold mb-2 text-orange-600 dark:text-orange-400">
+              <div className="text-4xl md:text-5xl font-display font-bold mb-2 text-orange-600">
                 <NumberTicker value={stat.value} />
                 {stat.suffix}
               </div>
 
               {/* Label */}
-              <p className="text-sm font-medium text-slate-600 dark:text-slate-400 uppercase tracking-wide">
+              <p className="text-sm font-medium text-slate-600 uppercase tracking-wide">
                 {stat.label}
               </p>
 

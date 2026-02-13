@@ -12,30 +12,30 @@ export default function PrivacyPolicyPage() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen bg-slate-50 dark:bg-slate-950">
+      <main className="min-h-screen bg-slate-50">
         <article className="max-w-3xl mx-auto px-6 py-16 lg:py-24">
           <header className="mb-12">
-            <h1 className="font-display text-display-md md:text-display-lg text-slate-900 dark:text-slate-100 mb-4">
+            <h1 className="font-display text-display-md md:text-display-lg text-slate-900 mb-4">
               Privacy Policy
             </h1>
-            <p className="font-mono text-caption uppercase tracking-widest text-teal-600 dark:text-teal-400 mb-2">
+            <p className="font-mono text-caption uppercase tracking-widest text-teal-600 mb-2">
               Agent School
             </p>
-            <p className="text-body-sm text-slate-600 dark:text-slate-400">
+            <p className="text-body-sm text-slate-600">
               Last updated: February 12, 2025
             </p>
           </header>
 
-          <div className="prose prose-slate dark:prose-invert max-w-none space-y-10 text-body-md text-slate-700 dark:text-slate-300">
+          <div className="prose prose-slate max-w-none space-y-10 text-body-md text-slate-700">
             <section>
-              <h2 className="font-display text-heading-md text-slate-900 dark:text-slate-100 mb-4">
+              <h2 className="font-display text-heading-md text-slate-900 mb-4">
                 1. Introduction
               </h2>
               <p>
                 Agent School (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) respects your privacy and is committed to protecting your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website at{" "}
                 <a
                   href="https://agentschool.io"
-                  className="text-teal-600 dark:text-teal-400 hover:underline"
+                  className="text-teal-600 hover:underline"
                 >
                   agentschool.io
                 </a>
@@ -47,14 +47,14 @@ export default function PrivacyPolicyPage() {
             </section>
 
             <section>
-              <h2 className="font-display text-heading-md text-slate-900 dark:text-slate-100 mb-4">
+              <h2 className="font-display text-heading-md text-slate-900 mb-4">
                 2. Information We Collect
               </h2>
               <p className="mb-4">
                 We collect information in the following ways:
               </p>
 
-              <h3 className="font-semibold text-body-md text-slate-900 dark:text-slate-100 mt-6 mb-2">
+              <h3 className="font-semibold text-body-md text-slate-900 mt-6 mb-2">
                 Information you provide
               </h3>
               <ul className="list-disc pl-6 space-y-2 mb-4">
@@ -63,7 +63,7 @@ export default function PrivacyPolicyPage() {
                 <li><strong>Account data:</strong> If you create an account, we collect login credentials and profile information you provide</li>
               </ul>
 
-              <h3 className="font-semibold text-body-md text-slate-900 dark:text-slate-100 mt-6 mb-2">
+              <h3 className="font-semibold text-body-md text-slate-900 mt-6 mb-2">
                 Information collected automatically
               </h3>
               <ul className="list-disc pl-6 space-y-2 mb-4">
@@ -72,7 +72,7 @@ export default function PrivacyPolicyPage() {
                 <li><strong>Usage data:</strong> How you interact with our website, features used, and error logs</li>
               </ul>
 
-              <h3 className="font-semibold text-body-md text-slate-900 dark:text-slate-100 mt-6 mb-2">
+              <h3 className="font-semibold text-body-md text-slate-900 mt-6 mb-2">
                 Information from third parties
               </h3>
               <p>
@@ -81,7 +81,7 @@ export default function PrivacyPolicyPage() {
             </section>
 
             <section>
-              <h2 className="font-display text-heading-md text-slate-900 dark:text-slate-100 mb-4">
+              <h2 className="font-display text-heading-md text-slate-900 mb-4">
                 3. How We Use Your Information
               </h2>
               <p className="mb-4">
@@ -100,7 +100,7 @@ export default function PrivacyPolicyPage() {
             </section>
 
             <section>
-              <h2 className="font-display text-heading-md text-slate-900 dark:text-slate-100 mb-4">
+              <h2 className="font-display text-heading-md text-slate-900 mb-4">
                 4. Legal Basis for Processing (GDPR)
               </h2>
               <p>
@@ -109,7 +109,7 @@ export default function PrivacyPolicyPage() {
             </section>
 
             <section>
-              <h2 className="font-display text-heading-md text-slate-900 dark:text-slate-100 mb-4">
+              <h2 className="font-display text-heading-md text-slate-900 mb-4">
                 5. Sharing Your Information
               </h2>
               <p className="mb-4">
@@ -126,7 +126,7 @@ export default function PrivacyPolicyPage() {
             </section>
 
             <section>
-              <h2 className="font-display text-heading-md text-slate-900 dark:text-slate-100 mb-4">
+              <h2 className="font-display text-heading-md text-slate-900 mb-4">
                 6. Cookies and Tracking Technologies
               </h2>
               <p>
@@ -135,7 +135,7 @@ export default function PrivacyPolicyPage() {
             </section>
 
             <section>
-              <h2 className="font-display text-heading-md text-slate-900 dark:text-slate-100 mb-4">
+              <h2 className="font-display text-heading-md text-slate-900 mb-4">
                 7. Data Security
               </h2>
               <p>
@@ -144,7 +144,7 @@ export default function PrivacyPolicyPage() {
             </section>
 
             <section>
-              <h2 className="font-display text-heading-md text-slate-900 dark:text-slate-100 mb-4">
+              <h2 className="font-display text-heading-md text-slate-900 mb-4">
                 8. Data Retention
               </h2>
               <p>
@@ -153,7 +153,7 @@ export default function PrivacyPolicyPage() {
             </section>
 
             <section>
-              <h2 className="font-display text-heading-md text-slate-900 dark:text-slate-100 mb-4">
+              <h2 className="font-display text-heading-md text-slate-900 mb-4">
                 9. Your Rights
               </h2>
               <p className="mb-4">
@@ -172,7 +172,7 @@ export default function PrivacyPolicyPage() {
                 To exercise these rights, contact us at{" "}
                 <a
                   href="mailto:hello@agentschool.io"
-                  className="text-teal-600 dark:text-teal-400 hover:underline"
+                  className="text-teal-600 hover:underline"
                 >
                   hello@agentschool.io
                 </a>
@@ -181,7 +181,7 @@ export default function PrivacyPolicyPage() {
             </section>
 
             <section>
-              <h2 className="font-display text-heading-md text-slate-900 dark:text-slate-100 mb-4">
+              <h2 className="font-display text-heading-md text-slate-900 mb-4">
                 10. California Privacy Rights (CCPA/CPRA)
               </h2>
               <p>
@@ -190,7 +190,7 @@ export default function PrivacyPolicyPage() {
             </section>
 
             <section>
-              <h2 className="font-display text-heading-md text-slate-900 dark:text-slate-100 mb-4">
+              <h2 className="font-display text-heading-md text-slate-900 mb-4">
                 11. International Transfers
               </h2>
               <p>
@@ -199,7 +199,7 @@ export default function PrivacyPolicyPage() {
             </section>
 
             <section>
-              <h2 className="font-display text-heading-md text-slate-900 dark:text-slate-100 mb-4">
+              <h2 className="font-display text-heading-md text-slate-900 mb-4">
                 12. Children&apos;s Privacy
               </h2>
               <p>
@@ -208,7 +208,7 @@ export default function PrivacyPolicyPage() {
             </section>
 
             <section>
-              <h2 className="font-display text-heading-md text-slate-900 dark:text-slate-100 mb-4">
+              <h2 className="font-display text-heading-md text-slate-900 mb-4">
                 13. Third-Party Links
               </h2>
               <p>
@@ -217,7 +217,7 @@ export default function PrivacyPolicyPage() {
             </section>
 
             <section>
-              <h2 className="font-display text-heading-md text-slate-900 dark:text-slate-100 mb-4">
+              <h2 className="font-display text-heading-md text-slate-900 mb-4">
                 14. Changes to This Policy
               </h2>
               <p>
@@ -226,7 +226,7 @@ export default function PrivacyPolicyPage() {
             </section>
 
             <section>
-              <h2 className="font-display text-heading-md text-slate-900 dark:text-slate-100 mb-4">
+              <h2 className="font-display text-heading-md text-slate-900 mb-4">
                 15. Contact Us
               </h2>
               <p>
@@ -238,7 +238,7 @@ export default function PrivacyPolicyPage() {
                 Email:{" "}
                 <a
                   href="mailto:hello@agentschool.io"
-                  className="text-teal-600 dark:text-teal-400 hover:underline"
+                  className="text-teal-600 hover:underline"
                 >
                   hello@agentschool.io
                 </a>
