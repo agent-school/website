@@ -103,3 +103,11 @@
   - Replaced DEMO_FIX_SUMMARY with demo-fix-implementation-2026-02-10.md (proper bug report format: summary, symptoms, root cause, solution, verification).
   - Updated docs/bugs/readme.md: Active Reports table with new filenames, Quick Reference links, naming convention (issue-name-YYYY-MM-DD.md), Related Documentation paths (design-system, mock-ui-framework).
   - Updated cross-references in docs/index.md, docs/README.md, docs/dev/development-guide.md, docs/brownfield/source-tree-analysis.md, docs/bugs/demo-not-interactive-2026-02-10.md.
+2026-02-12 docs-org-01
+- Goal: organize docs to distinguish Original (cream/orange) vs BMAD Redesign.
+- Prior state: docs mixed without clear era labeling; broken links to moved files (planning/redesign-roadmap deleted, guides/components-guide moved to design/).
+- New effect:
+  - Created docs/DOCS_STRUCTURE.md — canonical index of docs by era (Original / BMAD Redesign / Shared).
+  - Created docs/legacy/ folder: README.md (explains deprecated original docs), legacy-design-reference.md (navy/amber/cream palette for migration reference).
+  - Updated docs/README.md: added "Original vs BMAD Redesign" section; fixed links (design-system-new-purposal, mock-ui-framework, components-guide, brownfield/redesign-roadmap).
+  - Updated docs/index.md: added era section; fixed all broken paths (project-overview, technology-stack, component-inventory, source-tree-analysis → brownfield/; mock-ui-framework, components-guide → design/).

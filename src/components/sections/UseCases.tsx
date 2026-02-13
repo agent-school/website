@@ -17,10 +17,6 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 import { CardSpotlight } from "@/components/aceternity/CardSpotlight";
 import { USE_CASES } from "@/lib/constants";
 
-// #region agent log
-fetch("http://127.0.0.1:7247/ingest/102c8c59-dbce-4678-9a66-2c08f222c2b8", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ runId: "run-2026-02-10d", hypothesisId: "H16", location: "src/components/sections/UseCases.tsx:24", message: "use-cases module evaluated with eager demo imports", data: {}, timestamp: Date.now() }) }).catch(() => {});
-// #endregion
-
 function DemoLoadingState() {
   return (
     <div className="w-full h-[500px] rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 flex items-center justify-center">

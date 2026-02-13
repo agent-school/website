@@ -35,5 +35,36 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.8,
     },
+    // Demo pages
+    {
+      url: `${baseUrl}/demos/all`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/demos/hotel-pms`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/demos/crm`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/demos/notion`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/demos/granola`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.6,
+    },
   ];
 }
