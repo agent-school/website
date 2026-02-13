@@ -1,55 +1,64 @@
+import Link from "next/link";
+
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 
-interface BlogPreview {
+interface BlogPost {
   title: string;
   summary: string;
-  category: string;
-  eta: string;
+  date: string;
+  slug: string;
+  published: boolean;
 }
 
-const BLOG_PREVIEWS: BlogPreview[] = [
+const BLOG_POSTS: BlogPost[] = [
+  {
+    title: "Agent School Manifesto",
+    summary:
+      "The philosophy and principles behind Agent School—why we're building a world where human knowledge becomes immortal automation.",
+    date: "January 20th, 2026",
+    slug: "agent-school-manifesto",
+    published: true,
+  },
+  {
+    title: "Memory Management",
+    summary:
+      "How AI agents remember, forget, and retrieve information across workflows. The technical foundation for reliable automation.",
+    date: "February 12th, 2026",
+    slug: "memory-management",
+    published: true,
+  },
   {
     title: "Teach Once, Automate Forever: A Practical Playbook",
     summary:
       "How to capture expert workflows and convert them into production-ready agents with confidence.",
-    category: "Foundations",
-    eta: "March 2026",
+    date: "March 2026",
+    slug: "teach-once-automate-forever",
+    published: false,
   },
   {
     title: "From SOPs to Self-Healing Agents",
     summary:
       "A behind-the-scenes look at deterministic execution, assertions, and recovery loops that keep agents reliable.",
-    category: "Engineering",
-    eta: "March 2026",
+    date: "March 2026",
+    slug: "from-sops-to-self-healing-agents",
+    published: false,
   },
   {
     title: "What 99% Reliability Actually Looks Like",
     summary:
       "How certification pipelines, threshold gates, and failure analysis work in real deployments.",
-    category: "Certification",
-    eta: "April 2026",
+    date: "April 2026",
+    slug: "what-99-reliability-looks-like",
+    published: false,
   },
   {
     title: "RPA vs Agent School: Speed, Cost, and Adaptability",
     summary:
       "A side-by-side comparison of traditional automation and modern AI agents in changing software environments.",
-    category: "Comparison",
-    eta: "April 2026",
-  },
-  {
-    title: "Launching Your First AI Operations Team",
-    summary:
-      "A rollout framework for teams adopting AI agents across sales, hotel ops, and back-office workflows.",
-    category: "Operations",
-    eta: "May 2026",
-  },
-  {
-    title: "Building an Agent Program Your Team Trusts",
-    summary:
-      "Governance, observability, and approval workflows that make AI automation safe at scale.",
-    category: "Leadership",
-    eta: "May 2026",
+    date: "April 2026",
+    slug: "rpa-vs-agent-school",
+    published: false,
   },
 ];
 
@@ -67,36 +76,54 @@ export default function BlogPage() {
               Blog
             </h1>
             <p className="text-body-lg text-slate-300 max-w-2xl mt-6">
-              This is where we will publish deep dives on AI agent training,
-              certification, and real-world workflow automation.
+              Deep dives on AI agent training, certification, and real-world
+              workflow automation.
             </p>
           </div>
         </section>
 
         <section className="pb-24 px-6">
-          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {BLOG_PREVIEWS.map((post) => (
-              <article
-                key={post.title}
-                className="rounded-2xl border border-slate-800 bg-slate-900/60 p-6 backdrop-blur-sm"
-              >
-                <div className="flex items-center justify-between gap-4 mb-4">
-                  <span className="inline-flex items-center rounded-full border border-teal-500/40 bg-teal-500/10 px-3 py-1 text-caption text-teal-300">
-                    {post.category}
-                  </span>
-                  <span className="text-caption text-slate-400">{post.eta}</span>
-                </div>
-                <h2 className="font-display text-heading-md text-white mb-3">
-                  {post.title}
-                </h2>
-                <p className="text-body-sm text-slate-300 leading-relaxed">
-                  {post.summary}
-                </p>
-                <p className="mt-6 text-body-sm font-semibold text-orange-300">
-                  Coming soon
-                </p>
-              </article>
-            ))}
+          <div className="max-w-4xl mx-auto">
+            <ul className="space-y-8">
+              {BLOG_POSTS.map((post) => (
+                <li key={post.slug} className="border-b border-slate-800 pb-8">
+                  {post.published ? (
+                    <Link href={`/blog/${post.slug}`}>
+                      <article className="group cursor-pointer">
+                        <div className="flex items-baseline justify-between gap-4 mb-2">
+                          <h2 className="font-display text-heading-lg text-white group-hover:text-teal-300 transition-colors">
+                            {post.title}
+                          </h2>
+                          <span className="text-body-sm text-slate-400 whitespace-nowrap">
+                            {post.date}
+                          </span>
+                        </div>
+                        <p className="text-body-md text-slate-300 leading-relaxed">
+                          {post.summary}
+                        </p>
+                      </article>
+                    </Link>
+                  ) : (
+                    <article>
+                      <div className="flex items-baseline justify-between gap-4 mb-2">
+                        <h2 className="font-display text-heading-lg text-slate-600">
+                          {post.title}
+                        </h2>
+                        <span className="text-body-sm text-slate-500 whitespace-nowrap">
+                          {post.date}
+                        </span>
+                      </div>
+                      <p className="text-body-md text-slate-500 leading-relaxed">
+                        {post.summary}
+                      </p>
+                      <p className="mt-3 text-body-sm font-semibold text-slate-600">
+                        Coming soon
+                      </p>
+                    </article>
+                  )}
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
       </main>
