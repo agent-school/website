@@ -1,3 +1,17 @@
+2026-02-12 manus-comparison-reframe
+- Goal: Remove direct references to Meta acquisition and instead emphasize Agent School's independence and data privacy as core architectural principles.
+- Prior state: Manus comparison page reactive to Meta acquisition; focused on competitor ownership, CNBC reports, regulatory scrutiny.
+- New effect:
+  - Page metadata: "...over Manus (now Meta-owned)..." → "...with true data independence"
+  - Hero: removed alert banner announcing Meta acquisition; subheading "independence from Big Tech" → "true data independence"
+  - Main content "Why Independence Matters": reframed from "What Happened: The Meta Acquisition" to Agent School's architectural principles (no data monetization, independent governance, predictable compliance, on-premises option); added philosophy callout
+  - Comparison table: "Manus (Meta)" → "Manus"; ownership row "Meta subsidiary (acquired for $2B+)" → "Part of larger technology conglomerate with diverse business interests"
+  - Data Privacy section: "Privacy and Independence" → "Data Privacy and Architecture" with technical focus (zero telemetry, no model training on customer data, transparent data flows, air-gapped option)
+  - Pricing: "uncertain post-Meta; costs may rise" → "varies by credit consumption"
+  - Summary/CTA: removed "Meta ownership notwithstanding", "Big Tech dependencies"; CTA "independent, certified alternative to Meta-owned AI agents" → "independent, certified alternative for AI automation"
+  - Removed unused AlertTriangle import
+- Overall effect: From reactive positioning against Meta → proactive positioning based on Agent School's core values (independence as principle, architecture-first privacy, customer alignment, deployment flexibility). No breaking changes.
+
 2026-02-12 skillbuilder-nested-button
 - Goal: fix invalid HTML / React error when clicking "Try Interactive Demo" in SkillBuilderDemo.
 - Prior state: `<motion.button>` wrapped an inner `<button>` for "Decision Point" — nesting buttons is invalid HTML and caused runtime error.
