@@ -76,7 +76,7 @@ export function Navbar() {
                 variant="default"
                 size="sm"
                 asChild
-                className="bg-gradient-to-br from-teal-600 to-orange-500 hover:from-teal-700 hover:to-orange-600 text-white"
+                className="bg-orange-600 hover:bg-orange-700 text-white"
               >
                 <a href={BOOKING_URL}>Book a Demo</a>
               </Button>
@@ -127,7 +127,7 @@ export function Navbar() {
                   variant="default"
                   size="lg"
                   asChild
-                  className="bg-gradient-to-br from-teal-600 to-orange-500 hover:from-teal-700 hover:to-orange-600 text-white"
+                  className="bg-orange-600 hover:bg-orange-700 text-white"
                 >
                   <a href={BOOKING_URL}>Book a Demo</a>
                 </Button>

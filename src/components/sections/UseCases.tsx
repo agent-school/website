@@ -23,7 +23,7 @@ function DemoLoadingState() {
   return (
     <div className="w-full h-[500px] rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 flex items-center justify-center">
       <div className="text-center space-y-3">
-        <div className="w-8 h-8 border-3 border-teal-600 border-t-transparent rounded-full animate-spin mx-auto" />
+        <div className="w-8 h-8 border-3 border-orange-600 border-t-transparent rounded-full animate-spin mx-auto" />
         <p className="text-sm text-slate-500 dark:text-slate-400">Loading demo...</p>
       </div>
     </div>
@@ -107,7 +107,7 @@ function UseCaseTab({ useCase, isActive, onClick }: UseCaseTabProps) {
       {isActive && (
         <motion.div
           layoutId="active-tab"
-          className="absolute inset-0 bg-gradient-to-br from-teal-600 to-orange-500 rounded-lg"
+          className="absolute inset-0 bg-gradient-to-br from-orange-600 to-orange-500 rounded-lg"
           transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
         />
       )}
@@ -132,8 +132,8 @@ function MetricsDisplay({ useCase }: MetricsDisplayProps) {
         className="w-full flex items-center justify-between px-6 py-4 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-colors group border border-slate-200 dark:border-slate-700"
       >
         <div className="flex items-center gap-3">
-          <div className="p-2 rounded-lg bg-gradient-to-br from-teal-500/10 to-orange-500/10 dark:from-teal-500/20 dark:to-orange-500/20">
-            <Clock className="w-4 h-4 text-teal-600 dark:text-teal-400" />
+          <div className="p-2 rounded-lg bg-gradient-to-br from-orange-500/10 to-orange-500/10 dark:from-orange-500/20 dark:to-orange-500/20">
+            <Clock className="w-4 h-4 text-orange-600 dark:text-orange-400" />
           </div>
           <div className="text-left">
             <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">
@@ -207,9 +207,9 @@ function MetricsDisplay({ useCase }: MetricsDisplayProps) {
         </div>
 
         {/* After */}
-        <div className="rounded-xl border border-teal-200/50 dark:border-teal-900/30 bg-teal-50/50 dark:bg-teal-950/20 p-5">
+        <div className="rounded-xl border border-orange-200/50 dark:border-orange-900/30 bg-orange-50/50 dark:bg-orange-950/20 p-5">
           <div className="flex items-center gap-2 mb-3">
-            <CheckCircle size={16} className="text-teal-600 dark:text-teal-400" />
+            <CheckCircle size={16} className="text-orange-600 dark:text-orange-400" />
             <h4 className="font-display text-sm font-semibold text-slate-900 dark:text-slate-100">
               After — Agent School
             </h4>
@@ -221,7 +221,7 @@ function MetricsDisplay({ useCase }: MetricsDisplayProps) {
                 key={i}
                 className="flex items-start gap-2 text-xs text-slate-600 dark:text-slate-400"
               >
-                <span className="w-4 h-4 rounded-full bg-teal-100 dark:bg-teal-900/40 text-teal-600 dark:text-teal-400 flex items-center justify-center text-[9px] font-bold flex-shrink-0 mt-0.5">
+                <span className="w-4 h-4 rounded-full bg-orange-100 dark:bg-orange-900/40 text-orange-600 dark:text-orange-400 flex items-center justify-center text-[9px] font-bold flex-shrink-0 mt-0.5">
                   {i + 1}
                 </span>
                 {step}
@@ -229,16 +229,16 @@ function MetricsDisplay({ useCase }: MetricsDisplayProps) {
             ))}
           </div>
 
-          <div className="space-y-1.5 pt-3 border-t border-teal-200/50 dark:border-teal-900/30">
+          <div className="space-y-1.5 pt-3 border-t border-orange-200/50 dark:border-orange-900/30">
             <div className="flex items-center justify-between text-xs">
               <span className="text-slate-500 dark:text-slate-400">Time</span>
-              <span className="font-mono text-teal-600 dark:text-teal-400 font-semibold">
+              <span className="font-mono text-orange-600 dark:text-orange-400 font-semibold">
                 {useCase.after.time}
               </span>
             </div>
             <div className="flex items-center justify-between text-xs">
               <span className="text-slate-500 dark:text-slate-400">Errors</span>
-              <span className="font-mono text-teal-600 dark:text-teal-400 text-[10px]">
+              <span className="font-mono text-orange-600 dark:text-orange-400 text-[10px]">
                 {useCase.after.errors}
               </span>
             </div>
@@ -258,7 +258,7 @@ function MetricsDisplay({ useCase }: MetricsDisplayProps) {
           </p>
         </div>
         <div className="text-center p-4 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800">
-          <TrendingDown size={16} className="text-teal-600 dark:text-teal-400 mx-auto mb-2" />
+          <TrendingDown size={16} className="text-orange-600 dark:text-orange-400 mx-auto mb-2" />
           <p className="font-display text-lg font-bold text-slate-900 dark:text-slate-100">
             {useCase.metrics.costReduction}
           </p>
@@ -267,7 +267,7 @@ function MetricsDisplay({ useCase }: MetricsDisplayProps) {
           </p>
         </div>
         <div className="text-center p-4 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800">
-          <DollarSign size={16} className="text-teal-600 dark:text-teal-400 mx-auto mb-2" />
+          <DollarSign size={16} className="text-orange-600 dark:text-orange-400 mx-auto mb-2" />
           <p className="font-display text-lg font-bold text-slate-900 dark:text-slate-100">
             {useCase.metrics.monthlyImpact}
           </p>
@@ -340,7 +340,7 @@ function UseCaseContent({ useCase }: UseCaseContentProps) {
     >
       {/* Scenario */}
       <div className="text-center max-w-2xl mx-auto">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-teal-500/10 to-orange-500/10 dark:from-teal-500/20 dark:to-orange-500/20 border border-teal-200/50 dark:border-teal-800/50 mb-3">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-orange-500/10 to-orange-500/10 dark:from-orange-500/20 dark:to-orange-500/20 border border-orange-200/50 dark:border-orange-800/50 mb-3">
           <Sparkles size={12} className="text-orange-500" />
           <p className="text-xs font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wide">
             Scenario
@@ -390,7 +390,7 @@ function AdditionalDemoContent({ demo }: AdditionalDemoContentProps) {
       className="space-y-6"
     >
       <div className="text-center max-w-2xl mx-auto">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-teal-500/10 to-orange-500/10 dark:from-teal-500/20 dark:to-orange-500/20 border border-teal-200/50 dark:border-teal-800/50 mb-3">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-orange-500/10 to-orange-500/10 dark:from-orange-500/20 dark:to-orange-500/20 border border-orange-200/50 dark:border-orange-800/50 mb-3">
           <Sparkles size={12} className="text-orange-500" />
           <p className="text-xs font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wide">
             Scenario
@@ -435,7 +435,7 @@ export function UseCases() {
       className="py-24 md:py-32 px-6 bg-white dark:bg-slate-950 relative overflow-hidden"
     >
       {/* Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-teal-50/30 via-transparent to-orange-50/30 dark:from-teal-950/20 dark:via-transparent dark:to-orange-950/20 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-orange-50/30 via-transparent to-orange-50/30 dark:from-orange-950/20 dark:via-transparent dark:to-orange-950/20 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <ScrollReveal>

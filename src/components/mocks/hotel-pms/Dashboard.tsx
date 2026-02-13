@@ -32,7 +32,7 @@ export function Dashboard() {
   const getRoomStatusColor = (status: Room["status"]) => {
     switch (status) {
       case "available":
-        return "bg-teal-500 dark:bg-teal-600";
+        return "bg-orange-500 dark:bg-orange-600";
       case "occupied":
         return "bg-red-500 dark:bg-red-600";
       case "cleaning":
@@ -68,8 +68,8 @@ export function Dashboard() {
                   {data.stats.todayArrivals}
                 </p>
               </div>
-              <div className="bg-teal-100 dark:bg-teal-900/30 p-2 rounded-lg">
-                <Users className="w-4 h-4 text-teal-600 dark:text-teal-400" />
+              <div className="bg-orange-100 dark:bg-orange-900/30 p-2 rounded-lg">
+                <Users className="w-4 h-4 text-orange-600 dark:text-orange-400" />
               </div>
             </div>
           </div>
@@ -151,7 +151,7 @@ export function Dashboard() {
             </h2>
             <div className="flex gap-2 text-xs">
               <div className="flex items-center gap-1">
-                <div className="w-2 h-2 rounded-full bg-teal-500" />
+                <div className="w-2 h-2 rounded-full bg-orange-500" />
                 <span className="text-slate-600 dark:text-slate-400">Available</span>
               </div>
               <div className="flex items-center gap-1">

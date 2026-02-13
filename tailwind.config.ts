@@ -261,17 +261,13 @@ const config: Config = {
   			sm: 'calc(var(--radius) - 4px)'
   		},
   		boxShadow: {
-  			'soft': '0 2px 20px rgba(15, 27, 51, 0.06)',
-  			'medium': '0 4px 30px rgba(15, 27, 51, 0.1)',
-  			'strong': '0 8px 40px rgba(15, 27, 51, 0.15)',
-  			'glow-amber': '0 0 40px rgba(254, 159, 77, 0.2)',
-  			'glow-navy': '0 0 40px rgba(27, 41, 81, 0.15)',
-  			'inner-soft': 'inset 0 2px 4px rgba(15, 27, 51, 0.05)',
-  			'glow-teal': '0 0 40px rgba(20, 184, 166, 0.25)',
-  			'glow-teal-lg': '0 0 60px rgba(20, 184, 166, 0.3)',
+  			'soft': '0 2px 20px rgba(23, 23, 23, 0.06)',
+  			'medium': '0 4px 30px rgba(23, 23, 23, 0.1)',
+  			'strong': '0 8px 40px rgba(23, 23, 23, 0.15)',
+  			'inner-soft': 'inset 0 2px 4px rgba(23, 23, 23, 0.05)',
   			'glow-orange': '0 0 40px rgba(251, 146, 60, 0.25)',
   			'glow-orange-lg': '0 0 60px rgba(251, 146, 60, 0.3)',
-  			'glow-cyber': '0 0 40px rgba(20, 184, 166, 0.2), 0 0 80px rgba(251, 146, 60, 0.15)'
+  			'glow-orange-xl': '0 0 80px rgba(249, 115, 22, 0.35)'
   		},
   		animation: {
   			'float-slow': 'float 8s ease-in-out infinite',
@@ -336,13 +332,7 @@ const config: Config = {
   			}
   		},
   		backgroundImage: {
-  			'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-  			'gradient-mesh': 'radial-gradient(at 40% 20%, var(--tw-gradient-from) 0px, transparent 50%), radial-gradient(at 80% 60%, var(--tw-gradient-to) 0px, transparent 50%)',
-  			'noise': "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E\")",
-  			'gradient-cyber': 'linear-gradient(135deg, #0d9488 0%, #fb923c 100%)',
-  			'gradient-cyber-radial': 'radial-gradient(circle at top, #14b8a6, #0d9488, #fb923c)',
-  			'gradient-mesh-light': 'radial-gradient(at 0% 0%, #f0fdfa 0%, transparent 50%), radial-gradient(at 100% 100%, #fff7ed 0%, transparent 50%)',
-  			'gradient-mesh-dark': 'radial-gradient(at 0% 0%, #042f2e 0%, transparent 50%), radial-gradient(at 100% 100%, #431407 0%, transparent 50%)'
+  			'noise': "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E\")"
   		}
   	}
   },

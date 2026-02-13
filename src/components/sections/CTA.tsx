@@ -42,7 +42,7 @@ const ctaCards = [
 
 export function CTA() {
   return (
-    <section className="py-24 md:py-32 px-6 bg-gradient-to-br from-teal-600 to-orange-500 dark:from-teal-700 dark:to-orange-600 relative overflow-hidden">
+    <section className="py-24 md:py-32 px-6 bg-orange-600 dark:bg-orange-700 relative overflow-hidden">
       {/* Background accent */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden>
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[2px] bg-gradient-to-r from-transparent via-orange-300/30 dark:via-orange-400/30 to-transparent" />
@@ -58,7 +58,7 @@ export function CTA() {
             <h2 className="font-display text-display-md md:text-display-lg text-white mb-4 text-balance">
               Train Your First Agent in 30 Days
             </h2>
-            <p className="text-body-lg text-teal-50 dark:text-teal-100 max-w-xl mx-auto text-balance">
+            <p className="text-body-lg text-orange-50 dark:text-orange-100 max-w-xl mx-auto text-balance">
               Start with a risk-free pilot. We&apos;ll work with your team to certify
               your first workflow — satisfaction guaranteed.
             </p>
@@ -98,7 +98,7 @@ export function CTA() {
                 <h3 className="font-display text-heading-md text-white mb-2">
                   {card.title}
                 </h3>
-                <p className="text-body-sm text-teal-50 dark:text-slate-200 mb-6 flex-1">
+                <p className="text-body-sm text-orange-50 dark:text-slate-200 mb-6 flex-1">
                   {card.description}
                 </p>
 
@@ -111,7 +111,7 @@ export function CTA() {
                       ? "border-slate-300/50 dark:border-slate-400/50 text-white hover:border-white hover:bg-white/10"
                       : card.variant === "ghost"
                         ? "border-slate-400/50 dark:border-slate-500/50 text-slate-100 dark:text-slate-200 hover:text-white hover:border-white/50 hover:bg-white/10"
-                        : "bg-white text-teal-600 hover:bg-slate-50"
+                        : "bg-white text-orange-600 hover:bg-slate-50"
                   }
                 >
                   <a href={card.href}>

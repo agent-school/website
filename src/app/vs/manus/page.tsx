@@ -33,7 +33,7 @@ export default function ManusComparisonPage() {
             <div className="flex flex-wrap gap-4">
               <a
                 href={BOOKING_URL}
-                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-teal-600 to-orange-500 px-8 py-4 font-semibold text-slate-900 transition hover:shadow-lg hover:shadow-teal-500/25"
+                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-teal-600 to-orange-500 px-8 py-4 font-semibold text-slate-900 transition hover:shadow-lg hover:shadow-orange-500/25"
               >
                 Book a Demo
                 <ArrowRight className="w-5 h-5" />
@@ -80,7 +80,7 @@ export default function ManusComparisonPage() {
               </li>
             </ul>
 
-            <div className="not-prose bg-teal-50 border border-teal-200 rounded-2xl p-8 mb-12">
+            <div className="not-prose bg-orange-50 border border-teal-200 rounded-2xl p-8 mb-12">
               <p className="text-body-md text-slate-700">
                 <strong className="text-teal-700">Our philosophy:</strong> Enterprise automation requires trust. Trust requires transparency, architectural simplicity, and alignment of incentives. Agent School exists solely to deliver reliable automation—not to monetize your data, sell ads, or build ecosystems.
               </p>
@@ -342,7 +342,7 @@ export default function ManusComparisonPage() {
               </li>
             </ul>
 
-            <div className="not-prose bg-teal-50 border border-teal-200 rounded-2xl p-8 mb-12">
+            <div className="not-prose bg-orange-50 border border-teal-200 rounded-2xl p-8 mb-12">
               <p className="text-body-md text-slate-700">
                 <strong className="text-teal-700">The pattern:</strong> Manus is excellent for individual knowledge workers and small teams doing flexible, exploratory work. Agent School wins for enterprises that need certified, mission-critical automation with true data independence.
               </p>
@@ -395,7 +395,7 @@ export default function ManusComparisonPage() {
             </p>
             <a
               href={BOOKING_URL}
-              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-teal-600 to-orange-500 px-8 py-4 font-semibold text-slate-900 transition hover:shadow-lg hover:shadow-teal-500/25"
+              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-teal-600 to-orange-500 px-8 py-4 font-semibold text-slate-900 transition hover:shadow-lg hover:shadow-orange-500/25"
             >
               Book a Demo
               <ArrowRight className="w-5 h-5" />

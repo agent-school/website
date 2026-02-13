@@ -104,7 +104,7 @@ export function AgentInterface({
                       <button
                         key={idx}
                         onClick={() => handleSuggestedQuery(query)}
-                        className="px-4 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm text-slate-700 dark:text-slate-300 hover:border-teal-500 dark:hover:border-teal-500 hover:text-teal-600 dark:hover:text-teal-400 transition-colors text-left"
+                        className="px-4 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm text-slate-700 dark:text-slate-300 hover:border-orange-500 dark:hover:border-orange-500 hover:text-orange-600 dark:hover:text-orange-400 transition-colors text-left"
                       >
                         {query}
                       </button>
@@ -127,7 +127,7 @@ export function AgentInterface({
                 {/* User Message */}
                 {msg.query && (
                   <div className="flex justify-end mb-2">
-                    <div className="max-w-[80%] bg-teal-100 dark:bg-teal-900/30 text-teal-900 dark:text-teal-100 rounded-2xl rounded-tr-sm px-4 py-3">
+                    <div className="max-w-[80%] bg-orange-100 dark:bg-orange-900/30 text-orange-900 dark:text-orange-100 rounded-2xl rounded-tr-sm px-4 py-3">
                       <p className="text-sm font-medium whitespace-pre-wrap">
                         {msg.query}
                       </p>
@@ -161,7 +161,7 @@ export function AgentInterface({
                   <div className="flex items-center gap-2">
                     <div className="flex gap-1">
                       <motion.div
-                        className="w-2 h-2 rounded-full bg-gradient-to-r from-teal-500 to-orange-500"
+                        className="w-2 h-2 rounded-full bg-gradient-to-r from-orange-500 to-orange-500"
                         animate={{
                           scale: [1, 1.2, 1],
                           opacity: [0.5, 1, 0.5]
@@ -173,7 +173,7 @@ export function AgentInterface({
                         }}
                       />
                       <motion.div
-                        className="w-2 h-2 rounded-full bg-gradient-to-r from-teal-500 to-orange-500"
+                        className="w-2 h-2 rounded-full bg-gradient-to-r from-orange-500 to-orange-500"
                         animate={{
                           scale: [1, 1.2, 1],
                           opacity: [0.5, 1, 0.5]
@@ -185,7 +185,7 @@ export function AgentInterface({
                         }}
                       />
                       <motion.div
-                        className="w-2 h-2 rounded-full bg-gradient-to-r from-teal-500 to-orange-500"
+                        className="w-2 h-2 rounded-full bg-gradient-to-r from-orange-500 to-orange-500"
                         animate={{
                           scale: [1, 1.2, 1],
                           opacity: [0.5, 1, 0.5]
@@ -228,7 +228,7 @@ export function AgentInterface({
           <Button
             type="submit"
             disabled={!input.trim() || isLoading}
-            className="bg-gradient-to-r from-teal-600 to-orange-500 hover:from-teal-700 hover:to-orange-600 text-white"
+            className="bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-700 hover:to-orange-600 text-white"
           >
             <Send className="w-4 h-4" />
           </Button>

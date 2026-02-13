@@ -1,12 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Zap, Brain, Infinity } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { BackgroundBeams } from "@/components/aceternity/BackgroundBeams";
 import { HyperText } from "@/components/magic/HyperText";
 import { NumberTicker } from "@/components/magic/NumberTicker";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
+import { Agent, AgentVariant } from "@/components/AgentCharacters";
 import { BOOKING_URL } from "@/lib/constants";
 
 const fadeUp = {
@@ -16,21 +17,21 @@ const fadeUp = {
 
 const stats = [
   {
-    icon: Zap,
+    agent: "bolt",
     value: 99,
     suffix: "%",
     label: "Accuracy Rate",
     delay: 1.6,
   },
   {
-    icon: Brain,
+    agent: "cipher",
     value: 10,
     suffix: "x",
     label: "Faster Training",
     delay: 1.8,
   },
   {
-    icon: Infinity,
+    agent: "flux",
     value: 95,
     suffix: "%",
     label: "Cost Reduction",
@@ -52,7 +53,7 @@ export function Hero() {
           transition={{ delay: 0.1, duration: 0.5 }}
           className="mb-8"
         >
-          <Badge className="px-4 py-2 text-sm font-mono uppercase tracking-widest border border-teal-500/50 text-teal-600 dark:text-teal-400 bg-teal-50/50 dark:bg-teal-950/30">
+          <Badge className="px-4 py-2 text-sm font-mono uppercase tracking-widest border border-orange-500/50 text-orange-600 dark:text-orange-400 bg-orange-50/50 dark:bg-orange-950/30">
             The Future of AI Automation
           </Badge>
         </motion.div>
@@ -66,7 +67,7 @@ export function Hero() {
         >
           <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight">
             <HyperText
-              className="gradient-text bg-gradient-to-br from-teal-600 via-teal-500 to-orange-500 dark:from-teal-400 dark:via-teal-300 dark:to-orange-400"
+              className="text-orange-600 dark:text-orange-400"
               duration={1500}
               delay={400}
             >
@@ -108,12 +109,12 @@ export function Hero() {
           initial="hidden"
           animate="visible"
           transition={{ delay: 1.3, duration: 0.6 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-32"
         >
           <Button
             size="lg"
             asChild
-            className="bg-gradient-to-br from-teal-600 to-orange-500 hover:from-teal-700 hover:to-orange-600 text-white shadow-glow-teal dark:shadow-glow-orange border-0 text-base font-semibold px-8 py-6 h-auto"
+            className="bg-orange-600 hover:bg-orange-700 dark:bg-orange-500 dark:hover:bg-orange-600 text-white shadow-glow-orange border-0 text-base font-semibold px-8 py-6 h-auto"
           >
             <a href={BOOKING_URL} className="flex items-center gap-2">
               Join The Revolution
@@ -124,7 +125,7 @@ export function Hero() {
             variant="outline"
             size="lg"
             asChild
-            className="border-2 border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:border-teal-500 dark:hover:border-teal-400 hover:text-teal-600 dark:hover:text-teal-400 text-base font-semibold px-8 py-6 h-auto"
+            className="border-2 border-stone-300 dark:border-stone-700 text-stone-700 dark:text-stone-300 hover:border-orange-500 dark:hover:border-orange-400 hover:text-orange-600 dark:hover:text-orange-400 text-base font-semibold px-8 py-6 h-auto"
           >
             <a href="#features">Explore Capabilities</a>
           </Button>
@@ -145,28 +146,24 @@ export function Hero() {
               whileHover={{ y: -4, transition: { duration: 0.2 } }}
               className="relative glass-card rounded-2xl p-6 shadow-lg border border-slate-200/50 dark:border-slate-800/50 group"
             >
-              {/* Icon */}
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-500/20 to-orange-500/20 dark:from-teal-400/20 dark:to-orange-400/20 flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform">
-                <stat.icon
-                  size={24}
-                  className="text-teal-600 dark:text-teal-400"
-                  strokeWidth={2}
-                />
+              {/* Agent Icon */}
+              <div className="w-16 h-16 flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform">
+                <Agent variant={stat.agent as AgentVariant} scale={0.7} />
               </div>
 
               {/* Animated Number */}
-              <div className="text-4xl md:text-5xl font-display font-bold mb-2 gradient-text bg-gradient-to-br from-teal-600 to-orange-500 dark:from-teal-400 dark:to-orange-400">
+              <div className="text-4xl md:text-5xl font-display font-bold mb-2 text-orange-600 dark:text-orange-400">
                 <NumberTicker value={stat.value} />
                 {stat.suffix}
               </div>
 
               {/* Label */}
-              <p className="text-sm font-medium text-white uppercase tracking-wide">
+              <p className="text-sm font-medium text-slate-600 dark:text-slate-400 uppercase tracking-wide">
                 {stat.label}
               </p>
 
               {/* Glow effect on hover */}
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-teal-500/0 to-orange-500/0 group-hover:from-teal-500/10 group-hover:to-orange-500/10 transition-all duration-300 pointer-events-none" />
+              <div className="absolute inset-0 rounded-2xl bg-orange-500/0 group-hover:bg-orange-500/5 transition-all duration-300 pointer-events-none" />
             </motion.div>
           ))}
         </div>

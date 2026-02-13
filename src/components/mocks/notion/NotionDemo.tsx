@@ -54,7 +54,7 @@ function NotionContent() {
               <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
                 {state.data.tasks.length} task(s)
                 {state.selectedElements.length > 0 && (
-                  <span className="ml-2 text-teal-600 dark:text-teal-400">
+                  <span className="ml-2 text-orange-600 dark:text-orange-400">
                     • {state.selectedElements.length} selected
                   </span>
                 )}

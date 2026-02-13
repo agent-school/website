@@ -81,14 +81,14 @@ export function DataDisplay<T extends Record<string, any>>({
                       <ChevronUp
                         className={`w-3 h-3 -mb-1 ${
                           sortConfig?.key === column.key && sortConfig?.direction === "asc"
-                            ? "text-teal-600 dark:text-teal-400"
+                            ? "text-orange-600 dark:text-orange-400"
                             : "text-slate-400"
                         }`}
                       />
                       <ChevronDown
                         className={`w-3 h-3 ${
                           sortConfig?.key === column.key && sortConfig?.direction === "desc"
-                            ? "text-teal-600 dark:text-teal-400"
+                            ? "text-orange-600 dark:text-orange-400"
                             : "text-slate-400"
                         }`}
                       />
@@ -110,7 +110,7 @@ export function DataDisplay<T extends Record<string, any>>({
                   onRowClick ? "cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800/50" : ""
                 } ${
                   isHighlighted
-                    ? "bg-teal-50 dark:bg-teal-900/20 ring-2 ring-teal-500 dark:ring-teal-400"
+                    ? "bg-orange-50 dark:bg-orange-900/20 ring-2 ring-orange-500 dark:ring-orange-400"
                     : ""
                 }`}
                 animate={{

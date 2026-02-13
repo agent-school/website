@@ -40,10 +40,10 @@ export function Testimonials() {
               <CardSpotlight className="rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden bg-gradient-to-br from-slate-50 to-white dark:from-slate-900 dark:to-slate-800">
                 <div className="p-8 lg:p-12">
                   {/* Quote Icon */}
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-500/20 to-orange-500/20 dark:from-teal-400/20 dark:to-orange-400/20 flex items-center justify-center mb-6">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500/20 to-orange-500/20 dark:from-orange-400/20 dark:to-orange-400/20 flex items-center justify-center mb-6">
                     <Quote
                       size={24}
-                      className="text-teal-600 dark:text-teal-400"
+                      className="text-orange-600 dark:text-orange-400"
                       strokeWidth={2}
                     />
                   </div>
@@ -58,7 +58,7 @@ export function Testimonials() {
                   {/* Author Info */}
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-4">
-                      <div className="relative w-16 h-16 rounded-full overflow-hidden ring-2 ring-teal-500/20 dark:ring-teal-400/20">
+                      <div className="relative w-16 h-16 rounded-full overflow-hidden ring-2 ring-orange-500/20 dark:ring-orange-400/20">
                         <Image
                           src={testimonial.image}
                           alt={testimonial.author}
@@ -72,7 +72,7 @@ export function Testimonials() {
                         </p>
                         <p className="text-sm text-slate-600 dark:text-slate-400">
                           {testimonial.role} at{" "}
-                          <span className="text-teal-600 dark:text-teal-400 font-medium">
+                          <span className="text-orange-600 dark:text-orange-400 font-medium">
                             {testimonial.company}
                           </span>
                         </p>
@@ -82,7 +82,7 @@ export function Testimonials() {
                     {/* Read Full Case Study Link */}
                     <Link
                       href="/blog/geometry-solution-case-study"
-                      className="flex items-center gap-2 px-4 py-2 rounded-lg bg-teal-600 dark:bg-teal-500 text-white hover:bg-teal-700 dark:hover:bg-teal-600 transition-colors group"
+                      className="flex items-center gap-2 px-4 py-2 rounded-lg bg-orange-600 dark:bg-orange-500 text-white hover:bg-teal-700 dark:hover:bg-orange-600 transition-colors group"
                     >
                       <span className="text-sm font-semibold whitespace-nowrap">
                         Read Full Story

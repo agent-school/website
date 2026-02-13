@@ -87,7 +87,7 @@ export function Pipeline() {
         return (
           <div
             key={stage}
-            className={`flex-shrink-0 w-80 flex flex-col ${highlighted ? "ring-2 ring-teal-500 dark:ring-teal-400 rounded-lg" : ""}`}
+            className={`flex-shrink-0 w-80 flex flex-col ${highlighted ? "ring-2 ring-orange-500 dark:ring-orange-400 rounded-lg" : ""}`}
           >
             {/* Column Header */}
             <div className={`${colors.bg} ${colors.border} border-b-2 rounded-t-lg p-4`}>
@@ -119,7 +119,7 @@ export function Pipeline() {
                     className={`
                       bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700
                       shadow-sm hover:shadow-md transition-all cursor-pointer p-4
-                      ${dealHighlighted ? "ring-2 ring-teal-500 dark:ring-teal-400 shadow-lg" : ""}
+                      ${dealHighlighted ? "ring-2 ring-orange-500 dark:ring-orange-400 shadow-lg" : ""}
                       ${dealSelected ? "ring-2 ring-orange-500 dark:ring-orange-400 shadow-lg bg-orange-50 dark:bg-orange-950/20" : ""}
                       ${deal.priority === "high" ? "border-l-4 border-l-orange-500" : ""}
                     `}
@@ -132,7 +132,7 @@ export function Pipeline() {
 
                       {/* Deal Value */}
                       <div className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400">
-                        <DollarSign className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
+                        <DollarSign className="w-3.5 h-3.5 text-orange-600 dark:text-orange-400" />
                         <span className="font-mono font-semibold text-slate-900 dark:text-slate-100">
                           {formatCurrency(deal.value)}
                         </span>

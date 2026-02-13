@@ -69,14 +69,14 @@ export function DMList() {
                     p-4 border-b border-slate-100 dark:border-slate-800 cursor-pointer
                     transition-colors
                     ${isSelected 
-                      ? "bg-teal-50 dark:bg-teal-900/20" 
+                      ? "bg-orange-50 dark:bg-orange-900/20" 
                       : "hover:bg-slate-50 dark:hover:bg-slate-800"
                     }
                   `}
                 >
                   <div className="flex items-start gap-3">
                     {/* Avatar */}
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-teal-500 to-orange-500 flex items-center justify-center text-white font-semibold flex-shrink-0">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-orange-500 to-orange-500 flex items-center justify-center text-white font-semibold flex-shrink-0">
                       {conversation.avatar}
                     </div>
 
@@ -105,7 +105,7 @@ export function DMList() {
                           {conversation.category}
                         </span>
                         {conversation.unread > 0 && (
-                          <span className="text-xs px-2 py-0.5 rounded-full bg-teal-500 text-white font-medium">
+                          <span className="text-xs px-2 py-0.5 rounded-full bg-orange-500 text-white font-medium">
                             {conversation.unread} new
                           </span>
                         )}
@@ -126,7 +126,7 @@ export function DMList() {
             {/* Thread header */}
             <div className="p-4 border-b border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-teal-500 to-orange-500 flex items-center justify-center text-white font-semibold">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-orange-500 to-orange-500 flex items-center justify-center text-white font-semibold">
                   {selectedConversation.avatar}
                 </div>
                 <div>
@@ -158,7 +158,7 @@ export function DMList() {
                         max-w-md px-4 py-2 rounded-2xl
                         ${
                           message.isFromUser
-                            ? "bg-gradient-to-br from-teal-500 to-teal-600 text-white"
+                            ? "bg-gradient-to-br from-orange-500 to-orange-600 text-white"
                             : "bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-700"
                         }
                       `}
@@ -169,7 +169,7 @@ export function DMList() {
                           text-xs mt-1
                           ${
                             message.isFromUser
-                              ? "text-teal-100"
+                              ? "text-orange-100"
                               : "text-slate-500 dark:text-slate-400"
                           }
                         `}
@@ -188,9 +188,9 @@ export function DMList() {
                 <input
                   type="text"
                   placeholder="Message..."
-                  className="flex-1 px-4 py-2 rounded-full border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                  className="flex-1 px-4 py-2 rounded-full border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-orange-500"
                 />
-                <button className="px-6 py-2 bg-gradient-to-br from-teal-500 to-teal-600 text-white rounded-full font-medium hover:from-teal-600 hover:to-teal-700 transition-colors">
+                <button className="px-6 py-2 bg-gradient-to-br from-orange-500 to-orange-600 text-white rounded-full font-medium hover:from-orange-600 hover:to-orange-700 transition-colors">
                   Send
                 </button>
               </div>

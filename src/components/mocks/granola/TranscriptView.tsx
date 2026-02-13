@@ -5,7 +5,7 @@ import { InteractiveElement } from "@/components/mocks/_framework/InteractiveEle
 import { type GranolaData, type Speaker, type TranscriptSegment } from "./types";
 
 const SPEAKER_COLORS = {
-  teal: "bg-teal-100 text-teal-800 dark:bg-teal-900 dark:text-teal-200",
+  teal: "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200",
   orange: "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200",
   purple: "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200",
 };
@@ -87,7 +87,7 @@ export function TranscriptView() {
                   <ul className="space-y-2">
                     {data.summary.keyPoints.map((point, idx) => (
                       <li key={idx} className="flex gap-2 text-sm text-slate-600 dark:text-slate-400">
-                        <span className="text-teal-500 flex-shrink-0">•</span>
+                        <span className="text-orange-500 flex-shrink-0">•</span>
                         <span>{point}</span>
                       </li>
                     ))}

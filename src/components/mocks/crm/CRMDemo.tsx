@@ -76,7 +76,7 @@ function CRMDemoContent() {
                   <p className="text-xs text-slate-500 dark:text-slate-400 mb-1 flex items-center gap-1">
                     <DollarSign size={12} /> Deal Value
                   </p>
-                  <p className="font-semibold text-teal-600 dark:text-teal-400 font-mono">
+                  <p className="font-semibold text-orange-600 dark:text-orange-400 font-mono">
                     ${(selectedDeal.value / 1000).toFixed(0)}K
                   </p>
                 </div>

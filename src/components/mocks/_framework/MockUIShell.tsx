@@ -24,7 +24,7 @@ export function MockUIShell({ title, children, sidebar, className = "" }: MockUI
       `.trim()}
     >
       {/* Mobile Notice - Only visible on mobile */}
-      <div className="lg:hidden bg-gradient-to-r from-orange-500 to-teal-500 px-4 py-3 flex items-center gap-2">
+      <div className="lg:hidden bg-gradient-to-r bg-orange-500 px-4 py-3 flex items-center gap-2">
         <Monitor size={16} className="text-white flex-shrink-0" />
         <p className="text-sm text-white font-medium">
           Best experience on desktop for interactive demos

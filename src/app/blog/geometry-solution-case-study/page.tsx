@@ -20,15 +20,15 @@ export default function GeometrySolutionCaseStudyPage() {
           <div className="max-w-4xl mx-auto">
             <Link
               href="/blog"
-              className="inline-flex items-center gap-2 text-body-sm text-slate-600 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition-colors mb-8"
+              className="inline-flex items-center gap-2 text-body-sm text-slate-600 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-400 transition-colors mb-8"
             >
               <ArrowLeft className="w-4 h-4" />
               Back to Blog
             </Link>
 
             <header className="mb-16">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 dark:bg-teal-900/20 border border-teal-200 dark:border-teal-800 mb-6">
-                <span className="text-body-sm font-semibold text-teal-700 dark:text-teal-300">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800 mb-6">
+                <span className="text-body-sm font-semibold text-orange-700 dark:text-orange-300">
                   Case Study
                 </span>
               </div>
@@ -49,8 +49,8 @@ export default function GeometrySolutionCaseStudyPage() {
 
             {/* Key Metrics */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16">
-              <div className="bg-gradient-to-br from-teal-50 to-orange-50 dark:from-teal-900/20 dark:to-orange-900/20 rounded-2xl p-6 border border-teal-200/50 dark:border-teal-800/50">
-                <div className="w-10 h-10 rounded-lg bg-teal-600 dark:bg-teal-500 flex items-center justify-center mb-4">
+              <div className="bg-gradient-to-br from-orange-50 to-orange-50 dark:from-orange-900/20 dark:to-orange-900/20 rounded-2xl p-6 border border-orange-200/50 dark:border-orange-800/50">
+                <div className="w-10 h-10 rounded-lg bg-orange-600 dark:bg-orange-500 flex items-center justify-center mb-4">
                   <Clock className="w-5 h-5 text-white" />
                 </div>
                 <p className="font-display text-4xl text-slate-900 dark:text-slate-100 mb-2">
@@ -60,7 +60,7 @@ export default function GeometrySolutionCaseStudyPage() {
                   Hours saved per week
                 </p>
               </div>
-              <div className="bg-gradient-to-br from-orange-50 to-teal-50 dark:from-orange-900/20 dark:to-teal-900/20 rounded-2xl p-6 border border-orange-200/50 dark:border-orange-800/50">
+              <div className="bg-gradient-to-br from-orange-50 to-orange-50 dark:from-orange-900/20 dark:to-orange-900/20 rounded-2xl p-6 border border-orange-200/50 dark:border-orange-800/50">
                 <div className="w-10 h-10 rounded-lg bg-orange-600 dark:bg-orange-500 flex items-center justify-center mb-4">
                   <TrendingDown className="w-5 h-5 text-white" />
                 </div>
@@ -71,8 +71,8 @@ export default function GeometrySolutionCaseStudyPage() {
                   Reduction in manual data entry
                 </p>
               </div>
-              <div className="bg-gradient-to-br from-teal-50 to-orange-50 dark:from-teal-900/20 dark:to-orange-900/20 rounded-2xl p-6 border border-teal-200/50 dark:border-teal-800/50">
-                <div className="w-10 h-10 rounded-lg bg-teal-600 dark:bg-teal-500 flex items-center justify-center mb-4">
+              <div className="bg-gradient-to-br from-orange-50 to-orange-50 dark:from-orange-900/20 dark:to-orange-900/20 rounded-2xl p-6 border border-orange-200/50 dark:border-orange-800/50">
+                <div className="w-10 h-10 rounded-lg bg-orange-600 dark:bg-orange-500 flex items-center justify-center mb-4">
                   <Zap className="w-5 h-5 text-white" />
                 </div>
                 <p className="font-display text-4xl text-slate-900 dark:text-slate-100 mb-2">
@@ -166,7 +166,7 @@ export default function GeometrySolutionCaseStudyPage() {
                 </section>
 
                 {/* Testimonial */}
-                <blockquote className="border-l-4 border-teal-500 dark:border-teal-400 pl-6 py-4 my-12 bg-slate-50 dark:bg-slate-800/50 rounded-r-xl">
+                <blockquote className="border-l-4 border-orange-500 dark:border-orange-400 pl-6 py-4 my-12 bg-slate-50 dark:bg-slate-800/50 rounded-r-xl">
                   <p className="font-display text-xl text-slate-900 dark:text-slate-100 leading-relaxed mb-4">
                     "Agent School transformed how we approach automation at Geometry Solution. What used to take our team days to configure now happens in minutes. The self-healing capabilities alone have saved us countless hours of maintenance work. This is the future of workflow automation."
                   </p>
@@ -205,18 +205,18 @@ export default function GeometrySolutionCaseStudyPage() {
                 </section>
 
                 {/* CTA */}
-                <section className="mt-16 bg-gradient-to-br from-teal-600 to-orange-600 dark:from-teal-700 dark:to-orange-700 rounded-2xl p-12 text-center">
+                <section className="mt-16 bg-gradient-to-br from-orange-600 to-orange-600 dark:from-orange-700 dark:to-orange-700 rounded-2xl p-12 text-center">
                   <h2 className="font-display text-heading-xl text-white mb-4">
                     Ready to Automate Your Repetitive Workflows?
                   </h2>
-                  <p className="text-body-lg text-teal-50 mb-8 max-w-2xl mx-auto">
+                  <p className="text-body-lg text-orange-50 mb-8 max-w-2xl mx-auto">
                     If your team is drowning in manual data entry, invoice processing, or logistics workflows, Agent School can help. Book a demo to see how deterministic workflows and self-healing automation can transform your operations.
                   </p>
                   <Link
                     href="https://cal.com/jackagentschool/15min"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-8 py-4 bg-white text-teal-700 dark:text-teal-700 font-semibold rounded-xl hover:bg-teal-50 transition-colors shadow-lg"
+                    className="inline-flex items-center gap-2 px-8 py-4 bg-white text-orange-700 dark:text-orange-700 font-semibold rounded-xl hover:bg-orange-50 transition-colors shadow-lg"
                   >
                     Schedule a Demo
                   </Link>

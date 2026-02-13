@@ -42,7 +42,7 @@ export function ROICalculator() {
   return (
     <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-medium overflow-hidden">
       {/* Header */}
-      <div className="px-6 py-4 bg-gradient-to-r from-teal-600 to-orange-500 flex items-center gap-3">
+      <div className="px-6 py-4 bg-orange-600 flex items-center gap-3">
         <Calculator size={20} className="text-white" />
         <h3 className="font-display text-heading-md text-white">
           ROI Calculator
@@ -71,12 +71,12 @@ export function ROICalculator() {
                   onClick={() => update("complexity", opt.value)}
                   className={`p-3 rounded-xl border text-left transition-all ${
                     inputs.complexity === opt.value
-                      ? "border-teal-500 bg-teal-50 dark:bg-teal-950/50 shadow-sm shadow-teal-500/20"
+                      ? "border-orange-500 bg-orange-50 dark:bg-orange-950/50 shadow-sm shadow-orange-500/20"
                       : "border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600"
                   }`}
                 >
                   <p className={`text-body-sm font-semibold ${
-                    inputs.complexity === opt.value ? "text-teal-700 dark:text-teal-400" : "text-slate-900 dark:text-slate-100"
+                    inputs.complexity === opt.value ? "text-orange-700 dark:text-orange-400" : "text-slate-900 dark:text-slate-100"
                   }`}>
                     {opt.label}
                   </p>
@@ -100,7 +100,7 @@ export function ROICalculator() {
                   onClick={() => update("currentMethod", opt.value)}
                   className={`w-full text-left px-4 py-2.5 rounded-xl border transition-all text-body-sm ${
                     inputs.currentMethod === opt.value
-                      ? "border-teal-500 bg-teal-50 dark:bg-teal-950/50 font-semibold text-teal-700 dark:text-teal-400"
+                      ? "border-orange-500 bg-orange-50 dark:bg-orange-950/50 font-semibold text-orange-700 dark:text-orange-400"
                       : "border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:border-slate-300 dark:hover:border-slate-600"
                   }`}
                 >
@@ -114,7 +114,7 @@ export function ROICalculator() {
           <div className="mb-6">
             <label className="text-body-sm font-semibold text-slate-900 dark:text-slate-100 flex items-center justify-between mb-2">
               <span>Frequency</span>
-              <span className="font-mono text-teal-600 dark:text-teal-400">
+              <span className="font-mono text-orange-600 dark:text-orange-400">
                 {inputs.frequencyPerWeek}/week
               </span>
             </label>
@@ -136,7 +136,7 @@ export function ROICalculator() {
           <div className="mb-6">
             <label className="text-body-sm font-semibold text-slate-900 dark:text-slate-100 flex items-center justify-between mb-2">
               <span>Employees</span>
-              <span className="font-mono text-teal-600 dark:text-teal-400">
+              <span className="font-mono text-orange-600 dark:text-orange-400">
                 {inputs.employees}
               </span>
             </label>
@@ -158,7 +158,7 @@ export function ROICalculator() {
           <div>
             <label className="text-body-sm font-semibold text-slate-900 dark:text-slate-100 flex items-center justify-between mb-2">
               <span>Avg Hourly Rate</span>
-              <span className="font-mono text-teal-600 dark:text-teal-400">
+              <span className="font-mono text-orange-600 dark:text-orange-400">
                 ${inputs.hourlyRate}/hr
               </span>
             </label>
@@ -187,7 +187,7 @@ export function ROICalculator() {
           {/* Big Numbers */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
             <motion.div layout className="p-5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-soft">
-              <DollarSign size={18} className="text-teal-500 dark:text-teal-400 mb-2" />
+              <DollarSign size={18} className="text-orange-500 dark:text-orange-400 mb-2" />
               <div className="font-display text-display-sm text-slate-900 dark:text-slate-100">
                 <SmoothNumber
                   value={Math.round(results.yearlyCostSavings)}
@@ -226,7 +226,7 @@ export function ROICalculator() {
             </motion.div>
 
             <motion.div layout className="p-5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-soft">
-              <TrendingUp size={18} className="text-teal-500 dark:text-teal-400 mb-2" />
+              <TrendingUp size={18} className="text-orange-500 dark:text-orange-400 mb-2" />
               <div className="font-display text-display-sm text-slate-900 dark:text-slate-100">
                 <SmoothNumber
                   value={results.breakEvenWeeks}
@@ -244,14 +244,14 @@ export function ROICalculator() {
             <div className="grid grid-cols-3 text-caption font-semibold bg-slate-100 dark:bg-slate-900">
               <div className="p-3 text-slate-600 dark:text-slate-400">Metric</div>
               <div className="p-3 text-slate-700 dark:text-slate-300">Today</div>
-              <div className="p-3 text-teal-600 dark:text-teal-400">Agent School</div>
+              <div className="p-3 text-orange-600 dark:text-orange-400">Agent School</div>
             </div>
             <div className="grid grid-cols-3 text-body-sm border-t border-slate-200 dark:border-slate-700">
               <div className="p-3 text-slate-600 dark:text-slate-400">Time / task</div>
               <div className="p-3 text-slate-900 dark:text-slate-100 font-mono">
                 {results.currentTimeMinutes} min
               </div>
-              <div className="p-3 text-teal-600 dark:text-teal-400 font-mono font-semibold">
+              <div className="p-3 text-orange-600 dark:text-orange-400 font-mono font-semibold">
                 {results.agentSchoolTimeSeconds}s
               </div>
             </div>
@@ -260,7 +260,7 @@ export function ROICalculator() {
               <div className="p-3 text-slate-900 dark:text-slate-100 font-mono">
                 ${results.currentCostPerExecution.toFixed(2)}
               </div>
-              <div className="p-3 text-teal-600 dark:text-teal-400 font-mono font-semibold">
+              <div className="p-3 text-orange-600 dark:text-orange-400 font-mono font-semibold">
                 ${results.agentSchoolCostPerExecution.toFixed(2)}
               </div>
             </div>
@@ -269,7 +269,7 @@ export function ROICalculator() {
               <div className="p-3 text-slate-900 dark:text-slate-100 font-mono">
                 {results.currentReliability}%
               </div>
-              <div className="p-3 text-teal-600 dark:text-teal-400 font-mono font-semibold">
+              <div className="p-3 text-orange-600 dark:text-orange-400 font-mono font-semibold">
                 {results.agentSchoolReliability}%
               </div>
             </div>
@@ -282,7 +282,7 @@ export function ROICalculator() {
             rel="noopener noreferrer"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="block w-full text-center px-6 py-3.5 rounded-xl bg-gradient-to-r from-teal-600 to-orange-500 text-white font-semibold text-body-sm hover:from-teal-500 hover:to-orange-400 transition-all shadow-soft"
+            className="block w-full text-center px-6 py-3.5 rounded-xl bg-gradient-to-r from-orange-600 to-orange-500 text-white font-semibold text-body-sm hover:from-orange-500 hover:to-orange-400 transition-all shadow-soft"
           >
             See these numbers for your workflows — Book a Demo
           </motion.a>

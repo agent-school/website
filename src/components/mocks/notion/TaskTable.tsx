@@ -147,7 +147,7 @@ export function TaskTable({ tasks, selectedTaskIds, onToggleSelect }: TaskTableP
                 </td>
                 <td className="px-3 py-2.5">
                   <div className="flex items-center gap-2">
-                    <div className="w-6 h-6 rounded-full bg-gradient-to-br from-teal-400 to-blue-500 flex items-center justify-center text-[10px] font-medium text-white">
+                    <div className="w-6 h-6 rounded-full bg-gradient-to-br from-orange-400 to-blue-500 flex items-center justify-center text-[10px] font-medium text-white">
                       {task.assignee.avatar}
                     </div>
                     <span className="text-sm text-slate-700 dark:text-slate-300">
