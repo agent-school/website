@@ -42,7 +42,7 @@ All demos share a **Mock UI Framework** (`/mocks/_framework/`) with reusable com
 
 ### Content Strategy
 Rewriting all copy from "academic precision" to "futuristic & visionary":
-- Hero: "Turn Human Knowledge Into AI That Never Forgets"
+- Hero: "Agents that learn once, execute forever" / "Building the school for AI agents"
 - Features: "Teach Once, Automate Forever" (not "Skill Builder")
 - CTAs: "Join The Revolution" (not "Learn More")
 
