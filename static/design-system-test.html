@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agent School — Design System v2</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS (via CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['Libre Bodoni', 'Georgia', 'serif'],
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            'off-white-1': '#FAFAFA',
+            'off-white-2': '#F5F5F5',
+            'stone': '#EFEFED',
+            'charcoal': {
+              900: '#2A2A2A',
+              700: '#4A4A4A',
+              500: '#6A6A6A',
+              300: '#9A9A9A',
+            },
+            'hairline': '#E0E0E0',
+            'hairline-alt': '#D4D4D4',
+            'sage': {
+              100: '#E8F0E3',
+              200: '#D4E5C9',
+              300: '#C1D5A8',
+              400: '#A8C686',
+              500: '#8FB570',
+            },
+          },
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    /* Base */
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #FAFAFA 0%, #F5F5F5 100%);
+      color: #6A6A6A;
+    }
+    
+    /* Subtle sage background blooms */
+    .bg-sage-bloom {
+      background: 
+        radial-gradient(ellipse at 10% 20%, rgba(232, 240, 227, 0.3) 0%, transparent 50%),
+        radial-gradient(ellipse at 90% 80%, rgba(212, 229, 201, 0.2) 0%, transparent 60%),
+        #FAFAFA;
+    }
+    
+    .headline-serif {
+      font-family: 'Libre Bodoni', Georgia, serif;
+      letter-spacing: 0.02em;
+    }
+    
+    /* Hollow Circle Variations */
+    .hollow-circle {
+      width: 12px;
+      height: 12px;
+      border: 1px solid #C1D5A8;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    
+    .hollow-circle-lg {
+      width: 20px;
+      height: 20px;
+      border: 1.5px solid #C1D5A8;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    
+    .hollow-circle-xl {
+      width: 32px;
+      height: 32px;
+      border: 2px solid #C1D5A8;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    
+    .filled-circle {
+      width: 12px;
+      height: 12px;
+      background-color: #C1D5A8;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    
+    /* Buttons - Much Lighter */
+    .btn-primary {
+      border: 1px solid #4A4A4A;
+      background: transparent;
+      padding: 12px 32px;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #4A4A4A;
+      cursor: pointer;
+      transition: all 200ms ease-out;
+    }
+    
+    .btn-primary:hover {
+      background-color: #E8F0E3;
+      border-color: #C1D5A8;
+      color: #2A2A2A;
+    }
+    
+    .btn-secondary {
+      border: 1px solid #E0E0E0;
+      background: white;
+      padding: 12px 32px;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #6A6A6A;
+      cursor: pointer;
+      transition: all 200ms ease-out;
+    }
+    
+    .btn-secondary:hover {
+      border-color: #C1D5A8;
+      color: #2A2A2A;
+    }
+    
+    /* Input Fields */
+    .underlined-input {
+      border: none;
+      border-bottom: 1px solid #E0E0E0;
+      background: transparent;
+      padding: 8px 0;
+      font-size: 15px;
+      color: #4A4A4A;
+      width: 100%;
+      outline: none;
+      transition: border-color 200ms ease-out;
+    }
+    
+    .underlined-input:focus {
+      border-bottom: 1.5px solid #C1D5A8;
+    }
+    
+    /* Navigation - Expandable */
+    #navMenu {
+      position: fixed;
+      top: 0;
+      right: -50%;
+      width: 50%;
+      height: 100vh;
+      background: white;
+      border-left: 1px solid #E0E0E0;
+      transition: right 300ms ease-out;
+      z-index: 100;
+      overflow-y: auto;
+    }
+    
+    #navMenu.open {
+      right: 0;
+    }
+    
+    #navOverlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: rgba(42, 42, 42, 0.3);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 300ms ease-out;
+      z-index: 99;
+    }
+    
+    #navOverlay.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    
+    /* Widget Layouts */
+    .widget-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background-color: #E0E0E0;
+      border: 1px solid #E0E0E0;
+    }
+    
+    .widget-cell {
+      background: white;
+      padding: 16px;
+      min-height: 120px;
+    }
+    
+    /* Integration Circle Animations (Magic UI inspired) */
+    @keyframes pulse-subtle {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.05); }
+    }
+    
+    .integration-circle {
+      width: 48px;
+      height: 48px;
+      border: 1px solid #E0E0E0;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: white;
+      position: relative;
+    }
+    
+    .integration-circle:hover {
+      animation: pulse-subtle 1.5s ease-in-out infinite;
+      border-color: #C1D5A8;
+    }
+    
+    .integration-circle::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 1px solid #C1D5A8;
+      opacity: 0;
+      transform: scale(1);
+      transition: all 400ms ease-out;
+    }
+    
+    .integration-circle:hover::before {
+      opacity: 0.4;
+      transform: scale(1.3);
+    }
+    
+    /* Hairline Grid Containers */
+    .grid-container {
+      border: 1px solid #E0E0E0;
+      background: white;
+    }
+    
+    .grid-cell {
+      border-right: 1px solid #E0E0E0;
+      border-bottom: 1px solid #E0E0E0;
+      padding: 24px;
+    }
+    
+    .grid-cell:last-child {
+      border-right: none;
+    }
+    
+    /* Sidebar Layout */
+    .sidebar-layout {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 0;
+      border: 1px solid #E0E0E0;
+    }
+    
+    .sidebar-content {
+      border-right: 1px solid #E0E0E0;
+      padding: 24px;
+      background: #F5F5F5;
+    }
+  </style>
+</head>
+<body class="antialiased">
+  
+  <!-- Navigation Bar -->
+  <nav class="sticky top-0 bg-white border-b border-hairline z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <span class="hollow-circle"></span>
+        <span class="text-sm text-charcoal-700 lowercase tracking-wide">agent school</span>
+      </div>
+      
+      <button onclick="toggleNav()" class="text-xs uppercase tracking-widest text-charcoal-700 hover:text-charcoal-900 transition flex items-center gap-2">
+        <span>MENU</span>
+        <span class="hollow-circle"></span>
+      </button>
+    </div>
+  </nav>
+  
+  <!-- Half-Screen Expandable Menu -->
+  <div id="navOverlay" onclick="toggleNav()"></div>
+  <div id="navMenu">
+    <div class="p-12 border-b border-hairline">
+      <button onclick="toggleNav()" class="text-xs uppercase tracking-widest text-charcoal-700 hover:text-charcoal-900 mb-8 flex items-center gap-2">
+        <span>← CLOSE</span>
+      </button>
+      
+      <div class="space-y-6">
+        <a href="#" class="block headline-serif text-5xl text-charcoal-900 hover:text-sage-400 transition">Methodology</a>
+        <a href="#" class="block headline-serif text-5xl text-charcoal-900 hover:text-sage-400 transition italic">Validation</a>
+        <a href="#" class="block headline-serif text-5xl text-charcoal-900 hover:text-sage-400 transition">Certification</a>
+        <a href="https://cal.com/jackagentschool/15min" class="block headline-serif text-5xl text-charcoal-900 hover:text-sage-400 transition italic">Book Demo</a>
+      </div>
+    </div>
+    
+    <div class="p-12">
+      <p class="text-xs uppercase tracking-wider text-charcoal-500 mb-4">QUICK LINKS</p>
+      <div class="space-y-3">
+        <a href="#" class="block text-sm text-charcoal-700 hover:text-sage-400 transition">Case Studies</a>
+        <a href="#" class="block text-sm text-charcoal-700 hover:text-sage-400 transition">ROI Calculator</a>
+        <a href="#" class="block text-sm text-charcoal-700 hover:text-sage-400 transition">Documentation</a>
+        <a href="#" class="block text-sm text-charcoal-700 hover:text-sage-400 transition">Pricing</a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Main Content -->
+  <main class="bg-sage-bloom">
+    
+    <!-- Section: Hero with Sidebar Asymmetry -->
+    <section class="border-b border-hairline">
+      <div class="sidebar-layout max-w-7xl mx-auto">
+        <div class="sidebar-content">
+          <p class="text-xs uppercase tracking-wider text-charcoal-700 mb-4 font-medium">INTRODUCTION</p>
+          <div class="space-y-8">
+            <div class="flex items-start gap-2">
+              <span class="hollow-circle mt-1"></span>
+              <p class="text-xs text-charcoal-500 leading-relaxed">Editorial luxury meets AI precision</p>
+            </div>
+            <div class="flex items-start gap-2">
+              <span class="hollow-circle mt-1"></span>
+              <p class="text-xs text-charcoal-500 leading-relaxed">Monochrome + subtle sage accents</p>
+            </div>
+            <div class="flex items-start gap-2">
+              <span class="hollow-circle mt-1"></span>
+              <p class="text-xs text-charcoal-500 leading-relaxed">Hairline grid structure</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-white p-12 md:p-16">
+          <p class="text-xs uppercase tracking-wide text-charcoal-500 mb-6 font-medium">
+            CASE 001 — EDITORIAL AUTOMATION DESIGN
+          </p>
+          <h1 class="headline-serif text-6xl md:text-7xl text-charcoal-900 leading-tight mb-2">
+            TEACH HUMAN
+          </h1>
+          <h1 class="headline-serif text-6xl md:text-7xl text-charcoal-900 italic leading-tight mb-8">
+            Knowledge Into AI.
+          </h1>
+          <p class="text-lg font-light text-charcoal-500 max-w-xl leading-relaxed mb-8">
+            Transform institutional expertise into certified, self-healing automation through natural demonstration. No APIs required.
+          </p>
+          
+          <div class="flex gap-4">
+            <button class="btn-primary">BOOK DEMO (○)</button>
+            <button class="btn-secondary">LEARN MORE</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section: Stats Band with MUCH Larger Numbers -->
+    <section class="border-b border-hairline bg-white">
+      <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4">
+        <div class="grid-cell text-center space-y-4">
+          <div class="flex justify-center">
+            <span class="hollow-circle-lg"></span>
+          </div>
+          <p class="text-xs uppercase tracking-wider text-charcoal-500 font-medium">ACCURACY</p>
+          <p class="headline-serif text-8xl md:text-9xl text-charcoal-900">99%</p>
+          <p class="text-xs uppercase tracking-wider text-charcoal-300">Certified</p>
+        </div>
+        
+        <div class="grid-cell text-center space-y-4">
+          <div class="flex justify-center">
+            <span class="hollow-circle-lg"></span>
+          </div>
+          <p class="text-xs uppercase tracking-wider text-charcoal-500 font-medium">TRAINING</p>
+          <p class="headline-serif text-8xl md:text-9xl text-charcoal-900">14d</p>
+          <p class="text-xs uppercase tracking-wider text-charcoal-300">Deploy Time</p>
+        </div>
+        
+        <div class="grid-cell text-center space-y-4">
+          <div class="flex justify-center">
+            <span class="hollow-circle-lg"></span>
+          </div>
+          <p class="text-xs uppercase tracking-wider text-charcoal-500 font-medium">UPTIME</p>
+          <p class="headline-serif text-8xl md:text-9xl text-charcoal-900">99.9%</p>
+          <p class="text-xs uppercase tracking-wider text-charcoal-300">Production</p>
+        </div>
+        
+        <div class="grid-cell text-center space-y-4">
+          <div class="flex justify-center">
+            <span class="hollow-circle-lg"></span>
+          </div>
+          <p class="text-xs uppercase tracking-wider text-charcoal-500 font-medium">SAVED</p>
+          <p class="headline-serif text-8xl md:text-9xl text-charcoal-900">420h</p>
+          <p class="text-xs uppercase tracking-wider text-charcoal-300">Per Month</p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section: Feature Cards (Multiple Variations) -->
+    <section class="py-24 px-6">
+      <div class="max-w-7xl mx-auto">
+        <p class="text-xs uppercase tracking-widest text-charcoal-700 mb-12 font-medium">
+          FEATURE CARD VARIATIONS
+        </p>
+        
+        <!-- Variation 1: Standard Grid -->
+        <div class="grid md:grid-cols-3 gap-8 mb-16">
+          <div class="border border-hairline bg-white p-8">
+            <div class="flex items-center gap-2 mb-4">
+              <span class="hollow-circle"></span>
+              <p class="text-xs uppercase tracking-wider text-charcoal-500 font-medium">FEATURE 01</p>
+            </div>
+            <h3 class="headline-serif text-3xl text-charcoal-900 mb-2">Teach Once.</h3>
+            <h4 class="headline-serif text-2xl text-charcoal-900 italic mb-4">Automate Forever.</h4>
+            <p class="text-sm font-light text-charcoal-500 leading-relaxed">
+              Natural teaching transforms institutional knowledge into certified automation.
+            </p>
+          </div>
+          
+          <div class="border border-hairline bg-white p-8">
+            <div class="flex items-center gap-2 mb-4">
+              <span class="hollow-circle"></span>
+              <p class="text-xs uppercase tracking-wider text-charcoal-500 font-medium">FEATURE 02</p>
+            </div>
+            <h3 class="headline-serif text-3xl text-charcoal-900 mb-2">Visual Learning.</h3>
+            <h4 class="headline-serif text-2xl text-charcoal-900 italic mb-4">No Scripting.</h4>
+            <p class="text-sm font-light text-charcoal-500 leading-relaxed">
+              Agents watch and learn through demonstration, not code. Pure visual pedagogy.
+            </p>
+          </div>
+          
+          <div class="border border-hairline bg-white p-8">
+            <div class="flex items-center gap-2 mb-4">
+              <span class="hollow-circle"></span>
+              <p class="text-xs uppercase tracking-wider text-charcoal-500 font-medium">FEATURE 03</p>
+            </div>
+            <h3 class="headline-serif text-3xl text-charcoal-900 mb-2">Self-Healing.</h3>
+            <h4 class="headline-serif text-2xl text-charcoal-900 italic mb-4">Zero Maintenance.</h4>
+            <p class="text-sm font-light text-charcoal-500 leading-relaxed">
+              Agents adapt to UI changes automatically. No brittle selectors or brittle logic.
+            </p>
+          </div>
+        </div>
+        
+        <!-- Variation 2: Nested Borders (Diagram Style) -->
+        <div class="grid md:grid-cols-2 gap-8 mb-16">
+          <div class="border border-hairline bg-white p-2">
+            <div class="border border-hairline p-8">
+              <p class="text-xs uppercase tracking-wider text-charcoal-700 mb-6 font-medium">VISUAL CORTEX</p>
+              <div class="space-y-3">
+                <div class="border border-sage-300 bg-sage-100 px-4 py-2 font-mono text-xs text-charcoal-700">
+                  DETECT: button_checkout_primary
+                </div>
+                <div class="border border-sage-300 bg-sage-100 px-4 py-2 font-mono text-xs text-charcoal-700">
+                  COORDINATES: (x:320, y:540)
+                </div>
+                <div class="border border-sage-300 bg-sage-100 px-4 py-2 font-mono text-xs text-charcoal-700">
+                  STATE: clickable • enabled
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="border border-hairline bg-white p-2">
+            <div class="border border-hairline p-8">
+              <p class="text-xs uppercase tracking-wider text-charcoal-700 mb-6 font-medium">REASONING LAYER</p>
+              <div class="space-y-3">
+                <div class="border border-sage-300 bg-sage-100 px-4 py-2 font-mono text-xs text-charcoal-700">
+                  INTENT: complete_purchase_flow
+                </div>
+                <div class="border border-sage-300 bg-sage-100 px-4 py-2 font-mono text-xs text-charcoal-700">
+                  CONFIDENCE: 98.7%
+                </div>
+                <div class="border border-sage-300 bg-sage-100 px-4 py-2 font-mono text-xs text-charcoal-700">
+                  NEXT: validate_payment_info
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Variation 3: Large Hero Cards -->
+        <div class="space-y-8 mb-16">
+          <div class="border border-hairline bg-white p-12 grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <div class="flex items-center gap-2 mb-6">
+                <span class="hollow-circle-xl"></span>
+                <p class="text-xs uppercase tracking-wider text-charcoal-500 font-medium">METHODOLOGY</p>
+              </div>
+              <h3 class="headline-serif text-5xl text-charcoal-900 mb-3">The Agent</h3>
+              <h4 class="headline-serif text-4xl text-charcoal-900 italic mb-6">Pedagogy.</h4>
+              <p class="text-base font-light text-charcoal-500 leading-relaxed mb-6">
+                Our three-phase certification process transforms human expertise into validated, production-ready automation.
+              </p>
+              <button class="btn-primary">EXPLORE PHASES</button>
+            </div>
+            <div class="border-l border-hairline pl-12">
+              <div class="space-y-6">
+                <div class="flex items-start gap-4">
+                  <span class="filled-circle mt-1"></span>
+                  <div>
+                    <p class="text-sm font-medium text-charcoal-900 mb-1">PHASE 01: Cartography</p>
+                    <p class="text-xs text-charcoal-500">Environmental mapping and workflow discovery</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-4">
+                  <span class="hollow-circle mt-1"></span>
+                  <div>
+                    <p class="text-sm font-medium text-charcoal-500 mb-1">PHASE 02: Pedagogy</p>
+                    <p class="text-xs text-charcoal-500">Visual teaching through demonstration</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-4">
+                  <span class="hollow-circle mt-1"></span>
+                  <div>
+                    <p class="text-sm font-medium text-charcoal-500 mb-1">PHASE 03: Validation</p>
+                    <p class="text-xs text-charcoal-500">Certification and production deployment</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Variation 4: Compact Grid with Hairlines -->
+        <div class="grid-container">
+          <div class="grid md:grid-cols-4">
+            <div class="grid-cell">
+              <span class="hollow-circle mb-3 block"></span>
+              <p class="text-xs uppercase tracking-wider text-charcoal-700 mb-2 font-medium">NO CODE</p>
+              <p class="text-xs text-charcoal-500 leading-relaxed">Pure visual demonstration</p>
+            </div>
+            <div class="grid-cell">
+              <span class="hollow-circle mb-3 block"></span>
+              <p class="text-xs uppercase tracking-wider text-charcoal-700 mb-2 font-medium">SELF-HEALING</p>
+              <p class="text-xs text-charcoal-500 leading-relaxed">Adapts to UI changes</p>
+            </div>
+            <div class="grid-cell">
+              <span class="hollow-circle mb-3 block"></span>
+              <p class="text-xs uppercase tracking-wider text-charcoal-700 mb-2 font-medium">CERTIFIED</p>
+              <p class="text-xs text-charcoal-500 leading-relaxed">Production validation</p>
+            </div>
+            <div class="grid-cell">
+              <span class="hollow-circle mb-3 block"></span>
+              <p class="text-xs uppercase tracking-wider text-charcoal-700 mb-2 font-medium">INSTANT</p>
+              <p class="text-xs text-charcoal-500 leading-relaxed">14-day deployment</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section: Integration Circles (Magic UI / Aceternity Inspired) -->
+    <section class="py-24 px-6 border-t border-hairline bg-white">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+          <p class="text-xs uppercase tracking-widest text-charcoal-500 mb-4 font-medium">PLATFORM INTEGRATIONS</p>
+          <h2 class="headline-serif text-5xl text-charcoal-900 mb-2">Connect</h2>
+          <h3 class="headline-serif text-4xl text-charcoal-900 italic">Anywhere.</h3>
+        </div>
+        
+        <div class="flex justify-center items-center gap-8 flex-wrap">
+          <div class="integration-circle">
+            <span class="text-xs font-medium text-charcoal-700">SF</span>
+          </div>
+          <div class="integration-circle">
+            <span class="text-xs font-medium text-charcoal-700">HB</span>
+          </div>
+          <div class="integration-circle">
+            <span class="text-xs font-medium text-charcoal-700">IG</span>
+          </div>
+          <div class="integration-circle">
+            <span class="text-xs font-medium text-charcoal-700">NT</span>
+          </div>
+          <div class="integration-circle">
+            <span class="text-xs font-medium text-charcoal-700">GR</span>
+          </div>
+          <div class="integration-circle">
+            <span class="text-xs font-medium text-charcoal-700">LN</span>
+          </div>
+          <div class="integration-circle">
+            <span class="text-xs font-medium text-charcoal-700">AH</span>
+          </div>
+          <div class="integration-circle">
+            <span class="text-xs font-medium text-charcoal-700">ZP</span>
+          </div>
+        </div>
+        
+        <p class="text-center text-xs text-charcoal-300 mt-8 uppercase tracking-wider">
+          SALESFORCE • HUBSPOT • INSTAGRAM • NOTION • GRANOLA • LINEAR • AIRTABLE • ZENDESK + 500 MORE
+        </p>
+      </div>
+    </section>
+    
+    <!-- Section: Demo Widget Layouts (Multiple Variations) -->
+    <section class="py-24 px-6 border-t border-hairline">
+      <div class="max-w-7xl mx-auto">
+        <p class="text-xs uppercase tracking-widest text-charcoal-700 mb-12 font-medium">
+          DEMO WIDGET LAYOUTS
+        </p>
+        
+        <!-- Layout 1: Grid Widget -->
+        <div class="mb-16">
+          <p class="text-xs uppercase tracking-wider text-charcoal-500 mb-4 font-medium">LAYOUT 01: DATA GRID</p>
+          <div class="widget-grid">
+            <div class="widget-cell">
+              <p class="text-xs text-charcoal-700 font-medium mb-2">METRIC A</p>
+              <p class="headline-serif text-3xl text-charcoal-900">1,247</p>
+            </div>
+            <div class="widget-cell">
+              <p class="text-xs text-charcoal-700 font-medium mb-2">METRIC B</p>
+              <p class="headline-serif text-3xl text-charcoal-900">84%</p>
+            </div>
+            <div class="widget-cell">
+              <p class="text-xs text-charcoal-700 font-medium mb-2">METRIC C</p>
+              <p class="headline-serif text-3xl text-charcoal-900">+12.5</p>
+            </div>
+            <div class="widget-cell">
+              <p class="text-xs text-charcoal-700 font-medium mb-2">METRIC D</p>
+              <p class="headline-serif text-3xl text-charcoal-900">32ms</p>
+            </div>
+            <div class="widget-cell">
+              <p class="text-xs text-charcoal-700 font-medium mb-2">METRIC E</p>
+              <p class="headline-serif text-3xl text-charcoal-900">6.2k</p>
+            </div>
+            <div class="widget-cell">
+              <p class="text-xs text-charcoal-700 font-medium mb-2">METRIC F</p>
+              <p class="headline-serif text-3xl text-charcoal-900">99.9%</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Layout 2: Sidebar Widget -->
+        <div class="mb-16">
+          <p class="text-xs uppercase tracking-wider text-charcoal-500 mb-4 font-medium">LAYOUT 02: SIDEBAR FILTER</p>
+          <div class="sidebar-layout">
+            <div class="sidebar-content space-y-4">
+              <div>
+                <p class="text-xs uppercase tracking-wider text-charcoal-700 mb-2 font-medium">FILTERS</p>
+              </div>
+              <div class="space-y-2">
+                <label class="flex items-center gap-2 text-xs text-charcoal-700 cursor-pointer">
+                  <span class="filled-circle"></span>
+                  Active
+                </label>
+                <label class="flex items-center gap-2 text-xs text-charcoal-500 cursor-pointer">
+                  <span class="hollow-circle"></span>
+                  Pending
+                </label>
+                <label class="flex items-center gap-2 text-xs text-charcoal-500 cursor-pointer">
+                  <span class="hollow-circle"></span>
+                  Archived
+                </label>
+              </div>
+            </div>
+            <div class="bg-white p-8">
+              <div class="space-y-4">
+                <div class="border border-hairline p-4">
+                  <p class="text-sm font-medium text-charcoal-900 mb-1">Reservation #1047</p>
+                  <p class="text-xs text-charcoal-500">Guest: Sarah Chen • Check-in: Today</p>
+                </div>
+                <div class="border border-hairline p-4">
+                  <p class="text-sm font-medium text-charcoal-900 mb-1">Reservation #1048</p>
+                  <p class="text-xs text-charcoal-500">Guest: Michael Torres • Check-in: Tomorrow</p>
+                </div>
+                <div class="border border-hairline p-4">
+                  <p class="text-sm font-medium text-charcoal-900 mb-1">Reservation #1049</p>
+                  <p class="text-xs text-charcoal-500">Guest: Emma Wilson • Check-in: Feb 15</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Layout 3: Split Widget -->
+        <div class="mb-16">
+          <p class="text-xs uppercase tracking-wider text-charcoal-500 mb-4 font-medium">LAYOUT 03: SPLIT VIEW</p>
+          <div class="border border-hairline bg-white">
+            <div class="grid md:grid-cols-2">
+              <div class="p-8 border-r border-hairline">
+                <p class="text-xs uppercase tracking-wider text-charcoal-700 mb-6 font-medium">AGENT INPUT</p>
+                <div class="space-y-3">
+                  <div class="bg-sage-100 border border-sage-300 p-3">
+                    <p class="text-xs font-mono text-charcoal-700">Query: "Find all reservations for tomorrow"</p>
+                  </div>
+                  <div class="bg-off-white-2 border border-hairline p-3">
+                    <p class="text-xs font-mono text-charcoal-500">Processing visual elements...</p>
+                  </div>
+                  <div class="bg-off-white-2 border border-hairline p-3">
+                    <p class="text-xs font-mono text-charcoal-500">Identified 3 matches</p>
+                  </div>
+                </div>
+              </div>
+              <div class="p-8">
+                <p class="text-xs uppercase tracking-wider text-charcoal-700 mb-6 font-medium">AGENT OUTPUT</p>
+                <div class="space-y-3">
+                  <div class="border border-hairline p-3">
+                    <p class="text-xs font-medium text-charcoal-900 mb-1">Sarah Chen</p>
+                    <p class="text-xs text-charcoal-500">Suite 204 • 2 nights • $580</p>
+                  </div>
+                  <div class="border border-hairline p-3">
+                    <p class="text-xs font-medium text-charcoal-900 mb-1">Michael Torres</p>
+                    <p class="text-xs text-charcoal-500">Room 312 • 4 nights • $1,120</p>
+                  </div>
+                  <div class="border border-hairline p-3">
+                    <p class="text-xs font-medium text-charcoal-900 mb-1">Lisa Park</p>
+                    <p class="text-xs text-charcoal-500">Penthouse • 1 night • $950</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section: Pricing -->
+    <section class="py-24 px-6 border-t border-hairline bg-white">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+          <p class="text-xs uppercase tracking-widest text-charcoal-500 mb-4 font-medium">INVESTMENT</p>
+          <h2 class="headline-serif text-5xl text-charcoal-900 mb-2">Transparent</h2>
+          <h3 class="headline-serif text-4xl text-charcoal-900 italic">Pricing.</h3>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Tier 1 -->
+          <div class="border border-hairline bg-off-white-1 p-8">
+            <div class="flex items-center gap-2 mb-6">
+              <span class="hollow-circle"></span>
+              <p class="text-xs uppercase tracking-wider text-charcoal-700 font-medium">STARTER</p>
+            </div>
+            <div class="mb-6">
+              <p class="headline-serif text-6xl text-charcoal-900 mb-2">$2,500</p>
+              <p class="text-xs uppercase tracking-wider text-charcoal-500">Per Month</p>
+            </div>
+            <div class="space-y-3 mb-8">
+              <div class="flex items-start gap-2">
+                <span class="filled-circle mt-1"></span>
+                <p class="text-xs text-charcoal-700">1 Agent Certification</p>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="filled-circle mt-1"></span>
+                <p class="text-xs text-charcoal-700">Up to 5 Workflows</p>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="filled-circle mt-1"></span>
+                <p class="text-xs text-charcoal-700">Basic Self-Healing</p>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="hollow-circle mt-1"></span>
+                <p class="text-xs text-charcoal-500">Priority Support</p>
+              </div>
+            </div>
+            <button class="btn-secondary w-full">START TRIAL</button>
+          </div>
+          
+          <!-- Tier 2 (Featured) -->
+          <div class="border-2 border-sage-300 bg-white p-8 relative">
+            <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-sage-300 px-4 py-1">
+              <p class="text-xs uppercase tracking-wider text-charcoal-900 font-medium">MOST POPULAR</p>
+            </div>
+            <div class="flex items-center gap-2 mb-6 mt-4">
+              <span class="filled-circle"></span>
+              <p class="text-xs uppercase tracking-wider text-charcoal-900 font-medium">PROFESSIONAL</p>
+            </div>
+            <div class="mb-6">
+              <p class="headline-serif text-6xl text-charcoal-900 mb-2">$8,500</p>
+              <p class="text-xs uppercase tracking-wider text-charcoal-500">Per Month</p>
+            </div>
+            <div class="space-y-3 mb-8">
+              <div class="flex items-start gap-2">
+                <span class="filled-circle mt-1"></span>
+                <p class="text-xs text-charcoal-900">5 Agent Certifications</p>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="filled-circle mt-1"></span>
+                <p class="text-xs text-charcoal-900">Unlimited Workflows</p>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="filled-circle mt-1"></span>
+                <p class="text-xs text-charcoal-900">Advanced Self-Healing</p>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="filled-circle mt-1"></span>
+                <p class="text-xs text-charcoal-900">Priority Support</p>
+              </div>
+            </div>
+            <button class="btn-primary w-full">GET STARTED (○)</button>
+          </div>
+          
+          <!-- Tier 3 -->
+          <div class="border border-hairline bg-off-white-1 p-8">
+            <div class="flex items-center gap-2 mb-6">
+              <span class="hollow-circle"></span>
+              <p class="text-xs uppercase tracking-wider text-charcoal-700 font-medium">ENTERPRISE</p>
+            </div>
+            <div class="mb-6">
+              <p class="headline-serif text-5xl text-charcoal-900 mb-2">Custom</p>
+              <p class="text-xs uppercase tracking-wider text-charcoal-500">Volume Pricing</p>
+            </div>
+            <div class="space-y-3 mb-8">
+              <div class="flex items-start gap-2">
+                <span class="filled-circle mt-1"></span>
+                <p class="text-xs text-charcoal-700">Unlimited Agents</p>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="filled-circle mt-1"></span>
+                <p class="text-xs text-charcoal-700">Dedicated Success Team</p>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="filled-circle mt-1"></span>
+                <p class="text-xs text-charcoal-700">Custom Integrations</p>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="filled-circle mt-1"></span>
+                <p class="text-xs text-charcoal-700">SLA Guarantees</p>
+              </div>
+            </div>
+            <button class="btn-secondary w-full">CONTACT SALES</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section: Component Showcase -->
+    <section class="py-24 px-6 border-t border-hairline">
+      <div class="max-w-7xl mx-auto">
+        <p class="text-xs uppercase tracking-widest text-charcoal-700 mb-12 font-medium">
+          COMPONENT LIBRARY
+        </p>
+        
+        <div class="space-y-12">
+          <!-- Buttons -->
+          <div>
+            <p class="text-xs uppercase tracking-wider text-charcoal-500 mb-4 font-medium">BUTTONS (LIGHTER STYLING)</p>
+            <div class="flex gap-4 flex-wrap">
+              <button class="btn-primary">PRIMARY BUTTON (○)</button>
+              <button class="btn-secondary">SECONDARY BUTTON</button>
+              <button class="btn-primary">BOOK DEMO →</button>
+              <button class="btn-secondary">LEARN MORE</button>
+            </div>
+          </div>
+          
+          <!-- Input Fields -->
+          <div>
+            <p class="text-xs uppercase tracking-wider text-charcoal-500 mb-4 font-medium">INPUT FIELDS</p>
+            <div class="max-w-md space-y-6">
+              <input type="text" class="underlined-input" placeholder="Enter your company name...">
+              <input type="email" class="underlined-input" placeholder="your.email@company.com">
+              <input type="text" class="underlined-input" placeholder="What workflows need automation?">
+            </div>
+          </div>
+          
+          <!-- Circle Variations -->
+          <div>
+            <p class="text-xs uppercase tracking-wider text-charcoal-500 mb-4 font-medium">CIRCLE MOTIFS</p>
+            <div class="flex items-center gap-8">
+              <div class="text-center">
+                <span class="hollow-circle block mb-2 mx-auto"></span>
+                <p class="text-xs text-charcoal-500">12px</p>
+              </div>
+              <div class="text-center">
+                <span class="hollow-circle-lg block mb-2 mx-auto"></span>
+                <p class="text-xs text-charcoal-500">20px</p>
+              </div>
+              <div class="text-center">
+                <span class="hollow-circle-xl block mb-2 mx-auto"></span>
+                <p class="text-xs text-charcoal-500">32px</p>
+              </div>
+              <div class="text-center">
+                <span class="filled-circle block mb-2 mx-auto"></span>
+                <p class="text-xs text-charcoal-500">Filled</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+  </main>
+  
+  <!-- Footer - Custom Layout -->
+  <footer class="border-t border-hairline bg-charcoal-900 text-white py-16">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-3 gap-12 mb-12">
+        <!-- Column 1 -->
+        <div>
+          <p class="text-xs uppercase tracking-wider text-white mb-4 font-medium">AGENT SCHOOL HEADQUARTERS</p>
+          <p class="text-sm text-charcoal-300 mb-8">San Francisco, CA</p>
+          
+          <div class="flex items-center gap-2 mb-2">
+            <span class="hollow-circle" style="border-color: #9A9A9A;"></span>
+            <p class="text-xs uppercase tracking-wider text-charcoal-300">Future Proof</p>
+          </div>
+        </div>
+        
+        <!-- Column 2 -->
+        <div>
+          <p class="text-xs uppercase tracking-wider text-white mb-4 font-medium">CONNECT</p>
+          <div class="space-y-3">
+            <a href="#" class="block text-sm text-charcoal-300 hover:text-white transition">(TW) Twitter</a>
+            <a href="#" class="block text-sm text-charcoal-300 hover:text-white transition">(LI) LinkedIn</a>
+            <a href="mailto:hello@agentschool.io" class="block text-sm text-charcoal-300 hover:text-white transition">(EMAIL) hello@agentschool.io</a>
+          </div>
+        </div>
+        
+        <!-- Column 3 -->
+        <div>
+          <p class="text-xs uppercase tracking-wider text-white mb-4 font-medium">QUICK ACTIONS</p>
+          <div class="space-y-3">
+            <a href="https://cal.com/jackagentschool/15min" class="block text-sm text-charcoal-300 hover:text-white transition">(○) Book Demonstration</a>
+            <a href="#" class="block text-sm text-charcoal-300 hover:text-white transition">View Case Studies</a>
+            <a href="#" class="block text-sm text-charcoal-300 hover:text-white transition">Download Whitepaper</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border-t border-charcoal-700 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-xs text-charcoal-500">© 2026 Agent School. All rights reserved.</p>
+        <div class="flex gap-6">
+          <a href="#" class="text-xs text-charcoal-500 hover:text-white transition">Privacy Policy</a>
+          <a href="#" class="text-xs text-charcoal-500 hover:text-white transition">Terms of Service</a>
+          <a href="#" class="text-xs text-charcoal-500 hover:text-white transition">Security</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <script>
+    function toggleNav() {
+      const menu = document.getElementById('navMenu');
+      const overlay = document.getElementById('navOverlay');
+      menu.classList.toggle('open');
+      overlay.classList.toggle('visible');
+    }
+  </script>
+  
+</body>
+</html>
