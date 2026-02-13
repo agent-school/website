@@ -23,7 +23,7 @@ export function Testimonials() {
   return (
     <section
       id="testimonials"
-      className="py-24 md:py-32 px-6 bg-white dark:bg-slate-900"
+      className="py-24 md:py-32 px-6 bg-white"
     >
       <div className="max-w-7xl mx-auto">
         <ScrollReveal>
@@ -37,20 +37,20 @@ export function Testimonials() {
         <div className="mt-16 grid grid-cols-1 lg:grid-cols-1 gap-8 max-w-4xl mx-auto">
           {TESTIMONIALS.map((testimonial, i) => (
             <ScrollReveal key={i} delay={i * 0.1}>
-              <CardSpotlight className="rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden bg-gradient-to-br from-slate-50 to-white dark:from-slate-900 dark:to-slate-800">
+              <CardSpotlight className="rounded-2xl border border-slate-200 overflow-hidden bg-gradient-to-br from-slate-50 to-white">
                 <div className="p-8 lg:p-12">
                   {/* Quote Icon */}
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-500/20 to-orange-500/20 dark:from-teal-400/20 dark:to-orange-400/20 flex items-center justify-center mb-6">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500/20 to-orange-500/20 flex items-center justify-center mb-6">
                     <Quote
                       size={24}
-                      className="text-teal-600 dark:text-teal-400"
+                      className="text-orange-600"
                       strokeWidth={2}
                     />
                   </div>
 
                   {/* Quote Text */}
                   <blockquote className="mb-8">
-                    <p className="font-display text-xl lg:text-2xl leading-relaxed text-slate-900 dark:text-slate-100">
+                    <p className="font-display text-xl lg:text-2xl leading-relaxed text-slate-900">
                       &ldquo;{testimonial.quote}&rdquo;
                     </p>
                   </blockquote>
@@ -58,7 +58,7 @@ export function Testimonials() {
                   {/* Author Info */}
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-4">
-                      <div className="relative w-16 h-16 rounded-full overflow-hidden ring-2 ring-teal-500/20 dark:ring-teal-400/20">
+                      <div className="relative w-16 h-16 rounded-full overflow-hidden ring-2 ring-orange-500/20">
                         <Image
                           src={testimonial.image}
                           alt={testimonial.author}
@@ -67,12 +67,12 @@ export function Testimonials() {
                         />
                       </div>
                       <div>
-                        <p className="font-semibold text-lg text-slate-900 dark:text-slate-100">
+                        <p className="font-semibold text-lg text-slate-900">
                           {testimonial.author}
                         </p>
-                        <p className="text-sm text-slate-600 dark:text-slate-400">
+                        <p className="text-sm text-slate-600">
                           {testimonial.role} at{" "}
-                          <span className="text-teal-600 dark:text-teal-400 font-medium">
+                          <span className="text-orange-600 font-medium">
                             {testimonial.company}
                           </span>
                         </p>
@@ -82,7 +82,7 @@ export function Testimonials() {
                     {/* Read Full Case Study Link */}
                     <Link
                       href="/blog/geometry-solution-case-study"
-                      className="flex items-center gap-2 px-4 py-2 rounded-lg bg-teal-600 dark:bg-teal-500 text-white hover:bg-teal-700 dark:hover:bg-teal-600 transition-colors group"
+                      className="flex items-center gap-2 px-4 py-2 rounded-lg bg-orange-600 text-white hover:bg-teal-700 transition-colors group"
                     >
                       <span className="text-sm font-semibold whitespace-nowrap">
                         Read Full Story

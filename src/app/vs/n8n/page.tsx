@@ -33,7 +33,7 @@ export default function N8nComparisonPage() {
             <div className="flex flex-wrap gap-4">
               <a
                 href={BOOKING_URL}
-                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-teal-600 to-orange-500 px-8 py-4 font-semibold text-slate-900 transition hover:shadow-lg hover:shadow-teal-500/25"
+                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-teal-600 to-orange-500 px-8 py-4 font-semibold text-slate-900 transition hover:shadow-lg hover:shadow-orange-500/25"
               >
                 Book a Demo
                 <ArrowRight className="w-5 h-5" />
@@ -301,7 +301,7 @@ export default function N8nComparisonPage() {
               </li>
             </ul>
 
-            <div className="not-prose bg-teal-50 border border-teal-200 rounded-2xl p-8 mb-12">
+            <div className="not-prose bg-orange-50 border border-teal-200 rounded-2xl p-8 mb-12">
               <p className="text-body-md text-slate-700">
                 <strong className="text-teal-600">The pattern:</strong> n8n shines when you have technical resources and need flexibility. Agent School wins when you need business teams to automate reliably without developer support.
               </p>
@@ -405,7 +405,7 @@ export default function N8nComparisonPage() {
             </p>
             <a
               href={BOOKING_URL}
-              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-teal-600 to-orange-500 px-8 py-4 font-semibold text-slate-900 transition hover:shadow-lg hover:shadow-teal-500/25"
+              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-teal-600 to-orange-500 px-8 py-4 font-semibold text-slate-900 transition hover:shadow-lg hover:shadow-orange-500/25"
             >
               Book a Demo
               <ArrowRight className="w-5 h-5" />

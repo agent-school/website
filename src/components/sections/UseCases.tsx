@@ -21,10 +21,10 @@ import { USE_CASES } from "@/lib/constants";
 
 function DemoLoadingState() {
   return (
-    <div className="w-full h-[500px] rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 flex items-center justify-center">
+    <div className="w-full h-[500px] rounded-2xl border border-slate-200 bg-slate-50 flex items-center justify-center">
       <div className="text-center space-y-3">
-        <div className="w-8 h-8 border-3 border-teal-600 border-t-transparent rounded-full animate-spin mx-auto" />
-        <p className="text-sm text-slate-500 dark:text-slate-400">Loading demo...</p>
+        <div className="w-8 h-8 border-3 border-orange-600 border-t-transparent rounded-full animate-spin mx-auto" />
+        <p className="text-sm text-slate-500">Loading demo...</p>
       </div>
     </div>
   );
@@ -99,15 +99,15 @@ function UseCaseTab({ useCase, isActive, onClick }: UseCaseTabProps) {
         relative px-6 py-3 rounded-lg font-medium text-sm transition-all duration-200
         ${
           isActive
-            ? "text-white dark:text-white"
-            : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
+            ? "text-white"
+            : "text-slate-600 hover:text-slate-900"
         }
       `}
     >
       {isActive && (
         <motion.div
           layoutId="active-tab"
-          className="absolute inset-0 bg-gradient-to-br from-teal-600 to-orange-500 rounded-lg"
+          className="absolute inset-0 bg-gradient-to-br from-orange-600 to-orange-500 rounded-lg"
           transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
         />
       )}
@@ -129,25 +129,25 @@ function MetricsDisplay({ useCase }: MetricsDisplayProps) {
       {/* Toggle Button for Before/After + Metrics */}
       <button
         onClick={() => setShowMetrics(!showMetrics)}
-        className="w-full flex items-center justify-between px-6 py-4 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-colors group border border-slate-200 dark:border-slate-700"
+        className="w-full flex items-center justify-between px-6 py-4 rounded-lg hover:bg-slate-100 transition-colors group border border-slate-200"
       >
         <div className="flex items-center gap-3">
-          <div className="p-2 rounded-lg bg-gradient-to-br from-teal-500/10 to-orange-500/10 dark:from-teal-500/20 dark:to-orange-500/20">
-            <Clock className="w-4 h-4 text-teal-600 dark:text-teal-400" />
+          <div className="p-2 rounded-lg bg-gradient-to-br from-orange-500/10 to-orange-500/10">
+            <Clock className="w-4 h-4 text-orange-600" />
           </div>
           <div className="text-left">
-            <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">
+            <p className="text-sm font-semibold text-slate-900">
               View Detailed Breakdown
             </p>
-            <p className="text-xs text-slate-500 dark:text-slate-400">
+            <p className="text-xs text-slate-500">
               See before/after comparison, metrics, and impact
             </p>
           </div>
         </div>
         {showMetrics ? (
-          <ChevronUp size={18} className="text-slate-400 dark:text-slate-500 group-hover:text-slate-600 dark:group-hover:text-slate-400 transition-colors" />
+          <ChevronUp size={18} className="text-slate-400 group-hover:text-slate-600 transition-colors" />
         ) : (
-          <ChevronDown size={18} className="text-slate-400 dark:text-slate-500 group-hover:text-slate-600 dark:group-hover:text-slate-400 transition-colors" />
+          <ChevronDown size={18} className="text-slate-400 group-hover:text-slate-600 transition-colors" />
         )}
       </button>
 
@@ -163,10 +163,10 @@ function MetricsDisplay({ useCase }: MetricsDisplayProps) {
             {/* Before / After Comparison */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* Before */}
-        <div className="rounded-xl border border-red-200/50 dark:border-red-900/30 bg-red-50/50 dark:bg-red-950/20 p-5">
+        <div className="rounded-xl border border-red-200/50 bg-red-50/50 p-5">
           <div className="flex items-center gap-2 mb-3">
-            <AlertCircle size={16} className="text-red-500 dark:text-red-400" />
-            <h4 className="font-display text-sm font-semibold text-slate-900 dark:text-slate-100">
+            <AlertCircle size={16} className="text-red-500" />
+            <h4 className="font-display text-sm font-semibold text-slate-900">
               Before — Manual
             </h4>
           </div>
@@ -175,31 +175,31 @@ function MetricsDisplay({ useCase }: MetricsDisplayProps) {
             {useCase.before.steps.slice(0, 3).map((step, i) => (
               <div
                 key={i}
-                className="flex items-start gap-2 text-xs text-slate-600 dark:text-slate-400"
+                className="flex items-start gap-2 text-xs text-slate-600"
               >
-                <span className="w-4 h-4 rounded-full bg-red-100 dark:bg-red-900/40 text-red-600 dark:text-red-400 flex items-center justify-center text-[9px] font-bold flex-shrink-0 mt-0.5">
+                <span className="w-4 h-4 rounded-full bg-red-100 text-red-600 flex items-center justify-center text-[9px] font-bold flex-shrink-0 mt-0.5">
                   {i + 1}
                 </span>
                 {step}
               </div>
             ))}
             {useCase.before.steps.length > 3 && (
-              <p className="text-xs text-slate-400 dark:text-slate-500 pl-6">
+              <p className="text-xs text-slate-400 pl-6">
                 +{useCase.before.steps.length - 3} more steps...
               </p>
             )}
           </div>
 
-          <div className="space-y-1.5 pt-3 border-t border-red-200/50 dark:border-red-900/30">
+          <div className="space-y-1.5 pt-3 border-t border-red-200/50">
             <div className="flex items-center justify-between text-xs">
-              <span className="text-slate-500 dark:text-slate-400">Time</span>
-              <span className="font-mono text-red-600 dark:text-red-400 font-semibold">
+              <span className="text-slate-500">Time</span>
+              <span className="font-mono text-red-600 font-semibold">
                 {useCase.before.time}
               </span>
             </div>
             <div className="flex items-center justify-between text-xs">
-              <span className="text-slate-500 dark:text-slate-400">Errors</span>
-              <span className="font-mono text-red-600 dark:text-red-400 text-[10px]">
+              <span className="text-slate-500">Errors</span>
+              <span className="font-mono text-red-600 text-[10px]">
                 {useCase.before.errors}
               </span>
             </div>
@@ -207,10 +207,10 @@ function MetricsDisplay({ useCase }: MetricsDisplayProps) {
         </div>
 
         {/* After */}
-        <div className="rounded-xl border border-teal-200/50 dark:border-teal-900/30 bg-teal-50/50 dark:bg-teal-950/20 p-5">
+        <div className="rounded-xl border border-orange-200/50 bg-orange-50/50 p-5">
           <div className="flex items-center gap-2 mb-3">
-            <CheckCircle size={16} className="text-teal-600 dark:text-teal-400" />
-            <h4 className="font-display text-sm font-semibold text-slate-900 dark:text-slate-100">
+            <CheckCircle size={16} className="text-orange-600" />
+            <h4 className="font-display text-sm font-semibold text-slate-900">
               After — Agent School
             </h4>
           </div>
@@ -219,9 +219,9 @@ function MetricsDisplay({ useCase }: MetricsDisplayProps) {
             {useCase.after.steps.map((step, i) => (
               <div
                 key={i}
-                className="flex items-start gap-2 text-xs text-slate-600 dark:text-slate-400"
+                className="flex items-start gap-2 text-xs text-slate-600"
               >
-                <span className="w-4 h-4 rounded-full bg-teal-100 dark:bg-teal-900/40 text-teal-600 dark:text-teal-400 flex items-center justify-center text-[9px] font-bold flex-shrink-0 mt-0.5">
+                <span className="w-4 h-4 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center text-[9px] font-bold flex-shrink-0 mt-0.5">
                   {i + 1}
                 </span>
                 {step}
@@ -229,16 +229,16 @@ function MetricsDisplay({ useCase }: MetricsDisplayProps) {
             ))}
           </div>
 
-          <div className="space-y-1.5 pt-3 border-t border-teal-200/50 dark:border-teal-900/30">
+          <div className="space-y-1.5 pt-3 border-t border-orange-200/50">
             <div className="flex items-center justify-between text-xs">
-              <span className="text-slate-500 dark:text-slate-400">Time</span>
-              <span className="font-mono text-teal-600 dark:text-teal-400 font-semibold">
+              <span className="text-slate-500">Time</span>
+              <span className="font-mono text-orange-600 font-semibold">
                 {useCase.after.time}
               </span>
             </div>
             <div className="flex items-center justify-between text-xs">
-              <span className="text-slate-500 dark:text-slate-400">Errors</span>
-              <span className="font-mono text-teal-600 dark:text-teal-400 text-[10px]">
+              <span className="text-slate-500">Errors</span>
+              <span className="font-mono text-orange-600 text-[10px]">
                 {useCase.after.errors}
               </span>
             </div>
@@ -248,30 +248,30 @@ function MetricsDisplay({ useCase }: MetricsDisplayProps) {
 
       {/* Impact Metrics */}
       <div className="grid grid-cols-3 gap-3">
-        <div className="text-center p-4 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800">
-          <Clock size={16} className="text-orange-500 dark:text-orange-400 mx-auto mb-2" />
-          <p className="font-display text-lg font-bold text-slate-900 dark:text-slate-100">
+        <div className="text-center p-4 rounded-xl bg-slate-50 border border-slate-200">
+          <Clock size={16} className="text-orange-500 mx-auto mb-2" />
+          <p className="font-display text-lg font-bold text-slate-900">
             {useCase.metrics.timeSaved}
           </p>
-          <p className="text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-wide">
+          <p className="text-[10px] text-slate-500 uppercase tracking-wide">
             Time Saved
           </p>
         </div>
-        <div className="text-center p-4 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800">
-          <TrendingDown size={16} className="text-teal-600 dark:text-teal-400 mx-auto mb-2" />
-          <p className="font-display text-lg font-bold text-slate-900 dark:text-slate-100">
+        <div className="text-center p-4 rounded-xl bg-slate-50 border border-slate-200">
+          <TrendingDown size={16} className="text-orange-600 mx-auto mb-2" />
+          <p className="font-display text-lg font-bold text-slate-900">
             {useCase.metrics.costReduction}
           </p>
-          <p className="text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-wide">
+          <p className="text-[10px] text-slate-500 uppercase tracking-wide">
             Cost Reduction
           </p>
         </div>
-        <div className="text-center p-4 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800">
-          <DollarSign size={16} className="text-teal-600 dark:text-teal-400 mx-auto mb-2" />
-          <p className="font-display text-lg font-bold text-slate-900 dark:text-slate-100">
+        <div className="text-center p-4 rounded-xl bg-slate-50 border border-slate-200">
+          <DollarSign size={16} className="text-orange-600 mx-auto mb-2" />
+          <p className="font-display text-lg font-bold text-slate-900">
             {useCase.metrics.monthlyImpact}
           </p>
-          <p className="text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-wide">
+          <p className="text-[10px] text-slate-500 uppercase tracking-wide">
             Monthly Impact
           </p>
         </div>
@@ -281,15 +281,15 @@ function MetricsDisplay({ useCase }: MetricsDisplayProps) {
       <div className="pt-2">
         <button
           onClick={() => setShowWorkflows(!showWorkflows)}
-          className="w-full flex items-center justify-between px-4 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-colors group"
+          className="w-full flex items-center justify-between px-4 py-2 rounded-lg hover:bg-slate-100 transition-colors group"
         >
-          <p className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider group-hover:text-slate-600 dark:group-hover:text-slate-400 transition-colors">
+          <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider group-hover:text-slate-600 transition-colors">
             Other Automatable Workflows
           </p>
           {showWorkflows ? (
-            <ChevronUp size={14} className="text-slate-400 dark:text-slate-500 group-hover:text-slate-600 dark:group-hover:text-slate-400 transition-colors" />
+            <ChevronUp size={14} className="text-slate-400 group-hover:text-slate-600 transition-colors" />
           ) : (
-            <ChevronDown size={14} className="text-slate-400 dark:text-slate-500 group-hover:text-slate-600 dark:group-hover:text-slate-400 transition-colors" />
+            <ChevronDown size={14} className="text-slate-400 group-hover:text-slate-600 transition-colors" />
           )}
         </button>
         
@@ -306,7 +306,7 @@ function MetricsDisplay({ useCase }: MetricsDisplayProps) {
                 {useCase.additionalWorkflows.map((workflow) => (
                   <span
                     key={workflow}
-                    className="px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-[11px] text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700"
+                    className="px-2.5 py-1 rounded-full bg-slate-100 text-[11px] text-slate-600 border border-slate-200"
                   >
                     {workflow}
                   </span>
@@ -340,13 +340,13 @@ function UseCaseContent({ useCase }: UseCaseContentProps) {
     >
       {/* Scenario */}
       <div className="text-center max-w-2xl mx-auto">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-teal-500/10 to-orange-500/10 dark:from-teal-500/20 dark:to-orange-500/20 border border-teal-200/50 dark:border-teal-800/50 mb-3">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-orange-500/10 to-orange-500/10 border border-orange-200/50 mb-3">
           <Sparkles size={12} className="text-orange-500" />
-          <p className="text-xs font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wide">
+          <p className="text-xs font-semibold text-slate-700 uppercase tracking-wide">
             Scenario
           </p>
         </div>
-        <p className="font-display text-2xl md:text-3xl text-slate-900 dark:text-slate-100">
+        <p className="font-display text-2xl md:text-3xl text-slate-900">
           &ldquo;{useCase.scenario}&rdquo;
         </p>
       </div>
@@ -354,7 +354,7 @@ function UseCaseContent({ useCase }: UseCaseContentProps) {
       {/* Full-width demo, with comparison and metrics below */}
       <div className="space-y-6">
         <CardSpotlight
-          className="p-0 bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800"
+          className="p-0 bg-white border-slate-200"
           color="#14b8a6"
           radius={400}
         >
@@ -362,7 +362,7 @@ function UseCaseContent({ useCase }: UseCaseContentProps) {
             {DemoComponent ? (
               <DemoComponent />
             ) : (
-              <div className="h-[600px] flex items-center justify-center text-slate-400 dark:text-slate-600">
+              <div className="h-[600px] flex items-center justify-center text-slate-400">
                 Demo component coming soon
               </div>
             )}
@@ -390,22 +390,22 @@ function AdditionalDemoContent({ demo }: AdditionalDemoContentProps) {
       className="space-y-6"
     >
       <div className="text-center max-w-2xl mx-auto">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-teal-500/10 to-orange-500/10 dark:from-teal-500/20 dark:to-orange-500/20 border border-teal-200/50 dark:border-teal-800/50 mb-3">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-orange-500/10 to-orange-500/10 border border-orange-200/50 mb-3">
           <Sparkles size={12} className="text-orange-500" />
-          <p className="text-xs font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wide">
+          <p className="text-xs font-semibold text-slate-700 uppercase tracking-wide">
             Scenario
           </p>
         </div>
-        <p className="font-display text-2xl md:text-3xl text-slate-900 dark:text-slate-100">
+        <p className="font-display text-2xl md:text-3xl text-slate-900">
           &ldquo;{demo.scenario}&rdquo;
         </p>
-        <p className="text-sm text-orange-600 dark:text-orange-400 mt-3 font-mono">
+        <p className="text-sm text-orange-600 mt-3 font-mono">
           {demo.suggestedQuery}
         </p>
       </div>
 
       <CardSpotlight
-        className="p-0 bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800"
+        className="p-0 bg-white border-slate-200"
         color="#14b8a6"
         radius={400}
       >
@@ -413,7 +413,7 @@ function AdditionalDemoContent({ demo }: AdditionalDemoContentProps) {
           {DemoComponent ? (
             <DemoComponent />
           ) : (
-            <div className="h-[600px] flex items-center justify-center text-slate-400 dark:text-slate-600">
+            <div className="h-[600px] flex items-center justify-center text-slate-400">
               Demo component coming soon
             </div>
           )}
@@ -432,10 +432,10 @@ export function UseCases() {
   return (
     <section
       id="use-cases"
-      className="py-24 md:py-32 px-6 bg-white dark:bg-slate-950 relative overflow-hidden"
+      className="py-24 md:py-32 px-6 bg-white relative overflow-hidden"
     >
       {/* Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-teal-50/30 via-transparent to-orange-50/30 dark:from-teal-950/20 dark:via-transparent dark:to-orange-950/20 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-orange-50/30 via-transparent to-orange-50/30 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <ScrollReveal>
@@ -473,11 +473,11 @@ export function UseCases() {
 
         {/* Industry Note */}
         <ScrollReveal delay={0.4}>
-          <div className="mt-16 text-center p-8 rounded-2xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800">
-            <p className="text-base text-slate-700 dark:text-slate-300 mb-2">
+          <div className="mt-16 text-center p-8 rounded-2xl bg-slate-50 border border-slate-200">
+            <p className="text-base text-slate-700 mb-2">
               Agent School works with any software stack in any industry.
             </p>
-            <p className="text-sm text-slate-500 dark:text-slate-400">
+            <p className="text-sm text-slate-500">
               These are starting examples. We evaluate each use case individually
               to ensure Agent School is the right fit for your specific workflows.
             </p>

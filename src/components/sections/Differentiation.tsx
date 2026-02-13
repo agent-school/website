@@ -69,11 +69,11 @@ function ComparisonBlock({
       <CardSpotlight color="rgba(239, 68, 68, 0.3)">
         <motion.div
           whileHover={{ y: -2 }}
-          className="h-full rounded-2xl border border-red-200 dark:border-red-900/30 bg-red-50/50 dark:bg-red-950/20 p-6"
+          className="h-full rounded-2xl border border-red-200 bg-red-50/50 p-6"
         >
           <div className="flex items-center gap-2 mb-5">
-            <div className="w-3 h-3 rounded-full bg-red-400 dark:bg-red-500" />
-            <h4 className="font-display text-heading-md text-slate-900 dark:text-slate-100">
+            <div className="w-3 h-3 rounded-full bg-red-400" />
+            <h4 className="font-display text-heading-md text-slate-900">
               {competitor.label}
             </h4>
           </div>
@@ -81,11 +81,11 @@ function ComparisonBlock({
             {competitor.items.map((item) => (
               <li
                 key={item}
-                className="flex items-start gap-2.5 text-body-sm text-slate-700 dark:text-slate-300"
+                className="flex items-start gap-2.5 text-body-sm text-slate-700"
               >
                 <X
                   size={16}
-                  className="text-red-500 dark:text-red-400 mt-0.5 flex-shrink-0"
+                  className="text-red-500 mt-0.5 flex-shrink-0"
                   strokeWidth={2.5}
                 />
                 {item}
@@ -99,11 +99,11 @@ function ComparisonBlock({
       <CardSpotlight color="rgba(20, 184, 166, 0.3)">
         <motion.div
           whileHover={{ y: -2 }}
-          className="h-full rounded-2xl border border-teal-200 dark:border-teal-900/30 bg-gradient-to-br from-teal-50/50 to-orange-50/50 dark:from-teal-950/20 dark:to-orange-950/20 p-6"
+          className="h-full rounded-2xl border border-orange-200 bg-orange-50/50 p-6"
         >
           <div className="flex items-center gap-2 mb-5">
-            <div className="w-3 h-3 rounded-full bg-gradient-to-br from-teal-500 to-orange-500" />
-            <h4 className="font-display text-heading-md text-slate-900 dark:text-slate-100">
+            <div className="w-3 h-3 rounded-full bg-orange-500" />
+            <h4 className="font-display text-heading-md text-slate-900">
               {agentSchool.label}
             </h4>
           </div>
@@ -111,11 +111,11 @@ function ComparisonBlock({
             {agentSchool.items.map((item) => (
               <li
                 key={item}
-                className="flex items-start gap-2.5 text-body-sm text-slate-700 dark:text-slate-300"
+                className="flex items-start gap-2.5 text-body-sm text-slate-700"
               >
                 <Check
                   size={16}
-                  className="text-teal-600 dark:text-teal-400 mt-0.5 flex-shrink-0"
+                  className="text-orange-600 mt-0.5 flex-shrink-0"
                   strokeWidth={2.5}
                 />
                 {item}
@@ -132,11 +132,11 @@ export function Differentiation() {
   const [activeTab, setActiveTab] = useState<"rpa" | "ai">("rpa");
 
   return (
-    <section id="differentiation" className="relative py-24 md:py-32 px-6 bg-white dark:bg-slate-950 overflow-hidden">
+    <section id="differentiation" className="relative py-24 md:py-32 px-6 bg-white overflow-hidden">
       {/* Background decorations */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-teal-500/10 dark:bg-teal-500/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-orange-500/10 dark:bg-orange-500/5 rounded-full blur-3xl" />
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl" />
       </div>
 
       <div className="max-w-7xl mx-auto">
@@ -151,19 +151,19 @@ export function Differentiation() {
         {/* Tab Navigation */}
         <ScrollReveal>
           <div className="flex justify-center mb-12">
-            <div className="inline-flex rounded-2xl bg-slate-100 dark:bg-slate-900 p-1.5 gap-1.5">
+            <div className="inline-flex rounded-2xl bg-slate-100 p-1.5 gap-1.5">
               <button
                 onClick={() => setActiveTab("rpa")}
                 className={`relative px-6 py-3 rounded-xl font-display text-sm md:text-base font-semibold transition-colors ${
                   activeTab === "rpa"
                     ? "text-white"
-                    : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
+                    : "text-slate-600 hover:text-slate-900"
                 }`}
               >
                 {activeTab === "rpa" && (
                   <motion.div
                     layoutId="activeTab"
-                    className="absolute inset-0 bg-gradient-to-br from-teal-500 to-orange-500 rounded-xl"
+                    className="absolute inset-0 bg-gradient-to-br from-orange-500 to-orange-500 rounded-xl"
                     transition={{ type: "spring", duration: 0.5, bounce: 0.15 }}
                   />
                 )}
@@ -174,13 +174,13 @@ export function Differentiation() {
                 className={`relative px-6 py-3 rounded-xl font-display text-sm md:text-base font-semibold transition-colors ${
                   activeTab === "ai"
                     ? "text-white"
-                    : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
+                    : "text-slate-600 hover:text-slate-900"
                 }`}
               >
                 {activeTab === "ai" && (
                   <motion.div
                     layoutId="activeTab"
-                    className="absolute inset-0 bg-gradient-to-br from-teal-500 to-orange-500 rounded-xl"
+                    className="absolute inset-0 bg-gradient-to-br from-orange-500 to-orange-500 rounded-xl"
                     transition={{ type: "spring", duration: 0.5, bounce: 0.15 }}
                   />
                 )}
@@ -228,10 +228,10 @@ export function Differentiation() {
         <ScrollReveal delay={0.15}>
           <div className="mt-16">
             <div className="text-center mb-10">
-              <h3 className="font-display text-display-sm bg-gradient-to-br from-teal-600 to-orange-500 bg-clip-text text-transparent mb-3">
+              <h3 className="font-display text-display-sm bg-gradient-to-br from-orange-600 to-orange-500 bg-clip-text text-transparent mb-3">
                 Calculate Your ROI
               </h3>
-              <p className="text-body-md text-slate-600 dark:text-slate-400 max-w-xl mx-auto">
+              <p className="text-body-md text-slate-600 max-w-xl mx-auto">
                 Input your workflow details and see projected savings. Real math,
                 no hand-waving.
               </p>

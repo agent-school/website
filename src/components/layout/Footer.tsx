@@ -5,10 +5,10 @@ import { NAV_ITEMS, BOOKING_URL, LINKEDIN_URL, TWITTER_URL } from "@/lib/constan
 
 export function Footer() {
   return (
-    <footer className="bg-slate-900 dark:bg-slate-950 text-white">
+    <footer className="bg-slate-900 text-white">
       {/* Newsletter Strip hidden until subscription feature is ready */}
       {/*
-      <div className="bg-gradient-to-r from-teal-600 to-orange-500">
+      <div className="bg-gradient-to-r from-orange-600 to-orange-500">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
@@ -25,7 +25,7 @@ export function Footer() {
       */}
 
       {/* Main Footer */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-16 pb-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 lg:gap-8">
           {/* Brand */}
           <div className="lg:col-span-2">
@@ -39,7 +39,7 @@ export function Footer() {
                 Agent School
               </span>
             </div>
-            <p className="text-body-sm text-slate-400 dark:text-slate-500 leading-relaxed max-w-xs">
+            <p className="text-body-sm text-slate-400 leading-relaxed max-w-xs">
               The fastest way to teach and certify AI agents to operate on your
               software stack reliably.
             </p>
@@ -55,7 +55,7 @@ export function Footer() {
                 <li key={item.href}>
                   <a
                     href={item.href}
-                    className="text-body-sm text-slate-400 dark:text-slate-500 hover:text-teal-400 dark:hover:text-teal-500 transition-colors"
+                    className="text-body-sm text-slate-400 hover:text-orange-400 transition-colors"
                   >
                     {item.label}
                   </a>
@@ -64,7 +64,7 @@ export function Footer() {
               <li>
                 <a
                   href={BOOKING_URL}
-                  className="text-body-sm text-slate-400 dark:text-slate-500 hover:text-teal-400 dark:hover:text-teal-500 transition-colors"
+                  className="text-body-sm text-slate-400 hover:text-orange-400 transition-colors"
                 >
                   Book a Demo
                 </a>
@@ -81,7 +81,7 @@ export function Footer() {
               <li>
                 <a
                   href="/blog"
-                  className="text-body-sm text-slate-400 dark:text-slate-500 hover:text-teal-400 dark:hover:text-teal-500 transition-colors"
+                  className="text-body-sm text-slate-400 hover:text-orange-400 transition-colors"
                 >
                   Blog
                 </a>
@@ -89,7 +89,7 @@ export function Footer() {
               <li>
                 <a
                   href="/blog/geometry-solution-case-study"
-                  className="text-body-sm text-slate-400 dark:text-slate-500 hover:text-teal-400 dark:hover:text-teal-500 transition-colors"
+                  className="text-body-sm text-slate-400 hover:text-orange-400 transition-colors"
                 >
                   Case Study
                 </a>
@@ -106,7 +106,7 @@ export function Footer() {
               <li>
                 <a
                   href="/vs/manus"
-                  className="text-body-sm text-slate-400 dark:text-slate-500 hover:text-teal-400 dark:hover:text-teal-500 transition-colors"
+                  className="text-body-sm text-slate-400 hover:text-orange-400 transition-colors"
                 >
                   vs Manus
                 </a>
@@ -114,7 +114,7 @@ export function Footer() {
               <li>
                 <a
                   href="/vs/n8n"
-                  className="text-body-sm text-slate-400 dark:text-slate-500 hover:text-teal-400 dark:hover:text-teal-500 transition-colors"
+                  className="text-body-sm text-slate-400 hover:text-orange-400 transition-colors"
                 >
                   vs n8n
                 </a>
@@ -131,7 +131,7 @@ export function Footer() {
               <li>
                 <a
                   href="mailto:hello@agentschool.io"
-                  className="text-body-sm text-slate-400 dark:text-slate-500 hover:text-teal-400 dark:hover:text-teal-500 transition-colors"
+                  className="text-body-sm text-slate-400 hover:text-orange-400 transition-colors"
                 >
                   Contact
                 </a>
@@ -141,7 +141,7 @@ export function Footer() {
                   href={LINKEDIN_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-body-sm text-slate-400 dark:text-slate-500 hover:text-teal-400 dark:hover:text-teal-500 transition-colors inline-flex items-center gap-1.5"
+                  className="text-body-sm text-slate-400 hover:text-orange-400 transition-colors inline-flex items-center gap-1.5"
                 >
                   <Linkedin size={14} />
                   LinkedIn
@@ -152,7 +152,7 @@ export function Footer() {
                   href={TWITTER_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-body-sm text-slate-400 dark:text-slate-500 hover:text-teal-400 dark:hover:text-teal-500 transition-colors inline-flex items-center gap-1.5"
+                  className="text-body-sm text-slate-400 hover:text-orange-400 transition-colors inline-flex items-center gap-1.5"
                 >
                   <Twitter size={14} />
                   X (Twitter)
@@ -161,7 +161,7 @@ export function Footer() {
               <li>
                 <a
                   href="/privacy"
-                  className="text-body-sm text-slate-400 dark:text-slate-500 hover:text-teal-400 dark:hover:text-teal-500 transition-colors"
+                  className="text-body-sm text-slate-400 hover:text-orange-400 transition-colors"
                 >
                   Privacy
                 </a>
@@ -169,7 +169,7 @@ export function Footer() {
               <li>
                 <a
                   href="/terms"
-                  className="text-body-sm text-slate-400 dark:text-slate-500 hover:text-teal-400 dark:hover:text-teal-500 transition-colors"
+                  className="text-body-sm text-slate-400 hover:text-orange-400 transition-colors"
                 >
                   Terms
                 </a>
@@ -177,31 +177,46 @@ export function Footer() {
             </ul>
           </div>
         </div>
+      </div>
 
-        {/* Bottom Bar */}
-        <div className="mt-16 pt-8 border-t border-slate-800 dark:border-slate-900 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-caption text-slate-500 dark:text-slate-600">
-            &copy; {new Date().getFullYear()} Agent School. All rights reserved.
-          </p>
-          <div className="flex items-center gap-4">
+      {/* CTA Footer Section */}
+      <div className="bg-[#FF6B3D] py-20 px-6 lg:px-32">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col gap-10">
+            <h2 className="font-playfair text-7xl md:text-8xl font-bold text-white leading-tight tracking-tight opacity-70">
+              Creating the future.
+            </h2>
             <a
-              href={LINKEDIN_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-              className="text-slate-500 dark:text-slate-600 hover:text-teal-400 dark:hover:text-teal-500 transition-colors"
+              href="mailto:hello@agentschool.io"
+              className="text-white text-3xl md:text-4xl hover:opacity-80 transition-opacity"
             >
-              <Linkedin size={18} />
+              hello@agentschool.io
             </a>
-            <a
-              href={TWITTER_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="X (Twitter)"
-              className="text-slate-500 dark:text-slate-600 hover:text-teal-400 dark:hover:text-teal-500 transition-colors"
-            >
-              <Twitter size={18} />
-            </a>
+            <div className="flex items-center gap-6 mt-2">
+              <a
+                href={TWITTER_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="X (Twitter)"
+                className="text-white hover:opacity-80 transition-opacity"
+              >
+                <Twitter size={28} />
+              </a>
+              <a
+                href={LINKEDIN_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="text-white hover:opacity-80 transition-opacity"
+              >
+                <Linkedin size={28} />
+              </a>
+            </div>
+            <div className="mt-8">
+              <p className="text-white text-sm opacity-70">
+                Copyright {new Date().getFullYear()} Agent School. All rights reserved
+              </p>
+            </div>
           </div>
         </div>
       </div>

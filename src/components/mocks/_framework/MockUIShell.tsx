@@ -14,7 +14,7 @@ export function MockUIShell({ title, children, sidebar, className = "" }: MockUI
   return (
     <div
       className={`
-        bg-white dark:bg-slate-900
+        bg-white
         rounded-2xl
         shadow-glow-teal
         overflow-hidden
@@ -24,7 +24,7 @@ export function MockUIShell({ title, children, sidebar, className = "" }: MockUI
       `.trim()}
     >
       {/* Mobile Notice - Only visible on mobile */}
-      <div className="lg:hidden bg-gradient-to-r from-orange-500 to-teal-500 px-4 py-3 flex items-center gap-2">
+      <div className="lg:hidden bg-gradient-to-r bg-orange-500 px-4 py-3 flex items-center gap-2">
         <Monitor size={16} className="text-white flex-shrink-0" />
         <p className="text-sm text-white font-medium">
           Best experience on desktop for interactive demos
@@ -32,7 +32,7 @@ export function MockUIShell({ title, children, sidebar, className = "" }: MockUI
       </div>
 
       {/* macOS Window Header */}
-      <div className="flex items-center gap-3 px-5 py-3 bg-slate-50 dark:bg-slate-800 border-b border-slate-200 dark:border-slate-800 flex-shrink-0">
+      <div className="flex items-center gap-3 px-5 py-3 bg-slate-50 border-b border-slate-200 flex-shrink-0">
         {/* macOS Window Dots */}
         <div className="flex gap-1.5">
           <div className="w-3 h-3 rounded-full bg-red-400" />
@@ -41,7 +41,7 @@ export function MockUIShell({ title, children, sidebar, className = "" }: MockUI
         </div>
 
         {/* Window Title */}
-        <h3 className="font-display text-body-md text-slate-900 dark:text-slate-100">
+        <h3 className="font-display text-body-md text-slate-900">
           {title}
         </h3>
       </div>
@@ -58,8 +58,8 @@ export function MockUIShell({ title, children, sidebar, className = "" }: MockUI
           <div className="
             w-full lg:w-96
             border-t lg:border-t-0 lg:border-l
-            border-slate-200 dark:border-slate-800
-            bg-slate-50 dark:bg-slate-800/50
+            border-slate-200
+            bg-slate-50
             overflow-auto
             min-h-0
           ">

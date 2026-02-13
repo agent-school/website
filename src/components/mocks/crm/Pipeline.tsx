@@ -87,7 +87,7 @@ export function Pipeline() {
         return (
           <div
             key={stage}
-            className={`flex-shrink-0 w-80 flex flex-col ${highlighted ? "ring-2 ring-teal-500 dark:ring-teal-400 rounded-lg" : ""}`}
+            className={`flex-shrink-0 w-80 flex flex-col ${highlighted ? "ring-2 ring-orange-500 rounded-lg" : ""}`}
           >
             {/* Column Header */}
             <div className={`${colors.bg} ${colors.border} border-b-2 rounded-t-lg p-4`}>
@@ -117,42 +117,42 @@ export function Pipeline() {
                     highlight={dealHighlighted}
                     onClick={() => handleDealClick(deal.id)}
                     className={`
-                      bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700
+                      bg-white rounded-lg border border-slate-200
                       shadow-sm hover:shadow-md transition-all cursor-pointer p-4
-                      ${dealHighlighted ? "ring-2 ring-teal-500 dark:ring-teal-400 shadow-lg" : ""}
-                      ${dealSelected ? "ring-2 ring-orange-500 dark:ring-orange-400 shadow-lg bg-orange-50 dark:bg-orange-950/20" : ""}
+                      ${dealHighlighted ? "ring-2 ring-orange-500 shadow-lg" : ""}
+                      ${dealSelected ? "ring-2 ring-orange-500 shadow-lg bg-orange-50" : ""}
                       ${deal.priority === "high" ? "border-l-4 border-l-orange-500" : ""}
                     `}
                   >
                     <div className="space-y-2">
                       {/* Company Name */}
-                      <h4 className="font-semibold text-sm text-slate-900 dark:text-slate-100 leading-tight">
+                      <h4 className="font-semibold text-sm text-slate-900 leading-tight">
                         {deal.company}
                       </h4>
 
                       {/* Deal Value */}
-                      <div className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400">
-                        <DollarSign className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
-                        <span className="font-mono font-semibold text-slate-900 dark:text-slate-100">
+                      <div className="flex items-center gap-1.5 text-xs text-slate-600">
+                        <DollarSign className="w-3.5 h-3.5 text-orange-600" />
+                        <span className="font-mono font-semibold text-slate-900">
                           {formatCurrency(deal.value)}
                         </span>
                       </div>
 
                       {/* Contact */}
-                      <div className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400">
+                      <div className="flex items-center gap-1.5 text-xs text-slate-600">
                         <User className="w-3.5 h-3.5" />
                         <span>{deal.contact}</span>
                       </div>
 
                       {/* Expected Close Date */}
-                      <div className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400">
+                      <div className="flex items-center gap-1.5 text-xs text-slate-600">
                         <Calendar className="w-3.5 h-3.5" />
                         <span>{formatDate(deal.expectedCloseDate)}</span>
                       </div>
 
                       {/* Priority Indicator */}
                       {deal.priority === "high" && (
-                        <div className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300">
+                        <div className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-orange-100 text-orange-800">
                           High Priority
                         </div>
                       )}
@@ -162,7 +162,7 @@ export function Pipeline() {
               })}
 
               {dealsByStage[stage].length === 0 && (
-                <div className="text-center py-8 text-sm text-slate-400 dark:text-slate-600">
+                <div className="text-center py-8 text-sm text-slate-400">
                   No deals in this stage
                 </div>
               )}

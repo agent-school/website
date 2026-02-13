@@ -77,7 +77,7 @@ export default function BlogPage() {
       <main className="bg-white min-h-screen">
         <section className="pt-36 pb-20 px-6">
           <div className="max-w-7xl mx-auto">
-            <p className="font-mono text-caption uppercase tracking-widest text-teal-600 mb-4">
+            <p className="font-mono text-caption uppercase tracking-widest text-orange-600 mb-4">
               Agent School Journal
             </p>
             <h1 className="font-display text-display-lg md:text-6xl text-slate-900 max-w-3xl">
@@ -99,7 +99,7 @@ export default function BlogPage() {
                     <Link href={`/blog/${post.slug}`}>
                       <article className="group cursor-pointer">
                         <div className="flex items-baseline justify-between gap-4 mb-2">
-                          <h2 className="font-display text-heading-lg text-slate-900 group-hover:text-teal-600 transition-colors">
+                          <h2 className="font-display text-heading-lg text-slate-900 group-hover:text-orange-600 transition-colors">
                             {post.title}
                           </h2>
                           <span className="text-body-sm text-slate-500 whitespace-nowrap">

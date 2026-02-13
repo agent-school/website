@@ -9,7 +9,7 @@ export function LoadingSpinner({ className = "" }: { className?: string }) {
   return (
     <div className={`flex items-center justify-center ${className}`}>
       <motion.div
-        className="w-10 h-10 rounded-full border-4 border-slate-200 dark:border-slate-700 border-t-teal-600 dark:border-t-teal-400"
+        className="w-10 h-10 rounded-full border-4 border-slate-200 border-t-orange-600"
         animate={{ rotate: 360 }}
         transition={{
           duration: 1,
@@ -36,7 +36,7 @@ export function SkeletonRow({
       {Array.from({ length: columns }).map((_, i) => (
         <motion.div
           key={i}
-          className="h-4 bg-slate-200 dark:bg-slate-700 rounded flex-1 relative overflow-hidden"
+          className="h-4 bg-slate-200 rounded flex-1 relative overflow-hidden"
           animate={{
             opacity: [0.5, 0.8, 0.5],
           }}
@@ -48,7 +48,7 @@ export function SkeletonRow({
           }}
         >
           <motion.div
-            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 dark:via-white/10 to-transparent"
+            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
             animate={{
               x: ["-100%", "100%"],
             }}
@@ -71,11 +71,11 @@ export function SkeletonRow({
 export function SkeletonCard({ className = "" }: { className?: string }) {
   return (
     <div
-      className={`bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 p-6 ${className}`}
+      className={`bg-white rounded-lg border border-slate-200 p-6 ${className}`}
     >
       {/* Header */}
       <motion.div
-        className="h-6 bg-slate-200 dark:bg-slate-700 rounded w-3/4 mb-4 relative overflow-hidden"
+        className="h-6 bg-slate-200 rounded w-3/4 mb-4 relative overflow-hidden"
         animate={{
           opacity: [0.5, 0.8, 0.5],
         }}
@@ -86,7 +86,7 @@ export function SkeletonCard({ className = "" }: { className?: string }) {
         }}
       >
         <motion.div
-          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 dark:via-white/10 to-transparent"
+          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
           animate={{
             x: ["-100%", "100%"],
           }}
@@ -102,7 +102,7 @@ export function SkeletonCard({ className = "" }: { className?: string }) {
       {[100, 80, 60].map((width, i) => (
         <motion.div
           key={i}
-          className="h-4 bg-slate-200 dark:bg-slate-700 rounded mb-3 relative overflow-hidden"
+          className="h-4 bg-slate-200 rounded mb-3 relative overflow-hidden"
           style={{ width: `${width}%` }}
           animate={{
             opacity: [0.5, 0.8, 0.5],
@@ -115,7 +115,7 @@ export function SkeletonCard({ className = "" }: { className?: string }) {
           }}
         >
           <motion.div
-            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 dark:via-white/10 to-transparent"
+            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
             animate={{
               x: ["-100%", "100%"],
             }}
@@ -131,7 +131,7 @@ export function SkeletonCard({ className = "" }: { className?: string }) {
 
       {/* Footer */}
       <motion.div
-        className="h-4 bg-slate-200 dark:bg-slate-700 rounded w-1/2 mt-6 relative overflow-hidden"
+        className="h-4 bg-slate-200 rounded w-1/2 mt-6 relative overflow-hidden"
         animate={{
           opacity: [0.5, 0.8, 0.5],
         }}
@@ -143,7 +143,7 @@ export function SkeletonCard({ className = "" }: { className?: string }) {
         }}
       >
         <motion.div
-          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 dark:via-white/10 to-transparent"
+          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
           animate={{
             x: ["-100%", "100%"],
           }}

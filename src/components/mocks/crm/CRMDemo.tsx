@@ -53,56 +53,56 @@ function CRMDemoContent() {
             transition={{ duration: 0.25 }}
             className="overflow-hidden"
           >
-            <div className="bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 p-4 shadow-md">
+            <div className="bg-white rounded-lg border border-slate-200 p-4 shadow-md">
               <div className="flex items-center justify-between mb-4">
-                <h3 className="font-semibold text-lg text-slate-900 dark:text-slate-100">
+                <h3 className="font-semibold text-lg text-slate-900">
                   Deal Details
                 </h3>
                 <button
                   onClick={handleCloseDealDetail}
-                  className="p-1 hover:bg-slate-100 dark:hover:bg-slate-700 rounded transition-colors"
+                  className="p-1 hover:bg-slate-100 rounded transition-colors"
                 >
-                  <X size={18} className="text-slate-500 dark:text-slate-400" />
+                  <X size={18} className="text-slate-500" />
                 </button>
               </div>
 
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">Company</p>
-                  <p className="font-semibold text-slate-900 dark:text-slate-100">{selectedDeal.company}</p>
+                  <p className="text-xs text-slate-500 mb-1">Company</p>
+                  <p className="font-semibold text-slate-900">{selectedDeal.company}</p>
                 </div>
 
                 <div>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 mb-1 flex items-center gap-1">
+                  <p className="text-xs text-slate-500 mb-1 flex items-center gap-1">
                     <DollarSign size={12} /> Deal Value
                   </p>
-                  <p className="font-semibold text-teal-600 dark:text-teal-400 font-mono">
+                  <p className="font-semibold text-orange-600 font-mono">
                     ${(selectedDeal.value / 1000).toFixed(0)}K
                   </p>
                 </div>
 
                 <div>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 mb-1 flex items-center gap-1">
+                  <p className="text-xs text-slate-500 mb-1 flex items-center gap-1">
                     <TrendingUp size={12} /> Stage
                   </p>
-                  <p className="font-semibold text-slate-900 dark:text-slate-100">
+                  <p className="font-semibold text-slate-900">
                     {STAGE_LABELS[selectedDeal.stage]}
                   </p>
                 </div>
 
                 <div>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 mb-1 flex items-center gap-1">
+                  <p className="text-xs text-slate-500 mb-1 flex items-center gap-1">
                     <User size={12} /> Contact
                   </p>
-                  <p className="font-semibold text-slate-900 dark:text-slate-100">{selectedDeal.contact}</p>
+                  <p className="font-semibold text-slate-900">{selectedDeal.contact}</p>
                 </div>
               </div>
 
-              <div className="mt-4 pt-4 border-t border-slate-200 dark:border-slate-700">
+              <div className="mt-4 pt-4 border-t border-slate-200">
                 <div className="flex items-center gap-2">
-                  <Calendar size={14} className="text-slate-500 dark:text-slate-400" />
-                  <p className="text-sm text-slate-600 dark:text-slate-400">
-                    Expected Close: <span className="font-semibold text-slate-900 dark:text-slate-100">
+                  <Calendar size={14} className="text-slate-500" />
+                  <p className="text-sm text-slate-600">
+                    Expected Close: <span className="font-semibold text-slate-900">
                       {new Date(selectedDeal.expectedCloseDate).toLocaleDateString("en-US", {
                         month: "short",
                         day: "numeric",
@@ -111,7 +111,7 @@ function CRMDemoContent() {
                     </span>
                   </p>
                   {selectedDeal.priority === "high" && (
-                    <span className="ml-auto px-2 py-0.5 rounded text-xs font-medium bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300">
+                    <span className="ml-auto px-2 py-0.5 rounded text-xs font-medium bg-orange-100 text-orange-800">
                       High Priority
                     </span>
                   )}

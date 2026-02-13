@@ -75,13 +75,13 @@ export function AgentInterface({
   };
 
   return (
-    <div className="flex flex-col h-full bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-lg overflow-hidden">
+    <div className="flex flex-col h-full bg-white rounded-2xl border border-slate-200 shadow-lg overflow-hidden">
       {/* Header */}
-      <div className="px-6 py-4 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/50">
-        <h3 className="font-display text-xl text-slate-900 dark:text-slate-100">
+      <div className="px-6 py-4 border-b border-slate-200 bg-slate-50">
+        <h3 className="font-display text-xl text-slate-900">
           {title}
         </h3>
-        <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
+        <p className="text-sm text-slate-500 mt-1">
           {subtitle}
         </p>
       </div>
@@ -91,12 +91,12 @@ export function AgentInterface({
         {messages.length === 0 && !isLoading ? (
           <div className="flex items-center justify-center h-full text-center py-12">
             <div>
-              <p className="text-slate-400 dark:text-slate-500 mb-4">
+              <p className="text-slate-400 mb-4">
                 Start a conversation with the agent
               </p>
               {suggestedQueries.length > 0 && (
                 <div className="space-y-2">
-                  <p className="text-xs font-mono uppercase tracking-widest text-slate-500 dark:text-slate-400">
+                  <p className="text-xs font-mono uppercase tracking-widest text-slate-500">
                     Try asking:
                   </p>
                   <div className="flex flex-col gap-2">
@@ -104,7 +104,7 @@ export function AgentInterface({
                       <button
                         key={idx}
                         onClick={() => handleSuggestedQuery(query)}
-                        className="px-4 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm text-slate-700 dark:text-slate-300 hover:border-teal-500 dark:hover:border-teal-500 hover:text-teal-600 dark:hover:text-teal-400 transition-colors text-left"
+                        className="px-4 py-2 bg-white border border-slate-200 rounded-lg text-sm text-slate-700 hover:border-orange-500 hover:text-orange-600 transition-colors text-left"
                       >
                         {query}
                       </button>
@@ -127,7 +127,7 @@ export function AgentInterface({
                 {/* User Message */}
                 {msg.query && (
                   <div className="flex justify-end mb-2">
-                    <div className="max-w-[80%] bg-teal-100 dark:bg-teal-900/30 text-teal-900 dark:text-teal-100 rounded-2xl rounded-tr-sm px-4 py-3">
+                    <div className="max-w-[80%] bg-orange-100 text-orange-900 rounded-2xl rounded-tr-sm px-4 py-3">
                       <p className="text-sm font-medium whitespace-pre-wrap">
                         {msg.query}
                       </p>
@@ -138,7 +138,7 @@ export function AgentInterface({
                 {/* Agent Message */}
                 {msg.response && (
                   <div className="flex justify-start">
-                    <div className="max-w-[80%] bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-slate-100 rounded-2xl rounded-tl-sm px-4 py-3">
+                    <div className="max-w-[80%] bg-slate-100 text-slate-900 rounded-2xl rounded-tl-sm px-4 py-3">
                       <p className="text-sm whitespace-pre-wrap">
                         {msg.response}
                       </p>
@@ -157,11 +157,11 @@ export function AgentInterface({
                 exit={{ opacity: 0 }}
                 className="flex justify-start"
               >
-                <div className="bg-slate-100 dark:bg-slate-800 rounded-2xl rounded-tl-sm px-4 py-3">
+                <div className="bg-slate-100 rounded-2xl rounded-tl-sm px-4 py-3">
                   <div className="flex items-center gap-2">
                     <div className="flex gap-1">
                       <motion.div
-                        className="w-2 h-2 rounded-full bg-gradient-to-r from-teal-500 to-orange-500"
+                        className="w-2 h-2 rounded-full bg-gradient-to-r from-orange-500 to-orange-500"
                         animate={{
                           scale: [1, 1.2, 1],
                           opacity: [0.5, 1, 0.5]
@@ -173,7 +173,7 @@ export function AgentInterface({
                         }}
                       />
                       <motion.div
-                        className="w-2 h-2 rounded-full bg-gradient-to-r from-teal-500 to-orange-500"
+                        className="w-2 h-2 rounded-full bg-gradient-to-r from-orange-500 to-orange-500"
                         animate={{
                           scale: [1, 1.2, 1],
                           opacity: [0.5, 1, 0.5]
@@ -185,7 +185,7 @@ export function AgentInterface({
                         }}
                       />
                       <motion.div
-                        className="w-2 h-2 rounded-full bg-gradient-to-r from-teal-500 to-orange-500"
+                        className="w-2 h-2 rounded-full bg-gradient-to-r from-orange-500 to-orange-500"
                         animate={{
                           scale: [1, 1.2, 1],
                           opacity: [0.5, 1, 0.5]
@@ -197,7 +197,7 @@ export function AgentInterface({
                         }}
                       />
                     </div>
-                    <span className="text-sm text-slate-600 dark:text-slate-400">
+                    <span className="text-sm text-slate-600">
                       Thinking...
                     </span>
                   </div>
@@ -212,7 +212,7 @@ export function AgentInterface({
       {/* Input Area */}
       <form
         onSubmit={handleSubmit}
-        className="px-6 py-4 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/50"
+        className="px-6 py-4 border-t border-slate-200 bg-slate-50"
       >
         <div className="flex gap-2">
           <Input
@@ -223,12 +223,12 @@ export function AgentInterface({
             onKeyDown={handleKeyDown}
             placeholder={placeholder}
             disabled={isLoading}
-            className="flex-1 bg-white dark:bg-slate-900"
+            className="flex-1 bg-white"
           />
           <Button
             type="submit"
             disabled={!input.trim() || isLoading}
-            className="bg-gradient-to-r from-teal-600 to-orange-500 hover:from-teal-700 hover:to-orange-600 text-white"
+            className="bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-700 hover:to-orange-600 text-white"
           >
             <Send className="w-4 h-4" />
           </Button>
