@@ -8,7 +8,7 @@ import { Navbar } from "@/components/layout/Navbar";
 export const metadata = {
   title: "Case Study: How Geometry Solution Automated 40+ Hours of Weekly Invoicing | Agent School",
   description:
-    "Discover how Geometry Solution used AI agents to eliminate repetitive logistics workflows, processing hundreds of invoices and warehouse receipts automatically.",
+    "Discover how Geometry Solution built deterministic workflows on top of legacy logistics systems, eliminating 85% of manual data entry with self-healing automation.",
 };
 
 export default function GeometrySolutionCaseStudyPage() {
@@ -36,7 +36,7 @@ export default function GeometrySolutionCaseStudyPage() {
                 How Geometry Solution Automated 40+ Hours of Weekly Invoicing
               </h1>
               <p className="text-body-xl text-slate-600 dark:text-slate-400 leading-relaxed mb-8">
-                From drowning in Amazon logistics paperwork to running a fully automated invoice processing system that handles hundreds of transactions daily.
+                From drowning in Amazon logistics paperwork to running deterministic workflows on top of legacy systems—processing hundreds of transactions with self-healing automation.
               </p>
               <div className="flex items-center gap-4 text-body-sm text-slate-500 dark:text-slate-500">
                 <span>Agent School Team</span>
@@ -65,7 +65,7 @@ export default function GeometrySolutionCaseStudyPage() {
                   <TrendingDown className="w-5 h-5 text-white" />
                 </div>
                 <p className="font-display text-4xl text-slate-900 dark:text-slate-100 mb-2">
-                  95%
+                  85%
                 </p>
                 <p className="text-body-sm text-slate-600 dark:text-slate-400">
                   Reduction in manual data entry
@@ -79,7 +79,7 @@ export default function GeometrySolutionCaseStudyPage() {
                   2 weeks
                 </p>
                 <p className="text-body-sm text-slate-600 dark:text-slate-400">
-                  From concept to production
+                  From pilot to production
                 </p>
               </div>
             </div>
@@ -93,30 +93,13 @@ export default function GeometrySolutionCaseStudyPage() {
                     The Problem: Drowning in Repetitive Logistics Work
                   </h2>
                   <p className="text-body-md mb-4">
-                    Geometry Solution is an e-commerce logistics company that sources products and manages fulfillment for Amazon sellers. Their business model depends on speed and accuracy—processing hundreds of orders, invoices, and warehouse receipts every day.
+                    Geometry Solution is an e-commerce logistics company that sources products and manages fulfillment for Amazon sellers. Their business model depends on speed and accuracy—processing hundreds of orders, invoices, and warehouse receipts every day. But as CEO Ryan Li describes it, the team was "drowning in paperwork."
                   </p>
                   <p className="text-body-md mb-4">
-                    But as CEO Ryan Li describes it, the team was "drowning in paperwork." Every single day involved:
+                    Every single day involved manually entering invoice data from suppliers into their accounting system—line by line, product by product. They had to cross-reference warehouse receipts with purchase orders to verify shipments arrived correctly, track inventory across multiple warehouses and update spreadsheets with stock counts, generate customer invoices for Amazon sellers by pulling data from multiple sources, and print and file physical receipts for compliance and auditing purposes.
                   </p>
-                  <ul className="list-disc pl-6 space-y-2 text-body-md mb-6">
-                    <li>
-                      <strong>Manually entering invoice data</strong> from suppliers into their accounting system—line by line, product by product
-                    </li>
-                    <li>
-                      <strong>Cross-referencing warehouse receipts</strong> with purchase orders to verify shipments arrived correctly
-                    </li>
-                    <li>
-                      <strong>Tracking inventory across multiple warehouses</strong> and updating spreadsheets with stock counts
-                    </li>
-                    <li>
-                      <strong>Generating customer invoices</strong> for Amazon sellers, pulling data from multiple sources
-                    </li>
-                    <li>
-                      <strong>Printing and filing physical receipts</strong> for compliance and auditing purposes
-                    </li>
-                  </ul>
-                  <p className="text-body-md">
-                    Ryan's team was spending <strong>over 40 hours per week</strong> just on these repetitive tasks. The work was mind-numbing, error-prone, and impossible to scale. Hiring more people wasn't a solution—they'd just burn out on the same repetitive workflows.
+                  <p className="text-body-md mb-4">
+                    Ryan's team was spending over 40 hours per week just on these repetitive tasks. The work was mind-numbing, error-prone, and impossible to scale. Hiring more people wasn't a solution—they'd just burn out on the same repetitive workflows. The team needed automation that could handle the complexity of their legacy systems without breaking every time a supplier changed their invoice format or a warehouse portal updated its interface.
                   </p>
                 </section>
 
@@ -125,88 +108,48 @@ export default function GeometrySolutionCaseStudyPage() {
                   <h3 className="font-display text-heading-lg text-slate-900 dark:text-slate-100 mb-4">
                     What They Tried Before Agent School
                   </h3>
-                  <div className="space-y-4 text-body-md">
-                    <p>
-                      <strong className="text-slate-900 dark:text-slate-100">RPA tools (UiPath, Automation Anywhere):</strong> Broke constantly when supplier websites changed their layouts. Required full-time maintenance just to keep scripts running.
-                    </p>
-                    <p>
-                      <strong className="text-slate-900 dark:text-slate-100">Manual workflows with spreadsheets:</strong> Couldn't keep up with growth. Human error led to mismatched invoices and inventory discrepancies.
-                    </p>
-                    <p>
-                      <strong className="text-slate-900 dark:text-slate-100">Offshore data entry teams:</strong> Time zone delays, quality control issues, and still required internal staff to review and correct mistakes.
-                    </p>
-                  </div>
+                  <p className="text-body-md mb-4">
+                    Like many logistics companies, Geometry Solution experimented with traditional RPA tools like UiPath and Automation Anywhere. The promise was simple: automate repetitive workflows and free up the team. But the reality was brutal. Every time a supplier changed their website layout or moved a button on their portal, the entire script broke. Ryan's team found themselves spending more time maintaining brittle automation than they saved from the automation itself.
+                  </p>
+                  <p className="text-body-md mb-4">
+                    They tried manual workflows with spreadsheets, but that couldn't keep up with growth. Human error led to mismatched invoices and inventory discrepancies that took days to untangle. They even experimented with offshore data entry teams, but time zone delays and quality control issues meant internal staff still had to review and correct mistakes. None of these solutions addressed the core problem: their legacy systems weren't designed for automation, and traditional tools couldn't adapt when those systems changed.
+                  </p>
                 </section>
 
                 {/* The Solution */}
                 <section>
                   <h2 className="font-display text-heading-xl text-slate-900 dark:text-slate-100 mb-6">
-                    The Solution: Teaching Agents to Handle Logistics
+                    The Solution: Building a Software Layer for Legacy Systems
                   </h2>
                   <p className="text-body-md mb-4">
-                    Geometry Solution partnered with Agent School to build AI agents that could handle their entire invoice and warehouse tracking workflow. The key difference? Instead of trying to automate the tasks themselves, they taught agents how to do the work.
+                    Geometry Solution partnered with Agent School to build a software layer on top of their legacy logistics systems. Instead of trying to automate tasks with brittle scripts, Agent School wired up deterministic workflows that could execute at software speed. The key difference? These workflows were built to be self-healing—when supplier portals changed their UI or invoice formats shifted, the system automatically detected the changes, adapted the workflows, and recertified them without human intervention.
                   </p>
-                  <p className="text-body-md mb-6">
-                    Here's what that looked like in practice:
+                  <p className="text-body-md mb-4">
+                    Here's how it worked in practice. Ryan and his team provided their standard operating procedures for each workflow—step-by-step instructions they'd been following manually. Agent School's team analyzed these SOPs and identified which steps could be converted into operation nodes (deterministic actions like clicking buttons, reading fields, or making API calls) and which steps required AI nodes (tasks needing reasoning, like validating invoice line items against purchase orders). Each operation node was stored as a reusable building block, so once it was built for one workflow, it could be reused across others.
+                  </p>
+                  <p className="text-body-md mb-4">
+                    The workflows were then structured as JSON files that chained these operation nodes together. When a workflow ran, it executed the stored sequence of actions deterministically—no heavy LLM reasoning on every run, just fast, predictable execution. This meant workflows that used to take 45 seconds with traditional AI approaches now ran in under 2 seconds. And because the workflows were certified before deployment—tested across hundreds of edge cases in isolated environments—Ryan's team could trust them to run in production without constant monitoring.
                   </p>
 
-                  <div className="space-y-6">
-                    <div className="flex gap-4">
-                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-teal-100 dark:bg-teal-900/50 flex items-center justify-center">
-                        <CheckCircle2 className="w-4 h-4 text-teal-600 dark:text-teal-400" />
-                      </div>
-                      <div>
-                        <h3 className="font-display text-heading-md text-slate-900 dark:text-slate-100 mb-2">
-                          1. Invoice Processing Agent
-                        </h3>
-                        <p className="text-body-md">
-                          Ryan walked through his invoice entry workflow once while Agent School recorded every step. The agent learned to extract data from supplier invoices (PDFs, emails, web portals), validate line items against purchase orders, and enter clean data into their accounting system. The agent handles <strong>200+ invoices per day</strong> with 99.2% accuracy.
-                        </p>
-                      </div>
-                    </div>
+                  <h3 className="font-display text-heading-lg text-slate-900 dark:text-slate-100 mb-4 mt-8">
+                    Four Workflows That Transformed Operations
+                  </h3>
+                  
+                  <p className="text-body-md mb-4">
+                    <strong className="text-slate-900 dark:text-slate-100">Invoice Processing Workflow:</strong> Ryan walked through his invoice entry process once while Agent School recorded every step. The resulting workflow learned to extract data from supplier invoices (whether they came in as PDFs, emails, or web portals), validate line items against purchase orders, and enter clean data into their accounting system. The workflow now handles over 200 invoices per day with 99.2% accuracy—higher than the team's previous manual error rate. After four weeks of operation, this workflow alone is consistently saving the team 27 hours per week.
+                  </p>
 
-                    <div className="flex gap-4">
-                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-teal-100 dark:bg-teal-900/50 flex items-center justify-center">
-                        <CheckCircle2 className="w-4 h-4 text-teal-600 dark:text-teal-400" />
-                      </div>
-                      <div>
-                        <h3 className="font-display text-heading-md text-slate-900 dark:text-slate-100 mb-2">
-                          2. Warehouse Receipt Verification Agent
-                        </h3>
-                        <p className="text-body-md">
-                          Every shipment that arrives at their warehouse generates a receipt that needs to be matched with the original purchase order. The agent now logs into warehouse portals, downloads receipts, cross-references SKUs and quantities, and flags discrepancies for human review. What used to take 10 hours per week now happens automatically overnight.
-                        </p>
-                      </div>
-                    </div>
+                  <p className="text-body-md mb-4">
+                    <strong className="text-slate-900 dark:text-slate-100">Warehouse Receipt Verification Workflow:</strong> Every shipment that arrives at their warehouse generates a receipt that needs to be matched with the original purchase order. Agent School built a workflow that logs into warehouse portals, downloads receipts, cross-references SKUs and quantities, and flags discrepancies for human review. What used to take 10 hours per week now happens automatically overnight, with the team only stepping in when the workflow detects an anomaly that requires judgment.
+                  </p>
 
-                    <div className="flex gap-4">
-                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-teal-100 dark:bg-teal-900/50 flex items-center justify-center">
-                        <CheckCircle2 className="w-4 h-4 text-teal-600 dark:text-teal-400" />
-                      </div>
-                      <div>
-                        <h3 className="font-display text-heading-md text-slate-900 dark:text-slate-100 mb-2">
-                          3. Inventory Tracking Agent
-                        </h3>
-                        <p className="text-body-md">
-                          Managing stock across 4 different warehouses meant constant spreadsheet updates. The agent now monitors inventory levels in real-time, syncs data across systems, and triggers reorder alerts when stock runs low. Ryan's team gets a consolidated dashboard without lifting a finger.
-                        </p>
-                      </div>
-                    </div>
+                  <p className="text-body-md mb-4">
+                    <strong className="text-slate-900 dark:text-slate-100">Inventory Tracking Workflow:</strong> Managing stock across four different warehouses meant constant spreadsheet updates and manual syncing. The new workflow monitors inventory levels in real-time, syncs data across systems, and triggers reorder alerts when stock runs low. Ryan's team gets a consolidated dashboard without lifting a finger, and the workflow self-heals when warehouse systems change their data formats.
+                  </p>
 
-                    <div className="flex gap-4">
-                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-teal-100 dark:bg-teal-900/50 flex items-center justify-center">
-                        <CheckCircle2 className="w-4 h-4 text-teal-600 dark:text-teal-400" />
-                      </div>
-                      <div>
-                        <h3 className="font-display text-heading-md text-slate-900 dark:text-slate-100 mb-2">
-                          4. Print & File Automation Agent
-                        </h3>
-                        <p className="text-body-md">
-                          For compliance, certain documents need to be printed and physically filed. The agent now automatically identifies which documents require printing, queues them to the network printer, and logs them in the filing system. Even the most mundane task is now hands-off.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
+                  <p className="text-body-md mb-4">
+                    <strong className="text-slate-900 dark:text-slate-100">Print & File Automation Workflow:</strong> For compliance, certain documents need to be printed and physically filed. The workflow automatically identifies which documents require printing, queues them to the network printer, and logs them in the filing system. Even the most mundane task is now hands-off, freeing the team to focus on higher-value work.
+                  </p>
                 </section>
 
                 {/* The Results */}
@@ -214,47 +157,11 @@ export default function GeometrySolutionCaseStudyPage() {
                   <h2 className="font-display text-heading-xl text-slate-900 dark:text-slate-100 mb-6">
                     The Results: From Bottleneck to Competitive Advantage
                   </h2>
-                  <p className="text-body-md mb-6">
-                    Within two weeks of deploying their first agent, Geometry Solution saw dramatic improvements:
+                  <p className="text-body-md mb-4">
+                    Within two weeks of deploying their first workflow, Geometry Solution saw dramatic improvements. The team reclaimed over 40 hours per week from invoice entry and data management alone. Manual data entry dropped by 85% across all logistics workflows. The workflows achieved a 99.2% accuracy rate on invoice processing—higher than their previous human error rate. And because the workflows were built to self-heal, they required zero maintenance after initial deployment. When supplier portals changed their layouts or invoice formats shifted, the workflows automatically adapted and recertified themselves.
                   </p>
-
-                  <div className="bg-gradient-to-br from-teal-50 to-orange-50 dark:from-teal-900/20 dark:to-orange-900/20 rounded-2xl p-8 border border-teal-200/50 dark:border-teal-800/50 mb-6">
-                    <ul className="space-y-4 text-body-md">
-                      <li className="flex gap-3">
-                        <CheckCircle2 className="w-5 h-5 text-teal-600 dark:text-teal-400 flex-shrink-0 mt-1" />
-                        <span>
-                          <strong className="text-slate-900 dark:text-slate-100">40+ hours per week reclaimed</strong> from invoice entry and data management
-                        </span>
-                      </li>
-                      <li className="flex gap-3">
-                        <CheckCircle2 className="w-5 h-5 text-teal-600 dark:text-teal-400 flex-shrink-0 mt-1" />
-                        <span>
-                          <strong className="text-slate-900 dark:text-slate-100">95% reduction in manual data entry</strong> across all logistics workflows
-                        </span>
-                      </li>
-                      <li className="flex gap-3">
-                        <CheckCircle2 className="w-5 h-5 text-teal-600 dark:text-teal-400 flex-shrink-0 mt-1" />
-                        <span>
-                          <strong className="text-slate-900 dark:text-slate-100">99.2% accuracy rate</strong> on invoice processing (higher than their previous human error rate)
-                        </span>
-                      </li>
-                      <li className="flex gap-3">
-                        <CheckCircle2 className="w-5 h-5 text-teal-600 dark:text-teal-400 flex-shrink-0 mt-1" />
-                        <span>
-                          <strong className="text-slate-900 dark:text-slate-100">Zero maintenance required</strong> after initial deployment—agents self-heal when supplier portals change
-                        </span>
-                      </li>
-                      <li className="flex gap-3">
-                        <CheckCircle2 className="w-5 h-5 text-teal-600 dark:text-teal-400 flex-shrink-0 mt-1" />
-                        <span>
-                          <strong className="text-slate-900 dark:text-slate-100">3x business growth</strong> without adding headcount to the operations team
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-
-                  <p className="text-body-md">
-                    But the numbers only tell part of the story. Ryan describes the transformation like this:
+                  <p className="text-body-md mb-4">
+                    But the numbers only tell part of the story. The real transformation came from how the workflows enabled the business to scale. Geometry Solution grew their operations 3x without adding headcount to the operations team. The team that used to spend their days on data entry now focuses on strategic work—finding new suppliers, optimizing fulfillment routes, and improving customer relationships. And after four weeks of operation, the invoice processing workflow alone is consistently saving 27 hours per week, with no signs of degradation or increased error rates.
                   </p>
                 </section>
 
@@ -273,38 +180,15 @@ export default function GeometrySolutionCaseStudyPage() {
                   <h2 className="font-display text-heading-xl text-slate-900 dark:text-slate-100 mb-6">
                     Why It Worked: The Agent School Difference
                   </h2>
-                  <p className="text-body-md mb-6">
-                    Traditional automation would have failed here for three reasons:
+                  <p className="text-body-md mb-4">
+                    Traditional automation would have failed here for three fundamental reasons. First, suppliers constantly change their systems. Invoice formats evolve, portal layouts get redesigned, and API endpoints shift without warning. Traditional RPA scripts would break weekly, requiring constant manual fixes. Agent School's self-healing architecture detects these changes through continuous evaluation tests, automatically updates the operation nodes, and recertifies the workflows—no human intervention required.
                   </p>
-
-                  <div className="space-y-6">
-                    <div>
-                      <h3 className="font-display text-heading-md text-slate-900 dark:text-slate-100 mb-2">
-                        1. Suppliers constantly change their systems
-                      </h3>
-                      <p className="text-body-md">
-                        Invoice formats, portal layouts, and API endpoints change frequently. Traditional RPA scripts would break weekly. Agent School's self-healing architecture detects changes, adapts the workflow, and recertifies automatically—no human intervention required.
-                      </p>
-                    </div>
-
-                    <div>
-                      <h3 className="font-display text-heading-md text-slate-900 dark:text-slate-100 mb-2">
-                        2. Edge cases happen daily
-                      </h3>
-                      <p className="text-body-md">
-                        Missing line items, duplicate invoices, quantity mismatches—logistics is full of exceptions. Agent School's certification process tested hundreds of edge cases before deployment, and agents know exactly how to handle each one.
-                      </p>
-                    </div>
-
-                    <div>
-                      <h3 className="font-display text-heading-md text-slate-900 dark:text-slate-100 mb-2">
-                        3. Speed matters for competitive advantage
-                      </h3>
-                      <p className="text-body-md">
-                        Geometry Solution's agents run at software speed (2-second execution times) with zero LLM calls in production. They process hundreds of transactions daily without the latency or costs of traditional AI approaches.
-                      </p>
-                    </div>
-                  </div>
+                  <p className="text-body-md mb-4">
+                    Second, edge cases happen daily in logistics. Missing line items, duplicate invoices, quantity mismatches, partial shipments—the list goes on. Agent School's certification process tested hundreds of edge cases in isolated environments before deployment, so the workflows knew exactly how to handle each scenario. When a workflow encounters a situation it hasn't seen before, it flags it for human review and learns from the resolution for next time.
+                  </p>
+                  <p className="text-body-md mb-4">
+                    Third, speed matters for competitive advantage. Geometry Solution's workflows run at software speed—executing in under 2 seconds with zero LLM calls in production. Traditional AI approaches that reason through every step from scratch take 45+ seconds per task and cost 10x more per execution. By caching effective action sequences as deterministic workflows and only invoking reasoning for novel situations, Agent School delivers both reliability and efficiency. The workflows process hundreds of transactions daily without the latency or costs that make traditional AI automation prohibitively expensive for repetitive work.
+                  </p>
                 </section>
 
                 {/* What's Next */}
@@ -313,15 +197,10 @@ export default function GeometrySolutionCaseStudyPage() {
                     What's Next for Geometry Solution
                   </h2>
                   <p className="text-body-md mb-4">
-                    Now that their core logistics workflows are automated, Ryan's team is expanding into new areas:
+                    Now that their core logistics workflows are automated, Ryan's team is expanding the software layer into new areas. They're building workflows for automated product sourcing that find and compare suppliers across multiple platforms, customer service workflows that handle routine Amazon seller inquiries, and financial reporting workflows that generate monthly summaries and forecasts from their accounting system. Each new workflow reuses operation nodes from previous ones, making development faster and more reliable over time.
                   </p>
-                  <ul className="list-disc pl-6 space-y-2 text-body-md mb-6">
-                    <li>Automated product sourcing agents that find and compare suppliers</li>
-                    <li>Customer service agents that handle routine Amazon seller inquiries</li>
-                    <li>Financial reporting agents that generate monthly summaries and forecasts</li>
-                  </ul>
                   <p className="text-body-md">
-                    The pattern is clear: teach an agent once, and it runs forever. Geometry Solution has moved from scaling people to scaling knowledge.
+                    The pattern is clear: build the software layer once, then create workflows on top of it that run forever. Geometry Solution has moved from scaling people to scaling knowledge. Their best practices are now encoded in deterministic workflows that execute perfectly every time, and their team focuses on strategic work that actually moves the business forward. That's the future of workflow automation—not replacing people, but augmenting them with software layers that make legacy systems behave like modern, automatable platforms.
                   </p>
                 </section>
 
@@ -331,7 +210,7 @@ export default function GeometrySolutionCaseStudyPage() {
                     Ready to Automate Your Repetitive Workflows?
                   </h2>
                   <p className="text-body-lg text-teal-50 mb-8 max-w-2xl mx-auto">
-                    If your team is drowning in manual data entry, invoice processing, or logistics workflows, Agent School can help. Book a demo to see how agents can transform your operations.
+                    If your team is drowning in manual data entry, invoice processing, or logistics workflows, Agent School can help. Book a demo to see how deterministic workflows and self-healing automation can transform your operations.
                   </p>
                   <Link
                     href="https://cal.com/jackagentschool/15min"

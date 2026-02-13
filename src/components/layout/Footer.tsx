@@ -86,6 +86,14 @@ export function Footer() {
                   Blog
                 </a>
               </li>
+              <li>
+                <a
+                  href="/blog/geometry-solution-case-study"
+                  className="text-body-sm text-slate-400 dark:text-slate-500 hover:text-teal-400 dark:hover:text-teal-500 transition-colors"
+                >
+                  Case Study
+                </a>
+              </li>
             </ul>
           </div>
 
