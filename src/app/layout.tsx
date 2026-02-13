@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://agentschool.io"),
   title: "Agent School — Turn Human Knowledge Into AI That Never Forgets",
   description:
-    "Teach once, automate forever. Transform your workflows into certified AI agents with 99% reliability. 10x faster, 425x cheaper than manual work. Self-healing automation that adapts when software changes.",
+    "Teach once, automate forever. Transform your workflows into certified AI agents with 98% reliability. 7x faster training, 95% cost reduction. Self-healing automation that adapts when software changes.",
   keywords: [
     "AI automation",
     "AI agents",
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Agent School — Turn Human Knowledge Into AI That Never Forgets",
     description:
-      "Teach once, automate forever. 99% reliable AI agents that adapt when software changes. 10x faster, 425x cheaper than manual work.",
+      "Teach once, automate forever. 98% reliable AI agents that adapt when software changes. 7x faster training, 95% cost reduction.",
     type: "website",
     url: "https://agentschool.io",
     siteName: "Agent School",
@@ -125,7 +125,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+    <html lang="en" className="md:scroll-smooth" suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{
