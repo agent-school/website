@@ -87,3 +87,19 @@
 - Prior state: `UseCases.tsx` imported all demo modules eagerly; first `/` compile frequently took ~25-33s and appeared hung.
 - New effect:
   - Switched `UseCases.tsx` demo modules (`hotel-pms`, `crm`, `instagram`, `notion`, `granola`) to `next/dynamic` lazy loading with a loading fallback and `ssr:false`.
+2026-02-12 docs-index-01
+- Goal: improve and update docs/index.md table of contents.
+- Prior state: index.md had no top-level TOC; links pointed to moved paths (e.g. development-guide.md, mcp-setup.md under guides/).
+- New effect:
+  - Added Table of Contents with anchor links to all major sections.
+  - Updated links: dev/development-guide.md, dev/deployment-guide.md, dev/mcp-setup.md; design/design-system-new-purposal.md.
+  - Added DEMO_FIX_SUMMARY.md and debug-changelog-feb-2026.md to Bug Tracking; added SITEMAP.md and session-history.md to Reference.
+  - Index version 1.0.0 → 1.1.0; last updated 2026-02-12.
+2026-02-12 docs-bugs-01
+- Goal: rename bug reports with exact dates; convert DEMO_FIX_SUMMARY to proper format; fix bug readme.
+- Prior state: filenames used MMM-YYYY (e.g. feb-2026); DEMO_FIX_SUMMARY was a fix summary, not a bug report; readme had old links and naming convention.
+- New effect:
+  - Renamed all bug reports to YYYY-MM-DD format: build-hang-2026-02-10, build-timeout-2026-02-09, debug-changelog-2026-02-10, demo-not-interactive-2026-02-10, invalid-turbopack-config-2026-02-10, performance-compilation-issues-2026-02-10, turbopack-wsl-hang-2026-02-10.
+  - Replaced DEMO_FIX_SUMMARY with demo-fix-implementation-2026-02-10.md (proper bug report format: summary, symptoms, root cause, solution, verification).
+  - Updated docs/bugs/readme.md: Active Reports table with new filenames, Quick Reference links, naming convention (issue-name-YYYY-MM-DD.md), Related Documentation paths (design-system, mock-ui-framework).
+  - Updated cross-references in docs/index.md, docs/README.md, docs/dev/development-guide.md, docs/brownfield/source-tree-analysis.md, docs/bugs/demo-not-interactive-2026-02-10.md.

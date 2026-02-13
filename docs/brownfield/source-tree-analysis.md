@@ -159,7 +159,7 @@ website/
 │   │   └── mcp-setup.md          # MCP setup instructions
 │   └── bugs/                     # Bug tracking
 │       ├── readme.md             # Bug index
-│       └── build-timeout-feb-2026.md  # Build issue documentation
+│       └── build-timeout-2026-02-09.md  # Build issue documentation
 │
 ├── 📦 _bmad-output/              # BMad workflow outputs (excluded from main docs)
 │   └── planning-artifacts/       # Planning documentation

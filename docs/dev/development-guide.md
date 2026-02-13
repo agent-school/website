@@ -479,7 +479,7 @@ npm run dev:webpack
 - Ensure component has `className` prop forwarding
 
 **5. Build timeout (WSL)**
-- See `docs/bugs/build-timeout-feb-2026.md`
+- See `docs/bugs/build-timeout-2026-02-09.md`
 - Verify `next.config.mjs` has WSL optimizations
 - Move project to WSL filesystem (not /mnt/c/)
 
@@ -567,7 +567,7 @@ git commit -m "perf: optimize image loading"
 
 ### Known Issues
 - Check `docs/bugs/` for documented issues
-- See `docs/bugs/build-timeout-feb-2026.md` for build problems
+- See `docs/bugs/build-timeout-2026-02-09.md` for build problems
 
 ### Questions
 - Read `AGENTS.md` for AI agent context

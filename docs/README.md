@@ -164,7 +164,7 @@ npx tsc --noEmit         # Type check
   - Status tracking (Fixed, In Progress, Open)
   - Bug report template
 
-- **[Vercel Build Timeout (Feb 2026)](bugs/build-timeout-feb-2026.md)**
+- **[Vercel Build Timeout (2026-02-09)](bugs/build-timeout-2026-02-09.md)**
   - Critical bug: Vercel deployments timing out after 45 minutes
   - Root cause: Next.js static generation of heavy client-side pages
   - Solution: Added `export const dynamic = 'force-dynamic'` to demo pages
@@ -255,7 +255,7 @@ npm run dev:webpack
 **File naming conventions:**
 - Use lowercase with hyphens: `design-system.md`, `getting-started.md`
 - Be descriptive: `vercel-deployment-guide.md` not `deploy.md`
-- Include dates for bug reports: `build-timeout-feb-2026.md`
+- Include exact dates for bug reports: `issue-name-YYYY-MM-DD.md` (e.g. `build-timeout-2026-02-09.md`)
 
 **Markdown formatting:**
 - Use `#` for H1 (title), `##` for H2 (sections)

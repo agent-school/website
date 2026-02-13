@@ -124,9 +124,9 @@
 | Document | Purpose | Lines | Status |
 |----------|---------|-------|--------|
 | **[Bug Index](./bugs/readme.md)** | Known issues index | ~50 | ✅ Active |
-| **[Build Timeout](./bugs/build-timeout-feb-2026.md)** | Build timeout issue | ~100 | ✅ Documented |
-| **[Demo Fix Summary](./bugs/DEMO_FIX_SUMMARY.md)** | Demo interactivity fixes | ~330 | ✅ Complete |
-| **[Debug Changelog](./bugs/debug-changelog-feb-2026.md)** | Feb 2026 debug log | ~80 | ✅ Active |
+| **[Build Timeout](./bugs/build-timeout-2026-02-09.md)** | Build timeout issue | ~100 | ✅ Documented |
+| **[Demo Fix Implementation](./bugs/demo-fix-implementation-2026-02-10.md)** | Demo interactivity fix | ~80 | ✅ Complete |
+| **[Debug Changelog](./bugs/debug-changelog-2026-02-10.md)** | 2026-02-10 debug log | ~80 | ✅ Active |
 
 **Total Existing:** ~4,173 lines of documentation
 
@@ -164,8 +164,8 @@
 ### Operations & Maintenance
 
 - **[Bug Index](./bugs/readme.md)** - Known issues (existing)
-- **[Build Timeout](./bugs/build-timeout-feb-2026.md)** - Build issue (existing)
-- **[Demo Fix Summary](./bugs/DEMO_FIX_SUMMARY.md)** - Demo interactivity fixes (existing)
+- **[Build Timeout](./bugs/build-timeout-2026-02-09.md)** - Build issue (existing)
+- **[Demo Fix Implementation](./bugs/demo-fix-implementation-2026-02-10.md)** - Demo interactivity fix (existing)
 - **[MCP Setup](./dev/mcp-setup.md)** - MCP config (existing)
 
 ---

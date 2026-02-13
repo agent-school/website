@@ -6,12 +6,19 @@ This directory contains detailed bug reports for critical issues encountered dur
 
 | Report | Severity | Status | Date |
 |--------|----------|--------|------|
-| [DEMO-NOT-INTERACTIVE-FEB-2026.md](./demo-not-interactive-feb-2026.md) | 🔴 Critical | 🟡 **FIX APPLIED - NEEDS TESTING** | Feb 10, 2026 |
-| [BUILD-HANG-COLLECTING-PAGE-DATA-FEB-2026.md](./build-hang-collecting-page-data-feb-2026.md) | 🔴 Critical | ✅ Resolved | Feb 10, 2026 |
-| [PERFORMANCE-COMPILATION-ISSUES-FEB-2026.md](./performance-compilation-issues-feb-2026.md) | 🔴 Critical | ✅ Resolved | Feb 10, 2026 |
-| [BUILD-TIMEOUT-FEB-2026.md](./build-timeout-feb-2026.md) | 🔴 Critical | ✅ Resolved | Feb 9, 2026 |
-| [TURBOPACK-WSL-HANG-FEB-2026.md](./turbopack-wsl-hang-feb-2026.md) | 🔴 Critical | ✅ Resolved | Feb 10, 2026 |
-| [INVALID-TURBOPACK-CONFIG-FEB-2026.md](./invalid-turbopack-config-feb-2026.md) | 🟡 Major | ✅ Resolved | Feb 10, 2026 |
+| [demo-not-interactive-2026-02-10](./demo-not-interactive-2026-02-10.md) | 🔴 Critical | 🟡 **FIX APPLIED - NEEDS TESTING** | 2026-02-10 |
+| [build-hang-collecting-page-data-2026-02-10](./build-hang-collecting-page-data-2026-02-10.md) | 🔴 Critical | ✅ Resolved | 2026-02-10 |
+| [performance-compilation-issues-2026-02-10](./performance-compilation-issues-2026-02-10.md) | 🔴 Critical | ✅ Resolved | 2026-02-10 |
+| [build-timeout-2026-02-09](./build-timeout-2026-02-09.md) | 🔴 Critical | ✅ Resolved | 2026-02-09 |
+| [turbopack-wsl-hang-2026-02-10](./turbopack-wsl-hang-2026-02-10.md) | 🔴 Critical | ✅ Resolved | 2026-02-10 |
+| [invalid-turbopack-config-2026-02-10](./invalid-turbopack-config-2026-02-10.md) | 🟡 Major | ✅ Resolved | 2026-02-10 |
+
+### Other Documents
+
+| Document | Description |
+|----------|-------------|
+| [demo-fix-implementation-2026-02-10](./demo-fix-implementation-2026-02-10.md) | Fix implementation & verification for demo interactivity |
+| [debug-changelog-2026-02-10](./debug-changelog-2026-02-10.md) | Debug session changelog (2026-02-10) |
 
 ---
 
@@ -61,7 +68,7 @@ This directory serves to:
 ### Common Issues
 
 #### 🟡 FIX APPLIED: Interactive Demos Not Working
-See: [demo-not-interactive-feb-2026.md](./demo-not-interactive-feb-2026.md)
+See: [demo-not-interactive-2026-02-10.md](./demo-not-interactive-2026-02-10.md)
 - **User Report:** "demo still not interactive" on homepage Use Cases section
 - **Status:** 🟡 **FIX APPLIED - NEEDS TESTING**
 - **Fix Applied:** Removed dynamic imports from `UseCases.tsx` (lines 21-44)
@@ -79,7 +86,7 @@ See: [demo-not-interactive-feb-2026.md](./demo-not-interactive-feb-2026.md)
 - **Note:** Cannot verify in WSL due to Turbopack lockfile bug (unrelated to demo issue)
 
 #### Performance & Compilation Issues
-See: [performance-compilation-issues-feb-2026.md](./performance-compilation-issues-feb-2026.md)
+See: [performance-compilation-issues-2026-02-10.md](./performance-compilation-issues-2026-02-10.md)
 - **Root Causes:**
   1. 393MB Remotion video project being compiled (✅ excluded)
   2. All 5 mock UIs loading eagerly (✅ lazy loaded)
@@ -88,18 +95,18 @@ See: [performance-compilation-issues-feb-2026.md](./performance-compilation-issu
 - **Test:** Pages should compile in < 30 seconds
 
 #### Build Timeouts
-See: [build-timeout-feb-2026.md](./build-timeout-feb-2026.md)
+See: [build-timeout-2026-02-09.md](./build-timeout-2026-02-09.md)
 - **Quick Fix:** Add `export const dynamic = 'force-dynamic'` to pages with heavy client state
 - **Test:** `npm run build` should complete in < 5 minutes
 
 #### Turbopack Dev Server Hangs (WSL)
-See: [turbopack-wsl-hang-feb-2026.md](./turbopack-wsl-hang-feb-2026.md)
+See: [turbopack-wsl-hang-2026-02-10.md](./turbopack-wsl-hang-2026-02-10.md)
 - **Root Cause:** Turbopack lockfile permission errors on Windows filesystems in WSL
 - **Quick Fix:** `npm run dev` now uses webpack by default (fully resolved)
 - **Test:** Dev server should be ready in < 30 seconds
 
 #### Invalid Config Warnings
-See: [invalid-turbopack-config-feb-2026.md](./invalid-turbopack-config-feb-2026.md)
+See: [invalid-turbopack-config-2026-02-10.md](./invalid-turbopack-config-2026-02-10.md)
 - **Root Cause:** Invalid `experimental.turbopack` key in next.config.mjs
 - **Quick Fix:** Remove invalid config keys (already resolved)
 - **Test:** No warnings should appear on startup
@@ -110,7 +117,7 @@ See: [invalid-turbopack-config-feb-2026.md](./invalid-turbopack-config-feb-2026.
 
 If you discover a new critical issue:
 
-1. Create a new `.md` file with format: `ISSUE-NAME-MMM-YYYY.md`
+1. Create a new `.md` file with format: `issue-name-YYYY-MM-DD.md` (exact date)
 2. Use the template structure above
 3. Add to the Active Reports table in this README
 4. Commit with message: `docs: add bug report for [issue name]`
@@ -130,8 +137,8 @@ If you discover a new critical issue:
 
 - [AGENTS.md](../../AGENTS.md) - Development context
 - [README.md](../../README.md) - Project overview
-- [DESIGN_SYSTEM.md](../DESIGN_SYSTEM.md) - Design system
-- [MOCK_UI_FRAMEWORK.md](../MOCK_UI_FRAMEWORK.md) - Framework architecture
+- [design-system-new-purposal.md](../design/design-system-new-purposal.md) - Design system
+- [mock-ui-framework.md](../design/mock-ui-framework.md) - Framework architecture
 
 ---
 

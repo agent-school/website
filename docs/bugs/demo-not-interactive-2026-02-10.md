@@ -708,7 +708,7 @@ If demos don't work → No conversions → No signups
 
 - [Next.js Dynamic Imports Docs](https://nextjs.org/docs/pages/building-your-application/optimizing/lazy-loading)
 - [Framer Motion with Next.js](https://www.framer.com/motion/guide-upgrade/)
-- [Performance Bug Report](./performance-compilation-issues-feb-2026.md) - Context on why dynamic imports were added
+- [Performance Bug Report](./performance-compilation-issues-2026-02-10.md) - Context on why dynamic imports were added
 
 ---
 
