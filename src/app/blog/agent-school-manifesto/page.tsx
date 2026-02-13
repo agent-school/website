@@ -14,30 +14,30 @@ export default function ManifestoPage() {
   return (
     <>
       <Navbar />
-      <main className="bg-slate-950 text-white min-h-screen">
+      <main className="bg-white min-h-screen">
         <article className="pt-36 pb-24 px-6">
           <div className="max-w-3xl mx-auto">
             <Link
               href="/blog"
-              className="inline-flex items-center gap-2 text-body-sm text-slate-400 hover:text-teal-300 transition-colors mb-8"
+              className="inline-flex items-center gap-2 text-body-sm text-slate-600 hover:text-teal-600 transition-colors mb-8"
             >
               <ArrowLeft className="w-4 h-4" />
               Back to Blog
             </Link>
 
             <header className="mb-16">
-              <h1 className="font-display text-display-lg md:text-6xl text-white mb-4">
+              <h1 className="font-display text-display-lg md:text-6xl text-slate-900 mb-4">
                 Agent School Manifesto
               </h1>
-              <div className="flex items-center gap-4 text-body-sm text-slate-400">
+              <div className="flex items-center gap-4 text-body-sm text-slate-500">
                 <span>Jack</span>
                 <span>•</span>
                 <time>January 20th, 2026</time>
               </div>
             </header>
 
-            <div className="prose prose-invert prose-slate max-w-none">
-              <div className="space-y-8 text-slate-300 leading-relaxed">
+            <div className="prose prose-slate max-w-none">
+              <div className="space-y-8 text-slate-700 leading-relaxed">
                 <p className="text-body-lg">
                   We built Agent School because we believe human expertise is too valuable to disappear when people leave. Every workflow you've perfected over years of experience, every edge case you've learned to handle through trial and error, every piece of institutional knowledge you carry in your head, it should outlive you. Your expertise should become the foundation for automation that runs forever, not documentation that collects dust in a wiki somewhere. The best teams know how to do things that can't easily be written down, and when those people leave, that knowledge vanishes. We're building a world where that never has to happen again.
                 </p>
@@ -66,7 +66,7 @@ export default function ManifestoPage() {
                   Human knowledge becomes immortal. Workflows become unstoppable. Teams become superhuman. That's not marketing speak. That's the technical reality we've built. When you capture expertise correctly, certify it rigorously, and execute it deterministically, automation stops being a maintenance burden and becomes a competitive advantage. Your team focuses on strategy while agents handle execution. Your experts teach workflows instead of repeating them. Your operations scale without limits because software scales infinitely once it's been proven reliable.
                 </p>
 
-                <p className="text-body-lg font-semibold text-teal-300">
+                <p className="text-body-lg font-semibold text-teal-600">
                   Welcome to Agent School. We're teaching AI agents to work like your best people, and we're doing it at a level of reliability that makes automation trustworthy. This is how software should have worked from the beginning.
                 </p>
               </div>

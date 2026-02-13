@@ -14,30 +14,30 @@ export default function MemoryManagementPage() {
   return (
     <>
       <Navbar />
-      <main className="bg-slate-950 text-white min-h-screen">
+      <main className="bg-white min-h-screen">
         <article className="pt-36 pb-24 px-6">
           <div className="max-w-3xl mx-auto">
             <Link
               href="/blog"
-              className="inline-flex items-center gap-2 text-body-sm text-slate-400 hover:text-teal-300 transition-colors mb-8"
+              className="inline-flex items-center gap-2 text-body-sm text-slate-600 hover:text-teal-600 transition-colors mb-8"
             >
               <ArrowLeft className="w-4 h-4" />
               Back to Blog
             </Link>
 
             <header className="mb-16">
-              <h1 className="font-display text-display-lg md:text-6xl text-white mb-4">
+              <h1 className="font-display text-display-lg md:text-6xl text-slate-900 mb-4">
                 Memory Management
               </h1>
-              <div className="flex items-center gap-4 text-body-sm text-slate-400">
+              <div className="flex items-center gap-4 text-body-sm text-slate-500">
                 <span>Jack</span>
                 <span>•</span>
                 <time>February 12th, 2026</time>
               </div>
             </header>
 
-            <div className="prose prose-invert prose-slate max-w-none">
-              <div className="space-y-8 text-slate-300 leading-relaxed">
+            <div className="prose prose-slate max-w-none">
+              <div className="space-y-8 text-slate-700 leading-relaxed">
                 <p className="text-body-lg">
                   The hardest problem in AI automation isn't intelligence. It's memory. How does an agent remember what it learned yesterday? How does it forget irrelevant details? How does it retrieve the exact context it needs, when it needs it? These questions sound simple, but they're the difference between agents that work in demos and agents that work in production. Traditional software has always been stateless, running the same code with the same inputs to produce the same outputs. But AI agents need to learn, adapt, and evolve based on experience. That requires memory systems that are fundamentally different from anything we've built before.
                 </p>
@@ -66,7 +66,7 @@ export default function MemoryManagementPage() {
                   Memory isn't just storage. It's the foundation of trust in AI systems. When agents remember correctly, they build reliability. When they forget strategically, they stay fast and focused. When they retrieve instantly, they become practical for production workflows. The memory system is what transforms AI from impressive demos into dependable automation. It's the difference between agents that work ninety percent of the time and agents that work ninety-nine percent of the time. It's the difference between automation that requires constant human oversight and automation that runs independently at scale. Without the right memory architecture, AI agents are just expensive toys. With it, they become the future of how work gets done.
                 </p>
 
-                <p className="text-body-lg font-semibold text-teal-300">
+                <p className="text-body-lg font-semibold text-teal-600">
                   The future of AI isn't smarter models. It's smarter memory. We've spent years chasing bigger context windows and more parameters, but the real breakthrough is learning how to remember what matters and forget what doesn't. That's the technical foundation that makes reliable automation possible.
                 </p>
               </div>
