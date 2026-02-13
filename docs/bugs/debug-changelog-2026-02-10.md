@@ -15,7 +15,7 @@
 - Goal: document the resolved build/dev hang incident.
 - Prior state: incident existed but no dedicated report for this specific "Collecting page data"/"Compiling / ..." hang.
 - New effect:
-  - Added `docs/bugs/build-hang-collecting-page-data-feb-2026.md` with summary, symptoms, root cause, mitigation, prevention, and verification checklist.
+  - Added `docs/bugs/build-hang-collecting-page-data-2026-02-10.md` with summary, symptoms, root cause, mitigation, prevention, and verification checklist.
   - Updated `docs/bugs/readme.md` Active Reports table to link the new report.
 2026-02-10 debug-03
 - Goal: capture fresh runtime evidence for recurring compile hang.
