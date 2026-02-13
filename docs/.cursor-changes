@@ -143,3 +143,35 @@
   - AgentInterface now scrolls only its own message container (`scrollTo` on panel) and no longer calls `scrollIntoView` that could move the page.
   - Navbar logo now uses the dark square icon consistently to avoid light-logo-on-light-theme mismatch.
   - Hero stat cards now render with dark glass styling and white number/label text for `99% Accuracy Rate`, `10x Faster Training`, and `95% Cost Reduction`.
+2026-02-12 branding-blog-01 (v0.3.0 -> v0.4.0)
+- Goal: make top branding white at hero, fix favicon references, and add a dedicated blog index page.
+- Prior state:
+  - Navbar brand icon/text used dark treatment at top of page.
+  - Favicon metadata/manifest pointed to `/favicon.svg` and android-chrome assets that were not present in `public/`.
+  - No `/blog` route existed for upcoming posts.
+- New effect:
+  - Navbar brand now switches icon/text by scroll state (white-on-top, dark-on-scrolled background) and logo click returns to `/`.
+  - Updated `metadata.icons`, JSON-LD logo URL, `src/app/manifest.ts`, and `public/favicon/site.webmanifest` to use the current square logo asset.
+  - Added `src/app/blog/page.tsx` as a new blog landing page with planned post cards.
+  - Updated `NAV_ITEMS` to use `/#...` anchors plus a new `/blog` item so nav links work across pages.
+  - Added `/blog` to `src/app/sitemap.ts` for SEO discoverability.
+2026-02-12 layout-fixes-01 (v0.4.0 -> v0.4.1)
+- Goal: hide unfinished subscription UI and fix demo layout priority for wide mock interfaces.
+- Prior state:
+  - Footer showed an active newsletter subscription strip that is not currently used.
+  - `UseCases` rendered demo and comparison data as side-by-side columns, reducing available demo width.
+  - CRM demo placed the assistant beside the mock UI at all breakpoints.
+- New effect:
+  - Commented out the footer newsletter strip and removed unused subscription logic/imports in `src/components/layout/Footer.tsx`.
+  - Updated `src/components/sections/UseCases.tsx` so the interactive demo is full-width with before/after + metrics rendered below it.
+  - Stacked before/after cards vertically in `UseCases` for cleaner flow under the wide demo.
+  - Updated `src/components/mocks/crm/CRMDemo.tsx` to stack mock UI over assistant on mobile (`flex-col`) and keep side-by-side only on large screens.
+2026-02-12 use-cases-tabs-01 (v0.4.1 -> v0.4.2)
+- Goal: keep before/after in 2 columns and unify all interactive demos in one shared location.
+- Prior state:
+  - Before/after cards in `UseCases` were stacked vertically.
+  - "More Interactive Demos" were rendered in a separate section below the main tabbed demo area.
+- New effect:
+  - Restored before/after to a 2-column layout on medium+ breakpoints in `src/components/sections/UseCases.tsx`.
+  - Merged social + meeting demos into the same main tab navigation as hotel/sales/operations.
+  - Removed the separate bottom "More Interactive Demos" block; all demos now render in the same primary content area.
