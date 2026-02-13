@@ -6,14 +6,27 @@ Welcome to the Agent School website documentation hub. This directory contains e
 
 ---
 
+## 📌 Original vs BMAD Redesign
+
+Documentation is organized by **era** to track old vs new design:
+
+| Era | Palette | Status |
+|-----|---------|--------|
+| **Original** (cream/orange) | Navy, Amber, Cream, Charcoal | Deprecated — see [`legacy/`](legacy/README.md) |
+| **BMAD Redesign** (Cyber Citrus) | Teal, Orange, Slate | 🚀 Active — see [`brownfield/`](brownfield/redesign-roadmap.md), [`design/`](design/design-system-new-purposal.md) |
+
+**Canonical tracking:** [DOCS_STRUCTURE.md](DOCS_STRUCTURE.md) — Full table of docs by era
+
+---
+
 ## 📚 Quick Navigation
 
 | Category | What's Inside | Start Here |
 |----------|---------------|------------|
-| [🎨 Design](#design) | Visual design system, colors, typography, branding | [`design/design-system.md`](design/design-system.md) |
-| [🏗️ Architecture](#architecture) | Technical architecture, frameworks, patterns | [`architecture/mock-ui-framework.md`](architecture/mock-ui-framework.md) |
-| [📖 Guides](#guides) | How-to guides, tutorials, development workflows | [`guides/components-guide.md`](guides/components-guide.md) |
-| [📋 Planning](#planning) | Roadmaps, feature planning, project timelines | [`planning/redesign-roadmap.md`](planning/redesign-roadmap.md) |
+| [🎨 Design](#design) | Visual design system, colors, typography, branding | [`design/design-system-new-purposal.md`](design/design-system-new-purposal.md) |
+| [🏗️ Architecture](#architecture) | Technical architecture, frameworks, patterns | [`design/mock-ui-framework.md`](design/mock-ui-framework.md) |
+| [📖 Guides](#guides) | How-to guides, tutorials, development workflows | [`design/components-guide.md`](design/components-guide.md) |
+| [📋 Planning](#planning) | Roadmaps, feature planning, project timelines | [`brownfield/redesign-roadmap.md`](brownfield/redesign-roadmap.md) |
 | [🐛 Bugs](#bugs) | Bug reports, fixes, known issues | [`bugs/readme.md`](bugs/readme.md) |
 
 ---
@@ -23,7 +36,7 @@ Welcome to the Agent School website documentation hub. This directory contains e
 **Visual design system, color palettes, typography, and branding guidelines**
 
 ### Core Documents
-- **[Design System](design/design-system.md)** ⭐ START HERE
+- **[Design System](design/design-system-new-purposal.md)** ⭐ START HERE
   - "Cyber Citrus" color palette (teal/orange/slate)
   - Typography system (Fraunces, DM Sans, JetBrains Mono)
   - Dark mode implementation
@@ -60,7 +73,7 @@ font-mono           // JetBrains Mono (code/data)
 **Technical architecture, frameworks, design patterns, and system design**
 
 ### Core Documents
-- **[Mock UI Framework](architecture/mock-ui-framework.md)** ⭐ START HERE
+- **[Mock UI Framework](design/mock-ui-framework.md)** ⭐ START HERE
   - Architecture for 5 interactive demo UIs
   - Component hierarchy and data flow
   - State management patterns
@@ -92,14 +105,14 @@ font-mono           // JetBrains Mono (code/data)
 **Practical how-to guides, tutorials, and development workflows**
 
 ### Core Documents
-- **[Components Guide](guides/components-guide.md)** ⭐ START HERE
+- **[Components Guide](design/components-guide.md)** ⭐ START HERE
   - shadcn/ui components usage
   - Aceternity UI animations
   - Magic UI text effects
   - Custom component patterns
   - Best practices
 
-- **[MCP Setup Guide](guides/mcp-setup.md)**
+- **[MCP Setup Guide](dev/mcp-setup.md)**
   - Model Context Protocol configuration
   - AI agent integration
   - Tool setup instructions
@@ -127,7 +140,7 @@ npx tsc --noEmit         # Type check
 **Project roadmaps, feature planning, timelines, and strategic documents**
 
 ### Core Documents
-- **[Redesign Roadmap](planning/redesign-roadmap.md)** ⭐ START HERE
+- **[Redesign Roadmap](brownfield/redesign-roadmap.md)** ⭐ START HERE
   - 7-phase redesign plan (28-32 days)
   - Phase 1-4: Completed (design system, mock UIs, core sections)
   - Phase 5-6: Completed (additional sections, content rewrite)
@@ -210,14 +223,14 @@ npm run dev:webpack
 ### For New Developers
 
 1. **Read the README** - Start with [`../README.md`](../README.md) for project overview
-2. **Understand the Design** - Read [`design/design-system.md`](design/design-system.md)
-3. **Learn the Architecture** - Read [`architecture/mock-ui-framework.md`](architecture/mock-ui-framework.md)
-4. **Use the Components** - Reference [`guides/components-guide.md`](guides/components-guide.md)
+2. **Understand the Design** - Read [`design/design-system-new-purposal.md`](design/design-system-new-purposal.md)
+3. **Learn the Architecture** - Read [`design/mock-ui-framework.md`](design/mock-ui-framework.md)
+4. **Use the Components** - Reference [`design/components-guide.md`](design/components-guide.md)
 5. **Check Known Issues** - Review [`bugs/readme.md`](bugs/readme.md)
 
 ### For Designers
 
-1. **Design System** - [`design/design-system.md`](design/design-system.md) - Complete visual language
+1. **Design System** - [`design/design-system-new-purposal.md`](design/design-system-new-purposal.md) - Complete visual language
 2. **Color Palette** - Teal/orange/slate "Cyber Citrus" system
 3. **Typography** - Fraunces (display), DM Sans (body), JetBrains Mono (code)
 4. **Dark Mode** - Auto-detect system preference, no manual toggle
@@ -225,8 +238,8 @@ npm run dev:webpack
 ### For AI Agents
 
 1. **Project Context** - [`../AGENTS.md`](../AGENTS.md) - AI agent instructions
-2. **Architecture** - [`architecture/mock-ui-framework.md`](architecture/mock-ui-framework.md)
-3. **Components** - [`guides/components-guide.md`](guides/components-guide.md)
+2. **Architecture** - [`design/mock-ui-framework.md`](design/mock-ui-framework.md)
+3. **Components** - [`design/components-guide.md`](design/components-guide.md)
 4. **Known Issues** - [`bugs/readme.md`](bugs/readme.md)
 
 ---
@@ -276,8 +289,8 @@ When adding new docs, update:
 ## 📞 Support & Questions
 
 - **Technical Issues:** See [`bugs/readme.md`](bugs/readme.md)
-- **Design Questions:** See [`design/design-system.md`](design/design-system.md)
-- **Component Help:** See [`guides/components-guide.md`](guides/components-guide.md)
+- **Design Questions:** See [`design/design-system-new-purposal.md`](design/design-system-new-purposal.md)
+- **Component Help:** See [`design/components-guide.md`](design/components-guide.md)
 - **General Questions:** Email hello@agentschool.io
 
 ---

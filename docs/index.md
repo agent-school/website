@@ -11,6 +11,7 @@
 
 | Section | Description |
 |---------|-------------|
+| [Original vs BMAD Redesign](#-original-vs-bmad-redesign) | Doc era tracking (cream/orange vs Cyber Citrus) |
 | [Project Overview](#-project-overview) | Type, stack, quick reference |
 | [Getting Started](#-getting-started) | First-time setup by role |
 | [Generated Documentation](#-generated-documentation) | Auto-generated core docs |
@@ -24,6 +25,19 @@
 | [Support & Resources](#-support--resources) | Internal & external links |
 | [Documentation Maintenance](#-documentation-maintenance) | When & how to update |
 | [Changelog](#-changelog) | Index version history |
+
+---
+
+## 📌 Original vs BMAD Redesign
+
+Documentation is organized by **era** to distinguish old vs new design:
+
+| Era | Palette | Status |
+|-----|---------|--------|
+| **Original** (cream/orange) | Navy, Amber, Cream, Charcoal | Deprecated — see [legacy/](legacy/README.md) |
+| **BMAD Redesign** (Cyber Citrus) | Teal, Orange, Slate | 🚀 Active — see [brownfield/](brownfield/redesign-roadmap.md), [design/](design/design-system-new-purposal.md) |
+
+**Canonical tracking:** [DOCS_STRUCTURE.md](DOCS_STRUCTURE.md) — Full table of docs by era
 
 ---
 
@@ -53,17 +67,17 @@
 
 ### For First-Time Contributors
 
-1. **Start Here:** [Project Overview](./project-overview.md) ← Comprehensive project summary
+1. **Start Here:** [Project Overview](./brownfield/roadmap/project-overview.md) ← Comprehensive project summary
 2. **Setup Dev Environment:** [Development Guide](./dev/development-guide.md) ← Prerequisites, commands, workflow
-3. **Understand Tech Stack:** [Technology Stack](./technology-stack.md) ← All technologies explained
-4. **Browse Components:** [Component Inventory](./component-inventory.md) ← 79 components cataloged
+3. **Understand Tech Stack:** [Technology Stack](./brownfield/technology-stack.md) ← All technologies explained
+4. **Browse Components:** [Component Inventory](./design/component-inventory.md) ← 79 components cataloged
 5. **Read AI Agent Context:** `../AGENTS.md` ← Context for AI coding agents
 
 ### For Designers/Product
 
 1. **Design System:** [Design System Proposal](./design/design-system-new-purposal.md) ← Cyber Citrus tokens
-2. **Redesign Plan:** [Redesign Roadmap](./planning/redesign-roadmap.md) ← 7-phase plan (891 lines)
-3. **Component Guide:** [Components Guide](./guides/components-guide.md) ← Component usage patterns
+2. **Redesign Plan:** [Redesign Roadmap](./brownfield/redesign-roadmap.md) ← 7-phase plan (891 lines)
+3. **Component Guide:** [Components Guide](./design/components-guide.md) ← Component usage patterns
 
 ### For DevOps/Deployment
 
@@ -82,10 +96,10 @@
 
 | Document | Purpose | Lines | Status |
 |----------|---------|-------|--------|
-| **[Project Overview](./project-overview.md)** | Executive summary, quick reference | ~400 | ✅ Complete |
-| **[Technology Stack](./technology-stack.md)** | Complete tech stack breakdown | ~300 | ✅ Complete |
-| **[Component Inventory](./component-inventory.md)** | All 79 components cataloged | ~600 | ✅ Complete |
-| **[Source Tree Analysis](./source-tree-analysis.md)** | Annotated directory structure | ~500 | ✅ Complete |
+| **[Project Overview](./brownfield/roadmap/project-overview.md)** | Executive summary, quick reference | ~400 | ✅ Complete |
+| **[Technology Stack](./brownfield/technology-stack.md)** | Complete tech stack breakdown | ~300 | ✅ Complete |
+| **[Component Inventory](./design/component-inventory.md)** | All 79 components cataloged | ~600 | ✅ Complete |
+| **[Source Tree Analysis](./brownfield/source-tree-analysis.md)** | Annotated directory structure | ~500 | ✅ Complete |
 | **[Architecture](./architecture.md)** | Comprehensive architecture doc | ~900 | ✅ Complete |
 | **[Development Guide](./dev/development-guide.md)** | Local setup & dev workflow | ~600 | ✅ Complete |
 | **[Deployment Guide](./dev/deployment-guide.md)** | Vercel deployment process | ~600 | ✅ Complete |
@@ -103,20 +117,20 @@
 
 | Document | Purpose | Lines | Status |
 |----------|---------|-------|--------|
-| **[Mock UI Framework](./architecture/mock-ui-framework.md)** | React mock UI architecture | 1,790 | ✅ Comprehensive |
+| **[Mock UI Framework](./design/mock-ui-framework.md)** | React mock UI architecture | 1,790 | ✅ Comprehensive |
 | **[Design System Proposal](./design/design-system-new-purposal.md)** | Cyber Citrus design tokens | — | ✅ Active |
 
 ### Planning & Roadmap
 
 | Document | Purpose | Lines | Status |
 |----------|---------|-------|--------|
-| **[Redesign Roadmap](./planning/redesign-roadmap.md)** | 7-phase redesign plan | 891 | ✅ Active |
+| **[Redesign Roadmap](./brownfield/redesign-roadmap.md)** | 7-phase redesign plan | 891 | ✅ Active |
 
 ### Guides
 
 | Document | Purpose | Lines | Status |
 |----------|---------|-------|--------|
-| **[Components Guide](./guides/components-guide.md)** | Component usage patterns | ~200 | ✅ Complete |
+| **[Components Guide](./design/components-guide.md)** | Component usage patterns | ~200 | ✅ Complete |
 | **[MCP Setup](./dev/mcp-setup.md)** | MCP configuration | ~100 | ✅ Complete |
 
 ### Bug Tracking
@@ -137,29 +151,29 @@
 ### Architecture & System Design
 
 - **[Architecture](./architecture.md)** - Comprehensive architecture document (generated)
-- **[Mock UI Framework](./architecture/mock-ui-framework.md)** - React mock UI architecture (existing)
-- **[Component Inventory](./component-inventory.md)** - 79 components cataloged (generated)
-- **[Source Tree Analysis](./source-tree-analysis.md)** - Annotated directory structure (generated)
+- **[Mock UI Framework](./design/mock-ui-framework.md)** - React mock UI architecture (existing)
+- **[Component Inventory](./design/component-inventory.md)** - 79 components cataloged (generated)
+- **[Source Tree Analysis](./brownfield/source-tree-analysis.md)** - Annotated directory structure (generated)
 
 ### Technology & Tools
 
-- **[Technology Stack](./technology-stack.md)** - Complete tech stack (generated)
+- **[Technology Stack](./brownfield/technology-stack.md)** - Complete tech stack (generated)
 - **[Development Guide](./dev/development-guide.md)** - Local dev setup (generated)
 - **[Deployment Guide](./dev/deployment-guide.md)** - Vercel deployment (generated)
 
 ### Design & UX
 
 - **[Design System Proposal](./design/design-system-new-purposal.md)** - Cyber Citrus tokens (existing)
-- **[Components Guide](./guides/components-guide.md)** - Component patterns (existing)
-- **[Redesign Roadmap](./planning/redesign-roadmap.md)** - 7-phase plan (existing)
+- **[Components Guide](./design/components-guide.md)** - Component patterns (existing)
+- **[Redesign Roadmap](./brownfield/redesign-roadmap.md)** - 7-phase plan (existing)
 
 ### Reference & Getting Started
 
-- **[Project Overview](./project-overview.md)** - Executive summary (generated)
-- **[Sitemap](./SITEMAP.md)** - Complete site structure & URLs (existing)
+- **[Project Overview](./brownfield/roadmap/project-overview.md)** - Executive summary (generated)
+- **[Sitemap](./sitemap.md)** - Complete site structure & URLs (existing)
 - **[README](./README.md)** - Documentation index (existing)
 - **[AGENTS.md](../AGENTS.md)** - AI agent context (existing)
-- **[Session History](./session-history.md)** - Development session log (existing)
+- **[Session History](./brownfield/roadmap/session-history.md)** - Development session log (existing)
 
 ### Operations & Maintenance
 
@@ -176,14 +190,14 @@
 
 **👨‍💻 Developers:**
 - Start → [Development Guide](./dev/development-guide.md)
-- Components → [Component Inventory](./component-inventory.md)
+- Components → [Component Inventory](./design/component-inventory.md)
 - Architecture → [Architecture](./architecture.md)
-- Tech Stack → [Technology Stack](./technology-stack.md)
+- Tech Stack → [Technology Stack](./brownfield/technology-stack.md)
 
 **🎨 Designers:**
 - Design System → [Design System Proposal](./design/design-system-new-purposal.md)
-- Redesign Plan → [Redesign Roadmap](./planning/redesign-roadmap.md)
-- Component Guide → [Components Guide](./guides/components-guide.md)
+- Redesign Plan → [Redesign Roadmap](./brownfield/redesign-roadmap.md)
+- Component Guide → [Components Guide](./design/components-guide.md)
 
 **🚀 DevOps:**
 - Deployment → [Deployment Guide](./dev/deployment-guide.md)
@@ -191,20 +205,20 @@
 - Known Issues → [Bug Index](./bugs/readme.md)
 
 **📊 Product/PM:**
-- Overview → [Project Overview](./project-overview.md)
-- Roadmap → [Redesign Roadmap](./planning/redesign-roadmap.md)
+- Overview → [Project Overview](./brownfield/roadmap/project-overview.md)
+- Roadmap → [Redesign Roadmap](./brownfield/redesign-roadmap.md)
 - Status → This index (Known Issues section below)
 
 ### By Task
 
 **Setting Up Locally:**
 1. [Development Guide](./dev/development-guide.md) - Prerequisites & commands
-2. [Technology Stack](./technology-stack.md) - Understand the stack
-3. [Source Tree Analysis](./source-tree-analysis.md) - Navigate the codebase
+2. [Technology Stack](./brownfield/technology-stack.md) - Understand the stack
+3. [Source Tree Analysis](./brownfield/source-tree-analysis.md) - Navigate the codebase
 
 **Building Features:**
-1. [Component Inventory](./component-inventory.md) - Find reusable components
-2. [Components Guide](./guides/components-guide.md) - Usage patterns
+1. [Component Inventory](./design/component-inventory.md) - Find reusable components
+2. [Components Guide](./design/components-guide.md) - Usage patterns
 3. [Design System Proposal](./design/design-system-new-purposal.md) - Design tokens
 4. [Development Guide](./dev/development-guide.md) - Development workflow
 
@@ -215,9 +229,9 @@
 
 **Understanding Architecture:**
 1. [Architecture](./architecture.md) - Comprehensive architecture doc
-2. [Source Tree Analysis](./source-tree-analysis.md) - Directory structure
-3. [Technology Stack](./technology-stack.md) - Tech stack details
-4. [Mock UI Framework](./architecture/mock-ui-framework.md) - Mock UI design
+2. [Source Tree Analysis](./brownfield/source-tree-analysis.md) - Directory structure
+3. [Technology Stack](./brownfield/technology-stack.md) - Tech stack details
+4. [Mock UI Framework](./design/mock-ui-framework.md) - Mock UI design
 
 ---
 
@@ -322,7 +336,7 @@ See **[Bug Index](./bugs/readme.md)** for complete list of known issues
 - 🚧 Implementation in progress
 - ⚠️ Build errors blocking testing
 
-**See:** [Redesign Roadmap](./planning/redesign-roadmap.md) for full 7-phase plan
+**See:** [Redesign Roadmap](./brownfield/redesign-roadmap.md) for full 7-phase plan
 
 ---
 
@@ -443,6 +457,13 @@ http://localhost:3000
 
 ## 🔄 Changelog
 
+### 2026-02-12 - Original vs BMAD Redesign Organization
+
+- ✅ Added **Original vs BMAD Redesign** section at top
+- ✅ Created [DOCS_STRUCTURE.md](DOCS_STRUCTURE.md) — canonical tracking of docs by era
+- ✅ Created `docs/legacy/` folder with legacy-design-reference.md (cream/orange palette)
+- ✅ Fixed broken links throughout (project-overview, technology-stack, etc. → brownfield/; mock-ui-framework, components-guide → design/)
+
 ### 2026-02-12 - Index Update
 
 - ✅ Added Table of Contents with anchor links
@@ -475,4 +496,4 @@ http://localhost:3000
 
 ---
 
-**👋 Need help?** Start with [Project Overview](./project-overview.md) or [Development Guide](./dev/development-guide.md)
+**👋 Need help?** Start with [Project Overview](./brownfield/roadmap/project-overview.md) or [Development Guide](./dev/development-guide.md)
