@@ -308,7 +308,7 @@ export function Features() {
                         transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
                         className="overflow-hidden lg:hidden"
                       >
-                        <div className="p-6 border-t border-slate-200 bg-slate-50">
+                        <div className="p-6 border-t border-slate-200">
                           {DemoComponent ? (
                             <DemoComponent />
                           ) : i === 4 ? (
