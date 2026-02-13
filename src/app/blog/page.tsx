@@ -29,6 +29,14 @@ const BLOG_POSTS: BlogPost[] = [
     published: true,
   },
   {
+    title: "How Geometry Solution Automated 40+ Hours of Weekly Invoicing",
+    summary:
+      "From drowning in Amazon logistics paperwork to running a fully automated invoice processing system that handles hundreds of transactions daily.",
+    date: "February 12th, 2026",
+    slug: "geometry-solution-case-study",
+    published: true,
+  },
+  {
     title: "Teach Once, Automate Forever: A Practical Playbook",
     summary:
       "How to capture expert workflows and convert them into production-ready agents with confidence.",

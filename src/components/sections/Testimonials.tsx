@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { Quote } from "lucide-react";
+import Link from "next/link";
+import { Quote, ArrowRight } from "lucide-react";
 
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
 import { CardSpotlight } from "@/components/aceternity/CardSpotlight";
@@ -55,26 +56,39 @@ export function Testimonials() {
                   </blockquote>
 
                   {/* Author Info */}
-                  <div className="flex items-center gap-4">
-                    <div className="relative w-16 h-16 rounded-full overflow-hidden ring-2 ring-teal-500/20 dark:ring-teal-400/20">
-                      <Image
-                        src={testimonial.image}
-                        alt={testimonial.author}
-                        fill
-                        className="object-cover"
-                      />
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-4">
+                      <div className="relative w-16 h-16 rounded-full overflow-hidden ring-2 ring-teal-500/20 dark:ring-teal-400/20">
+                        <Image
+                          src={testimonial.image}
+                          alt={testimonial.author}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                      <div>
+                        <p className="font-semibold text-lg text-slate-900 dark:text-slate-100">
+                          {testimonial.author}
+                        </p>
+                        <p className="text-sm text-slate-600 dark:text-slate-400">
+                          {testimonial.role} at{" "}
+                          <span className="text-teal-600 dark:text-teal-400 font-medium">
+                            {testimonial.company}
+                          </span>
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <p className="font-semibold text-lg text-slate-900 dark:text-slate-100">
-                        {testimonial.author}
-                      </p>
-                      <p className="text-sm text-slate-600 dark:text-slate-400">
-                        {testimonial.role} at{" "}
-                        <span className="text-teal-600 dark:text-teal-400 font-medium">
-                          {testimonial.company}
-                        </span>
-                      </p>
-                    </div>
+
+                    {/* Read Full Case Study Link */}
+                    <Link
+                      href="/blog/geometry-solution-case-study"
+                      className="flex items-center gap-2 px-4 py-2 rounded-lg bg-teal-600 dark:bg-teal-500 text-white hover:bg-teal-700 dark:hover:bg-teal-600 transition-colors group"
+                    >
+                      <span className="text-sm font-semibold whitespace-nowrap">
+                        Read Full Story
+                      </span>
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </Link>
                   </div>
                 </div>
               </CardSpotlight>
