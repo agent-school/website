@@ -26,17 +26,17 @@ function CRMDemoContent() {
   const { state, sendQuery } = useMockUI<CRMState>();
 
   return (
-    <div className="flex flex-col lg:flex-row min-h-[700px] gap-4">
+    <div className="flex flex-col lg:flex-row h-full gap-4 min-h-0">
       {/* Main Pipeline View */}
       <MockUIShell
         title="Sales CRM - Pipeline"
-        className="flex-1 min-h-[420px]"
+        className="flex-1"
       >
         <Pipeline />
       </MockUIShell>
 
       {/* Agent Interface Sidebar */}
-      <div className="w-full lg:w-[400px] min-h-[280px]">
+      <div className="w-full lg:w-[400px] lg:max-h-full overflow-hidden">
         <AgentInterface
           messages={state.responses}
           onSendQuery={sendQuery}

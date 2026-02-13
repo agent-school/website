@@ -29,47 +29,48 @@ function NotionContent() {
   };
 
   return (
-    <MockUIShell
-      title="Notion — Project Tasks"
-      sidebar={
-        <AgentInterface
-          messages={state.responses}
-          onSendQuery={sendQuery}
-          isLoading={state.isLoading}
-          placeholder="Ask about tasks..."
-          suggestedQueries={SUGGESTED_QUERIES}
-          title="Task Agent"
-          subtitle="Manage your tasks with natural language"
-        />
-      }
-      className="h-[700px] max-w-[1400px] mx-auto"
-    >
-      <div className="space-y-4">
-        {/* Header */}
-        <div className="flex items-center justify-between">
-          <div>
-            <h2 className="font-display text-2xl text-slate-900 dark:text-slate-100">
-              All Tasks
-            </h2>
-            <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
-              {state.data.tasks.length} task(s)
-              {state.selectedElements.length > 0 && (
-                <span className="ml-2 text-teal-600 dark:text-teal-400">
-                  • {state.selectedElements.length} selected
-                </span>
-              )}
-            </p>
+    <div className="h-full">
+      <MockUIShell
+        title="Notion — Project Tasks"
+        sidebar={
+          <AgentInterface
+            messages={state.responses}
+            onSendQuery={sendQuery}
+            isLoading={state.isLoading}
+            placeholder="Ask about tasks..."
+            suggestedQueries={SUGGESTED_QUERIES}
+            title="Task Agent"
+            subtitle="Manage your tasks with natural language"
+          />
+        }
+      >
+        <div className="space-y-4">
+          {/* Header */}
+          <div className="flex items-center justify-between">
+            <div>
+              <h2 className="font-display text-2xl text-slate-900 dark:text-slate-100">
+                All Tasks
+              </h2>
+              <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
+                {state.data.tasks.length} task(s)
+                {state.selectedElements.length > 0 && (
+                  <span className="ml-2 text-teal-600 dark:text-teal-400">
+                    • {state.selectedElements.length} selected
+                  </span>
+                )}
+              </p>
+            </div>
           </div>
-        </div>
 
-        {/* Task Table */}
-        <TaskTable
-          tasks={state.data.tasks}
-          selectedTaskIds={state.selectedElements}
-          onToggleSelect={handleToggleSelect}
-        />
-      </div>
-    </MockUIShell>
+          {/* Task Table */}
+          <TaskTable
+            tasks={state.data.tasks}
+            selectedTaskIds={state.selectedElements}
+            onToggleSelect={handleToggleSelect}
+          />
+        </div>
+      </MockUIShell>
+    </div>
   );
 }
 

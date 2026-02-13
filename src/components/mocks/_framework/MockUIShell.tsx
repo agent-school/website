@@ -18,11 +18,12 @@ export function MockUIShell({ title, children, sidebar, className = "" }: MockUI
         shadow-glow-teal
         overflow-hidden
         flex flex-col
+        h-full
         ${className}
       `.trim()}
     >
       {/* macOS Window Header */}
-      <div className="flex items-center gap-3 px-5 py-3 bg-slate-50 dark:bg-slate-800 border-b border-slate-200 dark:border-slate-800">
+      <div className="flex items-center gap-3 px-5 py-3 bg-slate-50 dark:bg-slate-800 border-b border-slate-200 dark:border-slate-800 flex-shrink-0">
         {/* macOS Window Dots */}
         <div className="flex gap-1.5">
           <div className="w-3 h-3 rounded-full bg-red-400" />
@@ -39,7 +40,7 @@ export function MockUIShell({ title, children, sidebar, className = "" }: MockUI
       {/* Content Area */}
       <div className="flex flex-col lg:flex-row flex-1 min-h-0">
         {/* Main Content */}
-        <div className="flex-1 overflow-auto p-6">
+        <div className="flex-1 overflow-auto p-3 min-h-0">
           {children}
         </div>
 
@@ -51,6 +52,7 @@ export function MockUIShell({ title, children, sidebar, className = "" }: MockUI
             border-slate-200 dark:border-slate-800
             bg-slate-50 dark:bg-slate-800/50
             overflow-auto
+            min-h-0
           ">
             {sidebar}
           </div>

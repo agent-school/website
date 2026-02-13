@@ -20,7 +20,7 @@ function GranolaDemoContent() {
   const { state, sendQuery } = useMockUI();
 
   return (
-    <div className="h-[600px]">
+    <div className="h-full">
       <MockUIShell
         title="Granola - Meeting Transcript Analysis"
         sidebar={

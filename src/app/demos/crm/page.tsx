@@ -10,18 +10,20 @@ export const metadata = {
 
 export default function CRMDemoPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-950 dark:to-slate-900 p-8">
-      <div className="max-w-[1800px] mx-auto">
-        <div className="mb-8">
-          <h1 className="font-display text-4xl font-bold text-slate-900 dark:text-slate-100 mb-3">
+    <main className="h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-950 dark:to-slate-900 p-4 flex flex-col">
+      <div className="max-w-[1800px] mx-auto w-full flex flex-col flex-1 min-h-0">
+        <div className="mb-4 flex-shrink-0">
+          <h1 className="font-display text-3xl font-bold text-slate-900 dark:text-slate-100 mb-1">
             CRM Pipeline Demo
           </h1>
-          <p className="text-lg text-slate-600 dark:text-slate-400">
+          <p className="text-sm text-slate-600 dark:text-slate-400">
             Interactive sales pipeline with natural language agent queries
           </p>
         </div>
 
-        <CRMDemo />
+        <div className="flex-1 min-h-0">
+          <CRMDemo />
+        </div>
       </div>
     </main>
   );
