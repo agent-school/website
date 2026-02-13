@@ -9,6 +9,9 @@ import { Button } from "@/components/ui/Button";
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const logoSrc = scrolled
+    ? "/logo/agent school icon dark square.png"
+    : "/logo/agent school icon light square.png";
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40);
@@ -42,13 +45,17 @@ export function Navbar() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-[72px]">
             {/* Logo */}
-            <a href="#" className="flex items-center gap-2.5 group">
+            <a href="/" className="flex items-center gap-2.5 group">
               <img
-                src="/logo/agent school icon dark square.png"
+                src={logoSrc}
                 alt="Agent School"
                 className="h-9 w-9 object-contain"
               />
-              <span className="font-display font-semibold text-xl text-slate-900 dark:text-slate-100 tracking-tight">
+              <span
+                className={`font-display font-semibold text-xl tracking-tight transition-colors ${
+                  scrolled ? "text-slate-900 dark:text-slate-100" : "text-white"
+                }`}
+              >
                 Agent School
               </span>
             </a>
