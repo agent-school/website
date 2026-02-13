@@ -43,38 +43,14 @@ function CRMDemoContent() {
   };
 
   return (
-    <div className="flex flex-col h-full gap-4 min-h-0">
-      <div className="flex flex-col lg:flex-row flex-1 gap-4 min-h-0">
-        {/* Main Pipeline View */}
-        <MockUIShell
-          title="Sales CRM - Pipeline"
-          className="flex-1"
-        >
-          <Pipeline />
-        </MockUIShell>
-
-        {/* Agent Interface Sidebar */}
-        <div className="w-full lg:w-[400px] lg:max-h-full overflow-hidden">
-          <AgentInterface
-            messages={state.responses}
-            onSendQuery={sendQuery}
-            isLoading={state.isLoading}
-            placeholder="Ask about deals, stages, or pipeline..."
-            suggestedQueries={SUGGESTED_QUERIES}
-            title="CRM Agent"
-            subtitle="Query your sales pipeline"
-          />
-        </div>
-      </div>
-
-      {/* Deal Detail Panel */}
+    <div className="flex flex-col gap-4 min-h-0">
       <AnimatePresence>
         {selectedDeal && (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.25 }}
             className="overflow-hidden"
           >
             <div className="bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 p-4 shadow-md">
@@ -95,7 +71,7 @@ function CRMDemoContent() {
                   <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">Company</p>
                   <p className="font-semibold text-slate-900 dark:text-slate-100">{selectedDeal.company}</p>
                 </div>
-                
+
                 <div>
                   <p className="text-xs text-slate-500 dark:text-slate-400 mb-1 flex items-center gap-1">
                     <DollarSign size={12} /> Deal Value
@@ -127,8 +103,8 @@ function CRMDemoContent() {
                   <Calendar size={14} className="text-slate-500 dark:text-slate-400" />
                   <p className="text-sm text-slate-600 dark:text-slate-400">
                     Expected Close: <span className="font-semibold text-slate-900 dark:text-slate-100">
-                      {new Date(selectedDeal.expectedCloseDate).toLocaleDateString("en-US", { 
-                        month: "short", 
+                      {new Date(selectedDeal.expectedCloseDate).toLocaleDateString("en-US", {
+                        month: "short",
                         day: "numeric",
                         year: "numeric"
                       })}
@@ -145,6 +121,30 @@ function CRMDemoContent() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      <div className="flex flex-col lg:flex-row gap-4 min-h-0">
+        {/* Main Pipeline View */}
+        <MockUIShell
+          title="Sales CRM - Pipeline"
+          className="flex-1"
+        >
+          <Pipeline />
+        </MockUIShell>
+
+        {/* Agent Interface Sidebar */}
+        <div className="w-full lg:w-[400px] lg:max-h-full overflow-hidden">
+          <AgentInterface
+            messages={state.responses}
+            onSendQuery={sendQuery}
+            isLoading={state.isLoading}
+            placeholder="Ask about deals, stages, or pipeline..."
+            suggestedQueries={SUGGESTED_QUERIES}
+            title="CRM Agent"
+            subtitle="Query your sales pipeline"
+          />
+        </div>
+      </div>
+
     </div>
   );
 }
