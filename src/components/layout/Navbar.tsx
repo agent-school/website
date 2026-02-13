@@ -9,9 +9,6 @@ import { Button } from "@/components/ui/Button";
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const logoSrc = scrolled
-    ? "/logo/agent school icon dark square.png"
-    : "/logo/agent school icon light square.png";
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40);
@@ -47,7 +44,7 @@ export function Navbar() {
             {/* Logo */}
             <a href="/" className="flex items-center gap-2.5 group">
               <img
-                src={logoSrc}
+                src="/logo/agent school icon light square.png"
                 alt="Agent School"
                 className="h-9 w-9 object-contain"
               />
