@@ -142,12 +142,21 @@ export function SkillBuilderDemo() {
                       {step.label}
                     </p>
                     {step.type === "decision" && (
-                      <button
+                      <span
+                        role="button"
+                        tabIndex={0}
                         onClick={(e) => {
                           e.stopPropagation();
                           setShowEdgeCase(showEdgeCase === step.id ? null : step.id);
                         }}
-                        className="flex items-center gap-1 mt-1 text-caption text-amber-600 hover:text-amber-700"
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter" || e.key === " ") {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            setShowEdgeCase(showEdgeCase === step.id ? null : step.id);
+                          }
+                        }}
+                        className="flex items-center gap-1 mt-1 text-caption text-amber-600 hover:text-amber-700 cursor-pointer"
                       >
                         <GitBranch size={10} />
                         Decision Point
@@ -157,7 +166,7 @@ export function SkillBuilderDemo() {
                             showEdgeCase === step.id ? "rotate-90" : ""
                           }`}
                         />
-                      </button>
+                      </span>
                     )}
                   </div>
                 </motion.button>
