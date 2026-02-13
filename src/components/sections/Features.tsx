@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Wrench,
@@ -123,8 +123,32 @@ function ObservabilityVisual() {
   );
 }
 
+type FeatureId = (typeof FEATURES)[number]["id"];
+const FEATURE_IDS: FeatureId[] = FEATURES.map((f) => f.id);
+
+function isFeatureId(s: string): s is FeatureId {
+  return (FEATURE_IDS as string[]).includes(s);
+}
+
 export function Features() {
-  const [expandedFeature, setExpandedFeature] = useState<string | null>(null);
+  const [expandedFeature, setExpandedFeature] = useState<FeatureId | null>(null);
+
+  // Deep-link: open and scroll to feature when URL hash matches (e.g. #skill-builder, #certification, #self-healing)
+  useEffect(() => {
+    const hash = typeof window !== "undefined" ? window.location.hash.slice(1) : "";
+    if (hash && isFeatureId(hash)) {
+      setExpandedFeature(hash);
+      requestAnimationFrame(() => {
+        document.getElementById(hash)?.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    }
+    const onHashChange = () => {
+      const newHash = window.location.hash.slice(1);
+      if (newHash && isFeatureId(newHash)) setExpandedFeature(newHash);
+    };
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, []);
 
   return (
     <section id="features" className="py-24 md:py-32 px-6 bg-slate-50 dark:bg-slate-950">
@@ -146,7 +170,10 @@ export function Features() {
 
             return (
               <ScrollReveal key={feature.id} delay={i * 0.05}>
-                <CardSpotlight className="rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden bg-white dark:bg-slate-900">
+                <CardSpotlight
+                  id={feature.id}
+                  className="rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden bg-white dark:bg-slate-900 scroll-mt-24"
+                >
                   {/* Feature Header — always visible */}
                   <div
                     className={`grid grid-cols-1 ${
