@@ -26,9 +26,9 @@ export function Footer() {
 
       {/* Main Footer */}
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 lg:gap-8">
           {/* Brand */}
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-2">
             <div className="flex items-center gap-2.5 mb-4">
               <img
                 src="/logo/agent school icon light square.png"
@@ -48,7 +48,7 @@ export function Footer() {
           {/* Quick Links */}
           <div>
             <h4 className="font-semibold text-body-sm text-white mb-4">
-              Quick Links
+              Product
             </h4>
             <ul className="space-y-3">
               {NAV_ITEMS.map((item) => (
@@ -72,7 +72,49 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Company */}
+          {/* Resources */}
+          <div>
+            <h4 className="font-semibold text-body-sm text-white mb-4">
+              Resources
+            </h4>
+            <ul className="space-y-3">
+              <li>
+                <a
+                  href="/blog"
+                  className="text-body-sm text-slate-400 dark:text-slate-500 hover:text-teal-400 dark:hover:text-teal-500 transition-colors"
+                >
+                  Blog
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Comparisons */}
+          <div>
+            <h4 className="font-semibold text-body-sm text-white mb-4">
+              Comparisons
+            </h4>
+            <ul className="space-y-3">
+              <li>
+                <a
+                  href="/vs/manus"
+                  className="text-body-sm text-slate-400 dark:text-slate-500 hover:text-teal-400 dark:hover:text-teal-500 transition-colors"
+                >
+                  vs Manus
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/vs/n8n"
+                  className="text-body-sm text-slate-400 dark:text-slate-500 hover:text-teal-400 dark:hover:text-teal-500 transition-colors"
+                >
+                  vs n8n
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Company & Legal */}
           <div>
             <h4 className="font-semibold text-body-sm text-white mb-4">
               Company
@@ -83,7 +125,7 @@ export function Footer() {
                   href="mailto:hello@agentschool.io"
                   className="text-body-sm text-slate-400 dark:text-slate-500 hover:text-teal-400 dark:hover:text-teal-500 transition-colors"
                 >
-                  hello@agentschool.io
+                  Contact
                 </a>
               </li>
               <li>
@@ -108,21 +150,12 @@ export function Footer() {
                   X (Twitter)
                 </a>
               </li>
-            </ul>
-          </div>
-
-          {/* Legal */}
-          <div>
-            <h4 className="font-semibold text-body-sm text-white mb-4">
-              Legal
-            </h4>
-            <ul className="space-y-3">
               <li>
                 <a
                   href="/privacy"
                   className="text-body-sm text-slate-400 dark:text-slate-500 hover:text-teal-400 dark:hover:text-teal-500 transition-colors"
                 >
-                  Privacy Policy
+                  Privacy
                 </a>
               </li>
               <li>
@@ -130,7 +163,7 @@ export function Footer() {
                   href="/terms"
                   className="text-body-sm text-slate-400 dark:text-slate-500 hover:text-teal-400 dark:hover:text-teal-500 transition-colors"
                 >
-                  Terms of Service
+                  Terms
                 </a>
               </li>
             </ul>
