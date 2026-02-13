@@ -185,7 +185,7 @@ export function ROICalculator() {
           </p>
 
           {/* Big Numbers */}
-          <div className="grid grid-cols-2 gap-4 mb-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
             <motion.div layout className="p-5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-soft">
               <DollarSign size={18} className="text-teal-500 dark:text-teal-400 mb-2" />
               <div className="font-display text-display-sm text-slate-900 dark:text-slate-100">

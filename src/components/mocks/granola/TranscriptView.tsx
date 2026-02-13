@@ -23,12 +23,12 @@ export function TranscriptView() {
   const showDecisions = selectedElements.includes("decisions");
 
   return (
-    <div className="flex h-full bg-white dark:bg-slate-900">
+    <div className="flex flex-col lg:flex-row h-full bg-white dark:bg-slate-900">
       {/* Transcript Panel */}
-      <div className="flex-1 overflow-y-auto border-r border-slate-200 dark:border-slate-700">
-        <div className="p-6 space-y-4">
+      <div className="flex-1 overflow-y-auto lg:border-r border-slate-200 dark:border-slate-700">
+        <div className="p-4 lg:p-6 space-y-4">
           <div className="mb-6">
-            <h2 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-1">
+            <h2 className="text-lg lg:text-xl font-semibold text-slate-900 dark:text-slate-100 mb-1">
               Product Launch Planning Meeting
             </h2>
             <p className="text-sm text-slate-500 dark:text-slate-400">
@@ -47,8 +47,8 @@ export function TranscriptView() {
                 id={segment.id}
                 highlight={isHighlighted}
               >
-                <div className="flex gap-3">
-                  <div className="flex-shrink-0 w-14 text-xs text-slate-400 dark:text-slate-500 pt-1">
+                <div className="flex gap-2 lg:gap-3">
+                  <div className="flex-shrink-0 w-10 lg:w-14 text-xs text-slate-400 dark:text-slate-500 pt-1">
                     {segment.timestamp}
                   </div>
                   <div className="flex-1 min-w-0">
@@ -70,11 +70,11 @@ export function TranscriptView() {
 
       {/* Summary Panel */}
       {(showSummaryPanel || showActionItems || showDecisions) && (
-        <div className="w-96 overflow-y-auto bg-slate-50 dark:bg-slate-800 p-6 space-y-6">
+        <div className="w-full lg:w-96 overflow-y-auto bg-slate-50 dark:bg-slate-800 p-4 lg:p-6 space-y-4 lg:space-y-6 border-t lg:border-t-0 border-slate-200 dark:border-slate-700">
           {showSummaryPanel && (
             <InteractiveElement id="summary-panel" highlight={true}>
               <div className="bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-700 p-4">
-                <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-3">
+                <h3 className="text-base lg:text-lg font-semibold text-slate-900 dark:text-slate-100 mb-3">
                   AI Summary
                 </h3>
                 <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
@@ -100,7 +100,7 @@ export function TranscriptView() {
           {showActionItems && (
             <InteractiveElement id="action-items" highlight={true}>
               <div className="bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-700 p-4">
-                <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-3">
+                <h3 className="text-base lg:text-lg font-semibold text-slate-900 dark:text-slate-100 mb-3">
                   Action Items
                 </h3>
                 <ul className="space-y-3">
@@ -128,7 +128,7 @@ export function TranscriptView() {
           {showDecisions && (
             <InteractiveElement id="decisions" highlight={true}>
               <div className="bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-700 p-4">
-                <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-3">
+                <h3 className="text-base lg:text-lg font-semibold text-slate-900 dark:text-slate-100 mb-3">
                   Key Decisions
                 </h3>
                 <ul className="space-y-3">

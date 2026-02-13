@@ -1,6 +1,7 @@
 "use client";
 
 import { type ReactNode } from "react";
+import { Monitor } from "lucide-react";
 
 export interface MockUIShellProps {
   title: string;
@@ -22,6 +23,14 @@ export function MockUIShell({ title, children, sidebar, className = "" }: MockUI
         ${className}
       `.trim()}
     >
+      {/* Mobile Notice - Only visible on mobile */}
+      <div className="lg:hidden bg-gradient-to-r from-orange-500 to-teal-500 px-4 py-3 flex items-center gap-2">
+        <Monitor size={16} className="text-white flex-shrink-0" />
+        <p className="text-sm text-white font-medium">
+          Best experience on desktop for interactive demos
+        </p>
+      </div>
+
       {/* macOS Window Header */}
       <div className="flex items-center gap-3 px-5 py-3 bg-slate-50 dark:bg-slate-800 border-b border-slate-200 dark:border-slate-800 flex-shrink-0">
         {/* macOS Window Dots */}
