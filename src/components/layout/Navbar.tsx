@@ -43,11 +43,11 @@ export function Navbar() {
           <div className="flex items-center justify-between h-[72px]">
             {/* Logo */}
             <a href="#" className="flex items-center gap-2.5 group">
-              <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-teal-600 to-orange-500 flex items-center justify-center">
-                <span className="text-white font-display font-bold text-lg leading-none">
-                  A
-                </span>
-              </div>
+              <img
+                src="/logo/agent school icon dark square.png"
+                alt="Agent School"
+                className="h-9 w-9 object-contain"
+              />
               <span className="font-display font-semibold text-xl text-slate-900 dark:text-slate-100 tracking-tight">
                 Agent School
               </span>

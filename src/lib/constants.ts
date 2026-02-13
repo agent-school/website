@@ -6,6 +6,8 @@ export const NAV_ITEMS = [
 ] as const;
 
 export const BOOKING_URL = "https://cal.com/jackagentschool/15min";
+export const LINKEDIN_URL = "https://linkedin.com/company/agentschool";
+export const TWITTER_URL = "https://x.com/agentschool_io";
 
 export const FEATURES = [
   {
