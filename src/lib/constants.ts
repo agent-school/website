@@ -78,7 +78,7 @@ export const FEATURES = [
   },
   {
     id: "software-layer",
-    title: "10x Speed Breakthrough",
+    title: "7x Speed Breakthrough",
     subtitle: "The Performance Revolution",
     description:
       "We generate a software layer that gives agents superhuman speed. 2-second responses instead of 45-second reasoning. No screen scraping. No fragile scripts. Just pure, deterministic speed at scale.",
