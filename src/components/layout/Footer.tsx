@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Linkedin, ArrowRight, Mail } from "lucide-react";
-import { NAV_ITEMS, BOOKING_URL } from "@/lib/constants";
+import { Linkedin, ArrowRight, Mail, Twitter } from "lucide-react";
+import { NAV_ITEMS, BOOKING_URL, LINKEDIN_URL, TWITTER_URL } from "@/lib/constants";
 
 export function Footer() {
   const [email, setEmail] = useState("");
@@ -70,11 +70,11 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2.5 mb-4">
-              <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-teal-600 to-orange-500 flex items-center justify-center">
-                <span className="text-white font-display font-bold text-lg leading-none">
-                  A
-                </span>
-              </div>
+              <img
+                src="/logo/agent school icon light square.png"
+                alt="Agent School"
+                className="h-9 w-9 object-contain"
+              />
               <span className="font-display font-semibold text-xl tracking-tight">
                 Agent School
               </span>
@@ -128,13 +128,24 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="https://linkedin.com/company/agent-school"
+                  href={LINKEDIN_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-body-sm text-slate-400 dark:text-slate-500 hover:text-teal-400 dark:hover:text-teal-500 transition-colors inline-flex items-center gap-1.5"
                 >
                   <Linkedin size={14} />
                   LinkedIn
+                </a>
+              </li>
+              <li>
+                <a
+                  href={TWITTER_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-body-sm text-slate-400 dark:text-slate-500 hover:text-teal-400 dark:hover:text-teal-500 transition-colors inline-flex items-center gap-1.5"
+                >
+                  <Twitter size={14} />
+                  X (Twitter)
                 </a>
               </li>
             </ul>
@@ -148,7 +159,7 @@ export function Footer() {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="#"
+                  href="/privacy"
                   className="text-body-sm text-slate-400 dark:text-slate-500 hover:text-teal-400 dark:hover:text-teal-500 transition-colors"
                 >
                   Privacy Policy
@@ -156,7 +167,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/terms"
                   className="text-body-sm text-slate-400 dark:text-slate-500 hover:text-teal-400 dark:hover:text-teal-500 transition-colors"
                 >
                   Terms of Service
@@ -173,12 +184,22 @@ export function Footer() {
           </p>
           <div className="flex items-center gap-4">
             <a
-              href="https://linkedin.com/company/agent-school"
+              href={LINKEDIN_URL}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="LinkedIn"
               className="text-slate-500 dark:text-slate-600 hover:text-teal-400 dark:hover:text-teal-500 transition-colors"
             >
               <Linkedin size={18} />
+            </a>
+            <a
+              href={TWITTER_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="X (Twitter)"
+              className="text-slate-500 dark:text-slate-600 hover:text-teal-400 dark:hover:text-teal-500 transition-colors"
+            >
+              <Twitter size={18} />
             </a>
           </div>
         </div>

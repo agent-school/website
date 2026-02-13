@@ -238,4 +238,4 @@ import { BOOKING_URL } from "@/lib/constants";
 ## Key URLs
 - **Booking**: `https://cal.com/jackagentschool/15min` (stored in `lib/constants.ts` as `BOOKING_URL`)
 - **Email**: `hello@agentschool.io`
-- **LinkedIn**: `https://linkedin.com/company/agent-school`
+- **LinkedIn**: `https://linkedin.com/company/agentschool`

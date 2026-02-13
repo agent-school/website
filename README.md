@@ -407,7 +407,7 @@ None required for production (all URLs hardcoded).
 - **Website**: https://agentschool.io
 - **Booking**: https://cal.com/jackagentschool/15min
 - **Email**: hello@agentschool.io
-- **LinkedIn**: https://linkedin.com/company/agent-school
+- **LinkedIn**: https://linkedin.com/company/agentschool
 
 ---
 

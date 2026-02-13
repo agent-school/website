@@ -78,8 +78,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@agentschool",
-    creator: "@agentschool",
+    site: "@agentschool_io",
+    creator: "@agentschool_io",
     title: "Agent School — Turn Human Knowledge Into AI That Never Forgets",
     description:
       "Teach once, automate forever. 99% reliable AI agents that adapt when software changes. Join the revolution.",
@@ -125,6 +125,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `("scrollRestoration" in history) && (history.scrollRestoration = "manual"); window.scrollTo(0,0);`,
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
