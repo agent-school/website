@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { DM_Sans, Fraunces, JetBrains_Mono, Playfair_Display } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 import { ThemeProvider } from "@/components/ThemeProvider";
@@ -33,21 +34,20 @@ const playfairDisplay = Playfair_Display({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://agentschool.io"),
-  title: "Agent School — Turn Human Knowledge Into AI That Never Forgets",
+  title: "Agent School — AI Automation for Your Business",
   description:
-    "Teach once, automate forever. Transform your workflows into certified AI agents with 98% reliability. 7x faster training, 95% cost reduction. Self-healing automation that adapts when software changes.",
+    "We help small and mid-size businesses automate repetitive workflows using AI — faster, cheaper, and without needing a tech team. Book a free 30-minute discovery call.",
   keywords: [
     "AI automation",
-    "AI agents",
+    "AI automation consultancy",
+    "business automation",
     "workflow automation",
-    "RPA alternative",
-    "self-healing automation",
-    "agent certification",
-    "enterprise AI",
-    "intelligent automation",
-    "AI workforce",
-    "automated workflows",
+    "small business AI",
+    "automate repetitive tasks",
+    "AI for small business",
     "business process automation",
+    "AI consulting",
+    "automate business workflows",
   ],
   authors: [{ name: "Agent School" }],
   creator: "Agent School",
@@ -69,9 +69,9 @@ export const metadata: Metadata = {
     apple: "/logo/agent school icon dark square.png",
   },
   openGraph: {
-    title: "Agent School — Turn Human Knowledge Into AI That Never Forgets",
+    title: "Agent School — AI Automation for Your Business",
     description:
-      "Teach once, automate forever. 98% reliable AI agents that adapt when software changes. 7x faster training, 95% cost reduction.",
+      "Stop wasting your team's time on repetitive tasks. We build AI automations tailored to how your business actually works. No engineers needed.",
     type: "website",
     url: "https://agentschool.io",
     siteName: "Agent School",
@@ -81,7 +81,7 @@ export const metadata: Metadata = {
         url: "/og-image.svg",
         width: 1200,
         height: 630,
-        alt: "Agent School — The Future of AI Automation",
+        alt: "Agent School — AI Automation for Your Business",
       },
     ],
   },
@@ -89,9 +89,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@agentschool_io",
     creator: "@agentschool_io",
-    title: "Agent School — Turn Human Knowledge Into AI That Never Forgets",
+    title: "Agent School — AI Automation for Your Business",
     description:
-      "Teach once, automate forever. 99% reliable AI agents that adapt when software changes. Join the revolution.",
+      "Stop wasting your team's time on repetitive tasks. We build AI automations tailored to how your business works. No engineers needed.",
     images: ["/og-image.svg"],
   },
   alternates: {
@@ -101,22 +101,11 @@ export const metadata: Metadata = {
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
+  "@type": "ProfessionalService",
   name: "Agent School",
-  applicationCategory: "BusinessApplication",
-  offers: {
-    "@type": "Offer",
-    price: "0",
-    priceCurrency: "USD",
-  },
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "5.0",
-    ratingCount: "1",
-  },
+  serviceType: "AI Automation Consultancy",
   description:
-    "Teach once, automate forever. Transform your workflows into certified AI agents with 99% reliability. Self-healing automation that adapts when software changes.",
-  operatingSystem: "Web",
+    "We help small and mid-size businesses automate repetitive workflows using AI — faster, cheaper, and without needing a tech team.",
   url: "https://agentschool.io",
   publisher: {
     "@type": "Organization",
@@ -143,11 +132,27 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        {/* Hotjar Tracking — replace YOUR_HOTJAR_SITE_ID with your actual site ID */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(h,o,t,j,a,r){
+                h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+                h._hjSettings={hjid:'YOUR_HOTJAR_SITE_ID',hjsv:6};
+                a=o.getElementsByTagName('head')[0];
+                r=o.createElement('script');r.async=1;
+                r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+                a.appendChild(r);
+              })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+            `,
+          }}
+        />
       </head>
       <body
         className={`${dmSans.variable} ${fraunces.variable} ${jetbrainsMono.variable} ${playfairDisplay.variable} font-body antialiased`}
       >
         <ThemeProvider>{children}</ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
