@@ -40,8 +40,8 @@ export function Footer() {
               </span>
             </div>
             <p className="text-body-sm text-slate-400 leading-relaxed max-w-xs">
-              The fastest way to teach and certify AI agents to operate on your
-              software stack reliably.
+              We help businesses automate their most time-consuming workflows with
+              AI, faster, cheaper, and without the complexity.
             </p>
           </div>
 
@@ -62,12 +62,12 @@ export function Footer() {
                 </li>
               ))}
               <li>
-                <a
-                  href={BOOKING_URL}
-                  className="text-body-sm text-slate-400 hover:text-orange-400 transition-colors"
-                >
-                  Book a Demo
-                </a>
+                  <a
+                    href={BOOKING_URL}
+                    className="text-body-sm text-slate-400 hover:text-orange-400 transition-colors"
+                  >
+                    Book a Free Call
+                  </a>
               </li>
             </ul>
           </div>
@@ -78,14 +78,6 @@ export function Footer() {
               Resources
             </h4>
             <ul className="space-y-3">
-              <li>
-                <a
-                  href="/blog"
-                  className="text-body-sm text-slate-400 hover:text-orange-400 transition-colors"
-                >
-                  Blog
-                </a>
-              </li>
               <li>
                 <a
                   href="/blog/geometry-solution-case-study"
@@ -138,28 +130,6 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href={LINKEDIN_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-body-sm text-slate-400 hover:text-orange-400 transition-colors inline-flex items-center gap-1.5"
-                >
-                  <Linkedin size={14} />
-                  LinkedIn
-                </a>
-              </li>
-              <li>
-                <a
-                  href={TWITTER_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-body-sm text-slate-400 hover:text-orange-400 transition-colors inline-flex items-center gap-1.5"
-                >
-                  <Twitter size={14} />
-                  X (Twitter)
-                </a>
-              </li>
-              <li>
-                <a
                   href="/privacy"
                   className="text-body-sm text-slate-400 hover:text-orange-400 transition-colors"
                 >
@@ -184,7 +154,7 @@ export function Footer() {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col gap-10">
             <h2 className="font-playfair text-7xl md:text-8xl font-bold text-white leading-tight tracking-tight opacity-70">
-              Creating the future.
+              Working smarter starts here.
             </h2>
             <a
               href="mailto:hello@agentschool.io"
