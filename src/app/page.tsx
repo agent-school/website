@@ -19,7 +19,12 @@ export default function Home() {
         <Features />
         <Journey />
         {/* <Testimonials /> */}
-        <Differentiation />
+        {/*
+          EXPERIMENT: Differentiation section (comparison tables + ROI calculator) hidden for SMB test.
+          Component: <Differentiation />
+          Reason: Comparison tables reference "RPA" and "LLM tokens" — too technical for non-technical SMB visitors.
+          Re-enable when: we have real benchmark data and are targeting technical buyers again.
+        */}
         <UseCases />
         <CTA />
       </main>
