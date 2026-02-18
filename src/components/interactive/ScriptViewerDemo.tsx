@@ -85,7 +85,7 @@ export function ScriptViewerDemo() {
             <div className="w-3 h-3 rounded-full bg-green-300" />
           </div>
           <span className="font-mono text-caption text-charcoal-400 ml-2">
-            Script Viewer — Deterministic Execution
+            Script Viewer: Deterministic Execution
           </span>
         </div>
 

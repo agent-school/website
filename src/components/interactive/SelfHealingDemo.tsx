@@ -42,7 +42,7 @@ const phases = [
     color: "text-blue-500",
     bg: "bg-blue-50",
     border: "border-blue-200",
-    label: 'Found "Place Order" button — semantic match 94%',
+            label: 'Found "Place Order" button: semantic match 94%',
   },
   {
     key: "verified",
@@ -101,7 +101,7 @@ export function SelfHealingDemo() {
             <div className="w-3 h-3 rounded-full bg-green-300" />
           </div>
           <span className="font-mono text-caption text-charcoal-400 ml-2">
-            Self-Healing Demo — UI Change Adaptation
+            Self-Healing Demo: UI Change Adaptation
           </span>
         </div>
         {phase !== "idle" && (
@@ -186,7 +186,7 @@ export function SelfHealingDemo() {
                       <>
                         <div className="w-2 h-2 rounded-full bg-red-400" />
                         <span className="text-red-500">
-                          UI changed — button moved and renamed
+                          UI changed: button moved and renamed
                         </span>
                       </>
                     )}
@@ -265,7 +265,7 @@ export function SelfHealingDemo() {
                 <div className="space-y-2">
                   <div className="flex items-center justify-between px-3 py-2 rounded-lg bg-cream-50 border border-cream-200">
                     <span className="text-caption text-charcoal-600">
-                      v1.1 — Self-healed
+                      v1.1: Self-healed
                     </span>
                     <span className="text-caption text-green-600 font-semibold">
                       Current
@@ -273,7 +273,7 @@ export function SelfHealingDemo() {
                   </div>
                   <div className="flex items-center justify-between px-3 py-2 rounded-lg hover:bg-cream-50 cursor-pointer">
                     <span className="text-caption text-charcoal-500">
-                      v1.0 — Original
+                      v1.0: Original
                     </span>
                     <span className="text-caption text-charcoal-400">
                       Rollback
