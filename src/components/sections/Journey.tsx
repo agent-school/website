@@ -48,9 +48,6 @@ export function Journey() {
       {/* Custom header section */}
       <div className="relative z-10 max-w-7xl mx-auto pt-20 md:pt-32 px-4 md:px-8 lg:px-10">
         <div className="text-center mb-16">
-          <p className="font-mono text-sm uppercase tracking-widest text-orange-600 mb-4">
-            How It Works
-          </p>
           <h2 className="font-display text-4xl md:text-6xl font-bold text-slate-900 mb-6">
             Four Steps to Certified Automation
           </h2>

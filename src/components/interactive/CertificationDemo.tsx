@@ -6,14 +6,14 @@ import { Play, CheckCircle, XCircle, RotateCcw } from "lucide-react";
 import { ProgressRing } from "@/components/ui/ProgressRing";
 
 const testCases = [
-  { id: 1, name: "Happy path — standard order", pass: true, duration: 1200 },
+  { id: 1, name: "Happy path: standard order", pass: true, duration: 1200 },
   { id: 2, name: "Multiple items in search results", pass: true, duration: 800 },
-  { id: 3, name: "Item out of stock — fallback", pass: true, duration: 1500 },
+  { id: 3, name: "Item out of stock: fallback", pass: true, duration: 1500 },
   { id: 4, name: "Payment method declined", pass: true, duration: 900 },
   { id: 5, name: "Shipping address change required", pass: true, duration: 1100 },
   { id: 6, name: "Session timeout mid-checkout", pass: false, duration: 2000 },
   { id: 7, name: "Price changed during checkout", pass: true, duration: 1300 },
-  { id: 8, name: "Slow network — 3G simulation", pass: true, duration: 1800 },
+  { id: 8, name: "Slow network: 3G simulation", pass: true, duration: 1800 },
 ];
 
 type TestState = "idle" | "running" | "done";
@@ -74,7 +74,7 @@ export function CertificationDemo() {
             <div className="w-3 h-3 rounded-full bg-green-300" />
           </div>
           <span className="font-mono text-caption text-charcoal-400 ml-2">
-            Certification Suite — Amazon Purchase Workflow
+            Certification Suite: Amazon Purchase Workflow
           </span>
         </div>
 

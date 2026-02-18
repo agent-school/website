@@ -69,7 +69,7 @@ export function SkillBuilderDemo() {
             <div className="w-3 h-3 rounded-full bg-green-300" />
           </div>
           <span className="font-mono text-caption text-charcoal-400 ml-2">
-            Skill Builder — Buy 10 Apples from Amazon
+            Skill Builder: Buy 10 Apples from Amazon
           </span>
         </div>
 
@@ -210,7 +210,7 @@ export function SkillBuilderDemo() {
                 transition={{ duration: 0.2 }}
               >
                 <p className="text-caption font-semibold text-charcoal-400 uppercase tracking-wider mb-3">
-                  Step Detail — What the AI Does
+                  Step Detail: What the AI Does
                 </p>
                 {currentStep && (
                   <div className="bg-cream-50 rounded-xl p-5">

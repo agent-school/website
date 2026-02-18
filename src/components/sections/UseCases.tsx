@@ -167,7 +167,7 @@ function MetricsDisplay({ useCase }: MetricsDisplayProps) {
           <div className="flex items-center gap-2 mb-3">
             <AlertCircle size={16} className="text-red-500" />
             <h4 className="font-display text-sm font-semibold text-slate-900">
-              Before — Manual
+              Before: Manual
             </h4>
           </div>
 
@@ -211,7 +211,7 @@ function MetricsDisplay({ useCase }: MetricsDisplayProps) {
           <div className="flex items-center gap-2 mb-3">
             <CheckCircle size={16} className="text-orange-600" />
             <h4 className="font-display text-sm font-semibold text-slate-900">
-              After — Agent School
+              After: Agent School
             </h4>
           </div>
 
@@ -440,9 +440,8 @@ export function UseCases() {
       <div className="max-w-7xl mx-auto relative z-10">
         <ScrollReveal>
           <SectionHeader
-            overline="Use Cases"
-            title="Real Workflows, Real Results"
-            description="See how Agent School transforms common business workflows across industries. Try the interactive demos below."
+            title="What We've Automated for Businesses Like Yours"
+            description="Pick the workflow that looks most familiar, then try the live demo to see how it works."
           />
         </ScrollReveal>
 
@@ -473,13 +472,13 @@ export function UseCases() {
 
         {/* Industry Note */}
         <ScrollReveal delay={0.4}>
-          <div className="mt-16 text-center p-8 rounded-2xl bg-slate-50 border border-slate-200">
+          <div className="mt-16 text-center">
             <p className="text-base text-slate-700 mb-2">
-              Agent School works with any software stack in any industry.
+              We work with businesses in any industry.
             </p>
             <p className="text-sm text-slate-500">
-              These are starting examples. We evaluate each use case individually
-              to ensure Agent School is the right fit for your specific workflows.
+              These are just examples. Every engagement starts with a conversation
+              about what&apos;s costing you the most time.
             </p>
           </div>
         </ScrollReveal>

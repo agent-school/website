@@ -80,7 +80,7 @@ export function SpeedRaceDemo() {
             <div className="w-3 h-3 rounded-full bg-green-300" />
           </div>
           <span className="font-mono text-caption text-charcoal-400 ml-2">
-            Speed Comparison — &ldquo;How many arrivals and departures today?&rdquo;
+            Speed Comparison: &ldquo;How many arrivals and departures today?&rdquo;
           </span>
         </div>
       </div>

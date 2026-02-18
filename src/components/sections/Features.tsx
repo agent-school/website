@@ -32,7 +32,7 @@ const featureDemos = [
   CertificationDemo,
   ScriptViewerDemo,
   SelfHealingDemo,
-  null, // Observability — static visual
+  null, // Observability - static visual
   SpeedRaceDemo,
 ];
 
@@ -59,10 +59,10 @@ function ObservabilityVisual() {
           <div className="space-y-2">
             {[
               { status: "green", task: "Invoice #4821 processed", time: "2s ago" },
-              { status: "green", task: "CRM updated — Acme Corp deal", time: "15s ago" },
-              { status: "amber", task: "Guest check-in — pending approval", time: "1m ago" },
-              { status: "green", task: "Report generated — Weekly ops", time: "3m ago" },
-              { status: "red", task: "Payment retry — escalated to human", time: "5m ago" },
+              { status: "green", task: "CRM updated: Acme Corp deal", time: "15s ago" },
+              { status: "amber", task: "Guest check-in: pending approval", time: "1m ago" },
+              { status: "green", task: "Report generated: Weekly ops", time: "3m ago" },
+              { status: "red", task: "Payment retry: escalated to human", time: "5m ago" },
             ].map((item, i) => (
               <div
                 key={i}
@@ -156,9 +156,9 @@ export function Features() {
       <div className="max-w-7xl mx-auto">
         <ScrollReveal>
           <SectionHeader
-            overline="Core Capabilities"
-            title="Everything You Need to Automate Reliably"
-            description="Six integrated capabilities that take you from workflow recording to certified, self-healing automation. Simple by default, powerful when you need it."
+            overline="What We Do"
+            title="How We Automate Your Business"
+            description="Six things we take off your team's plate, each one built around how you actually work."
           />
         </ScrollReveal>
 
@@ -175,7 +175,7 @@ export function Features() {
                   id={feature.id}
                   className="rounded-2xl border border-slate-200 overflow-hidden bg-white scroll-mt-24"
                 >
-                  {/* Feature Header — always visible */}
+                  {/* Feature Header */}
                   <div
                     className={`grid grid-cols-1 ${
                       DemoComponent || i === 4
@@ -202,27 +202,12 @@ export function Features() {
                           <h3 className="font-display text-xl font-bold text-slate-900">
                             {feature.title}
                           </h3>
-                          <p className="text-xs text-orange-600 font-medium">
-                            {feature.subtitle}
-                          </p>
                         </div>
                       </div>
 
-                      <p className="text-base text-slate-600 mb-5 leading-relaxed">
+                      <p className="text-base text-slate-600 leading-relaxed">
                         {feature.description}
                       </p>
-
-                      <ul className="space-y-2.5">
-                        {feature.bullets.map((bullet) => (
-                          <li
-                            key={bullet}
-                            className="flex items-start gap-2.5 text-sm text-slate-700"
-                          >
-                            <div className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 flex-shrink-0" />
-                            {bullet}
-                          </li>
-                        ))}
-                      </ul>
 
                       {/* Expand/Collapse for demo (mobile only) */}
                       {(DemoComponent || i === 4) && (

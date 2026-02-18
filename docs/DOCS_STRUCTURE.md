@@ -44,6 +44,13 @@
 | Project Overview | [brownfield/roadmap/project-overview.md](brownfield/roadmap/project-overview.md) | Executive summary |
 | Session History | [brownfield/roadmap/session-history.md](brownfield/roadmap/session-history.md) | Development session log |
 
+### Changelog
+
+| Document | Path | Purpose |
+|----------|------|---------|
+| Manus comparison reframe | [changelog/manus-comparison-reframe-2026-02-12.md](changelog/manus-comparison-reframe-2026-02-12.md) | Reframed Manus comparison page to independence/privacy positioning |
+| Consultancy redesign | [changelog/consultancy-redesign-2026-02-17.md](changelog/consultancy-redesign-2026-02-17.md) | SMB consultancy copy experiment on `agent-website-consultancy` branch |
+
 ### Design (New Design System)
 
 | Document | Path | Purpose |
@@ -52,6 +59,7 @@
 | Components Guide | [design/components-guide.md](design/components-guide.md) | shadcn/ui, Aceternity UI, Magic UI usage |
 | Mock UI Framework | [design/mock-ui-framework.md](design/mock-ui-framework.md) | Architecture for 5 interactive demo UIs |
 | Component Inventory | [design/component-inventory.md](design/component-inventory.md) | 79 components cataloged |
+| Copy: Consultancy 2026-02-17 | [design/copy-consultancy-2026-02-17.md](design/copy-consultancy-2026-02-17.md) | Full copywriting strategy + all section copy for SMB experiment |
 
 ### Root-Level (Redesign-Aware)
 
@@ -113,7 +121,12 @@ docs/
 │   ├── design-system-new-purposal.md
 │   ├── components-guide.md
 │   ├── mock-ui-framework.md
-│   └── component-inventory.md
+│   ├── component-inventory.md
+│   └── copy-consultancy-2026-02-17.md   ← SMB copy strategy
+│
+├── changelog/                 ← CHANGE LOG
+│   ├── manus-comparison-reframe-2026-02-12.md
+│   └── consultancy-redesign-2026-02-17.md
 │
 ├── dev/                       ← SHARED
 ├── planning/                  ← SHARED

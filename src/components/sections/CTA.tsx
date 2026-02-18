@@ -10,29 +10,29 @@ import { BOOKING_URL } from "@/lib/constants";
 const ctaCards = [
   {
     icon: Play,
-    title: "Try Interactive Demo",
+    title: "See It In Action",
     description:
-      "Experience Agent School hands-on. Explore the Skill Builder, run a certification test, and see the self-healing in action.",
-    cta: "Explore Features",
-    href: "#features",
+      "Explore the live demos to see the kinds of tasks we automate: hotel bookings, CRM updates, invoice processing, and more. No sign-up needed.",
+    cta: "Explore Demos",
+    href: "#use-cases",
     variant: "outline" as const,
     highlight: false,
   },
   {
     icon: Calendar,
-    title: "Book a Pilot Meeting",
+    title: "Book a Free Discovery Call",
     description:
-      "Talk to our team about your specific workflows. We'll map out a 30-day pilot plan tailored to your operations.",
-    cta: "Schedule Call",
+      "Tell us what your team spends the most time on. In 30 minutes, we'll tell you honestly whether AI automation makes sense for your situation.",
+    cta: "Schedule a Free Call",
     href: BOOKING_URL,
     variant: "primary" as const,
     highlight: true,
   },
   {
     icon: MessageCircle,
-    title: "Start a Conversation",
+    title: "Just Send Us a Message",
     description:
-      "Have questions? Want to discuss whether Agent School is right for your use case? We're here to help.",
+      "Not ready for a call? Tell us what you're dealing with over email. We'll reply with honest thoughts on whether we can help.",
     cta: "Email Us",
     href: "mailto:hello@agentschool.io",
     variant: "ghost" as const,
@@ -56,11 +56,12 @@ export function CTA() {
               Ready to get started?
             </p>
             <h2 className="font-display text-display-md md:text-display-lg text-white mb-4 text-balance">
-              Train Your First Agent in 30 Days
+              Let&apos;s Find the First Thing We Can Automate For You
             </h2>
             <p className="text-body-lg text-orange-50 max-w-xl mx-auto text-balance">
-              Start with a risk-free pilot. We&apos;ll work with your team to certify
-              your first workflow — satisfaction guaranteed.
+              Most businesses have 2&ndash;3 tasks that eat hours every week without
+              anyone realizing it. In a free 30-minute call, we&apos;ll find yours and
+              map out how AI could handle them.
             </p>
           </div>
         </ScrollReveal>

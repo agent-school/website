@@ -13,80 +13,74 @@ export const TWITTER_URL = "https://x.com/agentschool_io";
 export const FEATURES = [
   {
     id: "skill-builder",
-    title: "Teach Once, Automate Forever",
-    subtitle: "Turn Your Knowledge Into Unstoppable AI",
+    title: "Show Us Once, It Runs Forever",
+    subtitle: "Run Any Task on Autopilot",
     description:
-      "Show us how you work—just once. Our AI watches, learns, and transforms your expertise into an agent that never forgets. No coding. No complexity. Just demonstrate your workflow and watch it become immortal.",
+      "Walk us through a task once, in plain English or by showing us. We build an AI that executes it exactly your way, every time.",
     bullets: [
-      "Demonstrate once in plain English or by example",
-      "AI captures every nuance, every decision point",
-      "Your team sees SOPs, developers see code",
-      "Edge cases and exceptions handled automatically",
+      "No code, no setup on your end",
+      "Works for any repeatable task",
+      "Handles exceptions automatically",
     ],
   },
   {
     id: "certification",
-    title: "99% Reliability, Guaranteed",
-    subtitle: "Every Agent Earns Its Place",
+    title: "Tested Before It Touches Your Business",
+    subtitle: "Nothing Goes Live Until It's Proven",
     description:
-      "No agent goes live until it proves itself. Our certification pipeline tests every workflow hundreds of times. Set your threshold—90%, 95%, 99%—and watch only the best agents make it to production.",
+      "Every automation runs through hundreds of test scenarios before you ever see it. If it doesn't pass, it doesn't ship.",
     bullets: [
-      "Automated test generation from your workflows",
-      "Hundreds of scenarios in isolated sandboxes",
-      "Detailed failure analysis on every miss",
-      "You control the reliability bar",
+      "Hundreds of real-scenario tests",
+      "You see the results before go-live",
+      "You set the standard. We meet it.",
     ],
   },
   {
     id: "script-viewer",
-    title: "Perfect Transparency",
-    subtitle: "See Everything, Trust Everything",
+    title: "You Always Know What's Happening",
+    subtitle: "No Mystery, No Black Box",
     description:
-      "Black boxes are dead. Watch your agents work in real-time. See the exact steps, the assertions that guard them, and the fallbacks that catch failures. Complete visibility into every decision.",
+      "Every step your automation takes is logged and visible. See exactly what ran, when, and why, whenever you want.",
     bullets: [
-      "Visual timeline paired with executable code",
-      "Every step protected by intelligent assertions",
-      "Automatic fallbacks when conditions change",
-      "Inspect, debug, and refine with ease",
+      "Full step-by-step activity log",
+      "Pause or adjust at any time",
+      "You stay in control",
     ],
   },
   {
     id: "self-healing",
-    title: "Software Changes, Agents Adapt",
-    subtitle: "The Automation That Never Breaks",
+    title: "Updates Itself When Your Software Changes",
+    subtitle: "It Doesn't Break When Things Change",
     description:
-      "Traditional RPA dies when a button moves. Our agents understand intent, not coordinates. When software changes, they adapt automatically, re-certify themselves, and keep running. Welcome to the future.",
+      "When your tools update or a screen changes, the automation adjusts itself and keeps running. No maintenance calls to you.",
     bullets: [
-      "Semantic AI, not fragile pixel-matching",
-      "Instant adaptation when UIs change",
-      "Auto re-certification after every heal",
-      "95% of changes handled without human help",
+      "Adapts to software updates automatically",
+      "No downtime when layouts change",
+      "Near-zero human input required",
     ],
   },
   {
     id: "observability",
-    title: "Mission Control",
-    subtitle: "Enterprise Command Center",
+    title: "One Dashboard for Everything",
+    subtitle: "Your Automation Command Center",
     description:
-      "Real-time dashboards show every agent, every execution, every decision. Set guardrails. Route alerts. Require approvals. Connect to your existing monitoring tools. Total control.",
+      "See every automation running in your business at a glance. Get alerted when something needs a human. Everything else runs itself.",
     bullets: [
-      "Live feeds of all agent activity",
-      "Custom guardrails and approval workflows",
-      "Smart alerting by severity and type",
-      "Native integrations with Datadog, Splunk, New Relic",
+      "Live status across all automations",
+      "Alerts only when action is needed",
+      "Set rules for approvals and escalations",
     ],
   },
   {
     id: "software-layer",
-    title: "7x Speed Breakthrough",
-    subtitle: "The Performance Revolution",
+    title: "Runs Fast, Not Like a Chatbot",
+    subtitle: "Quick as a Keyboard Shortcut",
     description:
-      "We generate a software layer that gives agents superhuman speed. 2-second responses instead of 45-second reasoning. No screen scraping. No fragile scripts. Just pure, deterministic speed at scale.",
+      "Our automations execute in seconds, not minutes. They run in the background while your team stays focused on real work.",
     bullets: [
-      "2-second execution vs 45-second AI reasoning",
-      "Zero LLM calls in production workflows",
-      "Works with any software—UI, API, or database",
-      "Scales to thousands of parallel agents",
+      "Seconds to complete what used to take minutes",
+      "Runs quietly in the background",
+      "Scales as your business grows",
     ],
   },
 ] as const;
@@ -94,30 +88,30 @@ export const FEATURES = [
 export const JOURNEY_STAGES = [
   {
     number: "01",
-    title: "Teach Once",
+    title: "You Tell Us What's Eating Your Time",
     description:
-      "Show us how you work. Demonstrate your workflow or describe it in plain language. Our AI observes, captures every decision, and asks the right questions to understand your expertise perfectly.",
+      "We start with a free call where you tell us about the tasks your team does over and over. You don't need to prepare anything, just talk us through a normal week.",
     icon: "teach",
   },
   {
     number: "02",
-    title: "AI Transforms",
+    title: "We Build the Automation for You",
     description:
-      "Watch your knowledge become executable intelligence. The system converts your demonstration into deterministic, production-ready automation—complete with guards, assertions, and edge case handling.",
+      "Our team takes what we learned and builds a custom AI automation. We do all the technical work. You stay focused on your business. We come back to you when it's ready to review.",
     icon: "convert",
   },
   {
     number: "03",
-    title: "Certify & Deploy",
+    title: "We Test It Until We're Confident It Works",
     description:
-      "No agent goes live untested. Our certification pipeline runs hundreds of scenarios. Only agents that meet your reliability threshold earn their place in your automated workforce.",
+      "Before anything touches your real business, we run it through hundreds of test scenarios. We show you the results, walk you through exactly what it does, and only go live when you're comfortable.",
     icon: "certify",
   },
   {
     number: "04",
-    title: "Run Forever",
+    title: "It Runs. You Don't Think About It Again.",
     description:
-      "Your agents work 24/7 with real-time monitoring and automatic self-healing. When software changes, they adapt. When judgment is needed, they escalate. Everything else? Automated.",
+      "Once live, it handles the work 24/7. If your software ever changes, it adapts. If something genuinely needs a human, it flags you. Everything else? Done automatically.",
     icon: "monitor",
   },
 ] as const;
@@ -146,7 +140,7 @@ export const USE_CASES = [
         "Instant response: 23 arrivals, 18 departures",
       ],
       time: "5 seconds",
-      errors: "Zero—data pulled directly from system",
+      errors: "Zero. Data pulled directly from system.",
       cost: "$0.05 per query",
     },
     metrics: {
@@ -174,7 +168,7 @@ export const USE_CASES = [
         "Set follow-up reminder",
         "Send confirmation email",
       ],
-      time: "5\u201310 minutes",
+      time: "5–10 minutes",
       errors: "40% of calls never logged",
       cost: "~$8.50 per update at $50/hr",
     },
@@ -212,8 +206,8 @@ export const USE_CASES = [
         "Enter into accounting system",
         "Schedule payment",
       ],
-      time: "15\u201325 minutes",
-      errors: "5\u20138% error rate in data entry",
+      time: "15–25 minutes",
+      errors: "5–8% error rate in data entry",
       cost: "~$16.50 per invoice at $50/hr",
     },
     after: {

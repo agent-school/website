@@ -78,7 +78,7 @@ export function Navbar() {
                 asChild
                 className="bg-orange-600 hover:bg-orange-700 text-white"
               >
-                <a href={BOOKING_URL}>Book a Demo</a>
+                <a href={BOOKING_URL}>Book a Free Call</a>
               </Button>
             </div>
 
@@ -129,7 +129,7 @@ export function Navbar() {
                   asChild
                   className="bg-orange-600 hover:bg-orange-700 text-white"
                 >
-                  <a href={BOOKING_URL}>Book a Demo</a>
+                  <a href={BOOKING_URL}>Book a Free Call</a>
                 </Button>
               </motion.div>
             </div>
