@@ -93,42 +93,23 @@ export default function BlogPage() {
         <section className="pb-24 px-6">
           <div className="max-w-4xl mx-auto">
             <ul className="space-y-8">
-              {BLOG_POSTS.map((post) => (
+              {BLOG_POSTS.filter((post) => post.published).map((post) => (
                 <li key={post.slug} className="border-b border-slate-200 pb-8">
-                  {post.published ? (
-                    <Link href={`/blog/${post.slug}`}>
-                      <article className="group cursor-pointer">
-                        <div className="flex items-baseline justify-between gap-4 mb-2">
-                          <h2 className="font-display text-heading-lg text-slate-900 group-hover:text-orange-600 transition-colors">
-                            {post.title}
-                          </h2>
-                          <span className="text-body-sm text-slate-500 whitespace-nowrap">
-                            {post.date}
-                          </span>
-                        </div>
-                        <p className="text-body-md text-slate-600 leading-relaxed">
-                          {post.summary}
-                        </p>
-                      </article>
-                    </Link>
-                  ) : (
-                    <article>
+                  <Link href={`/blog/${post.slug}`}>
+                    <article className="group cursor-pointer">
                       <div className="flex items-baseline justify-between gap-4 mb-2">
-                        <h2 className="font-display text-heading-lg text-slate-400">
+                        <h2 className="font-display text-heading-lg text-slate-900 group-hover:text-orange-600 transition-colors">
                           {post.title}
                         </h2>
-                        <span className="text-body-sm text-slate-400 whitespace-nowrap">
+                        <span className="text-body-sm text-slate-500 whitespace-nowrap">
                           {post.date}
                         </span>
                       </div>
-                      <p className="text-body-md text-slate-400 leading-relaxed">
+                      <p className="text-body-md text-slate-600 leading-relaxed">
                         {post.summary}
                       </p>
-                      <p className="mt-3 text-body-sm font-semibold text-slate-400">
-                        Coming soon
-                      </p>
                     </article>
-                  )}
+                  </Link>
                 </li>
               ))}
             </ul>
