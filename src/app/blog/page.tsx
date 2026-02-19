@@ -37,6 +37,14 @@ const BLOG_POSTS: BlogPost[] = [
     published: true,
   },
   {
+    title: "OpenClaw Is a Freaking Rocket Ship… That Still Burns Jet Fuel Like It's Free",
+    summary:
+      "OpenClaw is impressive—but optimized for capability, not predictable unit economics. Why Agent School's deterministic approach is the freight train businesses actually need.",
+    date: "February 19th, 2026",
+    slug: "openclaw-rocket-ship-jet-fuel",
+    published: true,
+  },
+  {
     title: "Teach Once, Automate Forever: A Practical Playbook",
     summary:
       "How to capture expert workflows and convert them into production-ready agents with confidence.",
