@@ -4,6 +4,7 @@ export const NAV_ITEMS = [
   { label: "Compare", href: "/#differentiation" },
   { label: "Use Cases", href: "/#use-cases" },
   { label: "Blog", href: "/blog" },
+  { label: "Writing", href: "/writing" },
 ] as const;
 
 export const BOOKING_URL = "https://cal.com/jackagentschool/30min";
