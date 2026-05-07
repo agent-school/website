@@ -2,8 +2,7 @@
 
 > **Futuristic marketing website** showcasing AI automation that adapts, certifies, and never forgets.
 
-A Next.js 16 single-page application featuring 5 fully interactive mock UI demos, scroll-driven animations, and a complete ROI calculator. Built with the **"Cyber Citrus"** design system—teal and orange gradients with full dark mode support.
-
+A website about Asian school and the work we can
 ---
 
 ## 🚀 Quick Start
