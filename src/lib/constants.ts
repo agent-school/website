@@ -8,7 +8,7 @@ export const NAV_ITEMS = [
 
 export const BOOKING_URL = "https://cal.com/jackagentschool/30min";
 export const LINKEDIN_URL = "https://linkedin.com/company/agentschool";
-export const TWITTER_URL = "https://x.com/agentschool_io";
+export const TWITTER_URL = "https://x.com/tryrolo";
 
 export const FEATURES = [
   {

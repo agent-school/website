@@ -87,8 +87,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@agentschool_io",
-    creator: "@agentschool_io",
+    site: "@tryrolo",
+    creator: "@tryrolo",
     title: "Agent School — AI Automation for Your Business",
     description:
       "Stop wasting your team's time on repetitive tasks. We build AI automations tailored to how your business works. No engineers needed.",
